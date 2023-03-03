@@ -8,23 +8,23 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\janus\\.nuget\\packages\\": {},
+    "C:\\Users\\Mariusz\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
+      "projectUniqueName": "C:\\Users\\Mariusz\\Desktop\\Infoshareproject\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
       "projectName": "Logika-Beznesowa",
-      "projectPath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
-      "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
-      "outputPath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\obj\\",
+      "projectPath": "C:\\Users\\Mariusz\\Desktop\\Infoshareproject\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
+      "packagesPath": "C:\\Users\\Mariusz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mariusz\\Desktop\\Infoshareproject\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\janus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mariusz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
