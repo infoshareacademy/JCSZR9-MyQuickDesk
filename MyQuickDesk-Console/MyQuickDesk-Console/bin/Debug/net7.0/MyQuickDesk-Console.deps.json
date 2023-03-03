@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "MyQuickDesk-Console/1.0.0": {
+        "dependencies": {
+          "Menu": "1.0.0"
+        },
+        "runtime": {
+          "MyQuickDesk-Console.dll": {}
+        }
+      },
+      "Menu/1.0.0": {
+        "runtime": {
+          "Menu.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyQuickDesk-Console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Menu/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,10 +1,14 @@
-﻿namespace MyQuickDesk_Console
+﻿using Menu_Diana_Kosel;
+
+namespace MyQuickDesk_Console
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Menu.PrintMenu();
+
+            Console.ReadLine();
         }
     }
 }
