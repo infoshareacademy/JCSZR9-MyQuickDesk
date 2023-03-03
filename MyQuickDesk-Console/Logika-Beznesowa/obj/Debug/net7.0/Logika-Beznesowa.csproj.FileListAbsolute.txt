@@ -10,3 +10,15 @@ C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\
 C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\refint\Logika-Beznesowa.dll
 C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.pdb
 C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\ref\Logika-Beznesowa.dll
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\bin\Debug\net7.0\Logika-Beznesowa.deps.json
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\bin\Debug\net7.0\Logika-Beznesowa.dll
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\bin\Debug\net7.0\Logika-Beznesowa.pdb
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.csproj.AssemblyReference.cache
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.AssemblyInfoInputs.cache
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.AssemblyInfo.cs
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.csproj.CoreCompileInputs.cache
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.dll
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\refint\Logika-Beznesowa.dll
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\Logika-Beznesowa.pdb
+C:\Users\mbolewski\Desktop\MyQuickDesk\MyQuickDesk-Console\Logika-Beznesowa\obj\Debug\net7.0\ref\Logika-Beznesowa.dll
