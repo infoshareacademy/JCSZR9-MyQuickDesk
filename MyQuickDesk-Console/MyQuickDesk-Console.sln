@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu", "Menu\Menu.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logika-Beznesowa", "Logika-Beznesowa\Logika-Beznesowa.csproj", "{11257FBD-3E82-4328-9F64-DB396AAC4591}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservations", "Reservations\Reservations.csproj", "{071798D6-3FC8-49B0-BD7A-C81A20814CDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{11257FBD-3E82-4328-9F64-DB396AAC4591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11257FBD-3E82-4328-9F64-DB396AAC4591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11257FBD-3E82-4328-9F64-DB396AAC4591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{071798D6-3FC8-49B0-BD7A-C81A20814CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071798D6-3FC8-49B0-BD7A-C81A20814CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{071798D6-3FC8-49B0-BD7A-C81A20814CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{071798D6-3FC8-49B0-BD7A-C81A20814CDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
