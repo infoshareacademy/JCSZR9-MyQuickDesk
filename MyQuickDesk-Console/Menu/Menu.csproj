@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Logika-Beznesowa\Logika-Beznesowa.csproj" />
+  </ItemGroup>
+
 </Project>

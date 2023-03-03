@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Logika-Beznesowa\Logika-Beznesowa.csproj" />
     <ProjectReference Include="..\Menu\Menu.csproj" />
   </ItemGroup>
 

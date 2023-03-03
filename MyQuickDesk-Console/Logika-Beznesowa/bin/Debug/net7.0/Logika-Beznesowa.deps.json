@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "Menu/1.0.0": {
-        "dependencies": {
-          "Logika-Beznesowa": "1.0.0"
-        },
-        "runtime": {
-          "Menu.dll": {}
-        }
-      },
       "Logika-Beznesowa/1.0.0": {
         "runtime": {
           "Logika-Beznesowa.dll": {}
@@ -22,11 +14,6 @@
     }
   },
   "libraries": {
-    "Menu/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Logika-Beznesowa/1.0.0": {
       "type": "project",
       "serviceable": false,

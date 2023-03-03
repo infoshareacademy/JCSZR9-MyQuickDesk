@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "Logika-Beznesowa/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Logika-Beznesowa.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logika-Beznesowa.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Logika-Beznesowa/1.0.0": {
+      "type": "project",
+      "path": "../Logika-Beznesowa/Logika-Beznesowa.csproj",
+      "msbuildProject": "../Logika-Beznesowa/Logika-Beznesowa.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "Logika-Beznesowa >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\janus\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj": {
+              "projectPath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

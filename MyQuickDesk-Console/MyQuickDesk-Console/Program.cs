@@ -1,4 +1,5 @@
 ﻿using Menu_Diana_Kosel;
+using System.ComponentModel;
 
 namespace MyQuickDesk_Console
 {
@@ -11,4 +12,9 @@ namespace MyQuickDesk_Console
             Console.ReadLine();
         }
     }
+
+
+
+
+
 }

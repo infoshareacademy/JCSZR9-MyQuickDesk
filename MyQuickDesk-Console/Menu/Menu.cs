@@ -1,4 +1,6 @@
-﻿namespace Menu_Diana_Kosel
+﻿using Logika_Beznesowa;
+
+namespace Menu_Diana_Kosel
 {
     static public class Menu
     {
@@ -49,8 +51,8 @@
 
             Console.WriteLine("Wybierz opcję: ");
             string choose = Console.ReadLine();
-            if (choose == "1") { }
-            else if (choose == "2") { }
+            if (choose == "1")      { }
+            else if (choose == "2") { TheRoom Room1 = new TheRoom(); Room1.Add(); }
             else if (choose == "3") { }
             else if (choose == "4") { }
             else if (choose == "5") { }

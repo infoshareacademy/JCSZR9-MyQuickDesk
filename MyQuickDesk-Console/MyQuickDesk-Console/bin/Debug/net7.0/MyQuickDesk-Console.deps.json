@@ -8,13 +8,22 @@
     ".NETCoreApp,Version=v7.0": {
       "MyQuickDesk-Console/1.0.0": {
         "dependencies": {
+          "Logika-Beznesowa": "1.0.0",
           "Menu": "1.0.0"
         },
         "runtime": {
           "MyQuickDesk-Console.dll": {}
         }
       },
+      "Logika-Beznesowa/1.0.0": {
+        "runtime": {
+          "Logika-Beznesowa.dll": {}
+        }
+      },
       "Menu/1.0.0": {
+        "dependencies": {
+          "Logika-Beznesowa": "1.0.0"
+        },
         "runtime": {
           "Menu.dll": {}
         }
@@ -23,6 +32,11 @@
   },
   "libraries": {
     "MyQuickDesk-Console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Logika-Beznesowa/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
