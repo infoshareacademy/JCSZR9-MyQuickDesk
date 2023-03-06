@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyQuickDesk_Console.Users
+namespace Users.Users
 {
     public class User
     {
