@@ -50,9 +50,5 @@ namespace Users.Users
             // pobranie wszystkich rezerwacji, które zostały dokonane przez właściciela
         }
 
-
-
-
-
     }
 }
