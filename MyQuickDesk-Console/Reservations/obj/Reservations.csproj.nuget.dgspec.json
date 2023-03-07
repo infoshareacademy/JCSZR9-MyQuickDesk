@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj": {}
+    "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Reservations\\Reservations.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj": {
+    "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Reservations\\Reservations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
-        "projectName": "Logika-Beznesowa",
-        "projectPath": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
+        "projectUniqueName": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Reservations\\Reservations.csproj",
+        "projectName": "Reservations",
+        "projectPath": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Reservations\\Reservations.csproj",
         "packagesPath": "C:\\Users\\Mariusz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\obj\\",
+        "outputPath": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Reservations\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
