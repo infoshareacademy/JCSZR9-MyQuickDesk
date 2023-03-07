@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mariusz\\source\\repos\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj": {}
+    "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mariusz\\source\\repos\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj": {
+    "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mariusz\\source\\repos\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
+        "projectUniqueName": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
         "projectName": "Logika-Beznesowa",
-        "projectPath": "C:\\Users\\Mariusz\\source\\repos\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
+        "projectPath": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
         "packagesPath": "C:\\Users\\Mariusz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mariusz\\source\\repos\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\obj\\",
+        "outputPath": "C:\\Users\\Mariusz\\Desktop\\New folder (4)\\MyQuickDesk-Console\\Logika-Beznesowa\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
