@@ -2,29 +2,30 @@
 {
     public class LoadingFile
     {
-        string filePath = "";
-        public static Room LoadingFromFile(string filePath)
+        static void Main(string[] args)
         {
+            string line;
             try
             {
-                using (StreamReader reader = new StreamReader(filePath)) 
+                StreamReader reader = new StreamReader("C:\\Users\\dom\\Downloads\\Rooms.csv");
+                line = reader.ReadLine();
+                while (line != null)
                 {
-                    int id = int.Parse(reader.ReadLine());
-                    string name = reader.ReadLine();
-                    int ownerId = int.Parse(reader.ReadLine());
-                    bool interactiveBoard = bool.Parse(reader.ReadLine());
-                    int capacity = int.Parse(reader.ReadLine());
-                    string description = reader.ReadLine();
-                    decimal price = decimal.Parse(reader.ReadLine());
-                    return new Room (id, name, ownerId, capacity, interactiveBoard, capacity, description, price);
+                    Console.WriteLine(line);
+                    line = reader.ReadLine();
                 }
+                
+                reader.Close();
+                Console.ReadLine();
             }
-            catch (Exception ex) 
+            catch (Exception e)
             {
-                Console.WriteLine("Ładownaie pliku nie powiodło się" + ex.Message);
-                return null;
+                Console.WriteLine("Exception: " + e.Message);
             }
-            Room room = Room.LoadFromFile(filePath);
+            finally
+            {
+                Console.WriteLine("Odczytano plik Rooms.csv");
+            }
         }
     }
 }
