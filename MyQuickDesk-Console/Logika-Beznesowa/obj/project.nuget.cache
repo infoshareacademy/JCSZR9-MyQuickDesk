@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7LklEfaJQu1c6AFipvZPlaCtNjsqE1l6UsSbB5nhcG5VdciQyD9ociuruLd9/b9wrdm3QfR6X4FSCWmfZoRDxA==",
+  "dgSpecHash": "7DfCgb5W9Kah0ugyo9OlcAvW2sKsr6HMWIWReTe8qj7MkwaZRcLxlQ1LqQ8NNda5RY8E0cY/IAgNAs/9oE9i0w==",
   "success": true,
   "projectFilePath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\Logika-Beznesowa\\Logika-Beznesowa.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\janus\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

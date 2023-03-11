@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5OLMZkb69FK0ZhP1orUSiu9FWjq4dEPFmNFy3R7ANcpwkwzUohRfqqFSan3REehdLeKlslypg8lg+tHvIWIWsw==",
+  "dgSpecHash": "lyFhKLOokKd7PI++ejUc+MnrFlgHUOxYQW7w0MnTN+Y9ZD38GWeFKZRbmM4B/uHm2SNR8wMmQkhHuXWbR++86g==",
   "success": true,
   "projectFilePath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\MyQuickDesk-Console\\MyQuickDesk-Console.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\janus\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
