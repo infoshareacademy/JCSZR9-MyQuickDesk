@@ -18,3 +18,4 @@ C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\MyQuickDesk-Console\obj\Deb
 C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\MyQuickDesk-Console\obj\Debug\net7.0\ref\MyQuickDesk-Console.dll
 C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\MyQuickDesk-Console\bin\Debug\net7.0\Logika-Beznesowa.dll
 C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\MyQuickDesk-Console\bin\Debug\net7.0\Logika-Beznesowa.pdb
+C:\Projekt-C#\JCSZR9-MyQuickDesk\MyQuickDesk-Console\MyQuickDesk-Console\bin\Debug\net7.0\CsvHelper.dll
