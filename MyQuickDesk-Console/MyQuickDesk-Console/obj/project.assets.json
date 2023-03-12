@@ -92,9 +92,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\MyQuickDesk-Console\\MyQuickDesk-Console.csproj",
-      "projectName": "MyQuickDesk-Console",
-      "projectPath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\MyQuickDesk-Console\\MyQuickDesk-Console.csproj",
+      "projectUniqueName": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\MyQuickDesk-Console\\Users.csproj",
+      "projectName": "Users",
+      "projectPath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\MyQuickDesk-Console\\Users.csproj",
       "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
       "outputPath": "C:\\Projekt-C#\\JCSZR9-MyQuickDesk\\MyQuickDesk-Console\\MyQuickDesk-Console\\obj\\",
       "projectStyle": "PackageReference",

@@ -13,7 +13,7 @@ namespace Users.Users
         public string FirstName { get; set; }
         public string Lastname { get; set; }
         public string Password { get; set; }
-        public string role { get; set; }
+        public string Role { get; set; }
         public string email { get; set; }
 
         public User(int id, string username, string firstname, string lastname, string password, string role, string email)
