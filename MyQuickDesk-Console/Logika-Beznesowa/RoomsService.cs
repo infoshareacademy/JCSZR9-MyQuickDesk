@@ -91,8 +91,8 @@ namespace Logika_Beznesowa
             foreach (var room in rooms)
             {
 
-                string list = string.Format($"{i,-7} | {room.Name, -14} | {room.OwnerId,-8} | {room.InteractiveBoard,-12} | {room.Capacity,-12} | {room.Description,-23} | {room.Price,-11} |");
-                
+                string list = string.Format($"{i,-7} | {room.Name, -14} | {room.OwnerId,-8} | {room.InteractiveBoard,-12} | {room.Capacity,-12} | {room.Description.Substring(0,22),-23} | {room.Price,-11} |");
+                i++;
                 Console.WriteLine(list); // nie znalazłem sposobu aby nie użyć w tej pętli CW. Natomiast odseparowałem to aby móc w przyszłości użyć tego w inny sposób
             }
         }
