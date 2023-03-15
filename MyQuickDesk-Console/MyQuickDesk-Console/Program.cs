@@ -1,5 +1,6 @@
 ﻿using Menu_Diana_Kosel;
 using System.ComponentModel;
+using Logika_Beznesowa;
 
 namespace MyQuickDesk_Console
 {
@@ -7,9 +8,12 @@ namespace MyQuickDesk_Console
     {
         static void Main(string[] args)
         {
-            Menu.PrintMenu();
+            Room room1 = new Room();
 
-            Console.ReadLine();
+            Menu.PrintMenu(room1);
+
+            
+            //Console.ReadLine();
         }
     }
 
