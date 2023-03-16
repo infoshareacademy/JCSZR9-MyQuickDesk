@@ -15,9 +15,9 @@ namespace Menu_Diana_Kosel
 
                 Console.WriteLine("Wybierz opcję: ");
                 string choose = Console.ReadLine();
-                if (choose == "1")      { UserMenu(room); }
+                if (choose == "1") { UserMenu(room); }
                 else if (choose == "2") { OwnerMenu(room); }
-                else                    { Console.WriteLine("Nieprawidłowa opcja! Wybierz ponownie."); }
+                else { Console.WriteLine("Nieprawidłowa opcja! Wybierz ponownie."); }
             }
         }
         static void UserMenu(Room room)
@@ -31,10 +31,10 @@ namespace Menu_Diana_Kosel
 
             Console.WriteLine("Wybierz opcję: ");
             string choose = Console.ReadLine();
-            if (choose == "1") 
+            if (choose == "1")
             {
-                RoomsService.DisplayRoomList(); 
-                Console.ReadKey();    
+                RoomsService.DisplayRoomList();
+                Console.ReadKey();
             }
             else if (choose == "2") { }
             else if (choose == "3") { }
@@ -56,28 +56,28 @@ namespace Menu_Diana_Kosel
 
             Console.WriteLine("Wybierz opcję: ");
             string choose = Console.ReadLine();
-            if (choose == "1")      { }
-            else if (choose == "2") 
+            if (choose == "1") { }
+            else if (choose == "2")
             {
-                
+
 
                 room.Id = 0; // jeszcze nie znam rozwiązania, natomiast domyślnie będę chciał ustawić tu index na liście, póki co domyślnie jest 0
-                Console.WriteLine("Podaj nazwę pokoju:");   
+                Console.WriteLine("Podaj nazwę pokoju:");
                 room.Name = Console.ReadLine();
                 if (room.Name.Length > 14) { room.Name.Substring(0, 14); }
 
-                Console.WriteLine("Czy pokój posiada tablice interaktywną?");   
+                Console.WriteLine("Czy pokój posiada tablice interaktywną?");
                 string ThereIsBoard = Console.ReadLine();
                 if (ThereIsBoard.ToLower() == "y" || ThereIsBoard.ToLower() == "tak" || ThereIsBoard.ToLower() == "t" || ThereIsBoard.ToLower() == "yes")
-                {    room.InteractiveBoard = true;    }
-                else    {    room.InteractiveBoard = false;    }
+                { room.InteractiveBoard = true; }
+                else { room.InteractiveBoard = false; }
 
                 Console.WriteLine("Maksymalna ilość osób na stanowisku to:");
                 room.Capacity = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Podaj krótki opis pokoju (maksymalnie 23 znaki)");
                 room.Description = Console.ReadLine();
-                if (room.Description.Length > 23) {  room.Description.Substring(0, 23);  }
+                if (room.Description.Length > 23) { room.Description.Substring(0, 23); }
 
                 Console.WriteLine("Jaka cena za dzień wynajęcia stanowiska? [PLN]");
                 room.Price = int.Parse(Console.ReadLine());

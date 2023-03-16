@@ -1,4 +1,4 @@
-﻿using CsvHelper;
+using CsvHelper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,8 +14,8 @@ namespace Logika_Beznesowa
 {
     public class Room
     {
-    // Biblioteka "CsvHelper.Configuration.Attributes" pozwala z automatu oznaczyć nagłówki kolumn do danego
-    // property, za pomocą oznaczeń [Name("Nazwa kolumny")] tuż przed property, którą dotyczy.
+        // Biblioteka "CsvHelper.Configuration.Attributes" pozwala z automatu oznaczyć nagłówki kolumn do danego
+        // property, za pomocą oznaczeń [Name("Nazwa kolumny")] tuż przed property, którą dotyczy.
         [Name("Id")]
         public int Id { get; set; }
 
@@ -64,7 +64,7 @@ namespace Logika_Beznesowa
             {
                 new Room
                 {
-      
+
                     Name = room.Name,
                     OwnerId = room.OwnerId,
                     InteractiveBoard = room.InteractiveBoard,
@@ -77,7 +77,7 @@ namespace Logika_Beznesowa
 
         }
 
-    
+
 
 
 
