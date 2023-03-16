@@ -13,6 +13,6 @@ namespace Logika_Beznesowa
 {
     public class HotdeskData
     {
-       
+
     }
 }

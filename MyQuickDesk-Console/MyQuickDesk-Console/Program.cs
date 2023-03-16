@@ -12,13 +12,8 @@ namespace MyQuickDesk_Console
 
             Menu.PrintMenu(room1);
 
-            
+
             //Console.ReadLine();
         }
     }
-
-
-
-
-
 }
