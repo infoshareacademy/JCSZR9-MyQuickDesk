@@ -54,7 +54,12 @@ namespace MyQuickDesk.Menu
 
                 Console.WriteLine("Wybierz opcję: ");
                 string choose = Console.ReadLine();
-                if (choose == "1") { }
+                if (choose == "1") 
+                {
+                    RoomsService.DisplayRoomListForOwner();
+                    Console.ReadKey();
+                    Console.Clear();  //Czyści ekran menu
+                }
                 else if (choose == "2")
                 {
 

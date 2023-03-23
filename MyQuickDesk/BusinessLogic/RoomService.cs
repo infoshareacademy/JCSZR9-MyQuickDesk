@@ -97,5 +97,29 @@ namespace Logika_Beznesowa
                 Console.WriteLine(list); // nie znalazłem sposobu aby nie użyć w tej pętli CW. Natomiast odseparowałem to aby móc w przyszłości użyć tego w inny sposób
             }
         }
+        
+        static public void DisplayRoomListForOwner()
+        {
+            var rooms = ReadRoomList();
+
+            var OwnerRooms = rooms.Where(room => room.OwnerId == 0);
+
+            int i = 1;
+            string header = string.Format($"{"Room ID",-7} | {"Name",-14} | {"Owner ID",-8} | {"Inter. Board",-12} | {"Max Capacity",-12} | {"Description",-23} | {"Price [PLN]",-11} |\n" +
+                                            $"--------------------------------------------------------------------------------------------------------");
+            Console.WriteLine(header);
+
+            foreach (var room in OwnerRooms)
+            {
+                int maxLength = Math.Min(23, room.Description.Length); //stworzyłem Math.Min, bo przy krótszej nazwie pokojów wyskakiwał mi ArgumentOutOfRangeException
+                string list = string.Format($"{i,-7} | {room.Name,-14} | {room.OwnerId,-8} | {room.InteractiveBoard,-12} | {room.Capacity,-12} | {room.Description.Substring(0, maxLength),-23} | {room.Price,-11} |");
+                i++;
+                Console.WriteLine(list);
+            }
+        }
+
+
     }
+
+
 }
