@@ -1,4 +1,5 @@
 ﻿using Logika_Beznesowa;
+using MyQuickDesk.BusinessLogic;
 using MyQuickDesk.BussinessLogic;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace MyQuickDesk.Menu
                 Console.WriteLine("2.Moje rezerwacje");
                 Console.WriteLine("3.Modyfikuj rezerwacje");
                 Console.WriteLine("4.Usuń rezerwacje");
-                Console.WriteLine("5.Wyjście");
+                Console.WriteLine("5.Aktualizuj dane użytkownika");
+                Console.WriteLine("6.Aktualizuj dane pokoi");
+                Console.WriteLine("7.Wyjście");
 
 
                 Console.WriteLine("Wybierz opcję: ");
@@ -32,7 +35,19 @@ namespace MyQuickDesk.Menu
                 else if (choose == "2") { }
                 else if (choose == "3") { }
                 else if (choose == "4") { }
-                else if (choose == "5") { break; }
+                else if (choose == "5") 
+                {
+                    UpdatingUserData.ReadAndUpdate();
+                    Console.ReadKey();
+                    Console.Clear();  
+                }
+                else if (choose == "6") 
+                {
+                    //UpdatingRoomData.ReadAndUpdate();
+                    //Console.ReadKey();
+                    //Console.Clear();  
+                }
+                else if (choose == "7") { break; }
                 else { Console.WriteLine("Nieprawidłowa opcja, wybierz ponownie."); }
             }
             
