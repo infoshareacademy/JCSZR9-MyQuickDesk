@@ -19,7 +19,9 @@ namespace MyQuickDesk.BussinessLogic
         public RoomInfoClassMap()
         {
             // Mapuj(wyrażenie lambda) na nazwe ("Nazwa kolumny");
+
             Map(r => r.Id).Name("Id");
+            Map(r => r.PublicId).Name("PublicId");
             Map(r => r.Name).Name("Name");
             Map(r => r.OwnerId).Name("Owner Id");
             Map(r => r.InteractiveBoard).Name("Interactive Board");
@@ -29,6 +31,7 @@ namespace MyQuickDesk.BussinessLogic
             Map(r => r.ReservationDate).Name("Reservation Date");
         }
     }
+            //     PublicId
 
     public class RoomsService
     {

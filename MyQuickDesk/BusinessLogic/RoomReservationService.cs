@@ -15,13 +15,13 @@ namespace MyQuickDesk.BusinessLogic
     public class RoomReservationService
     {
 
-        static public void MakeNewFile(Room room)
+        static public void MakeNewFile(List<Room> RoomList)
         {
-            var RoomList = RoomsService.ReadRoomList();
             using (var streamWriter = new StreamWriter(RoomsService.csvPath, append: false)) //nadpisz istniejący plik
             {
                 var configuration = new CsvConfiguration(CultureInfo.InvariantCulture)  // stwórz kopie klasy, aby móc zmienić element
                 { HasHeaderRecord = true };                     // włącz nagłówek kolumn
+
                 using (var csvWriter = new CsvWriter(streamWriter, configuration)) //zapisz
                 {
                     csvWriter.Context.RegisterClassMap<RoomInfoClassMap>();
@@ -29,31 +29,87 @@ namespace MyQuickDesk.BusinessLogic
                 }
             }
         }
-        static public string ShowMyReservations()  
+
+
+
+
+        static public void MakeNewRoom()
         {
 
-            
-
-            return string.Format("");    
         }
+        //static public string ShowMyReservations()  
+        //{
 
+
+
+        //    return string.Format("");    
+        //}
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
+        //                                              Modyfikacja pliku
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
         static public void MakeNewReservation(int Index)
         {
+            var RoomList = RoomsService.ReadRoomList();
+            DateTime NewDate;
+            Guid CompareId; 
+
             int i = 1;
             foreach (var room in NotReservatedRooms())
             {
+
                 if (i == Index)
                 {
-                    var NewDate = Menu.Menu.ChangeDateConsole();
-                    
+                    NewDate = Menu.Menu.ChangeDateConsole();
+
                     room.ReservationDate = NewDate;
+                    CompareId = room.Id;
+
+                    foreach (var room1 in RoomList)
+                    {
+                        if (room1.Id == CompareId)
+                        {
+                            room1.ReservationDate = NewDate;
+                        }                       
+                    }
                     break;
                 }
                 i++;
             }
-
+            MakeNewFile(RoomList);
         }
+        //--------------------------------------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
+        static public void DeleteNewReservation(int Index)
+        {
+            var RoomList = RoomsService.ReadRoomList();
+            DateTime NewDate;
+            Guid CompareId;
 
+            int i = 1;
+            foreach (var room in ReservatedRooms())
+            {
+
+                if (i == Index)
+                {
+                    NewDate = DateTime.Now.AddDays(-1);
+
+                    room.ReservationDate = NewDate;
+                    CompareId = room.Id;
+
+                    foreach (var room1 in RoomList)
+                    {
+                        if (room1.Id == CompareId)
+                        {
+                            room1.ReservationDate = NewDate;
+                        }
+                    }
+                    break;
+                }
+                i++;
+            }
+            MakeNewFile(RoomList);
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------------------------
         static public List<Room> NotReservatedRooms()
         {
             var RoomList = RoomsService.ReadRoomList(); // pobierz liste pokoi

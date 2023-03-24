@@ -17,7 +17,10 @@ namespace MyQuickDesk.BussinessLogic
         // Biblioteka "CsvHelper.Configuration.Attributes" pozwala z automatu oznaczyć nagłówki kolumn do danego
         // property, za pomocą oznaczeń [Name("Nazwa kolumny")] tuż przed property, którą dotyczy.
         [Name("Id")]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+
+        [Name("PublicId")]
+        public int PublicId { get; set; } = 1;
 
         [Name("Name")]
         public string Name { get; set; }
@@ -67,7 +70,7 @@ namespace MyQuickDesk.BussinessLogic
             {
                 new Room
                 {
-
+                    
                     Name = room.Name,
                     OwnerId = room.OwnerId,
                     InteractiveBoard = room.InteractiveBoard,

@@ -26,6 +26,7 @@ namespace MyQuickDesk.Menu
                 string choose = Console.ReadLine();
                 if (choose == "1")
                 {
+                    Console.Clear();
                     RoomsService.DisplayRoomList(RoomsService.ReadRoomList());
                     Console.ReadKey();
                     Console.Clear();  //Czyści ekran menu
@@ -42,23 +43,24 @@ namespace MyQuickDesk.Menu
 
                     if (choose == "1")
                     {
+                        Console.Clear();
                         RoomsService.DisplayRoomList(RoomReservationService.ReservatedRooms());
+                        Console.ReadLine();Console.Clear();
                     }
                     else if (choose == "2")
-                    {
-                        RoomsService.DisplayRoomList(RoomReservationService.NotReservatedRooms());
+                    { 
                         for (; ; )
                         {
-
-                            Console.WriteLine("Który pokój chcesz zarezerwować?\nPodaj nr Id pokoju");
+                            Console.Clear();
+                            RoomsService.DisplayRoomList(RoomReservationService.NotReservatedRooms());
+                            Console.WriteLine("\nKtóry pokój chcesz zarezerwować?\nPodaj nr Id pokoju");
                             int IndexID = int.Parse(Console.ReadLine());
                             RoomReservationService.MakeNewReservation(IndexID);
 
                            
-                            Console.WriteLine("\n\n1.Dodaj nową rezerwacje");
-                            Console.WriteLine("2.Wróc do poprzedniego menu");
-                            int i = int.Parse(Console.ReadLine());
-                            if (i == 2) break;
+                            Console.WriteLine("\n\n1.Dodaj nową rezerwacje\n2.Wróc do poprzedniego menu");
+                            int i = int.Parse(Console.ReadLine());   Console.Clear();
+                            if (i == 2) break;    
                             else if (i != 1 && i != 2) Console.WriteLine("Nieprawidłowa opcja");
 
                         }
@@ -68,6 +70,19 @@ namespace MyQuickDesk.Menu
                     else if (choose == "3")
                     {
 
+                    }
+
+                    else if (choose == "4")
+                    {
+                        RoomsService.DisplayRoomList(RoomReservationService.ReservatedRooms());
+                        Console.WriteLine("\nKtórą zarezerwacje chcesz usunąć?\nPodaj nr Id pokoju");
+                        int IndexID = int.Parse(Console.ReadLine());
+                        RoomReservationService.DeleteNewReservation(IndexID);
+
+                        Console.WriteLine("\n\n1.Usuń kolejną rezerwacje\n2.Wróc do poprzedniego menu");
+                        int i = int.Parse(Console.ReadLine()); Console.Clear();
+                        if (i == 2) break;
+                        else if (i != 1 && i != 2) Console.WriteLine("Nieprawidłowa opcja");
                     }
 
                 }
@@ -135,42 +150,24 @@ namespace MyQuickDesk.Menu
             }
             
         }
-
-        //internal static void UserMenu()
-        //{
-        //    throw new NotImplementedException();
-        //}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
         public static DateTime ChangeDateConsole()
         {
-            //Console.Write("Podaj rok: ");
-            //int year = int.Parse(Console.ReadLine());
-            Console.WriteLine("Podaj do kiedy chcesz zarezerwować stanowisko");
+            Console.Clear();
+            Console.WriteLine("\nPodaj do kiedy chcesz zarezerwować stanowisko");
             Console.Write("Podaj miesiąc [MM] : ");
             int month = int.Parse(Console.ReadLine());
 
             Console.Write("Podaj dzień [DD] : ");
             int day = int.Parse(Console.ReadLine());
 
-            Console.Write("Podaj godzinę: [HH]");
+            Console.Write("Podaj godzinę: [HH] : ");
             int hour = int.Parse(Console.ReadLine());
 
-            //Console.Write("Podaj minutę: ");
-            //int minute = int.Parse(Console.ReadLine());
-
-            //Console.Write("Podaj sekundę: ");
-            //int second = int.Parse(Console.ReadLine());
-
             DateTime dateFromConsole = new DateTime(2023, month, day, hour, 00, 00);
-
-            //DateTime now = DateTime.Now;
-
-            //if (now > dateFromConsole)
-            //{
-            //    Console.WriteLine("Teraz jest później niż wprowadzona data.");
-            //}
-
-
             return dateFromConsole;
         }
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     }
 }
