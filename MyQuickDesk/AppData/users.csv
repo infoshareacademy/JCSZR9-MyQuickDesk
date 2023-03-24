@@ -1,7 +1,0 @@
-Id,Login,Password,Type
-1,user1,1111,user
-2,user2,2222,user
-3,tenant1,1111,tenant
-4,tenant2,2222,tenant
-5,,,user
-6, , ,tenant
