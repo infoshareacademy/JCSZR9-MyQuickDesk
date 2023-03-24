@@ -203,7 +203,7 @@ public class Login
         }
     }
 
-    static string GuidGenerator()
+    public static string GuidGenerator()
     {
         Guid guid = Guid.NewGuid();
         string newGuid = guid.ToString();

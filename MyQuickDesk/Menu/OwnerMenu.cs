@@ -1,4 +1,6 @@
 ﻿using System;
+using Logika_Beznesowa;
+using MyQuickDesk.BussinessLogic;
 
 public class OwnerMenu
 {
@@ -58,7 +60,7 @@ public class OwnerMenu
                     else if (selectedIndex == 1)
                     {
                         Console.Clear();
-                        //Dodaj pokój
+                        AddRoom(Id);
                         break;
                     }
                     else if (selectedIndex == 2)
@@ -97,6 +99,37 @@ public class OwnerMenu
                     break;
             }
         }
+
+    }
+
+    public static void AddRoom(string userId)
+    {
+        Room room = new Room();
+
+        room.Id = Login.GuidGenerator();
+        room.OwnerId = userId;
+        Console.WriteLine("Podaj nazwę pokoju:");
+        room.Name = Console.ReadLine();
+        if (room.Name.Length > 14) { room.Name.Substring(0, 14); }
+
+        Console.WriteLine("Czy pokój posiada tablice interaktywną?");
+        string ThereIsBoard = Console.ReadLine();
+        if (ThereIsBoard.ToLower() == "y" || ThereIsBoard.ToLower() == "tak" || ThereIsBoard.ToLower() == "t" || ThereIsBoard.ToLower() == "yes")
+        { room.InteractiveBoard = true; }
+        else { room.InteractiveBoard = false; }
+
+        Console.WriteLine("Maksymalna ilość osób na stanowisku to:");
+        room.Capacity = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Podaj krótki opis pokoju (maksymalnie 23 znaki)");
+        room.Description = Console.ReadLine();
+        if (room.Description.Length > 23) { room.Description.Substring(0, 23); }
+
+        Console.WriteLine("Jaka cena za dzień wynajęcia stanowiska? [PLN]");
+        room.Price = int.Parse(Console.ReadLine());
+
+        RoomsService.MakeNewRoom(room);
+        Console.Clear();
 
     }
 

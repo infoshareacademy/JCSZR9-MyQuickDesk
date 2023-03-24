@@ -78,6 +78,8 @@ public class UserMenu
             }
         }
     }
+
+    ///Metoda którą napisałem do wyświetlania pokoi z pliku
     public static void FreeRooms(string Id)
     {
         Console.SetCursorPosition(0, 2);
@@ -124,9 +126,9 @@ public class UserMenu
                 }
                 else
                 {
-                    string[] col = lines[int.Parse(userChoice)
-                        ].Split('/');
-                    Console.WriteLine(col[0]);
+                    //Nie dokończona rezerwacja po nr 
+                    //string[] col = lines[int.Parse(userChoice)].Split(',');
+                    //Console.WriteLine(col[0]);
 
 
 
