@@ -1,3 +1,3 @@
-Id,Name,Owner Id,Interactive Board,Max Capacity,Short Description,Price [PLN]
-0,Hotdesk 1,0,True,1,Jednoosobowe stanowisko pracy,40
-0,Hotdesk 2,0,False,1,Jednoosobowe stanowisko pracy,40
+Id/Owner Id/Name/Type/Max Capacity/Short Description/Price [PLN]/Reservation/Booking Date/
+141/0/Marina/Salka/12/Tablica interaktywna, kamera, 2 mikrofony/200///
+23/0/HotDesk/Biurko/1/Stacja dokujaca, 2 monitory/50///

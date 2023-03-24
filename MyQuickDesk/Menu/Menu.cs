@@ -1,120 +1,124 @@
-﻿using Logika_Beznesowa;
-using MyQuickDesk.BusinessLogic;
-using MyQuickDesk.BussinessLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
-namespace MyQuickDesk.Menu
+
+public class Menu
 {
-    public static class Menu
+    //Menu główne
+    public static void MainMenu()
     {
-        public static void UserMenu(Room room)
+        string[] options = { "1. Logowanie ", "2. Rejestracja ", "3. Wyjście " };
+
+        int selectedIndex = 0;
+
+        Console.CursorVisible = false;
+
+        while (true)
         {
-            while (true)
+            Console.Clear();
+            Styles.MainLogo();
+            Console.SetCursorPosition(0, 20);
+
+            MoveMain(options, selectedIndex);
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
             {
-                Console.WriteLine("1.Dostępne pokoje");
-                Console.WriteLine("2.Moje rezerwacje");
-                Console.WriteLine("3.Modyfikuj rezerwacje");
-                Console.WriteLine("4.Usuń rezerwacje");
-                Console.WriteLine("5.Aktualizuj dane użytkownika");
-                Console.WriteLine("6.Aktualizuj dane pokoi");
-                Console.WriteLine("7.Wyjście");
+                case ConsoleKey.UpArrow:
+                    selectedIndex--;
+                    if (selectedIndex < 0)
+                    {
+                        selectedIndex = options.Length - 1;
+                    }
+                    break;
+                case ConsoleKey.DownArrow:
+                    selectedIndex++;
+                    if (selectedIndex == options.Length)
+                    {
+                        selectedIndex = 0;
+                    }
+                    break;
+                case ConsoleKey.Enter:
+                    if (selectedIndex == options.Length - 1)
+                    {
+                        Console.Clear();
+                        Styles.MainLogo();
+                        Console.SetCursorPosition(0, 15);
+                        Styles.CenterTextYellow("Do zobaczenia\n\n\n\n\n\n");
 
+                        Thread.Sleep(1000);
+                        return;
+                    }
 
-                Console.WriteLine("Wybierz opcję: ");
-                string choose = Console.ReadLine();
-                if (choose == "1")
-                {
-                    RoomsService.DisplayRoomList();
+                    if (selectedIndex == 0)
+                    {
+                        Console.Clear();
+                        Login.LoginToSystem();
+                        break;
+
+                    }
+
+                    else if (selectedIndex == 1)
+                    {
+                        Console.Clear();
+                        Login.Registration();
+                        break;
+                    }
                     Console.ReadKey();
-                    Console.Clear();  //Czyści ekran menu
-                }
-                else if (choose == "2") { }
-                else if (choose == "3") { }
-                else if (choose == "4") { }
-                else if (choose == "5") 
-                {
-                    UpdatingUserData.ReadAndUpdate();
-                    Console.ReadKey();
-                    Console.Clear();  
-                }
-                else if (choose == "6") 
-                {
-                    //UpdatingRoomData.ReadAndUpdate();
-                    //Console.ReadKey();
-                    //Console.Clear();  
-                }
-                else if (choose == "7") { break; }
-                else { Console.WriteLine("Nieprawidłowa opcja, wybierz ponownie."); }
+                    break;
             }
-            
         }
-
-        public static void OwnerMenu(Room room)
-        {
-            while (true)
-            {
-                Console.WriteLine("1.Wyświetl moje pokoje");
-                Console.WriteLine("2.Dodaj pokój");
-                Console.WriteLine("3.Modyfikuj pokój");
-                Console.WriteLine("4.Modyfikuj rezerwacje");
-                Console.WriteLine("5.Usuń pokój");
-                Console.WriteLine("6.Moje rezerwacje");
-                Console.WriteLine("7.Modyfikuj rezerwacje");
-                Console.WriteLine("8.Usuń rezerwacje");
-                Console.WriteLine("9.Wyjście");
-
-                Console.WriteLine("Wybierz opcję: ");
-                string choose = Console.ReadLine();
-                if (choose == "1") { }
-                else if (choose == "2")
-                {
-
-
-                    room.Id = 0; // jeszcze nie znam rozwiązania, natomiast domyślnie będę chciał ustawić tu index na liście, póki co domyślnie jest 0
-                    Console.WriteLine("Podaj nazwę pokoju:");
-                    room.Name = Console.ReadLine();
-                    if (room.Name.Length > 14) { room.Name.Substring(0, 14); }
-
-                    Console.WriteLine("Czy pokój posiada tablice interaktywną?");
-                    string ThereIsBoard = Console.ReadLine();
-                    if (ThereIsBoard.ToLower() == "y" || ThereIsBoard.ToLower() == "tak" || ThereIsBoard.ToLower() == "t" || ThereIsBoard.ToLower() == "yes")
-                    { room.InteractiveBoard = true; }
-                    else { room.InteractiveBoard = false; }
-
-                    Console.WriteLine("Maksymalna ilość osób na stanowisku to:");
-                    room.Capacity = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Podaj krótki opis pokoju (maksymalnie 23 znaki)");
-                    room.Description = Console.ReadLine();
-                    if (room.Description.Length > 23) { room.Description.Substring(0, 23); }
-
-                    Console.WriteLine("Jaka cena za dzień wynajęcia stanowiska? [PLN]");
-                    room.Price = int.Parse(Console.ReadLine());
-
-                    RoomsService.MakeNewRoom(room);
-                    Console.Clear();
-
-                }
-                else if (choose == "3") { }
-                else if (choose == "4") { }
-                else if (choose == "5") { }
-                else if (choose == "6") { }
-                else if (choose == "7") { }
-                else if (choose == "8") { }
-                else if (choose == "9") { break; }
-                else { Console.WriteLine("Nieprawidłowa opcja, wybierz ponownie."); }
-
-            }
-            
-        }
-
-        //internal static void UserMenu()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
+
+    public static void MoveMain(string[] options, int selectedIndex)
+    {
+        Console.Clear();
+        Styles.MainLogo();
+        Console.SetCursorPosition(0, 15);
+
+
+        for (int i = 0; i < options.Length; i++)
+        {
+
+            if (i == selectedIndex)
+            {
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Cyan;
+            }
+
+            Console.WriteLine(options[i]);
+            Console.ResetColor();
+        }
+
+    }
+
+    public static void Move(string[] options, int selectedIndex, string ID, string login)
+    {
+        Console.Clear();
+        Styles.WidgetBar(ID, login);
+        Console.SetCursorPosition(0, 8);
+
+
+        for (int i = 0; i < options.Length; i++)
+        {
+
+            if (i == selectedIndex)
+            {
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Cyan;
+            }
+
+            Console.WriteLine(options[i]);
+            Console.ResetColor();
+        }
+
+    }
+
+
+
 }
