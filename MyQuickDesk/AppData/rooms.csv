@@ -1,0 +1,7 @@
+Id,Name,Owner Id,Interactive Board,Max Capacity,Short Description,Price [PLN],Reservation Date
+ef71fdc5-c047-4cd5-99da-45ef98b75764,Hotdesk 1,0,True,1,Jednoosobowe stanowisko pracy,40,03/23/2023 00:00:34
+9fc0e8f4-d389-4569-8524-b640d3f1a34b,Hotdesk 2,0,False,1,Jednoosobowe stanowisko pracy,40,03/23/2023 00:00:34
+f3d2f740-3145-46f8-9282-22e0b6bc3e11,Hotdesk 3,0,False,1,Stanowisko 1 osobowe,40,03/23/2023 00:00:34
+83f42a69-2cb1-4da3-b246-126433cead19,Hotdesk 4,0,False,1,Jednoosobowe stanowisko pracy,40,03/23/2023 00:00:34
+08646d7b-b920-4a1e-9cf4-eee580f80459,Hotdesk 5,0,True,1,Stanowisko jednoosobowe,40,03/23/2023 19:21:17
+0010000f-0030-0004-0c90-000000000459,Hotdesk 6,0,True,1,Krótki opis,40,03/29/2023 12:00:00
