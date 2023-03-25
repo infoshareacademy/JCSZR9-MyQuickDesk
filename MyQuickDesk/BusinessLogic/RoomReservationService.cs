@@ -48,14 +48,16 @@ namespace MyQuickDesk.BusinessLogic
         //---------------------------------------------------------------------------------------------------------------------------------------------------------
         //                                              Modyfikacja pliku
         //---------------------------------------------------------------------------------------------------------------------------------------------------------
-        static public void MakeNewReservation(int Index)
+        static public void MakeNewReservation(int Index, string Reservated)
         {
             var RoomList = RoomsService.ReadRoomList();
             DateTime NewDate;
             string CompareId;
+            var selectedRooms = NotReservatedRooms();
+            if (Reservated == "Reservated") { selectedRooms = ReservatedRooms(); }
 
             int i = 1;
-            foreach (var room in NotReservatedRooms())
+            foreach (var room in selectedRooms)
             {
 
                 if (i == Index)

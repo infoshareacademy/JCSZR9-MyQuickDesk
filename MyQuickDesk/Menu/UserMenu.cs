@@ -71,7 +71,7 @@ public class UserMenu
                             RoomsService.DisplayRoomList(RoomReservationService.NotReservatedRooms());
                             Console.WriteLine("\nKtóry pokój chcesz zarezerwować?\nPodaj nr Id pokoju");
                             int IndexID = int.Parse(Console.ReadLine());
-                            RoomReservationService.MakeNewReservation(IndexID);
+                            RoomReservationService.MakeNewReservation(IndexID, "NotReservated");
 
                            
                             Console.WriteLine("\n\n1.Dodaj nową rezerwacje\n2.Wróc do poprzedniego menu");
@@ -84,8 +84,21 @@ public class UserMenu
                     }
                     else if (selectedIndex == 2)
                     {
-                        Console.Clear();
-                        //modyfikuj rezerwacje
+                        for (; ; )
+                        {
+                            //modyfikuj rezerwacje (modyfikacja daty)
+                            Console.Clear();
+                            RoomsService.DisplayRoomList(RoomReservationService.ReservatedRooms());
+                            Console.WriteLine("\nKtóry pokój chcesz zarezerwować?\nPodaj nr Id pokoju");
+                            int IndexID = int.Parse(Console.ReadLine());
+                            RoomReservationService.MakeNewReservation(IndexID, "Reservated");
+
+                            Console.WriteLine("\n\n1.Modyfikuj nową rezerwacje\n2.Wróc do poprzedniego menu");
+                            int i = int.Parse(Console.ReadLine()); Console.Clear();
+                            if (i == 2) break;
+                            else if (i != 1 && i != 2) Console.WriteLine("Nieprawidłowa opcja");
+                        }
+                        break;
                     }
 
                     else if (selectedIndex == 3)
@@ -107,9 +120,6 @@ public class UserMenu
             }
         }
     }
-
-
-
 
 
     ///Metoda którą napisałem do wyświetlania pokoi z pliku
