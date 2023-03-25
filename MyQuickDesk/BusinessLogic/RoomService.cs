@@ -10,7 +10,7 @@ using System.ComponentModel.Design;
 using System.Reflection.PortableExecutable;
 using MyQuickDesk.BussinessLogic;
 
-namespace Logika_Beznesowa
+namespace MyQuickDesk.BussinessLogic
 {
 
     public class RoomInfoClassMap : ClassMap<Room>
@@ -26,6 +26,7 @@ namespace Logika_Beznesowa
             Map(r => r.Capacity).Name("Max Capacity");
             Map(r => r.Description).Name("Short Description");
             Map(r => r.Price).Name("Price [PLN]");
+            Map(r => r.ReservationDate).Name("Reservation Date");
         }
     }
 
@@ -34,7 +35,7 @@ namespace Logika_Beznesowa
 
 
         //Stworzenie uniwersalnej ścieżki do pliku, za pomocą Path.Combine()
-        static string csvPath = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\AppData\\rooms.csv");
+        public static string csvPath = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\AppData\\rooms.csv");
         static public void MakeNewRoom(Room room)
         {
             //using służy do automatycznego usuwania metod (przestrzeń tymczasowa).
@@ -81,18 +82,19 @@ namespace Logika_Beznesowa
                 }
             }
         }
-        static public void DisplayRoomList()
+        static public void DisplayRoomList(List<Room> rooms)
         {
+
             int i = 1;
-            var rooms = ReadRoomList();
-            string header = string.Format($"{"Room ID",-7} | {"Name",-14} | {"Owner ID",-8} | {"Inter. Board",-12} | {"Max Capacity",-12} | {"Description",-23} | {"Price [PLN]",-11} |\n" +
+
+            string header = string.Format($"{"Room ID",-7} | {"Name",-14} | {"Inter. Board",-12} | {"Max Capacity",-12} | {"Description",-23} | {"Price [PLN]",-11} |\n" +
                                         $"--------------------------------------------------------------------------------------------------------");
             Console.WriteLine(header);
 
             foreach (var room in rooms)
             {
 
-                string list = string.Format($"{i,-7} | {room.Name,-14} | {room.OwnerId,-8} | {room.InteractiveBoard,-12} | {room.Capacity,-12} | {room.Description.Substring(0, 22),-23} | {room.Price,-11} |");
+                string list = string.Format($"{i,-7} | {room.Name,-14} | {room.InteractiveBoard,-12} | {room.Capacity,-12} | {room.Description,-23} | {room.Price,-11} |");
                 i++;
                 Console.WriteLine(list); // nie znalazłem sposobu aby nie użyć w tej pętli CW. Natomiast odseparowałem to aby móc w przyszłości użyć tego w inny sposób
             }

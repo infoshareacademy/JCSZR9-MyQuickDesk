@@ -1,5 +1,4 @@
 ﻿using System;
-using Logika_Beznesowa;
 using MyQuickDesk.BussinessLogic;
 
 public class OwnerMenu
@@ -48,52 +47,60 @@ public class OwnerMenu
                         Thread.Sleep(1000);
                         return;
                     }
-
+    //------------------------------------          1. Wyświetl moje pokoje          ------------------------------------ 
                     if (selectedIndex == 0)
                     {
                         Console.Clear();
+
                         //Wyświetl moje pokoje
+
                         break;
 
                     }
-
+    //---------------------------------------            2. Dodaj pokój            ---------------------------------------
                     else if (selectedIndex == 1)
                     {
                         Console.Clear();
                         AddRoom(Id);
                         break;
                     }
+    //--------------------------------------           3. Modyfikuj pokój          --------------------------------------
                     else if (selectedIndex == 2)
                     {
                         Console.Clear();
                         //modyfikuj pokój
                     }
-
+                    //------------------------------------          4. Modyfikuj rezerwację          ------------------------------------
                     else if (selectedIndex == 3)
                     {
                         Console.Clear();
                         //Modyfikuj rezerwację
                     }
+                    //------------------------------------          5. Usuń pokój          ------------------------------------
                     else if (selectedIndex == 4)
                     {
                         Console.Clear();
                         //usuń pokój
                     }
+                    //------------------------------------          6. Moje rezerwacje          ------------------------------------
                     else if (selectedIndex == 5)
                     {
                         Console.Clear();
                         //Moje rezerwację
                     }
+                    //------------------------------------          7. Modyfikuj rezerwację          ------------------------------------
                     else if (selectedIndex == 6)
                     {
                         Console.Clear();
                         //Modyfikuj rezerwacje
                     }
+                    //------------------------------------          8. Usuń rezerwację          ------------------------------------
                     else if (selectedIndex == 7)
                     {
                         Console.Clear();
                         //Usuń rezerwacje
                     }
+                    //------------------------------------          9. Wyloguj się          ------------------------------------
 
                     Console.ReadKey();
                     break;

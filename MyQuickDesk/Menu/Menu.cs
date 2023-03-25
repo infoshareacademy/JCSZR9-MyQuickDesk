@@ -118,7 +118,22 @@ public class Menu
         }
 
     }
+    public static DateTime ChangeDateConsole()
+    {
+        Console.Clear();
+        Console.WriteLine("\nPodaj do kiedy chcesz zarezerwować stanowisko");
+        Console.Write("Podaj miesiąc [MM] : ");
+        int month = int.Parse(Console.ReadLine());
 
+        Console.Write("Podaj dzień [DD] : ");
+        int day = int.Parse(Console.ReadLine());
+
+        Console.Write("Podaj godzinę: [HH] : ");
+        int hour = int.Parse(Console.ReadLine());
+
+        DateTime dateFromConsole = new DateTime(2023, month, day, hour, 00, 00);
+        return dateFromConsole;
+    }
 
 
 }

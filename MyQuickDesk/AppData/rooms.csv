@@ -1,4 +1,4 @@
-Id,Name,Owner Id,Interactive Board,Max Capacity,Short Description,Price [PLN]
-e56f2e90-6081-426b-ba7d-067ca21a3853,HotDesk,b7202ebb-805d-4a8f-913b-741e8c2f3bf6,False,1,HotDesk strefa 1,60
-f9a5fa02-1468-4242-9537-ec3fb8ca129f,HotDesk,b7202ebb-805d-4a8f-913b-741e8c2f3bf6,False,1,HotDesk strefa 2,60
-706c7b8c-ec21-4b3c-9115-d8fcec803091,HotDesk,b7202ebb-805d-4a8f-913b-741e8c2f3bf6,False,1,HotDesk strefa 3,60
+Id,Name,Owner Id,Interactive Board,Max Capacity,Short Description,Price [PLN],Reservation Date
+e56f2e90-6081-426b-ba7d-067ca21a3853,HotDesk,b7202ebb-805d-4a8f-913b-741e8c2f3bf6,False,1,HotDesk strefa 1,60,03/11/2023 12:00:00
+f9a5fa02-1468-4242-9537-ec3fb8ca129f,HotDesk,b7202ebb-805d-4a8f-913b-741e8c2f3bf6,False,1,HotDesk strefa 2,60,03/28/2023 09:00:00
+706c7b8c-ec21-4b3c-9115-d8fcec803091,HotDesk,b7202ebb-805d-4a8f-913b-741e8c2f3bf6,False,1,HotDesk strefa 3,60,03/11/2023 12:00:00

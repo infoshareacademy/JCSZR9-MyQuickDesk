@@ -1,5 +1,6 @@
 ﻿using System;
-
+using MyQuickDesk.BusinessLogic;
+using MyQuickDesk.BussinessLogic;
 public class UserMenu
 {
     public static void Show(string Id, string Login)
@@ -29,6 +30,7 @@ public class UserMenu
                         selectedIndex = options.Length - 1;
                     }
                     break;
+
                 case ConsoleKey.DownArrow:
                     selectedIndex++;
                     if (selectedIndex == options.Length)
@@ -36,6 +38,7 @@ public class UserMenu
                         selectedIndex = 0;
                     }
                     break;
+
                 case ConsoleKey.Enter:
                     if (selectedIndex == options.Length - 1)
                     {
@@ -49,9 +52,11 @@ public class UserMenu
 
                     if (selectedIndex == 0)
                     {
+                        
                         Console.Clear();
-                        FreeRooms(Id);
-                        //dostępne pokoje
+                        RoomsService.DisplayRoomList(RoomReservationService.ReservatedRooms());
+                        Console.ReadLine(); Console.Clear();
+                        //zarezerwowane pokoje
                         break;
 
                     }
@@ -59,7 +64,22 @@ public class UserMenu
                     else if (selectedIndex == 1)
                     {
                         Console.Clear();
-                        //moje rezerwacje 
+                        //moje rezerwacje
+                        for (; ; )
+                        {
+                            Console.Clear();
+                            RoomsService.DisplayRoomList(RoomReservationService.NotReservatedRooms());
+                            Console.WriteLine("\nKtóry pokój chcesz zarezerwować?\nPodaj nr Id pokoju");
+                            int IndexID = int.Parse(Console.ReadLine());
+                            RoomReservationService.MakeNewReservation(IndexID);
+
+                           
+                            Console.WriteLine("\n\n1.Dodaj nową rezerwacje\n2.Wróc do poprzedniego menu");
+                            int i = int.Parse(Console.ReadLine());   Console.Clear();
+                            if (i == 2) break;    
+                            else if (i != 1 && i != 2) Console.WriteLine("Nieprawidłowa opcja");
+
+                        }
                         break;
                     }
                     else if (selectedIndex == 2)
@@ -70,14 +90,27 @@ public class UserMenu
 
                     else if (selectedIndex == 3)
                     {
+
                         Console.Clear();
-                        //usuń rezerwację
+                        RoomsService.DisplayRoomList(RoomReservationService.ReservatedRooms());
+                        Console.WriteLine("\nKtórą zarezerwacje chcesz usunąć?\nPodaj nr Id pokoju");
+                        int IndexID = int.Parse(Console.ReadLine());
+                        RoomReservationService.DeleteNewReservation(IndexID);
+
+                        Console.WriteLine("\n\n1.Usuń kolejną rezerwacje\n2.Wróc do poprzedniego menu");
+                        int i = int.Parse(Console.ReadLine()); Console.Clear();
+                        if (i == 2) break;
+                        else if (i != 1 && i != 2) Console.WriteLine("Nieprawidłowa opcja");
                     }
                     Console.ReadKey();
                     break;
             }
         }
     }
+
+
+
+
 
     ///Metoda którą napisałem do wyświetlania pokoi z pliku
     public static void FreeRooms(string Id)

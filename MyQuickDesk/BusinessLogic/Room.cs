@@ -36,6 +36,9 @@ namespace MyQuickDesk.BussinessLogic
         [Name("Price [PLN]")]
         public decimal Price { get; set; }
 
+        [Name("Reservation Date")]
+        public DateTime ReservationDate { get; set; }
+
 
         public Room() { }
 
