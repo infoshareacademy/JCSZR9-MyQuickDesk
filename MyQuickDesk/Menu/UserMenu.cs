@@ -5,7 +5,7 @@ public class UserMenu
 {
     public static void Show(string Id, string Login)
     {
-        string[] options = { "1. Dostępne pokoje ", "2. Moje rezerwacje ", "3. Modyfikuj rezerwację ", "4. Usuń rezerwacje", "5. Wyloguj" };
+        string[] options = { "1. Zarezerwowane pokoje ", "2. Zarezerwój pokój ", "3. Modyfikuj rezerwację ", "4. Usuń rezerwacje", "5. Wyloguj" };
 
         int selectedIndex = 0;
 
@@ -50,6 +50,7 @@ public class UserMenu
                         return;
                     }
 
+                    //-------------------------------------------------  1. Zarezerwowane pokoje  -----------------------------------------------------
                     if (selectedIndex == 0)
                     {
                         
@@ -61,10 +62,11 @@ public class UserMenu
 
                     }
 
+                    //-------------------------------------------------    2. Zarezerwój pokój    -----------------------------------------------------
                     else if (selectedIndex == 1)
                     {
                         Console.Clear();
-                        //moje rezerwacje
+                        
                         for (; ; )
                         {
                             Console.Clear();
@@ -82,6 +84,7 @@ public class UserMenu
                         }
                         break;
                     }
+                    //------------------------------------------------- 3. Modyfikuj rezerwację -----------------------------------------------------
                     else if (selectedIndex == 2)
                     {
                         for (; ; )
@@ -100,6 +103,7 @@ public class UserMenu
                         }
                         break;
                     }
+                    //-------------------------------------------------   4. Usuń rezerwacje   -----------------------------------------------------
 
                     else if (selectedIndex == 3)
                     {

@@ -84,7 +84,7 @@ namespace MyQuickDesk.BussinessLogic
         }
         static public void DisplayRoomList(List<Room> rooms)
         {
-
+            string InterBoard;
             int i = 1;
 
             string header = string.Format($"{"Room ID",-7} | {"Name",-14} | {"Inter. Board",-12} | {"Max Capacity",-12} | {"Description",-23} | {"Price [PLN]",-11} |\n" +
@@ -93,8 +93,8 @@ namespace MyQuickDesk.BussinessLogic
 
             foreach (var room in rooms)
             {
-
-                string list = string.Format($"{i,-7} | {room.Name,-14} | {room.InteractiveBoard,-12} | {room.Capacity,-12} | {room.Description,-23} | {room.Price,-11} |");
+                if (room.InteractiveBoard == true) { InterBoard = "Na stanie"; } else InterBoard = "Nie posiada";
+                string list = string.Format($"{i,-7} | {room.Name,-14} | {InterBoard,-12} | {room.Capacity,-12} | {room.Description,-23} | {room.Price,-11} |");
                 i++;
                 Console.WriteLine(list); // nie znalazłem sposobu aby nie użyć w tej pętli CW. Natomiast odseparowałem to aby móc w przyszłości użyć tego w inny sposób
             }
