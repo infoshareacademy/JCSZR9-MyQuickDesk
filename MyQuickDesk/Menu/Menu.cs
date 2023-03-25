@@ -66,7 +66,7 @@ public class Menu
                     else if (selectedIndex == 1)
                     {
                         Console.Clear();
-                        Login.Registration();
+                        Login.RegistrationMenu();
                         break;
                     }
                     Console.ReadKey();

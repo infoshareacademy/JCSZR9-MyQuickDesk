@@ -69,10 +69,77 @@ public class Login
         return user;
     }
 
-    public static void Registration()
+    public static void RegistrationMenu()
     {
+        string[] options = { "1. Jestem użytkownikiem - chcę rezerwować biurka / salki. ", "2. Jestem właścicielem - chcę wynająć biurka / salki. ", "3. Powrót do poprzedniego menu. " };
+        int selectedIndex = 0;
+        Console.CursorVisible = false;
 
-        while(true)
+        while (true)
+        {
+
+            Console.Clear();
+            Styles.MainLogo();
+            Console.SetCursorPosition(0, 15);
+
+            Menu.MoveMain(options, selectedIndex);
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    selectedIndex--;
+                    if (selectedIndex < 0)
+                    {
+                        selectedIndex = options.Length - 1;
+                    }
+                    break;
+                case ConsoleKey.DownArrow:
+                    selectedIndex++;
+                    if (selectedIndex == options.Length)
+                    {
+                        selectedIndex = 0;
+                    }
+                    break;
+                case ConsoleKey.Enter:
+                    if (selectedIndex == options.Length - 1)
+                    {
+                        Console.Clear();
+                        Styles.MainLogo();
+                        Console.SetCursorPosition(0, 15);
+                        return;
+                    }
+
+                    if (selectedIndex == 0)
+                    {
+                        Console.Clear();
+                        string userType = "user";
+
+                        Registration(userType);
+                        break;
+
+                    }
+
+                    else if (selectedIndex == 1)
+                    {
+                        Console.Clear();
+                        string userType = "owner";
+                        Registration(userType);
+
+                        break;
+                    }
+
+                    Console.ReadKey();
+                    break;
+            }
+
+        }
+    }
+
+    public static void Registration(string userType)
+    {
+        while (true)
         {
             Styles.MainLogo();
             Console.SetCursorPosition(0, 15);
@@ -107,46 +174,12 @@ public class Login
 
                     if (newPassword == checkNewPassword)
                     {
-                        while (true)
-                        {
-                            Console.WriteLine("\n");
-                            Styles.Cyan("Jakie konto chcesz utworzyć?\n");
-                            Styles.Yellow("Jeśli jesteś właścicielem biurek/salek wybierz 1 i naciśnij enter.\n");
-                            Styles.Yellow("Jeśli jesteś osobą która chce wynająć biurko albo pomieszczenie wybierz 2 i naciśnij enter.\n");
-
-                            string userAnswer = Console.ReadLine();
-
-                            if (int.TryParse(userAnswer, out int answer))
-                            {
-
-                                if (answer == 1 || answer == 2)
-                                {
-                                    if (answer == 1)
-                                    {
-                                        string userType = "owner";
-                                        AddUser(newLogin, newPassword, userType);
-                                        Styles.Cyan("Użytkownik został zarejestrowany.");
-                                        Thread.Sleep(1500);
-                                        return;
-
-                                    }
-                                    else
-                                    {
-                                        string userType = "user";
-                                        AddUser(newLogin, newPassword, userType);
-                                        Styles.Cyan("Użytkownik został zarejestrowany.");
-                                        Thread.Sleep(1500);
-                                        return;
-                                    }
-                                }
-
-                            }
-
-                            Styles.Red("Musisz wybrać 1 lub 2");
-                            Console.ReadKey();
-                        }
-
+                        AddUser(newLogin, newPassword, userType);
+                        Styles.Cyan("Użytkownik został zarejestrowany.");
+                        Thread.Sleep(1500);
+                        return;
                     }
+
                     else
                     {
                         Styles.Red("Hasła nie są takie same!\n");
@@ -158,7 +191,7 @@ public class Login
             Console.Clear();
 
         }
-        
+
     }
 
     static bool CheckLoginExists(string login)

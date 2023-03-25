@@ -1,3 +1,6 @@
 Id,Login,Password,Type
 b7202ebb-805d-4a8f-913b-741e8c2f3bf6,owner,,owner
 989105b6-ef05-4e99-a1d0-fcc35604db06,user,,user
+a0f44e0d-fa83-48b8-bd85-2d305ed66eda,user1,Asdfghjkl;1,user
+9625e96e-3e6f-4580-a6ac-4596d78e41a5,user2,Asdfghjkl;1,user
+5edc1a15-0f85-4767-9226-64ad44969834,owner1,Asdfghjkl;1,owner
