@@ -53,6 +53,7 @@ namespace MyQuickDesk.BusinessLogic
             var RoomList = RoomsService.ReadRoomList();
             DateTime NewDate;
             string CompareId;
+            var selectedRooms = NotReservatedRooms();
 
             int i = 1;
             foreach (var room in selectedRooms)
