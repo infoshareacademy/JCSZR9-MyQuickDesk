@@ -5,6 +5,8 @@ namespace MyQuickDesk.Controllers
 {
     public class RoomController : Controller
     {
+
+        private readonly RoomController 
         // GET: RoomController
         public ActionResult Index()
         {
