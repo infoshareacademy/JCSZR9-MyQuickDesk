@@ -1,16 +1,22 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyQuickDesk.Services;
 
 namespace MyQuickDesk.Controllers
 {
     public class RoomController : Controller
     {
-
-        private readonly RoomController 
+        private readonly RoomService _roomService;
+        
+        private RoomController()
+        {
+            _roomService = new RoomService();
+        }
         // GET: RoomController
         public ActionResult Index()
         {
-            return View();
+            var model = _roomService.GetAll();
+            return View(model);
         }
 
         // GET: RoomController/Details/5
