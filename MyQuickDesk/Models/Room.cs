@@ -8,6 +8,6 @@
         public int OwnerId { get; set; }
         public bool InteractiveBoard { get; set; }
         public int MaxCapacity { get; set; }
-        public int price { get; set; }
+        public int Price { get; set; }
     }
 }

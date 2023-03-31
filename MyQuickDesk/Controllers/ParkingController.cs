@@ -1,32 +1,39 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyQuickDesk.Services;
+using MyQuickDesk.Models;
 
 namespace MyQuickDesk.Controllers
 {
-    public class RoomController : Controller
+    public class ParkingController : Controller
     {
+        private readonly ParkingService _parkingService;
 
- 
-
-        // GET: RoomController
-        public ActionResult Index()
+        public ParkingController()
         {
-            return View();
+            _parkingService= new ParkingService(); 
         }
 
-        // GET: RoomController/Details/5
+        // GET: ParkingController
+        public ActionResult Index()
+        {
+            var model = _parkingService.GetAll();
+            return View(model);
+        }
+
+        // GET: ParkingController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: RoomController/Create
+        // GET: ParkingController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: RoomController/Create
+        // POST: ParkingController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -41,13 +48,13 @@ namespace MyQuickDesk.Controllers
             }
         }
 
-        // GET: RoomController/Edit/5
+        // GET: ParkingController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: RoomController/Edit/5
+        // POST: ParkingController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -62,13 +69,13 @@ namespace MyQuickDesk.Controllers
             }
         }
 
-        // GET: RoomController/Delete/5
+        // GET: ParkingController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: RoomController/Delete/5
+        // POST: ParkingController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
