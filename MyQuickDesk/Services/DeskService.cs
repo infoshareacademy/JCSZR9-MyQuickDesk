@@ -15,7 +15,7 @@ namespace MyQuickDesk.Services
                 OwnerId = 123,
                 InteractiveBoard = true,
                 Capacity = 5,
-                Description ="Sala konferencyjna",
+                Description ="Biurko 1",
                 Price = 100,
                 ReservationDate = DateTime.Now,
 
