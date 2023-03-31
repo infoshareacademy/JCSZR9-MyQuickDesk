@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Services;
+using MyQuickDesk.Models;
 
 namespace MyQuickDesk.Controllers
 {
@@ -8,7 +9,7 @@ namespace MyQuickDesk.Controllers
     {
         private readonly RoomService _roomService;
         
-        private RoomController()
+        public RoomController()
         {
             _roomService = new RoomService();
         }
@@ -22,7 +23,9 @@ namespace MyQuickDesk.Controllers
         // GET: RoomController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+
+            var model = _roomService.GetById(id);
+            return View(model);
         }
 
         // GET: RoomController/Create
@@ -34,10 +37,11 @@ namespace MyQuickDesk.Controllers
         // POST: RoomController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create( Room model )
         {
             try
             {
+                _roomService.Create(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -49,16 +53,18 @@ namespace MyQuickDesk.Controllers
         // GET: RoomController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = _roomService.GetById(id);
+            return View(model);
         }
 
         // POST: RoomController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Room model)
         {
             try
             {
+                _roomService.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -70,16 +76,18 @@ namespace MyQuickDesk.Controllers
         // GET: RoomController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var model = _roomService.GetById(id);
+            return View(model);
         }
 
         // POST: RoomController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Room model)
         {
             try
             {
+                 _roomService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

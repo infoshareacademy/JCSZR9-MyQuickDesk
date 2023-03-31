@@ -48,12 +48,9 @@
                 @item.Name
             </td>
             <td>
-               item.Description
+               @item.Description
             </td>
             
-            <td>
-                @item.InteractiveBoard
-            </td>
             <td>
                 @item.MaxCapacity
             </td>
@@ -61,15 +58,15 @@
                 @item.Price
             </td>
             <td>
-                @item.StartDate.ToString("yyyy-MM-dd")
+                @item.StartDate.ToString("yyyy-MM-dd hh-mm")
             </td>
             <td>
-                @item.EndDate.ToString("yyyy-MM-dd")
+                @item.EndDate.ToString("yyyy-MM-dd hh-mm")
             </td>
             <td>
                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-               <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

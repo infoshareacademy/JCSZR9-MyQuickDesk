@@ -5,7 +5,7 @@ namespace MyQuickDesk.Services
 
     public class RoomService
     {
-        private static int _idcounter = 3;
+        private static int _idCounter = 3;
         private static List<Room> _rooms =
             new List<Room>
             {
@@ -50,11 +50,34 @@ namespace MyQuickDesk.Services
         {
             return _rooms;
         }
-        //private int GetNextId()
-        //{
-        //    _idCounter++;
+        public Room GetById(int id)
+        {
+            return _rooms.FirstOrDefault(r => r.Id == id);
+        }
 
-        //    return _idCounter;
-        //}
+        public void Create(Room room)
+        {
+            room.Id = GetNextId();
+            _rooms.Add(room);
+        }
+        public void Update(Room model)
+        {
+            var room = GetById(model.Id);
+            room.Name = model.Name;
+            room.Description = model.Description; 
+            room.Price = model.Price;
+            room.EndDate = model.EndDate;
+            room.StartDate = model.StartDate;
+
+        }
+        public void Delete(int id)
+        {
+            _rooms.Remove(GetById(id));
+        }
+        private int GetNextId()
+        {
+            _idCounter++;
+             return _idCounter;
+        }
     }
 }
