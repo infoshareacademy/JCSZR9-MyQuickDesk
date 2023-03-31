@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MyQuickDesk.Models.Desk>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="First().Name"></label>
+            </th>
+            <th>
+                <label asp-for="First().OwnerId"></label>
+            </th>
+            <th>
+                <label asp-for="First().InteractiveBoard"></label>
+            </th>
+            <th>
+                <label asp-for="First().Capacity"></label>
+            </th>
+            <th>
+                <label asp-for="First().Description"></label>
+            </th>
+            <th>
+                <label asp-for="First().Price"></label>
+            </th>
+            <th>
+                <label asp-for="First().ReservationDate"></label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.OwnerId
+            </td>
+            <td>
+                @item.InteractiveBoard
+            </td>
+            <td>
+                @item.Capacity
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @item.ReservationDate
+            </td>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
