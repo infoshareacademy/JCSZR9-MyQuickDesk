@@ -13,12 +13,9 @@ namespace MyQuickDesk.Services
                 Id = 1,
                 Name = "Adrian",
                 OwnerId = 123,
-                InteractiveBoard = true,
-                Capacity = 5,
                 Description ="Biurko 1",
                 Price = 100,
                 ReservationDate = DateTime.Now,
-
             }
         };
         public List<Desk> GetAll()
@@ -41,8 +38,6 @@ namespace MyQuickDesk.Services
 
             desk.Name = model.Name;
             desk.OwnerId = model.OwnerId;
-            desk.InteractiveBoard = model.InteractiveBoard;
-            desk.Capacity = model.Capacity;
             desk.Description = model.Description;
             desk.Price = model.Price;
             desk.ReservationDate = model.ReservationDate;
