@@ -17,14 +17,15 @@ namespace MyQuickDesk.Controllers
         // GET: ParkingController
         public ActionResult Index()
         {
-            var model = _parkingService.GetAll();
+            var model = _parkingService.GetAllAvaible();
             return View(model);
         }
 
         // GET: ParkingController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = _parkingService.GetById(id);
+            return View(model);
         }
 
         // GET: ParkingController/Create

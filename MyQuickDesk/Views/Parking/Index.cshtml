@@ -22,6 +22,12 @@
                 <label asp-for="First().IsAvaible"></label>
             </th>
             <th>
+                <label asp-for="First().AccesibleParkingSpot"></label>
+            </th>
+            <th>
+                <label asp-for="First().Charger"></label>
+            </th>
+            <th>
                 <label asp-for="First().StartDate"></label>
             </th>
             <th>
@@ -43,6 +49,12 @@
                 @item.IsAvaible
             </td>
             <td>
+               @item.AccesibleParkingSpot
+            </td>
+            <td>
+               @item.Charger
+            </td>
+            <td>
                 @item.StartDate
             </td>
             <td>
@@ -50,8 +62,6 @@
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
