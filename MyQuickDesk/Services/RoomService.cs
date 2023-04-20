@@ -16,30 +16,27 @@ namespace MyQuickDesk.Services
                 Description="Duza sala konferencyjna",
                 InteractiveBoard = true,
                 MaxCapacity = 50,
-                Price= 400,
                 StartDate= DateTime.Now,
                 EndDate= DateTime.Now,
 
                 },
                   new Room
                 {
-                Id = 1,
+                Id = 2,
                 Name = "Sala konferencyjna 2",
                 Description="Mala sala konferencyjna",
                 InteractiveBoard = true,
                 MaxCapacity = 10,
-                Price= 50,
                 StartDate= DateTime.Now,
                 EndDate= DateTime.Now,
 
                 },  new Room
                 {
-                Id = 1,
+                Id = 3,
                 Name = "Sala konferencyjna 3",
                 Description="Srednia sala konferencyjna",
                 InteractiveBoard = true,
-                MaxCapacity = 20,
-                Price= 200,
+                MaxCapacity = 20,    
                 StartDate= DateTime.Now,
                 EndDate= DateTime.Now,
 
@@ -65,7 +62,6 @@ namespace MyQuickDesk.Services
             var room = GetById(model.Id);
             room.Name = model.Name;
             room.Description = model.Description; 
-            room.Price = model.Price;
             room.EndDate = model.EndDate;
             room.StartDate = model.StartDate;
 
