@@ -1,10 +1,12 @@
 ﻿@model IEnumerable<MyQuickDesk.Models.Room>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Conference Room";
 }
 
-<h1>Index</h1>
+
+
+<h1>Conferencial Room</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -27,10 +29,6 @@
             <th>
             <label asp-for="First().MaxCapacity"></label>
             </th>
-
-            <th>
-                <label asp-for="First().Price"></label>
-            </th>
             <th>
                 <label asp-for="First().StartDate"></label>
             </th>
@@ -50,12 +48,20 @@
             <td>
                @item.Description
             </td>
+            <td>
+               @if (item.InteractiveBoard)
+               {
+                   <text>yes</text>
+               }
+               else
+               {
+                   <text>no</text>
+               }
+            </td>
             
             <td>
                 @item.MaxCapacity
-            </td>
-            <td>
-                @item.Price
+               
             </td>
             <td>
                 @item.StartDate.ToString("yyyy-MM-dd hh-mm")
