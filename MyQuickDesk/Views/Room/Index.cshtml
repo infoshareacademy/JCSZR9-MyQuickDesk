@@ -4,6 +4,8 @@
     ViewData["Title"] = "Conference Room";
 }
 
+
+
 <h1>Conferencial Room</h1>
 
 <p>
@@ -46,9 +48,20 @@
             <td>
                @item.Description
             </td>
+            <td>
+               @if (item.InteractiveBoard)
+               {
+                   <text>yes</text>
+               }
+               else
+               {
+                   <text>no</text>
+               }
+            </td>
             
             <td>
                 @item.MaxCapacity
+               
             </td>
             <td>
                 @item.StartDate.ToString("yyyy-MM-dd hh-mm")

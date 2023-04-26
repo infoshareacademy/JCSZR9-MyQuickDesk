@@ -6,7 +6,7 @@ namespace MyQuickDesk.Services
     public class RoomService
     {
         private static int _idCounter = 3;
-        private static List<Room> _rooms =
+        private readonly static List<Room> _rooms =
             new List<Room>
             {
                 new Room
@@ -61,6 +61,8 @@ namespace MyQuickDesk.Services
         {
             var room = GetById(model.Id);
             room.Name = model.Name;
+            room.InteractiveBoard = model.InteractiveBoard;
+            room.MaxCapacity = model.MaxCapacity;
             room.Description = model.Description; 
             room.EndDate = model.EndDate;
             room.StartDate = model.StartDate;

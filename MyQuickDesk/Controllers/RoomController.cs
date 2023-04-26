@@ -16,6 +16,16 @@ namespace MyQuickDesk.Controllers
         // GET: RoomController
         public ActionResult Index()
         {
+            bool ConditionInteractiveBoard = true;
+
+            if (ConditionInteractiveBoard)
+            {
+                ViewBag.ConditionInteractiveBoard = "yes";
+            }
+            else
+            {
+                ViewBag.ConditionInteractiveBoard = "no";
+            }
             var model = _roomService.GetAll();
             return View(model);
         }
