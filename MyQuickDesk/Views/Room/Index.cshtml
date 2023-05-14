@@ -29,12 +29,6 @@
             <th>
             <label asp-for="First().MaxCapacity"></label>
             </th>
-            <th>
-                <label asp-for="First().StartDate"></label>
-            </th>
-            <th>
-                <label asp-for="First().EndDate"></label>
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -63,12 +57,7 @@
                 @item.MaxCapacity
                
             </td>
-            <td>
-                @item.StartDate.ToString("yyyy-MM-dd hh-mm")
-            </td>
-            <td>
-                @item.EndDate.ToString("yyyy-MM-dd hh-mm")
-            </td>
+            
             <td>
                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
