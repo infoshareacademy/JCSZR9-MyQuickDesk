@@ -12,14 +12,13 @@ namespace MyQuickDesk.Services
                 {
                     Id = 1,
                     OwnerId= 2,
-                    ReservationId= 4,
                     Description ="First flour",
                     Name= "A",
-                    AccesibleParkingSpot = false,
+                    HandicappedSpot = false,
                     Charger = false,
                     IsAvaible = true,
-                    StartDate = DateTime.Now,
-                    EndDate = DateTime.Now.AddDays(1),
+                   
+                    
                 }
             };
 

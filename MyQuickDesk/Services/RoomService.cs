@@ -16,10 +16,7 @@ namespace MyQuickDesk.Services
                 Description="Duza sala konferencyjna",
                 InteractiveBoard = true,
                 MaxCapacity = 50,
-                StartDate= DateTime.Now,
-                EndDate= DateTime.Now,
-                ReservationId=0,
-
+               
                 },
                   new Room
                 {
@@ -28,9 +25,7 @@ namespace MyQuickDesk.Services
                 Description="Mala sala konferencyjna",
                 InteractiveBoard = true,
                 MaxCapacity = 10,
-                StartDate= DateTime.Now,
-                EndDate= DateTime.Now,
-                ReservationId=22,
+                
 
                 },  new Room
                 {
@@ -39,9 +34,7 @@ namespace MyQuickDesk.Services
                 Description="Srednia sala konferencyjna",
                 InteractiveBoard = true,
                 MaxCapacity = 20,    
-                StartDate= DateTime.Now,
-                EndDate= DateTime.Now,
-                ReservationId=26,
+                
 
 
                 },
@@ -68,9 +61,7 @@ namespace MyQuickDesk.Services
             room.InteractiveBoard = model.InteractiveBoard;
             room.MaxCapacity = model.MaxCapacity;
             room.Description = model.Description; 
-            room.EndDate = model.EndDate;
-            room.StartDate = model.StartDate;
-            room.ReservationId= model.ReservationId;
+           
 
         }
         public void Delete(int id)

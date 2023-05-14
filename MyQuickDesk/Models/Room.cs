@@ -6,7 +6,6 @@ namespace MyQuickDesk.Models
 {
     public class Room:Space
     {
-        public int ReservationId { get; set; }
 
         [Display(Name = "Interactive Board")]
 
