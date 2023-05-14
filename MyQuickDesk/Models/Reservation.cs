@@ -1,7 +1,6 @@
 ﻿namespace MyQuickDesk.Models
 {
-    public class Desk:Space
+    public class Reservation
     {
-        //equipment
     }
 }
