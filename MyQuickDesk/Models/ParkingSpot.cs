@@ -1,6 +1,6 @@
 ﻿namespace MyQuickDesk.Models
 {
-    public class ParkingSpot:ReservationItem
+    public class ParkingSpot:Space
     {
         public int ReservationId { get; set; }
         public bool AccesibleParkingSpot { get; set; }

@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace MyQuickDesk.Models
 {
-    public class Room:ReservationItem
+    public class Room:Space
     {
         public int ReservationId { get; set; }
 

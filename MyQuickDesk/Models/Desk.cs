@@ -1,6 +1,6 @@
 ﻿namespace MyQuickDesk.Models
 {
-    public class Desk:ReservationItem
+    public class Desk:Space
     {
         public int ReservationId { get; set; }
     }
