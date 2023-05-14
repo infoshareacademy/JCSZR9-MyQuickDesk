@@ -2,7 +2,7 @@
 
 namespace MyQuickDesk.Models
 {
-    public abstract class ReservationItem
+    public abstract class Space
     {
         public int Id { get; set; }
         public string Name { get; set; }
