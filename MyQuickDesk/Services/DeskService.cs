@@ -14,8 +14,9 @@ namespace MyQuickDesk.Services
                 Name = "Adrian",
                 OwnerId = 123,
                 Description ="Biurko 1",
-                Price = 100,
-                ReservationDate = DateTime.Now,
+                StartDate= DateTime.Now,
+                EndDate = DateTime.Now,
+                ReservationId= 3,
             }
         };
         public List<Desk> GetAll()
@@ -39,8 +40,9 @@ namespace MyQuickDesk.Services
             desk.Name = model.Name;
             desk.OwnerId = model.OwnerId;
             desk.Description = model.Description;
-            desk.Price = model.Price;
-            desk.ReservationDate = model.ReservationDate;
+            desk.StartDate = model.StartDate;
+            desk.EndDate = model.EndDate;
+            desk.ReservationId = model.ReservationId;
         }
 
         public void Delete(int id)

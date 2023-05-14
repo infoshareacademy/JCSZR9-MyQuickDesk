@@ -10,23 +10,12 @@
     <h4>Desk</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            <label asp-for="Id"></label>
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.Id
-        </dd>
+       
         <dt class = "col-sm-2">
             <label asp-for="Name"></label>
         </dt>
         <dd class = "col-sm-10">
             @Model.Name
-        </dd>
-        <dt class = "col-sm-2">
-            <label asp-for="OwnerId"></label>
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.OwnerId
         </dd>
         <dt class = "col-sm-2">
             <label asp-for="Description"></label>
@@ -35,16 +24,16 @@
             @Model.Description
         </dd>
         <dt class = "col-sm-2">
-            <label asp-for="Price"></label>
+            <label asp-for="StartDate"></label>
         </dt>
         <dd class = "col-sm-10">
-            @Model.Price
+            @Model.StartDate
         </dd>
-        <dt class = "col-sm-2">
-            <label asp-for="ReservationDate"></label>
+        <dt class="col-sm-2">
+            <label asp-for="EndDate"></label>
         </dt>
-        <dd class = "col-sm-10">
-            @Model.ReservationDate
+        <dd class="col-sm-10">
+            @Model.EndDate
         </dd>
     </dl>
 </div>

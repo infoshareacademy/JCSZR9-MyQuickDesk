@@ -18,29 +18,20 @@
             @Model.Name
         </dd>
         <dt class = "col-sm-2">
-            <label asp-for="OwnerId"></label>
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.OwnerId
-        </dd>
-        <dt class = "col-sm-2">
             <label asp-for="Description"></label>
         </dt>
         <dd class = "col-sm-10">
             @Model.Description
         </dd>
-        <dt class = "col-sm-2">
-            <label asp-for="Price"></label>
+        <dt class="col-sm-2">
+            <label asp-for="StartDate"></label>
         </dt>
-        <dd class = "col-sm-10">
-            @Model.Price
+        <dd class="col-sm-10">
+            @Model.StartDate
         </dd>
-        <dt class = "col-sm-2">
-            <label asp-for="ReservationDate"></label>
+        <dt class="col-sm-2">
+            <label asp-for="EndDate"></label>
         </dt>
-        <dd class = "col-sm-10">
-            @Model.ReservationDate
-        </dd>
     </dl>
     
     <form asp-action="Delete">

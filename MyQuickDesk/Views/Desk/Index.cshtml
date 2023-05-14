@@ -16,16 +16,13 @@
                 <label asp-for="First().Name"></label>
             </th>
             <th>
-                <label asp-for="First().OwnerId"></label>
-            </th>
-            <th>
                 <label asp-for="First().Description"></label>
             </th>
             <th>
-                <label asp-for="First().Price"></label>
+                <label asp-for="First().StartDate"></label>
             </th>
             <th>
-                <label asp-for="First().ReservationDate"></label>
+                <label asp-for="First().EndDate"></label>
             </th>
             <th></th>
         </tr>
@@ -37,16 +34,13 @@
                 @item.Name
             </td>
             <td>
-                @item.OwnerId
-            </td>
-            <td>
                 @item.Description
             </td>
             <td>
-                @item.Price
+               @item.StartDate.ToString("yyyy-MM-dd hh-mm")
             </td>
             <td>
-                @item.ReservationDate
+               @item.EndDate.ToString("yyyy-MM-dd hh-mm")
             </td>
             <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a>
