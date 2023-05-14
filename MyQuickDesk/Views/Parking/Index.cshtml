@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MyQuickDesk.Models.ParkingSpot>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="First().PlaceNumber"></label>
+            </th>
+            <th>
+                <label asp-for="First().FloorName"></label>
+            </th>
+            <th>
+                <label asp-for="First().IsAvaible"></label>
+            </th>
+            <th>
+                <label asp-for="First().AccesibleParkingSpot"></label>
+            </th>
+            <th>
+                <label asp-for="First().Charger"></label>
+            </th>
+            <th>
+                <label asp-for="First().StartDate"></label>
+            </th>
+            <th>
+                <label asp-for="First().EndDate"></label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.PlaceNumber
+            </td>
+            <td>
+                @item.FloorName
+            </td>
+            <td>
+                @item.IsAvaible
+            </td>
+            <td>
+               @item.AccesibleParkingSpot
+            </td>
+            <td>
+               @item.Charger
+            </td>
+            <td>
+                @item.StartDate
+            </td>
+            <td>
+                @item.EndDate
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
