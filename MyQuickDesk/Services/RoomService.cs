@@ -18,6 +18,7 @@ namespace MyQuickDesk.Services
                 MaxCapacity = 50,
                 StartDate= DateTime.Now,
                 EndDate= DateTime.Now,
+                ReservationId=0,
 
                 },
                   new Room
@@ -29,6 +30,7 @@ namespace MyQuickDesk.Services
                 MaxCapacity = 10,
                 StartDate= DateTime.Now,
                 EndDate= DateTime.Now,
+                ReservationId=22,
 
                 },  new Room
                 {
@@ -39,6 +41,8 @@ namespace MyQuickDesk.Services
                 MaxCapacity = 20,    
                 StartDate= DateTime.Now,
                 EndDate= DateTime.Now,
+                ReservationId=26,
+
 
                 },
 
@@ -66,6 +70,7 @@ namespace MyQuickDesk.Services
             room.Description = model.Description; 
             room.EndDate = model.EndDate;
             room.StartDate = model.StartDate;
+            room.ReservationId= model.ReservationId;
 
         }
         public void Delete(int id)

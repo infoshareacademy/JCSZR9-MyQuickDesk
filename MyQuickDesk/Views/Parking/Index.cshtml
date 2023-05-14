@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Parking Spot</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                <label asp-for="First().PlaceNumber"></label>
+                <label asp-for="First().Name"></label>
             </th>
             <th>
-                <label asp-for="First().FloorName"></label>
+                <label asp-for="First().Description"></label>
             </th>
             <th>
                 <label asp-for="First().IsAvaible"></label>
@@ -40,10 +40,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @item.PlaceNumber
+                @item.Name
             </td>
             <td>
-                @item.FloorName
+                @item.Description
             </td>
             <td>
                 @item.IsAvaible
@@ -55,10 +55,10 @@
                @item.Charger
             </td>
             <td>
-                @item.StartDate
+                    @item.StartDate.ToString("yyyy-MM-dd hh-mm")
             </td>
             <td>
-                @item.EndDate
+                    @item.EndDate.ToString("yyyy-MM-dd hh-mm")
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a>

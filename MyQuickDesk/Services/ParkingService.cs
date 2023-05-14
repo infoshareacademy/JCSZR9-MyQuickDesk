@@ -11,8 +11,10 @@ namespace MyQuickDesk.Services
                 new ParkingSpot
                 {
                     Id = 1,
-                    FloorName = 'A',
-                    PlaceNumber = 1,
+                    OwnerId= 2,
+                    ReservationId= 4,
+                    Description ="First flour",
+                    Name= "A",
                     AccesibleParkingSpot = false,
                     Charger = false,
                     IsAvaible = true,
