@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MyQuickDesk.DatabaseContext;
+
 namespace MyQuickDesk
 {
     public class Program
@@ -5,6 +8,11 @@ namespace MyQuickDesk
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<MyQuickDeskContext>
+                (
+                    option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyQuickDeskConnectionString"))
+                );
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

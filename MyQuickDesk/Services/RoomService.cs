@@ -1,4 +1,5 @@
-﻿using MyQuickDesk.Models;
+﻿using MyQuickDesk.Entities;
+
 namespace MyQuickDesk.Services
 
 {
@@ -14,7 +15,6 @@ namespace MyQuickDesk.Services
                 Id = 1,
                 Name = "Sala konferencyjna 1",
                 Description="Duza sala konferencyjna",
-                InteractiveBoard = true,
                 MaxCapacity = 50,
                
                 },
@@ -23,7 +23,6 @@ namespace MyQuickDesk.Services
                 Id = 2,
                 Name = "Sala konferencyjna 2",
                 Description="Mala sala konferencyjna",
-                InteractiveBoard = true,
                 MaxCapacity = 10,
                 
 
@@ -32,7 +31,6 @@ namespace MyQuickDesk.Services
                 Id = 3,
                 Name = "Sala konferencyjna 3",
                 Description="Srednia sala konferencyjna",
-                InteractiveBoard = true,
                 MaxCapacity = 20,    
                 
 
@@ -58,7 +56,6 @@ namespace MyQuickDesk.Services
         {
             var room = GetById(model.Id);
             room.Name = model.Name;
-            room.InteractiveBoard = model.InteractiveBoard;
             room.MaxCapacity = model.MaxCapacity;
             room.Description = model.Description; 
            
