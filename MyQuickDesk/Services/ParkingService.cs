@@ -1,5 +1,4 @@
-﻿using MyQuickDesk.Models;
-
+﻿using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
 {
@@ -11,7 +10,6 @@ namespace MyQuickDesk.Services
                 new ParkingSpot
                 {
                     Id = 1,
-                    OwnerId= 2,
                     Description ="First flour",
                     Name= "A",
                     HandicappedSpot = false,

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Services;
-using MyQuickDesk.Models;
+using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Controllers
 {

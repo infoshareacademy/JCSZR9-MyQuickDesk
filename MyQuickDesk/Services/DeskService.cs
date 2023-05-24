@@ -1,4 +1,4 @@
-﻿using MyQuickDesk.Models;
+﻿using MyQuickDesk.Entities;
 using System.Data;
 
 namespace MyQuickDesk.Services
@@ -12,7 +12,7 @@ namespace MyQuickDesk.Services
             {
                 
                 Name = "Adrian",
-                OwnerId = 123,
+                Id = 123,
                 Description ="Biurko 1",
                 
             }
@@ -36,7 +36,7 @@ namespace MyQuickDesk.Services
             var desk = GetById(model.Id);
 
             desk.Name = model.Name;
-            desk.OwnerId = model.OwnerId;
+            //desk.OwnerId = model.OwnerId;
             desk.Description = model.Description;
             
         }
