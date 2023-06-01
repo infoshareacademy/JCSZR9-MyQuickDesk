@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
+using MyQuickDesk.Services;
 
 namespace MyQuickDesk
 {
@@ -14,8 +17,15 @@ namespace MyQuickDesk
                     option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyQuickDeskConnectionString"))
                 );
 
+            builder.Services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<MyQuickDeskContext>();
+
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<DeskService>();
+            builder.Services.AddScoped<IUserContext, UserContext>();
 
             var app = builder.Build();
 
@@ -37,6 +47,8 @@ namespace MyQuickDesk
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapRazorPages();
 
             app.Run();
         }

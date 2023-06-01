@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.DatabaseContext
 {
-    public class MyQuickDeskContext : DbContext
+    public class MyQuickDeskContext : IdentityDbContext
     {
         public MyQuickDeskContext(DbContextOptions<MyQuickDeskContext> options) : base(options) { }
 
@@ -20,6 +21,7 @@ namespace MyQuickDesk.DatabaseContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             
             modelBuilder.Entity<Reservation>( mb =>
             {

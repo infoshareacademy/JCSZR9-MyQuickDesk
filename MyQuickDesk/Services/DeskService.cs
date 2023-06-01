@@ -1,56 +1,47 @@
 ﻿using MyQuickDesk.Entities;
-using System.Data;
+using MyQuickDesk.DatabaseContext;
 
 namespace MyQuickDesk.Services
 {
     public class DeskService
     {
-        private static int _idCounter = 5;
-        private static List<Desk> _desks = new List<Desk>
+        private readonly MyQuickDeskContext _dbContext;
+
+        public DeskService(MyQuickDeskContext dbContext)
         {
-            new Desk()
-            {
-                
-                Name = "Adrian",
-                Id = 123,
-                Description ="Biurko 1",
-                
-            }
-        };
+            _dbContext = dbContext;
+        }
+
         public List<Desk> GetAll()
         {
-            return _desks;
+            return _dbContext.Desks.ToList();
         }
+
         public Desk GetById(int id)
         {
-            return _desks.FirstOrDefault(m => m.Id == id);
+            return _dbContext.Desks.FirstOrDefault(d => d.Id == id);
         }
+
         public void Create(Desk desk)
         {
-            desk.Id = GetNextId();
-            _desks.Add(desk);
+            _dbContext.Desks.Add(desk);
+            _dbContext.SaveChanges();
         }
 
-        public void Update(Desk model)
+        public void Update(Desk desk)
         {
-            var desk = GetById(model.Id);
-
-            desk.Name = model.Name;
-            //desk.OwnerId = model.OwnerId;
-            desk.Description = model.Description;
-            
+            _dbContext.Desks.Update(desk);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            _desks.Remove(GetById(id));
-
-        }
-
-        private int GetNextId()
-        {
-            _idCounter++;
-            return _idCounter;
+            var desk = _dbContext.Desks.FirstOrDefault(d => d.Id == id);
+            if (desk != null)
+            {
+                _dbContext.Desks.Remove(desk);
+                _dbContext.SaveChanges();
+            }
         }
     }
 }

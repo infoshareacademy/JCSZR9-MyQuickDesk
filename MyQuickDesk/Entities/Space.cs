@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyQuickDesk.Entities
 {
@@ -10,14 +11,17 @@ namespace MyQuickDesk.Entities
         //[Display(Name = "User_Id")]
         //public int UserId { get; set; }
 
-        [StringLength(200)]
-        [Required(ErrorMessage = "Please provide description.")]
+        //[StringLength(200)]
+        //[Required(ErrorMessage = "Please provide description.")]
 
         public bool IsAvaible { get; set; }
 
         public string? Description { get; set; }
 
         public ICollection<Reservation> Reservations { get; set;} = new List<Reservation>();
+
+        public string? CreatedById { get; set; }
+        public IdentityUser? CreatedBy { get; set; }
 
     }
 }

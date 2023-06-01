@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
@@ -8,10 +9,12 @@ namespace MyQuickDesk.Controllers
     public class DeskController : Controller
     {
         private readonly DeskService _deskService;
-        public DeskController()
+
+        public DeskController(DeskService deskService)
         {
-            _deskService = new DeskService();
+            _deskService = deskService;
         }
+
         // GET: DeskController
         public ActionResult Index()
         {
@@ -27,6 +30,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -34,6 +38,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Create
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Desk model)
         {
