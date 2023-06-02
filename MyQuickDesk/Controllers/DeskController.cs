@@ -30,7 +30,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Create
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -38,7 +38,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Create
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Desk model)
         {

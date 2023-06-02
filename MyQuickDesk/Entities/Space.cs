@@ -14,7 +14,7 @@ namespace MyQuickDesk.Entities
         //[StringLength(200)]
         //[Required(ErrorMessage = "Please provide description.")]
 
-        public bool IsAvaible { get; set; }
+        public bool IsAvaible { get; set; } = true;
 
         public string? Description { get; set; }
 

@@ -12,9 +12,6 @@ namespace MyQuickDesk.Entities
         public bool Owner { get; set; }
         public string Email { get; set; } = string.Empty!;
 
-        public string? CreatedById { get; set; }
-        public IdentityUser? CreatedBy { get; set; }
-
         public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 

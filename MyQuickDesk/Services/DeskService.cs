@@ -1,6 +1,7 @@
 ﻿using MyQuickDesk.Entities;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.ApplicationUser;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MyQuickDesk.Services
 {
@@ -28,8 +29,14 @@ namespace MyQuickDesk.Services
         public void Create(Desk desk)
         {
 
+            var currentUser = _userContext.GetCurrentUser();
+            if (currentUser == null || !currentUser.IsAdmin("Admin"))
+            {
+                return;
+            }
+
             _dbContext.Desks.Add(desk);
-            desk.CreatedById = _userContext.GetCurrentUser().Id;
+            desk.CreatedById = currentUser.Id;
             _dbContext.SaveChanges();
         }
 

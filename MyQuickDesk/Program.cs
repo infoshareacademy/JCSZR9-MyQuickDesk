@@ -18,6 +18,7 @@ namespace MyQuickDesk
                 );
 
             builder.Services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<MyQuickDeskContext>();
 
 
