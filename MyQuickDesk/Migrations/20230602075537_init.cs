@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MyQuickDesk.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,24 +50,6 @@ namespace MyQuickDesk.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ReservationId = table.Column<int>(type: "int", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Owner = table.Column<bool>(type: "bit", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -183,19 +165,43 @@ namespace MyQuickDesk.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsAvaible = table.Column<bool>(type: "bit", maxLength: 200, nullable: false),
+                    IsAvaible = table.Column<bool>(type: "bit", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaxCapacity = table.Column<int>(type: "int", nullable: false),
                     CreatedById = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HandicappedSpot = table.Column<bool>(type: "bit", nullable: true),
-                    Charger = table.Column<bool>(type: "bit", nullable: true),
-                    MaxCapacity = table.Column<int>(type: "int", nullable: true)
+                    Charger = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Spaces", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Spaces_AspNetUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReservationId = table.Column<int>(type: "int", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Owner = table.Column<bool>(type: "bit", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedById = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_AspNetUsers_CreatedById",
                         column: x => x.CreatedById,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
@@ -254,30 +260,23 @@ namespace MyQuickDesk.Migrations
                 {
                     { 1, null, null, "Room", true, 8, "Mariacka" },
                     { 2, null, null, "Room", true, 10, "Neptun" },
-                    { 3, null, null, "Room", true, 12, "Polityczna" }
+                    { 3, null, null, "Room", true, 12, "Polityczna" },
+                    { 4, null, null, "Desk", true, 1, "Biurko A1" },
+                    { 5, null, null, "Desk", true, 1, "Biurko A2" },
+                    { 6, null, null, "Desk", true, 1, "Biurko A3" },
+                    { 7, null, null, "Desk", true, 1, "Biurko B1" },
+                    { 8, null, null, "Desk", true, 1, "Biurko B2" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Spaces",
-                columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaible", "Name" },
+                columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaible", "MaxCapacity", "Name" },
                 values: new object[,]
                 {
-                    { 4, null, null, "Desk", true, "Biurko A1" },
-                    { 5, null, null, "Desk", true, "Biurko A2" },
-                    { 6, null, null, "Desk", true, "Biurko A3" },
-                    { 7, null, null, "Desk", true, "Biurko B1" },
-                    { 8, null, null, "Desk", true, "Biurko B2" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Spaces",
-                columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaible", "Name" },
-                values: new object[,]
-                {
-                    { 9, true, null, null, "ParkingSpot", true, false, "P1A1" },
-                    { 10, true, null, null, "ParkingSpot", true, false, "P1A2" },
-                    { 11, true, null, null, "ParkingSpot", true, false, "P1A3" },
-                    { 12, true, null, null, "ParkingSpot", true, false, "P1B1" }
+                    { 9, true, null, null, "ParkingSpot", true, false, 1, "P1A1" },
+                    { 10, true, null, null, "ParkingSpot", true, false, 1, "P1A2" },
+                    { 11, true, null, null, "ParkingSpot", true, false, 1, "P1A3" },
+                    { 12, true, null, null, "ParkingSpot", true, false, 1, "P1B1" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -347,6 +346,11 @@ namespace MyQuickDesk.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Spaces_CreatedById",
                 table: "Spaces",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_CreatedById",
+                table: "Users",
                 column: "CreatedById");
         }
 

@@ -1,16 +1,19 @@
 ﻿using MyQuickDesk.Entities;
 using MyQuickDesk.DatabaseContext;
+using MyQuickDesk.ApplicationUser;
 
 namespace MyQuickDesk.Services
 {
     public class DeskService
     {
         private readonly MyQuickDeskContext _dbContext;
+        private readonly IUserContext _userContext;
 
-        public DeskService(MyQuickDeskContext dbContext)
+        public DeskService(MyQuickDeskContext dbContext, IUserContext userContext)
         {
             _dbContext = dbContext;
-        }
+            _userContext = userContext;
+        }        
 
         public List<Desk> GetAll()
         {
@@ -24,7 +27,9 @@ namespace MyQuickDesk.Services
 
         public void Create(Desk desk)
         {
+
             _dbContext.Desks.Add(desk);
+            desk.CreatedById = _userContext.GetCurrentUser().Id;
             _dbContext.SaveChanges();
         }
 
