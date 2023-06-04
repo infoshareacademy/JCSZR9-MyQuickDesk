@@ -1,4 +1,7 @@
-﻿using MyQuickDesk.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using MyQuickDesk.ApplicationUser;
+using MyQuickDesk.DatabaseContext;
+using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
 
@@ -6,13 +9,22 @@ namespace MyQuickDesk.Services
 
     public class RoomService
     {
-        private static int _idCounter = 3;
+        private readonly MyQuickDeskContext _dbContext;
+        private readonly IUserContext _userContext;
+
+        public RoomService(MyQuickDeskContext dbContext, IUserContext userContext)
+        {
+            _dbContext = dbContext;
+            _userContext = userContext;
+        }
+
+
         private readonly static List<Room> _rooms =
             new List<Room>
             {
                 new Room
                 {
-                Id = 1,
+                Id = Guid.NewGuid(),
                 Name = "Sala konferencyjna 1",
                 Description="Duza sala konferencyjna",
                 MaxCapacity = 50,
@@ -20,7 +32,7 @@ namespace MyQuickDesk.Services
                 },
                   new Room
                 {
-                Id = 2,
+                Id = Guid.NewGuid(),
                 Name = "Sala konferencyjna 2",
                 Description="Mala sala konferencyjna",
                 MaxCapacity = 10,
@@ -28,7 +40,7 @@ namespace MyQuickDesk.Services
 
                 },  new Room
                 {
-                Id = 3,
+                Id = Guid.NewGuid(),
                 Name = "Sala konferencyjna 3",
                 Description="Srednia sala konferencyjna",
                 MaxCapacity = 20,    
@@ -42,15 +54,22 @@ namespace MyQuickDesk.Services
         {
             return _rooms;
         }
-        public Room GetById(int id)
+        public Room GetById(Guid id)
         {
             return _rooms.FirstOrDefault(r => r.Id == id);
         }
 
         public void Create(Room room)
         {
-            room.Id = GetNextId();
-            _rooms.Add(room);
+            var currentUser = _userContext.GetCurrentUser();
+            if (currentUser == null || !currentUser.IsAdmin("Admin"))
+            {
+                return;
+            }
+
+            _dbContext.Rooms.Add(room);
+            room.CreatedById = currentUser.Id;
+            _dbContext.SaveChanges();
         }
         public void Update(Room model)
         {
@@ -61,14 +80,10 @@ namespace MyQuickDesk.Services
            
 
         }
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             _rooms.Remove(GetById(id));
         }
-        private int GetNextId()
-        {
-            _idCounter++;
-             return _idCounter;
-        }
+
     }
 }

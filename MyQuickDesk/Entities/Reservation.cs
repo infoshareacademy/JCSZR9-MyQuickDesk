@@ -2,23 +2,23 @@
 {
     public class Reservation
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public Space Space { get; set; } = null!;
 
-        public int? RoomId { get; set; }
+        public Guid? RoomId { get; set; }
         public Room? Room { get; set; }
 
 
-        public int? DeskId { get; set; }
+        public Guid? DeskId { get; set; }
         public Desk? Desk { get; set; }
 
 
-        public int? ParkingSpotId { get; set; }
+        public Guid? ParkingSpotId { get; set; }
         public ParkingSpot? ParkingSpot { get; set; }
 
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public User User { get; set; } = null!;
 
         //========================================

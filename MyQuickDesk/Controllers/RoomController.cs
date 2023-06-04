@@ -9,9 +9,9 @@ namespace MyQuickDesk.Controllers
     {
         private readonly RoomService _roomService;
         
-        public RoomController()
+        public RoomController(RoomService roomService)
         {
-            _roomService = new RoomService();
+            _roomService = roomService;
         }
         // GET: RoomController
         public ActionResult Index()
@@ -31,7 +31,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
 
             var model = _roomService.GetById(id);
@@ -61,7 +61,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             var model = _roomService.GetById(id);
             return View(model);
@@ -70,7 +70,7 @@ namespace MyQuickDesk.Controllers
         // POST: RoomController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Room model)
+        public ActionResult Edit(Guid id, Room model)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             var model = _roomService.GetById(id);
             return View(model);
@@ -93,7 +93,7 @@ namespace MyQuickDesk.Controllers
         // POST: RoomController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Room model)
+        public ActionResult Delete(Guid id, Room model)
         {
             try
             {

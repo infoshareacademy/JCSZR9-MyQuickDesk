@@ -5,7 +5,7 @@ namespace MyQuickDesk.Entities
 {
     public class Space
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty!;
 
         //[Display(Name = "User_Id")]
@@ -24,7 +24,7 @@ namespace MyQuickDesk.Entities
 
         public ICollection<Reservation> Reservations { get; set;} = new List<Reservation>();
 
-        public string? CreatedById { get; set; }
+        public Guid? CreatedById { get; set; }
         public IdentityUser? CreatedBy { get; set; }
 
 

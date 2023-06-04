@@ -23,7 +23,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             var model = _deskService.GetById(id);
             return View(model);
@@ -54,7 +54,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             var model = _deskService.GetById(id);
             return View(model);
@@ -63,7 +63,7 @@ namespace MyQuickDesk.Controllers
         // POST: DeskController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Desk model)
+        public ActionResult Edit(Guid id, Desk model)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             var model = _deskService.GetById(id);
             return View(model);
@@ -86,7 +86,7 @@ namespace MyQuickDesk.Controllers
         // POST: DeskController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Desk model)
+        public ActionResult Delete(Guid id, Desk model)
         {
             try
             {
