@@ -12,7 +12,7 @@ namespace MyQuickDesk.Services
                 {
                     Id = 1,
                     OwnerId= 2,
-                    Description ="First flour",
+                    Description ="First floor",
                     Name= "A",
                     HandicappedSpot = false,
                     Charger = false,
@@ -30,6 +30,6 @@ namespace MyQuickDesk.Services
                 {
                     return _parkingspots.FirstOrDefault(p => p.Id == id);
                 }
-            
+
     }
 }
