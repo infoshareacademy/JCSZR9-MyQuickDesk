@@ -9,7 +9,7 @@ namespace MyQuickDesk.Services
             {
                 new ParkingSpot
                 {
-                    Id = 1,
+                    Id = Guid.NewGuid(),
                     Description ="First flour",
                     Name= "A",
                     HandicappedSpot = false,
@@ -24,7 +24,7 @@ namespace MyQuickDesk.Services
                  {
                     return _parkingspots.Where(p=> p.IsAvaible).ToList();
                  }
-                public ParkingSpot GetById(int id)
+                public ParkingSpot GetById(Guid id)
                 {
                     return _parkingspots.FirstOrDefault(p => p.Id == id);
                 }

@@ -21,7 +21,7 @@ namespace MyQuickDesk.Services
             return _dbContext.Desks.ToList();
         }
 
-        public Desk GetById(int id)
+        public Desk GetById(Guid id)
         {
             return _dbContext.Desks.FirstOrDefault(d => d.Id == id);
         }
@@ -46,7 +46,7 @@ namespace MyQuickDesk.Services
             _dbContext.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             var desk = _dbContext.Desks.FirstOrDefault(d => d.Id == id);
             if (desk != null)

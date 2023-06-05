@@ -46,7 +46,7 @@ namespace MyQuickDesk.DatabaseContext
             (
                new Room
                {
-                   Id = 1,
+                   Id = Guid.NewGuid(),
                    Name = "Mariacka",
                    MaxCapacity = 8,
                    IsAvaible = true
@@ -54,14 +54,14 @@ namespace MyQuickDesk.DatabaseContext
                },
                new Room
                {
-                   Id = 2,
+                   Id = Guid.NewGuid(),
                    Name = "Neptun",
                    MaxCapacity = 10,
                    IsAvaible = true
                },
                new Room
                {
-                   Id = 3,
+                   Id = Guid.NewGuid(),
                    Name = "Polityczna",
                    MaxCapacity = 12,
                    IsAvaible = true
@@ -72,31 +72,31 @@ namespace MyQuickDesk.DatabaseContext
             (
                 new Desk
                 {
-                    Id = 4,
+                    Id = Guid.NewGuid(),
                     Name = "Biurko A1",
                     IsAvaible = true
                 },
                 new Desk
                 {
-                    Id = 5,
+                    Id = Guid.NewGuid(),
                     Name = "Biurko A2",
                     IsAvaible = true
                 },
                 new Desk
                 {
-                    Id = 6,
+                    Id = Guid.NewGuid(),
                     Name = "Biurko A3",
                     IsAvaible = true
                 },
                 new Desk
                 {
-                    Id = 7,
+                    Id = Guid.NewGuid(),
                     Name = "Biurko B1",
                     IsAvaible = true
                 },
                 new Desk
                 {
-                    Id = 8,
+                    Id = Guid.NewGuid(),
                     Name = "Biurko B2",
                     IsAvaible = true
                 }
@@ -105,28 +105,28 @@ namespace MyQuickDesk.DatabaseContext
             (
                 new ParkingSpot
                 {
-                    Id = 9,
+                    Id = Guid.NewGuid(),
                     Name = "P1A1",
                     HandicappedSpot = true,
                     Charger = true
                 },
                 new ParkingSpot
                 {
-                    Id = 10,
+                    Id = Guid.NewGuid(),
                     Name = "P1A2",
                     HandicappedSpot = true,
                     Charger = true
                 },
                 new ParkingSpot
                 {
-                    Id = 11,
+                    Id = Guid.NewGuid(),
                     Name = "P1A3",
                     HandicappedSpot = true,
                     Charger = true
                 },
                 new ParkingSpot
                 {
-                    Id = 12,
+                    Id = Guid.NewGuid(),
                     Name = "P1B1",
                     HandicappedSpot = true,
                     Charger = true

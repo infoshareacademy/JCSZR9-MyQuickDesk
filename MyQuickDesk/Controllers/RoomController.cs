@@ -16,22 +16,22 @@ namespace MyQuickDesk.Controllers
         // GET: RoomController
         public ActionResult Index()
         {
-            bool ConditionInteractiveBoard = true;
+            bool ConditionGuideractiveBoard = true;
 
-            if (ConditionInteractiveBoard)
+            if (ConditionGuideractiveBoard)
             {
-                ViewBag.ConditionInteractiveBoard = "yes";
+                ViewBag.ConditionGuideractiveBoard = "yes";
             }
             else
             {
-                ViewBag.ConditionInteractiveBoard = "no";
+                ViewBag.ConditionGuideractiveBoard = "no";
             }
             var model = _roomService.GetAll();
             return View(model);
         }
 
         // GET: RoomController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
 
             var model = _roomService.GetById(id);
@@ -61,7 +61,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             var model = _roomService.GetById(id);
             return View(model);
@@ -70,7 +70,7 @@ namespace MyQuickDesk.Controllers
         // POST: RoomController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Room model)
+        public ActionResult Edit(Guid id, Room model)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             var model = _roomService.GetById(id);
             return View(model);
@@ -93,7 +93,7 @@ namespace MyQuickDesk.Controllers
         // POST: RoomController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Room model)
+        public ActionResult Delete(Guid id, Room model)
         {
             try
             {

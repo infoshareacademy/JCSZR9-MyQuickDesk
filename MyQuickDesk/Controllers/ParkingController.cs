@@ -22,7 +22,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             var model = _parkingService.GetById(id);
             return View(model);
