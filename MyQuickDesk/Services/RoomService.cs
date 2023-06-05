@@ -1,4 +1,6 @@
-﻿using MyQuickDesk.Entities;
+﻿using MyQuickDesk.ApplicationUser;
+using MyQuickDesk.DatabaseContext;
+using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
 
@@ -6,65 +8,52 @@ namespace MyQuickDesk.Services
 
     public class RoomService
     {
-        
-        private readonly static List<Room> _rooms =
-            new List<Room>
-            {
-                new Room
-                {
-                Id = Guid.NewGuid(),
-                Name = "Sala konferencyjna 1",
-                Description="Duza sala konferencyjna",
-                MaxCapacity = 50,
-               
-                },
-                  new Room
-                {
-                Id = Guid.NewGuid(),
-                Name = "Sala konferencyjna 2",
-                Description="Mala sala konferencyjna",
-                MaxCapacity = 10,
-                
 
-                },  new Room
-                {
-                Id = Guid.NewGuid(),
-                Name = "Sala konferencyjna 3",
-                Description="Srednia sala konferencyjna",
-                MaxCapacity = 20,    
-                
+        private readonly MyQuickDeskContext _dbContext;
+        private readonly IUserContext _userContext;
 
-
-                },
-
-            };
+        public RoomService(MyQuickDeskContext dbContext, IUserContext userContext)
+        {
+            _dbContext = dbContext;
+            _userContext = userContext;
+        }
         public List<Room> GetAll()
         {
-            return _rooms;
+            return _dbContext.Rooms.ToList();
         }
         public Room GetById(Guid id)
         {
-            return _rooms.FirstOrDefault(r => r.Id == id);
+            return _dbContext.Rooms.FirstOrDefault(r => r.Id == id);
         }
 
         public void Create(Room room)
         {
-          //  room.Id = GetNextId();
-            _rooms.Add(room);
+            var currentUser = _userContext.GetCurrentUser();
+            if (currentUser == null || !currentUser.IsAdmin("Admin"))
+            {
+                return;
+            }
+
+            _dbContext.Rooms.Add(room);
+            room.CreatedById = currentUser.Id;
+            _dbContext.SaveChanges();
         }
-        public void Update(Room model)
+        public void Update(Room room)
         {
-            var room = GetById(model.Id);
-            room.Name = model.Name;
-            room.MaxCapacity = model.MaxCapacity;
-            room.Description = model.Description; 
-           
+            _dbContext.Rooms.Update(room);
+            _dbContext.SaveChanges();
+
 
         }
         public void Delete(Guid id)
         {
-            _rooms.Remove(GetById(id));
+            var room = _dbContext.Rooms.FirstOrDefault(d => d.Id == id);
+            if (room != null)
+            {
+                _dbContext.Rooms.Remove(room);
+                _dbContext.SaveChanges();
+            }
         }
-       
+
     }
 }
