@@ -24,8 +24,6 @@ namespace MyQuickDesk.Entities
 
         public ICollection<Reservation> Reservations { get; set;} = new List<Reservation>();
 
-        public Guid? CreatedById { get; set; }
-        public IdentityUser? CreatedBy { get; set; }
 
 
 

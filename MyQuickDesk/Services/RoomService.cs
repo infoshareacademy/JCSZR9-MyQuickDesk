@@ -68,7 +68,6 @@ namespace MyQuickDesk.Services
             }
 
             _dbContext.Rooms.Add(room);
-            room.CreatedById = currentUser.Id;
             _dbContext.SaveChanges();
         }
         public void Update(Room model)
