@@ -56,34 +56,33 @@ namespace MyQuickDesk.Controllers
 
         }
         [HttpGet]
+        [Route("/api/reservations/BookedReservation")]
         public ActionResult GetBookedReservations()
         {
             var reservations = _reservationService.GetBookedReservations();
             return Ok(reservations);
         }
 
-        [HttpGet("rooms")]
-        public ActionResult GetRoomReservations()
-        {
-            var roomReservations = _reservationService.GetRoomReservations();
-            return Ok(roomReservations);
-        }
+        //[HttpGet("rooms")]
+        //public ActionResult GetRoomReservations()
+        //{
+        //    var roomReservations = _reservationService.GetRoomReservations();
+        //    return Ok(roomReservations);
+        //}
 
-        [HttpGet("desks")]
-        public ActionResult GetDeskReservations()
-        {
-            var deskReservations = _reservationService.GetDeskReservations();
-            return Ok(deskReservations);
-        }
+        //[HttpGet("desks")]
+        //public ActionResult GetDeskReservations()
+        //{
+        //    var deskReservations = _reservationService.GetDeskReservations();
+        //    return Ok(deskReservations);
+        //}
 
-        [HttpGet("parkingspots")]
-        public ActionResult GetParkingSpotReservations()
-        {
-            var parkingSpotReservations = _reservationService.GetParkingSpotsReservations();
-            return Ok(parkingSpotReservations);
-        }
-
-
+        //[HttpGet("parkingspots")]
+        //public ActionResult GetParkingSpotReservations()
+        //{
+        //    var parkingSpotReservations = _reservationService.GetParkingSpotsReservations();
+        //    return Ok(parkingSpotReservations);
+        //}
 
     }
 }

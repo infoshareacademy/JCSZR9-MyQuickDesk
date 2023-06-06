@@ -203,7 +203,6 @@ namespace MyQuickDesk.Migrations
                     RoomId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     DeskId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ParkingSpotId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -242,16 +241,11 @@ namespace MyQuickDesk.Migrations
 
             migrationBuilder.InsertData(
                 table: "Spaces",
-                columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[] { new Guid("0cc00292-c015-4b24-bb77-d7bad4a3fcb7"), null, null, "Room", true, 10, "Neptun" });
-
-            migrationBuilder.InsertData(
-                table: "Spaces",
                 columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaiable", "MaxCapacity", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("2fe76b3f-ff43-40b9-a79e-c321f1b1ade4"), true, null, null, "ParkingSpot", true, true, 1, "P1A1" },
-                    { new Guid("35cfdfca-b023-4d64-8135-ff68229b6eb0"), true, null, null, "ParkingSpot", true, true, 1, "P1A3" }
+                    { new Guid("15f1893e-7321-40e9-b7ae-e04f1be04e1f"), true, null, null, "ParkingSpot", true, true, 1, "P1B1" },
+                    { new Guid("544d4229-9d14-4561-9608-ce189aa331ce"), true, null, null, "ParkingSpot", true, true, 1, "P1A2" }
                 });
 
             migrationBuilder.InsertData(
@@ -259,37 +253,30 @@ namespace MyQuickDesk.Migrations
                 columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("87bb5725-407b-4188-8297-b2e3ce534de8"), null, null, "Desk", true, 1, "Biurko A2" },
-                    { new Guid("8b106deb-1431-47ea-ad0f-8fd26e0b6071"), null, null, "Desk", true, 1, "Biurko B2" },
-                    { new Guid("96d3c4ca-42b8-4dd2-a1c3-d81d9d5527ca"), null, null, "Desk", true, 1, "Biurko A3" }
+                    { new Guid("60a77d8a-b63c-4c2f-95d4-83b5e392a767"), null, null, "Room", true, 10, "Neptun" },
+                    { new Guid("6bc7b0ed-3ccd-4f99-a6fa-a20186477e2c"), null, null, "Room", true, 12, "Polityczna" },
+                    { new Guid("6e2ba38e-0899-4202-8044-8f4892119a49"), null, null, "Desk", true, 1, "Biurko B1" },
+                    { new Guid("89b3a261-414e-48e3-ba6a-a5fdf4ffc2ba"), null, null, "Room", true, 8, "Mariacka" },
+                    { new Guid("94339a28-b01d-43f1-88a0-76307fab8f1e"), null, null, "Desk", true, 1, "Biurko A2" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Spaces",
                 columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[] { new Guid("b8ec10a0-820d-4f45-8358-cb5de7957a35"), true, null, null, "ParkingSpot", true, true, 1, "P1A2" });
+                values: new object[,]
+                {
+                    { new Guid("a2e16286-7b85-4d09-9336-b77cc1fb6eb1"), true, null, null, "ParkingSpot", true, true, 1, "P1A3" },
+                    { new Guid("b6452a1d-a04b-4761-be4d-d53a12f41d2c"), true, null, null, "ParkingSpot", true, true, 1, "P1A1" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Spaces",
                 columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("c1dfdf79-e8c3-4dd2-a451-325b7b6f9b95"), null, null, "Room", true, 12, "Polityczna" },
-                    { new Guid("dda55015-f727-4466-8a6f-9ac4e148754f"), null, null, "Desk", true, 1, "Biurko A1" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Spaces",
-                columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[] { new Guid("e3f93642-e707-442a-ab43-2bb85f2134de"), true, null, null, "ParkingSpot", true, true, 1, "P1B1" });
-
-            migrationBuilder.InsertData(
-                table: "Spaces",
-                columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[,]
-                {
-                    { new Guid("ec4713c8-7a31-4c6d-be34-b686961de3c3"), null, null, "Desk", true, 1, "Biurko B1" },
-                    { new Guid("ed8a62a0-0f6d-4a50-ac6d-db4ba52feeda"), null, null, "Room", true, 8, "Mariacka" }
+                    { new Guid("b8204b2a-ff91-44e4-8d9b-5e0d91442a1d"), null, null, "Desk", true, 1, "Biurko A3" },
+                    { new Guid("ce3c9246-3e6b-4b42-a95f-a947dd51d616"), null, null, "Desk", true, 1, "Biurko A1" },
+                    { new Guid("d2e2d70a-e05f-4cec-8a10-a56dfd155029"), null, null, "Desk", true, 1, "Biurko B2" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -44,9 +44,8 @@ namespace MyQuickDesk.Services
 
         public void BookInReservation(Reservation reservation)
         {
-            //var currentUser = _userContext.GetCurrentUser();
+            
             _dbContext.Reservations.Add(reservation);
-           // reservation.CreatedById = currentUser.Id;
             _dbContext.SaveChanges();
 
         }
@@ -65,7 +64,6 @@ namespace MyQuickDesk.Services
                 }
 
             }
-
             return true;
         }
 
