@@ -22,8 +22,8 @@ namespace MyQuickDesk.DatabaseContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
-            modelBuilder.Entity<Reservation>( mb =>
+
+            modelBuilder.Entity<Reservation>(mb =>
             {
                 mb.HasOne(r => r.Desk).
                     WithMany(d => d.Reservations).
@@ -35,9 +35,8 @@ namespace MyQuickDesk.DatabaseContext
                     WithMany(ps => ps.Reservations).
                     HasForeignKey(r => r.ParkingSpotId);
 
-                mb.HasOne(r => r.User).
-                    WithMany(u => u.Reservations).
-                    HasForeignKey(r => r.UserId);
+
+
             });
 
 
@@ -49,7 +48,7 @@ namespace MyQuickDesk.DatabaseContext
                    Id = Guid.NewGuid(),
                    Name = "Mariacka",
                    MaxCapacity = 8,
-                   IsAvaible = true
+                   IsAvaiable = true
 
                },
                new Room
@@ -57,14 +56,14 @@ namespace MyQuickDesk.DatabaseContext
                    Id = Guid.NewGuid(),
                    Name = "Neptun",
                    MaxCapacity = 10,
-                   IsAvaible = true
+                   IsAvaiable = true
                },
                new Room
                {
                    Id = Guid.NewGuid(),
                    Name = "Polityczna",
                    MaxCapacity = 12,
-                   IsAvaible = true
+                   IsAvaiable = true
                }
 
             );
@@ -74,31 +73,31 @@ namespace MyQuickDesk.DatabaseContext
                 {
                     Id = Guid.NewGuid(),
                     Name = "Biurko A1",
-                    IsAvaible = true
+                    IsAvaiable = true
                 },
                 new Desk
                 {
                     Id = Guid.NewGuid(),
                     Name = "Biurko A2",
-                    IsAvaible = true
+                    IsAvaiable = true
                 },
                 new Desk
                 {
                     Id = Guid.NewGuid(),
                     Name = "Biurko A3",
-                    IsAvaible = true
+                    IsAvaiable = true
                 },
                 new Desk
                 {
                     Id = Guid.NewGuid(),
                     Name = "Biurko B1",
-                    IsAvaible = true
+                    IsAvaiable = true
                 },
                 new Desk
                 {
                     Id = Guid.NewGuid(),
                     Name = "Biurko B2",
-                    IsAvaible = true
+                    IsAvaiable = true
                 }
             );
             modelBuilder.Entity<ParkingSpot>().HasData
@@ -132,8 +131,8 @@ namespace MyQuickDesk.DatabaseContext
                     Charger = true
                 }
             );
-        }
 
+        }
 
 
     }

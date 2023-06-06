@@ -8,11 +8,12 @@ namespace MyQuickDesk.Controllers
 {
     public class DeskController : Controller
     {
-        private readonly DeskService _deskService;
-
-        public DeskController(DeskService deskService)
+        private readonly IDeskService _deskService;
+        private readonly IReservationService _reservationService;
+        public DeskController(IDeskService deskService, IReservationService reservationService)
         {
             _deskService = deskService;
+            _reservationService = reservationService;
         }
 
         // GET: DeskController
@@ -33,6 +34,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
+
             return View();
         }
 

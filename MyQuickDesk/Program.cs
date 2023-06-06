@@ -24,10 +24,11 @@ namespace MyQuickDesk
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
-            builder.Services.AddScoped<DeskService>();
+            builder.Services.AddScoped<IReservationService,ReservationService>();
+            builder.Services.AddScoped<IDeskService, DeskService>();
             builder.Services.AddScoped<RoomService>();
             builder.Services.AddScoped<IUserContext, UserContext>();
+            builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
 

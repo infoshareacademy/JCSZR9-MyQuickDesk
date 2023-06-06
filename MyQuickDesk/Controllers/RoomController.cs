@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Services;
 using MyQuickDesk.Entities;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace MyQuickDesk.Controllers
 {
@@ -39,6 +41,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: RoomController/Create
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create( Room model )
         {

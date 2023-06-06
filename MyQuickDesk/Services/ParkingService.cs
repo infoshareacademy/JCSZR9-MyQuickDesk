@@ -14,7 +14,7 @@ namespace MyQuickDesk.Services
                     Name= "A",
                     HandicappedSpot = false,
                     Charger = false,
-                    IsAvaible = true,
+                    IsAvaiable = true,
                    
                     
                 }
@@ -22,7 +22,7 @@ namespace MyQuickDesk.Services
 
                 public List <ParkingSpot> GetAllAvaible()
                  {
-                    return _parkingspots.Where(p=> p.IsAvaible).ToList();
+                    return _parkingspots.Where(p=> p.IsAvaiable).ToList();
                  }
                 public ParkingSpot GetById(Guid id)
                 {

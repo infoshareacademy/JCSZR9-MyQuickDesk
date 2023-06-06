@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MyQuickDesk.Services
 {
-    public class DeskService
+    public class DeskService:IDeskService
     {
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;

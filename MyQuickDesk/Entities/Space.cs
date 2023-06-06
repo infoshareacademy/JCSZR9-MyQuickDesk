@@ -14,7 +14,7 @@ namespace MyQuickDesk.Entities
         //[StringLength(200)]
         //[Required(ErrorMessage = "Please provide description.")]
 
-        public bool IsAvaible { get; set; } = true;
+        public bool IsAvaiable { get; set; } = true;
 
         public string? Description { get; set; }
 
@@ -24,8 +24,8 @@ namespace MyQuickDesk.Entities
 
         public ICollection<Reservation> Reservations { get; set;} = new List<Reservation>();
 
-        public string? CreatedById { get; set; }
-        public IdentityUser? CreatedBy { get; set; }
+        public Guid? CreatedById { get; set; }
+       // public IdentityUser? CreatedBy { get; set; }
 
 
 

@@ -1,9 +1,12 @@
-﻿namespace MyQuickDesk.Entities
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace MyQuickDesk.Entities
 {
     public class Reservation
     {
         public Guid Id { get; set; }
-
+        
+        public Guid SpaceId { get; set; }
         public Space Space { get; set; } = null!;
 
         public Guid? RoomId { get; set; }
@@ -17,6 +20,8 @@
         public Guid? ParkingSpotId { get; set; }
         public ParkingSpot? ParkingSpot { get; set; }
 
+        public Guid? CreatedById { get; set; }
+        //public IdentityUser? CreatedBy { get; set; }
 
         public Guid UserId { get; set; }
         public User User { get; set; } = null!;
