@@ -13,13 +13,14 @@ namespace MyQuickDesk.Controllers
     public class ReservationController : Controller
     {
         private readonly IReservationService _reservationService;
-        private readonly IUserContext _userContext;
 
-        public ReservationController(IReservationService reservationService, IUserContext userContext)
+        private readonly IDeskService _deskService;
+
+        public ReservationController(IReservationService reservationService, IDeskService deskService)
         {
             _reservationService = reservationService;
-            _userContext = userContext;
 
+            _deskService = deskService;
         }
         // GET: ReservationController
         public ActionResult Index()
@@ -34,11 +35,11 @@ namespace MyQuickDesk.Controllers
             return View();
         }
 
-        [HttpPost]
+
         [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult BookInReservation(Reservation reservation)
         {
-
             try
             {
                 if (!_reservationService.IsReservationDateAvailable(reservation.StartTime, reservation.EndTime))
@@ -46,8 +47,9 @@ namespace MyQuickDesk.Controllers
                     return BadRequest("Selected reservation date is not available.");
                 }
 
-               _reservationService.BookInReservation(reservation);
-                return RedirectToAction("Index", "Reservation");
+                _deskService.BookReservationForDesk(reservation, (Guid)reservation.DeskId);
+                var desks = _deskService.GetAll();
+                return View("Index",desks);
             }
             catch
             {
@@ -55,13 +57,13 @@ namespace MyQuickDesk.Controllers
             }
 
         }
-        [HttpGet]
-        [Route("/api/reservations/BookedReservation")]
-        public ActionResult GetBookedReservations()
-        {
-            var reservations = _reservationService.GetBookedReservations();
-            return Ok(reservations);
-        }
+        //[HttpGet("desks")]
+        //public ActionResult GetDeskReservations()
+        //{
+        //    var deskReservations = _reservationService.GetDeskReservations();
+        //    return Ok(deskReservations);
+        //}
+
 
         //[HttpGet("rooms")]
         //public ActionResult GetRoomReservations()
@@ -70,12 +72,7 @@ namespace MyQuickDesk.Controllers
         //    return Ok(roomReservations);
         //}
 
-        //[HttpGet("desks")]
-        //public ActionResult GetDeskReservations()
-        //{
-        //    var deskReservations = _reservationService.GetDeskReservations();
-        //    return Ok(deskReservations);
-        //}
+
 
         //[HttpGet("parkingspots")]
         //public ActionResult GetParkingSpotReservations()
@@ -83,6 +80,7 @@ namespace MyQuickDesk.Controllers
         //    var parkingSpotReservations = _reservationService.GetParkingSpotsReservations();
         //    return Ok(parkingSpotReservations);
         //}
+
 
     }
 }

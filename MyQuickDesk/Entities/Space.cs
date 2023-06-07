@@ -8,12 +8,6 @@ namespace MyQuickDesk.Entities
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty!;
 
-        //[Display(Name = "User_Id")]
-        //public int UserId { get; set; }
-
-        //[StringLength(200)]
-        //[Required(ErrorMessage = "Please provide description.")]
-
         public bool IsAvaiable { get; set; } = true;
 
         public string? Description { get; set; }
@@ -25,7 +19,7 @@ namespace MyQuickDesk.Entities
         public ICollection<Reservation> Reservations { get; set;} = new List<Reservation>();
 
         public Guid? CreatedById { get; set; }
-       // public IdentityUser? CreatedBy { get; set; }
+     
 
 
 

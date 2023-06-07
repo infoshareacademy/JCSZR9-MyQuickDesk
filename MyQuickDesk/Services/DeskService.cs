@@ -37,8 +37,19 @@ namespace MyQuickDesk.Services
 
             _dbContext.Desks.Add(desk);
             desk.CreatedById = currentUser.Id;
+            desk.Reservations = new List<Reservation>();
             _dbContext.SaveChanges();
         }
+        public void BookReservationForDesk(Reservation reservation, Guid deskId)
+        {
+            var desk = _dbContext.Desks.FirstOrDefault(d => d.Id == deskId);
+            if (desk != null)
+            {
+                desk.Reservations.Add(reservation);
+                _dbContext.SaveChanges();
+            }
+        }
+
 
         public void Update(Desk desk)
         {
@@ -55,5 +66,6 @@ namespace MyQuickDesk.Services
                 _dbContext.SaveChanges();
             }
         }
+
     }
 }

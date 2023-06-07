@@ -22,33 +22,21 @@ namespace MyQuickDesk.Services
         }
 
 
-        public List<Reservation> GetRoomReservations()
-        {
-            return _dbContext.Rooms.Include(r => r.Reservations).SelectMany(r => r.Reservations).ToList();
-        }
-
-        public List<Reservation> GetDeskReservations()
-        {
-            return _dbContext.Desks.Include(d => d.Reservations).SelectMany(d => d.Reservations).ToList();
-        }
-        public List<Reservation> GetParkingSpotsReservations()
-        {
-            return _dbContext.ParkingSpots.Include(d => d.Reservations).SelectMany(d => d.Reservations).ToList();
-        }
-
-
         public ICollection<Reservation> GetBookedReservations()
         {
             return _dbContext.Reservations.ToList();
+
         }
+        
 
         public void BookInReservation(Reservation reservation)
         {
-            
+
             _dbContext.Reservations.Add(reservation);
             _dbContext.SaveChanges();
 
         }
+
         public bool IsReservationDateAvailable(DateTime startTime, DateTime endTime)
         {
             ICollection<Reservation> bookedReservations = GetBookedReservations();
@@ -66,7 +54,6 @@ namespace MyQuickDesk.Services
             }
             return true;
         }
-
-
+         
     }
 }
