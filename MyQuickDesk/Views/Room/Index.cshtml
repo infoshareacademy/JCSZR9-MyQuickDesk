@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyQuickDesk.Models.Room>
+﻿@model IEnumerable<MyQuickDesk.Entities.Room>
 
 @{
     ViewData["Title"] = "Index";
@@ -21,11 +21,6 @@
             <th>
                 <label asp-for="First().Description"></label>
             </th>
-            
-            <th>
-            <label asp-for="First().InteractiveBoard"></label>
-            </th>
-
             <th>
             <label asp-for="First().MaxCapacity"></label>
             </th>
@@ -41,18 +36,7 @@
             </td>
             <td>
                @item.Description
-            </td>
-            <td>
-               @if (item.InteractiveBoard)
-               {
-                   <text>yes</text>
-               }
-               else
-               {
-                   <text>no</text>
-               }
-            </td>
-            
+            </td>           
             <td>
                 @item.MaxCapacity
                

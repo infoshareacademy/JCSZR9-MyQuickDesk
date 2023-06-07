@@ -22,7 +22,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             var model = _parkingService.GetById(id);
             return View(model);
@@ -50,7 +50,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             return View();
         }
@@ -58,7 +58,7 @@ namespace MyQuickDesk.Controllers
         // POST: ParkingController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Guid id, IFormCollection collection)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             return View();
         }
@@ -79,7 +79,7 @@ namespace MyQuickDesk.Controllers
         // POST: ParkingController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, IFormCollection collection)
         {
             try
             {

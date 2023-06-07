@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyQuickDesk.Models;
+using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
 
 namespace MyQuickDesk.Controllers
@@ -8,10 +9,12 @@ namespace MyQuickDesk.Controllers
     public class DeskController : Controller
     {
         private readonly DeskService _deskService;
-        public DeskController()
+
+        public DeskController(DeskService deskService)
         {
-            _deskService = new DeskService();
+            _deskService = deskService;
         }
+
         // GET: DeskController
         public ActionResult Index()
         {
@@ -20,13 +23,14 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             var model = _deskService.GetById(id);
             return View(model);
         }
 
         // GET: DeskController/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -34,6 +38,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Create
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Desk model)
         {
@@ -49,16 +54,18 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Edit/5
-        public ActionResult Edit(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(Guid id)
         {
             var model = _deskService.GetById(id);
             return View(model);
         }
 
         // POST: DeskController/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Desk model)
+        public ActionResult Edit(Guid id, Desk model)
         {
             try
             {
@@ -72,7 +79,8 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Delete/5
-        public ActionResult Delete(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(Guid id)
         {
             var model = _deskService.GetById(id);
             return View(model);
@@ -80,8 +88,9 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Desk model)
+        public ActionResult Delete(Guid id, Desk model)
         {
             try
             {

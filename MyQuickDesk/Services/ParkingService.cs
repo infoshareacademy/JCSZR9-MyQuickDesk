@@ -1,5 +1,4 @@
-﻿using MyQuickDesk.Models;
-
+﻿using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
 {
@@ -10,9 +9,8 @@ namespace MyQuickDesk.Services
             {
                 new ParkingSpot
                 {
-                    Id = 1,
-                    OwnerId= 2,
-                    Description ="First floor",
+                    Id = Guid.NewGuid(),
+                    Description ="First flour",
                     Name= "A",
                     HandicappedSpot = false,
                     Charger = false,
@@ -26,7 +24,7 @@ namespace MyQuickDesk.Services
                  {
                     return _parkingspots.Where(p=> p.IsAvaible).ToList();
                  }
-                public ParkingSpot GetById(int id)
+                public ParkingSpot GetById(Guid id)
                 {
                     return _parkingspots.FirstOrDefault(p => p.Id == id);
                 }
