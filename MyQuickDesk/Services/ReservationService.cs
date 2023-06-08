@@ -8,52 +8,43 @@ namespace MyQuickDesk.Services
     public class ReservationService : IReservationService
     {
         private readonly MyQuickDeskContext _dbContext;
-        private readonly IUserContext _userContext;
 
-        public ReservationService(MyQuickDeskContext dbContext, IUserContext userContext)
+
+        public ReservationService(MyQuickDeskContext dbContext)
         {
             _dbContext = dbContext;
-            _userContext = userContext;
-
+           
         }
         public List<Reservation> GetAll()
         {
             return _dbContext.Reservations.ToList();
         }
-
-
-        public ICollection<Reservation> GetBookedReservations()
+        public Reservation GetById(Guid id)
         {
-            return _dbContext.Reservations.ToList();
-
+            return _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
         }
-        
 
-        public void BookInReservation(Reservation reservation)
+        public void Create(Reservation reservation)
         {
-
             _dbContext.Reservations.Add(reservation);
             _dbContext.SaveChanges();
-
         }
-
-        public bool IsReservationDateAvailable(DateTime startTime, DateTime endTime)
+       
+        public void Update(Reservation reservation)
         {
-            ICollection<Reservation> bookedReservations = GetBookedReservations();
-
-
-            foreach (var reservation in bookedReservations)
-            {
-                if ((startTime.Date >= reservation.StartTime.Date && startTime.Date <= reservation.EndTime.Date) ||
-            (endTime.Date >= reservation.StartTime.Date && endTime.Date <= reservation.EndTime.Date) ||
-            (startTime.Date <= reservation.StartTime.Date && endTime.Date >= reservation.EndTime.Date))
-                {
-                    return false;
-                }
-
-            }
-            return true;
+            _dbContext.Reservations.Update(reservation);
+            _dbContext.SaveChanges();
         }
-         
+
+        public void Delete(Guid id)
+        {
+            var reservations = _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservations != null)
+            {
+                _dbContext.Reservations.Remove(reservations);
+                _dbContext.SaveChanges();
+            }
+        }
+        
     }
 }

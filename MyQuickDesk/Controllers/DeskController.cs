@@ -54,7 +54,23 @@ namespace MyQuickDesk.Controllers
                 return View();
             }
         }
+        [HttpPost]
+        public ActionResult BookReservation(Reservation reservation, Guid deskId)
+        {
+            try
+            {
+           
+                reservation.DeskId = deskId;
+                _reservationService.Create(reservation);
+                _deskService.BookReservationForDesk(reservation, deskId);
 
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
         // GET: DeskController/Edit/5
         public ActionResult Edit(Guid id)
         {

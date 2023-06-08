@@ -26,9 +26,10 @@ namespace MyQuickDesk
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IReservationService,ReservationService>();
             builder.Services.AddScoped<IDeskService, DeskService>();
-            builder.Services.AddScoped<RoomService>();
+            builder.Services.AddScoped <IRoomService, RoomService>();
+            builder.Services.AddScoped <IParkingService, ParkingService>();
             builder.Services.AddScoped<IUserContext, UserContext>();
-            builder.Services.AddHttpContextAccessor();
+            
 
             var app = builder.Build();
 

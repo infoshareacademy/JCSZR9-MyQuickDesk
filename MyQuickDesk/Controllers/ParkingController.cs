@@ -7,17 +7,17 @@ namespace MyQuickDesk.Controllers
 {
     public class ParkingController : Controller
     {
-        private readonly ParkingService _parkingService;
+        private readonly IParkingService _parkingService;
 
-        public ParkingController()
+        public ParkingController(IParkingService parkingService)
         {
-            _parkingService= new ParkingService(); 
+            _parkingService= parkingService; 
         }
 
         // GET: ParkingController
         public ActionResult Index()
         {
-            var model = _parkingService.GetAllAvaible();
+            var model = _parkingService.GetAll();
             return View(model);
         }
 

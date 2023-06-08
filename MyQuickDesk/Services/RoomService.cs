@@ -6,7 +6,7 @@ namespace MyQuickDesk.Services
 
 {
 
-    public class RoomService
+    public class RoomService: IRoomService
     {
 
         private readonly MyQuickDeskContext _dbContext;

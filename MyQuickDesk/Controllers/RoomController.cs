@@ -9,9 +9,9 @@ namespace MyQuickDesk.Controllers
 {
     public class RoomController : Controller
     {
-        private readonly RoomService _roomService;
+        private readonly IRoomService _roomService;
         
-        public RoomController(RoomService roomService)
+        public RoomController(IRoomService roomService)
         {
             _roomService = roomService;
         }

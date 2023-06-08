@@ -4,14 +4,12 @@ namespace MyQuickDesk.Services
 {
     public interface IReservationService
     {
-        ICollection<Reservation> GetBookedReservations();
         List<Reservation> GetAll();
-
-    
-        void BookInReservation(Reservation reservation);
-      
-      
-        bool IsReservationDateAvailable(DateTime startTime, DateTime endTime);
+        Reservation GetById(Guid id);
+        void Create(Reservation model);
+        void Update(Reservation model);
+        void Delete(Guid id);
+        
     }
 
 }
