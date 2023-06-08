@@ -27,7 +27,6 @@ namespace MyQuickDesk.Services
         }
         public void Create(ParkingSpot parkingSpot)
         {
-
             var currentUser = _userContext.GetCurrentUser();
             if (currentUser == null || !currentUser.IsAdmin("Admin"))
             {
@@ -35,7 +34,6 @@ namespace MyQuickDesk.Services
             }
 
             _dbContext.ParkingSpots.Add(parkingSpot);
-            parkingSpot.CreatedById = currentUser.Id;
             _dbContext.SaveChanges();
         }
 

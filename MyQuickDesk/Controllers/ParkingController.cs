@@ -32,6 +32,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -54,12 +55,14 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             return View();
         }
 
         // POST: ParkingController/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Guid id, IFormCollection collection)
@@ -75,6 +78,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             return View();
@@ -82,6 +86,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: ParkingController/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Guid id, IFormCollection collection)
         {

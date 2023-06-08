@@ -53,25 +53,6 @@ namespace MyQuickDesk.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Spaces",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsAvaiable = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MaxCapacity = table.Column<int>(type: "int", nullable: false),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HandicappedSpot = table.Column<bool>(type: "bit", nullable: true),
-                    Charger = table.Column<bool>(type: "bit", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Spaces", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -195,6 +176,30 @@ namespace MyQuickDesk.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Spaces",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsAvaiable = table.Column<bool>(type: "bit", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaxCapacity = table.Column<int>(type: "int", nullable: false),
+                    CreatedById = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HandicappedSpot = table.Column<bool>(type: "bit", nullable: true),
+                    Charger = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Spaces", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Spaces_AspNetUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Reservations",
                 columns: table => new
                 {
@@ -242,50 +247,48 @@ namespace MyQuickDesk.Migrations
             migrationBuilder.InsertData(
                 table: "Spaces",
                 columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[] { new Guid("0e76b37e-f958-46ed-9a1f-8f55dc0ec73e"), true, null, null, "ParkingSpot", true, true, 1, "P1A2" });
+                values: new object[] { new Guid("03fd52c2-e793-44ba-8d0f-bc2b3f84f8cb"), true, null, null, "ParkingSpot", true, true, 1, "P1A3" });
+
+            migrationBuilder.InsertData(
+                table: "Spaces",
+                columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
+                values: new object[] { new Guid("214b7e98-8c47-4ca1-804b-28bd0c090efc"), null, null, "Room", true, 12, "Polityczna" });
+
+            migrationBuilder.InsertData(
+                table: "Spaces",
+                columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaiable", "MaxCapacity", "Name" },
+                values: new object[] { new Guid("2b7ff59a-f577-4706-9808-c3e9dd389966"), true, null, null, "ParkingSpot", true, true, 1, "P1A1" });
 
             migrationBuilder.InsertData(
                 table: "Spaces",
                 columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("102b6488-20a7-4969-a32c-6c48d205c16e"), null, null, "Desk", true, 1, "Biurko A3" },
-                    { new Guid("213bd5e5-0184-4ba1-9e54-7a0fdfccf775"), null, null, "Room", true, 12, "Polityczna" },
-                    { new Guid("2c93aa98-9d57-4e99-b769-a66c77d4ad0e"), null, null, "Room", true, 8, "Mariacka" }
+                    { new Guid("427c2dac-f749-4b2d-a2a7-e554bdb3e0e7"), null, null, "Desk", true, 1, "Biurko A1" },
+                    { new Guid("58c27cba-8f92-4e14-bf3c-edaa8dbe8f0d"), null, null, "Desk", true, 1, "Biurko B1" },
+                    { new Guid("5a2b73dd-f53b-4366-9b25-b05e53e90e78"), null, null, "Room", true, 8, "Mariacka" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Spaces",
                 columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[] { new Guid("402e8f3c-540a-4095-843d-c98eb20bbd44"), true, null, null, "ParkingSpot", true, true, 1, "P1A1" });
+                values: new object[] { new Guid("6e02206b-1fa0-433c-885c-ad58fdf156fe"), true, null, null, "ParkingSpot", true, true, 1, "P1B1" });
 
             migrationBuilder.InsertData(
                 table: "Spaces",
                 columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("52f854d7-66cf-4b33-8281-8249de274b90"), null, null, "Desk", true, 1, "Biurko B1" },
-                    { new Guid("5a30bc04-0bd8-4006-a0d7-9c2d58c89b9c"), null, null, "Desk", true, 1, "Biurko B2" },
-                    { new Guid("956917d9-c931-492e-a296-4793df8517f6"), null, null, "Desk", true, 1, "Biurko A2" }
+                    { new Guid("87a1856e-ce93-4ed5-98c1-5583da245b97"), null, null, "Desk", true, 1, "Biurko B2" },
+                    { new Guid("a121add5-b7f8-4f65-8a0b-cde787f6b023"), null, null, "Desk", true, 1, "Biurko A3" },
+                    { new Guid("a13d4ca7-11da-473a-8e26-29959a3ac27a"), null, null, "Room", true, 10, "Neptun" },
+                    { new Guid("c3b9bfab-22cf-45e3-933c-cea87a2fb9b8"), null, null, "Desk", true, 1, "Biurko A2" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Spaces",
                 columns: new[] { "Id", "Charger", "CreatedById", "Description", "Discriminator", "HandicappedSpot", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[,]
-                {
-                    { new Guid("97982944-f5df-4560-957f-9ee4c4c4737e"), true, null, null, "ParkingSpot", true, true, 1, "P1A3" },
-                    { new Guid("aad180c0-aea5-4c5a-8413-8bed272cc17e"), true, null, null, "ParkingSpot", true, true, 1, "P1B1" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Spaces",
-                columns: new[] { "Id", "CreatedById", "Description", "Discriminator", "IsAvaiable", "MaxCapacity", "Name" },
-                values: new object[,]
-                {
-                    { new Guid("af83e54b-2942-43e0-aa5f-2e8a7afbe323"), null, null, "Room", true, 10, "Neptun" },
-                    { new Guid("ecebec37-5c08-49bd-ab2b-3f7f422dedc4"), null, null, "Desk", true, 1, "Biurko A1" }
-                });
+                values: new object[] { new Guid("e30eeea1-cc0a-4688-be9c-60fe4306ec77"), true, null, null, "ParkingSpot", true, true, 1, "P1A2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -350,6 +353,11 @@ namespace MyQuickDesk.Migrations
                 name: "IX_Reservations_UserId",
                 table: "Reservations",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Spaces_CreatedById",
+                table: "Spaces",
+                column: "CreatedById");
         }
 
         /// <inheritdoc />
@@ -377,13 +385,13 @@ namespace MyQuickDesk.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Spaces");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

@@ -72,6 +72,7 @@ namespace MyQuickDesk.Controllers
             }
         }
         // GET: DeskController/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             var model = _deskService.GetById(id);
@@ -80,6 +81,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Guid id, Desk model)
         {
@@ -95,6 +97,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             var model = _deskService.GetById(id);
@@ -103,6 +106,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Guid id, Desk model)
         {
