@@ -8,12 +8,12 @@ namespace MyQuickDesk.Services
     public class DeskService:IDeskService
     {
         private readonly MyQuickDeskContext _dbContext;
-        private readonly IUserContext _userContext;
+        //private readonly IUserContext _userContext;
 
-        public DeskService(MyQuickDeskContext dbContext, IUserContext userContext)
+        public DeskService(MyQuickDeskContext dbContext)// IUserContext userContext
         {
             _dbContext = dbContext;
-            _userContext = userContext;
+            //_userContext = userContext;
         }        
 
         public List<Desk> GetAll()
@@ -28,31 +28,15 @@ namespace MyQuickDesk.Services
 
         public void Create(Desk desk)
         {
-
-            var currentUser = _userContext.GetCurrentUser();
-            if (currentUser == null || !currentUser.IsAdmin("Admin"))
-            {
-                return;
-            }
+            
+           //var currentUser = _userContext.GetCurrentUser();
+            //if (currentUser == null || !currentUser.IsAdmin("Admin"))
+            //{
+            //    return;
+            //}
 
             _dbContext.Desks.Add(desk);
             _dbContext.SaveChanges();
-        }
-        public void BookReservationForDesk(Reservation reservation, Guid deskId)
-        {
-           
-            var desk = _dbContext.Desks.FirstOrDefault(d => d.Id == deskId);
-            if (desk != null)
-            {
-                reservation.DeskId = deskId;
-                desk.Reservations.Add(reservation);
-                _dbContext.SaveChanges();
-            }
-            else
-            {
-                throw new ArgumentException("Desk not found.");
-            }
-
         }
 
 

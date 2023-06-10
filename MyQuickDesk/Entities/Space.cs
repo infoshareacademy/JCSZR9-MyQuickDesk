@@ -21,8 +21,5 @@ namespace MyQuickDesk.Entities
         public IdentityUser? CreatedBy { get; set; }
         public string? CreatedById { get; set; }
 
-
-
-
     }
 }

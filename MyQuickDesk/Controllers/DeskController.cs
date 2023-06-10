@@ -9,11 +9,11 @@ namespace MyQuickDesk.Controllers
     public class DeskController : Controller
     {
         private readonly IDeskService _deskService;
-        private readonly IReservationService _reservationService;
-        public DeskController(IDeskService deskService, IReservationService reservationService)
+       
+        public DeskController(IDeskService deskService)
         {
             _deskService = deskService;
-            _reservationService = reservationService;
+            
         }
 
         // GET: DeskController
@@ -31,7 +31,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Create
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
 
@@ -40,7 +40,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Create
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Desk model)
         {
@@ -54,25 +54,9 @@ namespace MyQuickDesk.Controllers
                 return View();
             }
         }
-        [HttpPost]
-        public ActionResult BookReservation(Reservation reservation, Guid deskId)
-        {
-            try
-            {
-           
-                reservation.DeskId = deskId;
-                _reservationService.Create(reservation);
-                _deskService.BookReservationForDesk(reservation, deskId);
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+    
         // GET: DeskController/Edit/5
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             var model = _deskService.GetById(id);
@@ -81,7 +65,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Edit/5
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Guid id, Desk model)
         {

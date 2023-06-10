@@ -10,7 +10,7 @@ namespace MyQuickDesk.Services
         void Update(Desk desk);
         void Delete(Guid id);
 
-        void BookReservationForDesk(Reservation reservation, Guid deskId);
+       
 
     }
 }

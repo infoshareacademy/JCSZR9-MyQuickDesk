@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
 
@@ -7,12 +8,13 @@ namespace MyQuickDesk.Controllers
 {
     public class ReservationController : Controller
     {
-        private readonly IDeskService _deskService;
+       
         private readonly IReservationService _reservationService;
-        public ReservationController (IReservationService reservationService, IDeskService deskService)
+        public ReservationController (IReservationService reservationService)
         {
+            
             _reservationService = reservationService;
-            _deskService = deskService;
+            
         }
         // GET: ReservationController
         public ActionResult Index()
@@ -33,17 +35,19 @@ namespace MyQuickDesk.Controllers
         {
             return View();
         }
-
+        
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation reservation, Guid deskId)
+        public ActionResult Create(Reservation reservation,Guid deskId,Guid roomId, Guid parkingSpotId)
         {
             try
             {
+                reservation.RoomId = roomId;
+                reservation.ParkingSpotId = parkingSpotId;
                 reservation.DeskId = deskId;
-                _deskService.BookReservationForDesk(reservation, deskId);
                 _reservationService.Create(reservation);
+               
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -51,6 +55,7 @@ namespace MyQuickDesk.Controllers
                 return View();
             }
         }
+    
 
         // GET: ReservationController/Edit/5
         public ActionResult Edit(Guid id)

@@ -6,10 +6,10 @@ namespace MyQuickDesk.Services
     {
         List<Reservation> GetAll();
         Reservation GetById(Guid id);
-        void Create(Reservation model);
+        void Create(Reservation reservation);
         void Update(Reservation model);
         void Delete(Guid id);
-        
+       
     }
 
 }
