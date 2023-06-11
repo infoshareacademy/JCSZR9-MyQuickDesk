@@ -39,12 +39,11 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation reservation,Guid deskId,Guid roomId, Guid parkingSpotId)
+        public ActionResult Create(Reservation reservation,Guid deskId)
         {
             try
             {
-                reservation.RoomId = roomId;
-                reservation.ParkingSpotId = parkingSpotId;
+                
                 reservation.DeskId = deskId;
                 _reservationService.Create(reservation);
                

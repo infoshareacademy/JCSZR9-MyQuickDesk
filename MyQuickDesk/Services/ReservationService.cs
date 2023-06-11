@@ -35,13 +35,8 @@ namespace MyQuickDesk.Services
         {
           
             var desk = _deskService.GetById(reservation.DeskId ?? Guid.Empty);
-            var room = _roomService.GetById(reservation.RoomId ?? Guid.Empty);
-            var parkingSpot = _parkingService.GetById(reservation.ParkingSpotId ?? Guid.Empty);
-
-
             reservation.Desk = desk;
-            reservation.Room = room;
-            reservation.ParkingSpot = parkingSpot;
+          
 
               _dbContext.Reservations.Add(reservation);
               _dbContext.SaveChanges();
@@ -50,7 +45,15 @@ namespace MyQuickDesk.Services
 
 
         public void Update(Reservation reservation)
-        {
+        { var result =_dbContext.Reservations.FirstOrDefault(r => r.DeskId == reservation.DeskId);
+            if (result != null)
+            {
+                result.Desk = reservation.Desk;
+                result.StartTime = reservation.StartTime;
+                result.EndTime = reservation.EndTime;
+                result.Id = reservation.Id;
+                result.DeskId = reservation.DeskId;
+            }
             _dbContext.Reservations.Update(reservation);
             _dbContext.SaveChanges();
         }
