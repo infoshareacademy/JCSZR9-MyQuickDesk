@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.CodeAnalysis.VisualBasic.Syntax;
+using Microsoft.EntityFrameworkCore;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
@@ -7,21 +8,13 @@ namespace MyQuickDesk.Services
 {
     public class ReservationService : IReservationService
     {
-        private readonly IParkingService _parkingService;
-        private readonly IRoomService _roomService;
-        private readonly IDeskService _deskService;
+        
         private readonly MyQuickDeskContext _dbContext;
-    
-
-
-        public ReservationService(MyQuickDeskContext dbContext, IDeskService deskService, IParkingService parkingService, IRoomService roomService)
+      
+        public ReservationService(MyQuickDeskContext dbContext)
         {
             _dbContext = dbContext;
-            _deskService = deskService;
-            _parkingService = parkingService;
-            _roomService = roomService;
-           
-        }
+         }
         public List<Reservation> GetAll()
         {
             return _dbContext.Reservations.ToList();
@@ -30,32 +23,38 @@ namespace MyQuickDesk.Services
         {
             return _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
         }
-      
+
+
         public void Create(Reservation reservation)
         {
-          
-            var desk = _deskService.GetById(reservation.DeskId ?? Guid.Empty);
-            reservation.Desk = desk;
-          
+            {
+                reservation.Id = Guid.NewGuid();
+                var newReservation = new Reservation
+                {
+                    StartTime = reservation.StartTime,
+                    EndTime = reservation.EndTime,
+                   
+                    Desk = reservation.Desk,
+                    DeskId = reservation.DeskId,
+                    Room = reservation.Room,
+                    RoomId = reservation.RoomId,
+                    ParkingSpot = reservation.ParkingSpot,
+                    ParkingSpotId = reservation.ParkingSpotId,
 
-              _dbContext.Reservations.Add(reservation);
-              _dbContext.SaveChanges();
+                };
+
+                _dbContext.Reservations.Add(newReservation);
+                _dbContext.SaveChanges();
+            }
+
         }
 
+            public void Update(Reservation reservation)
+        { 
+           
+                _dbContext.SaveChanges(); 
+                _dbContext.Reservations.Update(reservation);
 
-
-        public void Update(Reservation reservation)
-        { var result =_dbContext.Reservations.FirstOrDefault(r => r.DeskId == reservation.DeskId);
-            if (result != null)
-            {
-                result.Desk = reservation.Desk;
-                result.StartTime = reservation.StartTime;
-                result.EndTime = reservation.EndTime;
-                result.Id = reservation.Id;
-                result.DeskId = reservation.DeskId;
-            }
-            _dbContext.Reservations.Update(reservation);
-            _dbContext.SaveChanges();
         }
         
         public void Delete(Guid id)

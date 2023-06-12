@@ -10,9 +10,15 @@ namespace MyQuickDesk.Controllers
     {
        
         private readonly IReservationService _reservationService;
-        public ReservationController (IReservationService reservationService)
+        private readonly IRoomService _roomService;
+        private readonly IParkingService _parkingService;
+        private readonly IDeskService _deskService;
+        public ReservationController (IReservationService reservationService,IRoomService roomService,
+        IParkingService parkingService, IDeskService deskService)
         {
-            
+            _roomService = roomService;
+            _parkingService = parkingService;
+            _deskService = deskService;
             _reservationService = reservationService;
             
         }
@@ -33,20 +39,18 @@ namespace MyQuickDesk.Controllers
         // GET: ReservationController/Create
         public ActionResult Create()
         {
+           
             return View();
         }
         
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation reservation,Guid deskId)
+        public ActionResult Create(Reservation reservation)
         {
             try
             {
-                
-                reservation.DeskId = deskId;
                 _reservationService.Create(reservation);
-               
                 return RedirectToAction(nameof(Index));
             }
             catch
