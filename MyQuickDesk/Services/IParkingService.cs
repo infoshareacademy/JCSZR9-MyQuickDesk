@@ -9,6 +9,6 @@ namespace MyQuickDesk.Services
         void Create(ParkingSpot parkingSpot);
         void Update(ParkingSpot parkingSpot);
         void Delete(Guid id);
-
+        Guid GetParkingSpotId();
     }
 }

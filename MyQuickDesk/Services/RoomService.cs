@@ -37,6 +37,16 @@ namespace MyQuickDesk.Services
             _dbContext.Rooms.Add(room);
             _dbContext.SaveChanges();
         }
+        public Guid GetRoomId()
+        {
+            var room = _dbContext.Rooms.FirstOrDefault(); 
+
+            if (room != null)
+            {
+                return room.Id;
+            }
+            return Guid.Empty;
+        }
         public void Update(Room room)
         {
             _dbContext.Rooms.Update(room);

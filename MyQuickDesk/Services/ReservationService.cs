@@ -10,11 +10,18 @@ namespace MyQuickDesk.Services
     {
         
         private readonly MyQuickDeskContext _dbContext;
-      
-        public ReservationService(MyQuickDeskContext dbContext)
+        private readonly IRoomService _roomService;
+        private readonly IDeskService _deskService;
+        private readonly IParkingService _parkingService;
+
+
+        public ReservationService(MyQuickDeskContext dbContext, IRoomService roomService, IDeskService deskService, IParkingService parkingService)
         {
             _dbContext = dbContext;
-         }
+            _roomService = roomService;
+            _deskService = deskService;
+            _parkingService = parkingService;   
+        }
         public List<Reservation> GetAll()
         {
             return _dbContext.Reservations.ToList();
@@ -27,29 +34,35 @@ namespace MyQuickDesk.Services
 
         public void Create(Reservation reservation)
         {
-            {
-                reservation.Id = Guid.NewGuid();
-                var newReservation = new Reservation
-                {
-                    StartTime = reservation.StartTime,
-                    EndTime = reservation.EndTime,
-                   
-                    Desk = reservation.Desk,
-                    DeskId = reservation.DeskId,
-                    Room = reservation.Room,
-                    RoomId = reservation.RoomId,
-                    ParkingSpot = reservation.ParkingSpot,
-                    ParkingSpotId = reservation.ParkingSpotId,
-
-                };
-
-                _dbContext.Reservations.Add(newReservation);
-                _dbContext.SaveChanges();
-            }
+            //reservation.RoomId = GetRoomId();
+            reservation.DeskId = GetDeskId();
+           // reservation.ParkingSpotId = GetParkingSpotId();
+            _dbContext.Reservations.Add(reservation);
+            _dbContext.SaveChanges();
+            
 
         }
 
-            public void Update(Reservation reservation)
+        private Guid? GetParkingSpotId()
+        {
+            Guid parkingSpotId = _parkingService.GetParkingSpotId();
+            return parkingSpotId;
+        }
+
+        private Guid? GetDeskId()
+        {
+            Guid deskId = _deskService.GetDeskId();
+            return deskId;
+        }
+
+        private Guid? GetRoomId()
+        {
+            Guid roomId = _roomService.GetRoomId();
+            return roomId;
+            
+        }
+
+        public void Update(Reservation reservation)
         { 
            
                 _dbContext.SaveChanges(); 

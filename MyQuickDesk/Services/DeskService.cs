@@ -28,8 +28,8 @@ namespace MyQuickDesk.Services
 
         public void Create(Desk desk)
         {
-            
-           //var currentUser = _userContext.GetCurrentUser();
+
+            //var currentUser = _userContext.GetCurrentUser();
             //if (currentUser == null || !currentUser.IsAdmin("Admin"))
             //{
             //    return;
@@ -38,7 +38,16 @@ namespace MyQuickDesk.Services
             _dbContext.Desks.Add(desk);
             _dbContext.SaveChanges();
         }
+        public Guid GetDeskId()
+        {
+            var desk = _dbContext.Desks.FirstOrDefault();
 
+            if (desk != null)
+            {
+                return desk.Id;
+            }
+            return Guid.Empty;
+        }
 
         public void Update(Desk desk)
         {

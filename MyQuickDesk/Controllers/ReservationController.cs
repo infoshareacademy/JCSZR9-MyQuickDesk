@@ -39,17 +39,26 @@ namespace MyQuickDesk.Controllers
         // GET: ReservationController/Create
         public ActionResult Create()
         {
-           
             return View();
         }
         
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation reservation)
+        public ActionResult Create(Reservation model)
         {
             try
             {
+                var reservation = new Reservation
+                {
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
+                    UserId = Guid.NewGuid(),
+                    Id = Guid.NewGuid(),
+                   
+                };
+
+               
                 _reservationService.Create(reservation);
                 return RedirectToAction(nameof(Index));
             }
@@ -58,6 +67,7 @@ namespace MyQuickDesk.Controllers
                 return View();
             }
         }
+
     
 
         // GET: ReservationController/Edit/5
