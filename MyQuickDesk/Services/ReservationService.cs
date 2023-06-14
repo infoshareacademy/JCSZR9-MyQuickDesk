@@ -33,14 +33,20 @@ namespace MyQuickDesk.Services
 
 
         public void Create(Reservation reservation)
-        {
-            //reservation.RoomId = GetRoomId();
+        {//reservation.RoomId = GetRoomId();
             reservation.DeskId = GetDeskId();
-           // reservation.ParkingSpotId = GetParkingSpotId();
+            // reservation.ParkingSpotId = GetParkingSpotId();
             _dbContext.Reservations.Add(reservation);
-            _dbContext.SaveChanges();
-            
 
+            try
+            {
+
+                _dbContext.SaveChanges();
+            }
+            catch 
+            {
+              
+            }
         }
 
         private Guid? GetParkingSpotId()
