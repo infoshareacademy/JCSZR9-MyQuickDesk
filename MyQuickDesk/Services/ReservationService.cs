@@ -33,7 +33,7 @@ namespace MyQuickDesk.Services
 
 
         public void Create(Reservation reservation)
-        {//reservation.RoomId = GetRoomId();
+        {   //reservation.RoomId = GetRoomId();
             reservation.DeskId = GetDeskId();
             // reservation.ParkingSpotId = GetParkingSpotId();
             _dbContext.Reservations.Add(reservation);
@@ -43,7 +43,7 @@ namespace MyQuickDesk.Services
 
                 _dbContext.SaveChanges();
             }
-            catch 
+            catch (Exception ex) 
             {
               
             }
