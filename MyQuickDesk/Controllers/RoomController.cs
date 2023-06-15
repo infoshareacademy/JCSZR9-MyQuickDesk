@@ -42,13 +42,15 @@ namespace MyQuickDesk.Controllers
 
         // GET: RoomController/Create
         [Authorize(Roles = "Admin")]
-        public ActionResult Create()
+        public ActionResult Create(Guid id)
         {
-            return View();
+           var model = new Room { Id = id };
+            return View(model);
         }
 
         // POST: RoomController/Create
         [HttpPost]
+        [Route("Room/Create/{id?}")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create( Room model )

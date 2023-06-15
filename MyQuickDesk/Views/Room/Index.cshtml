@@ -43,13 +43,13 @@
             </td>
             
             <td>
-<div class="button-container">
-  <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-  <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-  <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
-  <a asp-action="Create" asp-controller="Reservation" asp-route-deskId="@item.Id" class="create-link">Reservation create</a>
+             <div class="button-container">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
 
-</div>
+             </div>
             </td>
         </tr>
 }

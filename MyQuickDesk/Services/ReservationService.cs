@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis.VisualBasic.Syntax;
+﻿
 using Microsoft.EntityFrameworkCore;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
@@ -8,19 +8,12 @@ namespace MyQuickDesk.Services
 {
     public class ReservationService : IReservationService
     {
-        
         private readonly MyQuickDeskContext _dbContext;
-        private readonly IRoomService _roomService;
-        private readonly IDeskService _deskService;
-        private readonly IParkingService _parkingService;
-
-
-        public ReservationService(MyQuickDeskContext dbContext, IRoomService roomService, IDeskService deskService, IParkingService parkingService)
+     
+        public ReservationService(MyQuickDeskContext dbContext)
         {
             _dbContext = dbContext;
-            _roomService = roomService;
-            _deskService = deskService;
-            _parkingService = parkingService;   
+            
         }
         public List<Reservation> GetAll()
         {
@@ -33,40 +26,12 @@ namespace MyQuickDesk.Services
 
 
         public void Create(Reservation reservation)
-        {   //reservation.RoomId = GetRoomId();
-            reservation.DeskId = GetDeskId();
-            // reservation.ParkingSpotId = GetParkingSpotId();
+        {  
             _dbContext.Reservations.Add(reservation);
-
-            try
-            {
-
-                _dbContext.SaveChanges();
-            }
-            catch (Exception ex) 
-            {
-              
-            }
+            _dbContext.SaveChanges();
+           
         }
 
-        private Guid? GetParkingSpotId()
-        {
-            Guid parkingSpotId = _parkingService.GetParkingSpotId();
-            return parkingSpotId;
-        }
-
-        private Guid? GetDeskId()
-        {
-            Guid deskId = _deskService.GetDeskId();
-            return deskId;
-        }
-
-        private Guid? GetRoomId()
-        {
-            Guid roomId = _roomService.GetRoomId();
-            return roomId;
-            
-        }
 
         public void Update(Reservation reservation)
         { 

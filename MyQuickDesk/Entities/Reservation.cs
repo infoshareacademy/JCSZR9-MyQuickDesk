@@ -6,7 +6,7 @@ namespace MyQuickDesk.Entities
     {
         public Guid Id { get; set; }
         
-        public Space Space { get; set; } = null!;
+        public Space? Space { get; set; }
 
         public Guid? RoomId { get; set; }
         public Room? Room { get; set; }
@@ -20,8 +20,8 @@ namespace MyQuickDesk.Entities
         public ParkingSpot? ParkingSpot { get; set; }
 
         
-        public Guid UserId { get; set; }
-        public User User { get; set; } = null!;
+        public Guid? UserId { get; set; }
+        public User? User { get; set; } 
 
         //========================================
 

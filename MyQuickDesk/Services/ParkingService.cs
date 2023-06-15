@@ -36,16 +36,7 @@ namespace MyQuickDesk.Services
             _dbContext.ParkingSpots.Add(parkingSpot);
             _dbContext.SaveChanges();
         }
-        public Guid GetParkingSpotId()
-        {
-            var parkingSpot = _dbContext.ParkingSpots.FirstOrDefault();
-
-            if (parkingSpot != null)
-            {
-                return parkingSpot.Id;
-            }
-            return Guid.Empty;
-        }
+       
         public void Update(ParkingSpot parkingSpot)
         {
             _dbContext.ParkingSpots.Update(parkingSpot);

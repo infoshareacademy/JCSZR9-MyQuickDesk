@@ -8,12 +8,12 @@ namespace MyQuickDesk.Services
     public class DeskService:IDeskService
     {
         private readonly MyQuickDeskContext _dbContext;
-        //private readonly IUserContext _userContext;
+        private readonly IUserContext _userContext;
 
-        public DeskService(MyQuickDeskContext dbContext)// IUserContext userContext
+        public DeskService(MyQuickDeskContext dbContext, IUserContext userContext)
         {
             _dbContext = dbContext;
-            //_userContext = userContext;
+            _userContext = userContext;
         }        
 
         public List<Desk> GetAll()
@@ -29,26 +29,16 @@ namespace MyQuickDesk.Services
         public void Create(Desk desk)
         {
 
-            //var currentUser = _userContext.GetCurrentUser();
-            //if (currentUser == null || !currentUser.IsAdmin("Admin"))
-            //{
-            //    return;
-            //}
+            var currentUser = _userContext.GetCurrentUser();
+            if (currentUser == null || !currentUser.IsAdmin("Admin"))
+            {
+                return;
+            }
 
             _dbContext.Desks.Add(desk);
             _dbContext.SaveChanges();
         }
-        public Guid GetDeskId()
-        {
-            var desk = _dbContext.Desks.FirstOrDefault();
-
-            if (desk != null)
-            {
-                return desk.Id;
-            }
-            return Guid.Empty;
-        }
-
+       
         public void Update(Desk desk)
         {
             _dbContext.Desks.Update(desk);

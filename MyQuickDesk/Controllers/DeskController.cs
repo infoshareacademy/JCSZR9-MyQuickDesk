@@ -31,16 +31,18 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: DeskController/Create
-       // [Authorize(Roles = "Admin")]
-        public ActionResult Create()
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create(Guid id)
         {
-
-            return View();
+            var model= new Desk { Id = id };
+           
+            return View(model);
         }
 
         // POST: DeskController/Create
         [HttpPost]
-       // [Authorize(Roles = "Admin")]
+        [Route("Desk/Create/{id?}")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Desk model)
         {
@@ -56,7 +58,7 @@ namespace MyQuickDesk.Controllers
         }
     
         // GET: DeskController/Edit/5
-       // [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             var model = _deskService.GetById(id);
@@ -65,7 +67,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: DeskController/Edit/5
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Guid id, Desk model)
         {

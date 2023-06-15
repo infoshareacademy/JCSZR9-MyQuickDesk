@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
 
@@ -10,19 +11,18 @@ namespace MyQuickDesk.Controllers
     {
        
         private readonly IReservationService _reservationService;
-        private readonly IRoomService _roomService;
-        private readonly IParkingService _parkingService;
-        private readonly IDeskService _deskService;
-        public ReservationController (IReservationService reservationService,IRoomService roomService,
-        IParkingService parkingService, IDeskService deskService)
+        private readonly MyQuickDeskContext _dbContext;
+
+
+        public ReservationController (IReservationService reservationService, MyQuickDeskContext dbContext)
         {
-            _roomService = roomService;
-            _parkingService = parkingService;
-            _deskService = deskService;
+           
             _reservationService = reservationService;
+            _dbContext = dbContext;
             
         }
         // GET: ReservationController
+        
         public ActionResult Index()
         {
             var model = _reservationService.GetAll();
@@ -30,66 +30,73 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Details/5
-        public ActionResult Details(Guid id)
+        public ActionResult Details(Guid id, Guid spaceId)
         {
+            ViewBag.SpaceId = spaceId;
             var model = _reservationService.GetById(id);
             return View(model);
         }
 
         // GET: ReservationController/Create
-        public ActionResult Create()
+        public ActionResult Create(Guid spaceId)
         {
-            return View();
-        }
+            ViewBag.SpaceId = spaceId;
+
+            
+            var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
+            Reservation model = new Reservation { Space = space };
+
+            return View();      
+        } 
+
         
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation model)
+        public ActionResult Create(Reservation model, Guid spaceId)
         {
             try
             {
-                var reservation = new Reservation
+                if (ModelState.IsValid)
                 {
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddDays(1),
-                    UserId = Guid.NewGuid(),
-                    Id = Guid.NewGuid(),
-                   
-                };
+                    var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
+                    model.Space = space;
 
-               
-                _reservationService.Create(reservation);
-                return RedirectToAction(nameof(Index));
+                    _reservationService.Create(model);
+                    return RedirectToAction(nameof(Index));
+                }
             }
             catch
             {
                 return View();
             }
+            return View(model);
         }
 
     
 
         // GET: ReservationController/Edit/5
-        public ActionResult Edit(Guid id)
-        { 
+        public ActionResult Edit(Guid id, Guid spaceId)
+        {
+            ViewBag.SpaceId = spaceId;
             var model = _reservationService.GetById(id);
-            return View();
+            return View(model);
         }
 
         // POST: ReservationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Guid id, Reservation model)
+        public ActionResult Edit(Reservation model, Guid id)
         {
             try
             {
+                model.Id = id;
                 _reservationService.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
        
@@ -97,7 +104,7 @@ namespace MyQuickDesk.Controllers
         public ActionResult Delete(Guid id)
         { 
             var model = _reservationService.GetById(id);
-            return View();
+            return View(model);
         }
 
         // POST: ReservationController/Delete/5

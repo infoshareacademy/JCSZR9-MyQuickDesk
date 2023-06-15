@@ -9,7 +9,7 @@ namespace MyQuickDesk.Services
         void Create(Room room);
         void Update(Room room);
         void Delete(Guid id);
-        Guid GetRoomId();
+       
 
     }
 }

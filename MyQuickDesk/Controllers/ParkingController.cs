@@ -27,25 +27,27 @@ namespace MyQuickDesk.Controllers
         // GET: ParkingController/Details/5
         public ActionResult Details(Guid id)
         {
-            var model = _parkingService.GetById(id);
+            var model = new ParkingSpot { Id = id };
             return View(model);
         }
 
         // GET: ParkingController/Create
         [Authorize(Roles = "Admin")]
-        public ActionResult Create()
+        public ActionResult Create(Guid id)
         {
-            return View();
+            var model =_parkingService.GetById(id);
+            return View(model);
         }
 
         // POST: ParkingController/Create
         [HttpPost]
+        [Route("ParkingSpot/Create/{id?}")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ParkingSpot model)
         {
             try
-            {_parkingService.Create(model);
+            {   _parkingService.Create(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
