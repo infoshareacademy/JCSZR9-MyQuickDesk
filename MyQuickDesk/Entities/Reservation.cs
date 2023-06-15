@@ -19,7 +19,7 @@
 
 
         public Guid UserId { get; set; }
-        public User User { get; set; } = null!;
+        public IdentityUser User { get; set; } = null!;
 
         //========================================
 
