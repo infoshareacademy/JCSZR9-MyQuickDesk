@@ -22,6 +22,10 @@
         <dd class="col-sm-10">
             @Model.EndTime
         </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Space.Name"></label>
+        </dt>
+        
         <input type="hidden" name="spaceId" value="@ViewBag.SpaceId" />
     </dl>
 </div>

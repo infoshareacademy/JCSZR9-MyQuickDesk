@@ -44,7 +44,7 @@ namespace MyQuickDesk.Controllers
 
             
             var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
-            Reservation model = new Reservation { Space = space };
+            var model = new Reservation { Space = space };
 
             return View();      
         } 

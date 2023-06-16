@@ -23,6 +23,10 @@
                 <input asp-for="EndTime" class="form-control" />
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Space.Name" class="control-label"></label>
+                <input asp-for="Space.Name" class="form-control" disabled />
+            </div>
             <input type="hidden" name="spaceId" value="@ViewBag.SpaceId" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
