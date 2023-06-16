@@ -1,4 +1,4 @@
-﻿@model MyQuickDesk.Models.Room
+﻿@model MyQuickDesk.Entities.Room
 
 @{
     ViewData["Title"] = "Create";
@@ -23,11 +23,6 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div ></div>class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" asp-for="InteractiveBoard" />
-                    <label class="form-check-label" asp-for="InteractiveBoard">Interactive board</label>
-            </div>
             <div class="form-group">
                 <label asp-for="MaxCapacity" class="control-label"></label>
                 <input asp-for="MaxCapacity" class="form-control" />
@@ -41,9 +36,9 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="back-to-list-btn" asp-action="Index">Back to List</a>
 </div>
-
+<a href="@Url.Action("Create", "Reservation", new { roomId = Model.Id })">Link</a>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

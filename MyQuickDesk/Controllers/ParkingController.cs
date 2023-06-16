@@ -2,45 +2,52 @@
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Services;
 using MyQuickDesk.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Controllers
 {
     public class ParkingController : Controller
     {
-        private readonly ParkingService _parkingService;
+        private readonly IParkingService _parkingService;
 
-        public ParkingController()
+        public ParkingController(IParkingService parkingService)
         {
-            _parkingService= new ParkingService(); 
+            _parkingService= parkingService; 
         }
 
         // GET: ParkingController
         public ActionResult Index()
         {
-            var model = _parkingService.GetAllAvaible();
+            var model = _parkingService.GetAll();
             return View(model);
         }
 
         // GET: ParkingController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            var model = _parkingService.GetById(id);
+            var model = new ParkingSpot { Id = id };
             return View(model);
         }
 
         // GET: ParkingController/Create
-        public ActionResult Create()
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create(Guid id)
         {
-            return View();
+            var model =_parkingService.GetById(id);
+            return View(model);
         }
 
         // POST: ParkingController/Create
         [HttpPost]
+        [Route("ParkingSpot/Create/{id?}")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ParkingSpot model)
         {
             try
-            {
+            {   _parkingService.Create(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,15 +57,17 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Edit/5
-        public ActionResult Edit(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(Guid id)
         {
             return View();
         }
 
         // POST: ParkingController/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Guid id, IFormCollection collection)
         {
             try
             {
@@ -71,15 +80,17 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ParkingController/Delete/5
-        public ActionResult Delete(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(Guid id)
         {
             return View();
         }
 
         // POST: ParkingController/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, IFormCollection collection)
         {
             try
             {

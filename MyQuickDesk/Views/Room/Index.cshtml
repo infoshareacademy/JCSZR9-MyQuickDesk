@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyQuickDesk.Models.Room>
+﻿@model IEnumerable<MyQuickDesk.Entities.Room>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,7 +9,7 @@
 <h1>Conferencial Room</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="create-link">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -21,11 +21,6 @@
             <th>
                 <label asp-for="First().Description"></label>
             </th>
-            
-            <th>
-            <label asp-for="First().InteractiveBoard"></label>
-            </th>
-
             <th>
             <label asp-for="First().MaxCapacity"></label>
             </th>
@@ -41,27 +36,20 @@
             </td>
             <td>
                @item.Description
-            </td>
-            <td>
-               @if (item.InteractiveBoard)
-               {
-                   <text>yes</text>
-               }
-               else
-               {
-                   <text>no</text>
-               }
-            </td>
-            
+            </td>           
             <td>
                 @item.MaxCapacity
                
             </td>
             
             <td>
-               <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-               <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
-               <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+             <div class="button-container">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
+
+             </div>
             </td>
         </tr>
 }
