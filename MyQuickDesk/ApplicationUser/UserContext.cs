@@ -22,7 +22,7 @@ namespace MyQuickDesk.ApplicationUser
             var user = _httpContextAccessor?.HttpContext?.User;
             if (user == null)
             {
-                throw new InvalidOperationException("User context is not present!");
+                throw new InvalidOperationException("IdentityUser context is not present!");
             }
 
             var id = Guid.Parse(user.FindFirst(c => c.Type == ClaimTypes.NameIdentifier)!.Value);

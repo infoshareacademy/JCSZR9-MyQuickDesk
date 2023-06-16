@@ -41,6 +41,68 @@
     height: auto; 
 }
 
+.login-btn {
+    background-color: transparent;
+    color: #7BA798;
+    border: 2px solid #7BA798;
+    border-radius: 25px;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+    .login-btn:hover {
+        background-color: #7BA798;
+        color: #fff;
+    }
+
+.register-btn {
+    background-color: transparent;
+    color: #7BA798;
+    border: 2px solid #7BA798;
+    border-radius: 25px;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+    .register-btn:hover {
+        background-color: #7BA798;
+        color: #fff;
+    }
+.parent-container {
+    text-align: center;
+}
+.resend-password-btn {
+    background-color: transparent;
+    color: #7BA798;
+    border: 2px solid #7BA798;
+    border-radius: 25px;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+    .resend-password-btn:hover {
+        background-color: #7BA798;
+        color: #fff;
+    }
+
+.reset-password-btn {
+    background-color: transparent;
+    color: #7BA798;
+    border: 2px solid #7BA798;
+    border-radius: 25px;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+.reset-password-btn:hover {
+    background-color: #7BA798;
+    color: #fff;
+}
+
+
 .delete-link {
     background-color: darkred;
     border-color: darkred;
