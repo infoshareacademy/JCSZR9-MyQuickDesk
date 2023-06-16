@@ -40,7 +40,12 @@ namespace MyQuickDesk.DatabaseContext
                     HasForeignKey(r => r.UserId);
             });
 
-
+            modelBuilder.Entity<ParkingSpot>(mb =>
+            {
+                mb.HasMany(ps => ps.Reservations)
+                    .WithOne(r => r.ParkingSpot)
+                    .HasForeignKey(r => r.ParkingSpotId);
+            });
 
             modelBuilder.Entity<Room>().HasData
             (

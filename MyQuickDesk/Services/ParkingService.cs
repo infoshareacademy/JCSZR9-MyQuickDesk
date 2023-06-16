@@ -10,7 +10,7 @@ namespace MyQuickDesk.Services
                 new ParkingSpot
                 {
                     Id = Guid.NewGuid(),
-                    Description ="First flour",
+                    Description ="First floor",
                     Name= "A",
                     HandicappedSpot = false,
                     Charger = false,
@@ -19,15 +19,45 @@ namespace MyQuickDesk.Services
                     
                 }
             };
+        private Guid _idCounter;
 
-                public List <ParkingSpot> GetAllAvaible()
-                 {
-                    return _parkingspots.Where(p=> p.IsAvaible).ToList();
-                 }
-                public ParkingSpot GetById(Guid id)
-                {
-                    return _parkingspots.FirstOrDefault(p => p.Id == id);
-                }
+        public List<ParkingSpot> GetAllAvaible()
+        {
+            return _parkingspots.Where(p => p.IsAvaible).ToList();
+        }
 
+        public ParkingSpot GetById(Guid id)
+        {
+            return _parkingspots.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void Create(ParkingSpot spot)
+        {
+            spot.Id = GetNextId();
+            _parkingspots.Add(spot);
+        }
+
+        public void Update(ParkingSpot spot)
+        {
+            var existingSpot = GetById(spot.Id);
+
+            existingSpot.Description = spot.Description;
+            existingSpot.Name = spot.Name;
+            existingSpot.HandicappedSpot = spot.HandicappedSpot;
+            existingSpot.Charger = spot.Charger;
+            existingSpot.IsAvaible = spot.IsAvaible;
+        }
+
+        public void Delete(Guid id)
+        {
+            _parkingspots.Remove(GetById(id));
+        }
+
+        private Guid GetNextId()
+        {
+            _idCounter = Guid.NewGuid();
+
+            return _idCounter;
+        }
     }
 }
