@@ -62,8 +62,15 @@ namespace MyQuickDesk.Controllers
                     var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
                     model.Space = space;
 
-                    _reservationService.Create(model);
-                    return RedirectToAction(nameof(Index));
+                    if (_reservationService.IsReservationValid(model))
+                    {
+                        _reservationService.Create(model);
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "The reservation conflicts with existing bookings. Please choose a different time slot.");
+                    };
                 }
             }
             catch

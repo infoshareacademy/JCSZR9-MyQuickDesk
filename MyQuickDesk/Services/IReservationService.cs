@@ -9,7 +9,8 @@ namespace MyQuickDesk.Services
         void Create(Reservation reservation);
         void Update(Reservation model);
         void Delete(Guid id);
-       
+        bool IsReservationValid(Reservation reservation);
+
     }
 
 }

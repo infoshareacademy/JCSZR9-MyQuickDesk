@@ -31,6 +31,25 @@ namespace MyQuickDesk.Services
             _dbContext.SaveChanges();
            
         }
+        public bool IsReservationValid(Reservation reservation)
+        {
+            ICollection<Reservation>Reservations = _dbContext.Reservations
+                .Where(r => r.Id == reservation.Id)
+                .ToList();
+
+            foreach (var reservations in Reservations)
+            {
+                if ((reservation.StartTime.Date >= reservation.StartTime.Date && reservation.StartTime.Date <= reservation.EndTime.Date) ||
+                    (reservation.EndTime.Date >= reservation.StartTime.Date && reservation.EndTime.Date <= reservation.EndTime.Date) ||
+                    (reservation.StartTime.Date <= reservation.StartTime.Date && reservation.EndTime.Date >= reservation.EndTime.Date))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
 
 
         public void Update(Reservation reservation)
@@ -50,6 +69,6 @@ namespace MyQuickDesk.Services
                 _dbContext.SaveChanges();
             }
         }
-        
+
     }
 }
