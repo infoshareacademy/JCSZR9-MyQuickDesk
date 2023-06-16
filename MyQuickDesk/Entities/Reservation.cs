@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyQuickDesk.Entities
 {
@@ -21,11 +22,12 @@ namespace MyQuickDesk.Entities
 
         
         public Guid? UserId { get; set; }
-        public User? User { get; set; } 
+        public User? User { get; set; }
 
         //========================================
+        
+        public DateTime StartTime { get; set; }= DateTime.Today;
 
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime EndTime { get; set; } = DateTime.Today;
     }
 }
