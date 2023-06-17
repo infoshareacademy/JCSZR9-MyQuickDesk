@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<MyQuickDesk.Entities.Reservation>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Reservations";
 }
 
-<h1>Index</h1>
+<h1>Your Reservations</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -33,10 +31,12 @@
                 @item.EndTime
             </td>
             <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+                    <div class="button-container">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                    </div>
+                </td>
         </tr>
 }
     </tbody>
