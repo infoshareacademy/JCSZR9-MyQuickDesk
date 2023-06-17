@@ -22,7 +22,7 @@ namespace MyQuickDesk.Entities
 
         
         public Guid? UserId { get; set; }
-        public User? User { get; set; }
+        public IdentityUser? User { get; set; }
 
         //========================================
         

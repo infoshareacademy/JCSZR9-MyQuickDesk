@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject MyQuickDesk.ApplicationUser.IUserContext UserContext
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,18 +20,21 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">ParkingSpot</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">Conferencial Room</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">Desk</a>
-                        </li>
+                        @if (UserContext.IsUserLoggedIn())
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">ParkingSpot</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">Conferencial Room</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">Desk</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
