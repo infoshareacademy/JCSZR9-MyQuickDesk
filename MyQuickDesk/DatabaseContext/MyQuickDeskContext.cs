@@ -17,7 +17,7 @@ namespace MyQuickDesk.DatabaseContext
 
 
         public DbSet<Reservation> Reservations { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<IdentityUser> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,7 +41,12 @@ namespace MyQuickDesk.DatabaseContext
 
             });
 
-
+            modelBuilder.Entity<ParkingSpot>(mb =>
+            {
+                mb.HasMany(ps => ps.Reservations)
+                    .WithOne(r => r.ParkingSpot)
+                    .HasForeignKey(r => r.ParkingSpotId);
+            });
 
             modelBuilder.Entity<Room>().HasData
             (
