@@ -35,7 +35,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create(Guid id)
         {
-            var model =_parkingService.GetById(id);
+            var model =new ParkingSpot { Id=id };
             return View(model);
         }
 
@@ -60,17 +60,19 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
-            return View();
+            var model =_parkingService.GetById(id);
+            return View(model);
         }
 
         // POST: ParkingController/Edit/5
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Guid id, IFormCollection collection)
+        public ActionResult Edit(Guid id, ParkingSpot model)
         {
             try
             {
+                _parkingService.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -83,17 +85,19 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
-            return View();
+            var model = _parkingService.GetById(id);
+            return View(model);
         }
 
         // POST: ParkingController/Delete/5
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id, IFormCollection collection)
+        public ActionResult Delete(Guid id, ParkingSpot model)
         {
             try
             {
+                _parkingService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
