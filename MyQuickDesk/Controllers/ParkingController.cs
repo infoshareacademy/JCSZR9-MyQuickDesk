@@ -83,7 +83,12 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
-            return View();
+            var parkingSpot = _parkingService.GetById(id);
+            if (parkingSpot == null)
+            {
+                return NotFound();
+            }
+            return View(parkingSpot);
         }
 
         // POST: ParkingController/Delete/5
@@ -94,6 +99,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
+                _parkingService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
