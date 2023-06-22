@@ -5,6 +5,7 @@ namespace MyQuickDesk.ApplicationUser
     public interface IUserContext
     {
         CurrentUser GetCurrentUser();
+        bool IsUserLoggedIn();
     }
 
     public class UserContext : IUserContext
@@ -31,7 +32,12 @@ namespace MyQuickDesk.ApplicationUser
 
             return new CurrentUser(id, email, roles);
         }
-
+        public bool IsUserLoggedIn()
+        {
+            var user = _httpContextAccessor?.HttpContext?.User;
+            return user != null && user.Identity.IsAuthenticated;
+        }
 
     }
+
 }

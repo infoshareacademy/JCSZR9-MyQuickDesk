@@ -1,4 +1,6 @@
-﻿@{
+﻿@using MyQuickDesk.ApplicationUser;
+@inject IUserContext UserContext
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,8 +8,14 @@
     <h1 class="display-4">Productivity starts here.</h1>
     <img src="~/img/newlogo-small.png" class="QuickDeskLogo" alt="MyQuickDesk-logo">
     <div class="d-flex justify-content-center">
-        <a href="/Desk" class="btn btn-primary">Book hotdesk</a>
-        <a href="/Room" class="btn btn-primary">Book conference room</a>
-
+       @if (UserContext.IsUserLoggedIn())
+        {
+            <a href="/Desk" class="btn btn-primary">Book hotdesk</a>
+            <a href="/Room" class="btn btn-primary">Book conference room</a>
+        }
+        else
+        {
+            <a href="/Identity/Account/Login" class="btn btn-primary">Login to Book</a>
+        }
 </div>
 

@@ -33,12 +33,11 @@
     background-color: #7BA798;
     color: white;
     border: 2px solid #7BA798;
-    border-radius: 20px;
-    padding: 5px 10px;
+    border-radius: 35px;
+    padding: 10px;
     font-size: 15px;
-    text-align: center; 
-    display: inline-block; 
-    height: auto; 
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
 .delete-link {

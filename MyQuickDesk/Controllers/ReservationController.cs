@@ -9,24 +9,21 @@ namespace MyQuickDesk.Controllers
 {
     public class ReservationController : Controller
     {
-       
         private readonly IReservationService _reservationService;
         private readonly MyQuickDeskContext _dbContext;
 
-
-        public ReservationController (IReservationService reservationService, MyQuickDeskContext dbContext)
+        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext)
         {
-           
             _reservationService = reservationService;
             _dbContext = dbContext;
-            
         }
+
         // GET: ReservationController
-        
         public ActionResult Index()
         {
-            var model = _reservationService.GetAll();
-            return View(model);
+                var model = _reservationService.GetAll();
+                return View(model);
+            
         }
 
         // GET: ReservationController/Details/5
@@ -42,18 +39,16 @@ namespace MyQuickDesk.Controllers
         {
             ViewBag.SpaceId = spaceId;
 
-            
             var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
             var model = new Reservation { Space = space };
 
-            return View();      
-        } 
+            return View(model);
+        }
 
-        
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation model, Guid spaceId)
+        public ActionResult Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId)
         {
             try
             {
@@ -61,6 +56,19 @@ namespace MyQuickDesk.Controllers
                 {
                     var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
                     model.Space = space;
+
+                    if (space is Desk)
+                    {
+                        model.DeskId = deskId;
+                    }
+                    else if (space is Room)
+                    {
+                        model.RoomId = roomId;
+                    }
+                    else if (space is ParkingSpot)
+                    {
+                        model.ParkingSpotId = parkingId;
+                    }
 
                     if (_reservationService.IsReservationValid(model))
                     {
@@ -70,7 +78,7 @@ namespace MyQuickDesk.Controllers
                     else
                     {
                         ModelState.AddModelError(string.Empty, "The reservation conflicts with existing bookings. Please choose a different time slot.");
-                    };
+                    }
                 }
             }
             catch
@@ -80,12 +88,11 @@ namespace MyQuickDesk.Controllers
             return View(model);
         }
 
-    
-
         // GET: ReservationController/Edit/5
         public ActionResult Edit(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
+
             var model = _reservationService.GetById(id);
             return View(model);
         }
@@ -106,10 +113,10 @@ namespace MyQuickDesk.Controllers
                 return View(model);
             }
         }
-       
+
         // GET: ReservationController/Delete/5
         public ActionResult Delete(Guid id)
-        { 
+        {
             var model = _reservationService.GetById(id);
             return View(model);
         }
@@ -131,3 +138,4 @@ namespace MyQuickDesk.Controllers
         }
     }
 }
+
