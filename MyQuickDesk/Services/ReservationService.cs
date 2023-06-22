@@ -9,11 +9,12 @@ namespace MyQuickDesk.Services
     public class ReservationService : IReservationService
     {
         private readonly MyQuickDeskContext _dbContext;
+        private readonly IUserContext _userContext;
      
-        public ReservationService(MyQuickDeskContext dbContext)
+        public ReservationService(MyQuickDeskContext dbContext, IUserContext userContext)
         {
             _dbContext = dbContext;
-            
+            _userContext = userContext;
         }
         public List<Reservation> GetAll()
         {
@@ -26,30 +27,20 @@ namespace MyQuickDesk.Services
 
 
         public void Create(Reservation reservation)
-        {  
+        {
             _dbContext.Reservations.Add(reservation);
             _dbContext.SaveChanges();
-           
         }
         public bool IsReservationValid(Reservation reservation)
         {
-            ICollection<Reservation>Reservations = _dbContext.Reservations
-                .Where(r => r.Id == reservation.Id)
-                .ToList();
+            var existingReservation = _dbContext.Reservations
+                .FirstOrDefault(r => r.Space.Id == reservation.Space.Id &&
+                                     (reservation.StartTime.Date >= r.StartTime.Date && reservation.StartTime.Date <= r.EndTime.Date ||
+                                      reservation.EndTime.Date >= r.StartTime.Date && reservation.EndTime.Date <= r.EndTime.Date ||
+                                      reservation.StartTime.Date <= r.StartTime.Date && reservation.EndTime.Date >= r.EndTime.Date));
 
-            foreach (var reservations in Reservations)
-            {
-                if ((reservation.StartTime.Date >= reservation.StartTime.Date && reservation.StartTime.Date <= reservation.EndTime.Date) ||
-                    (reservation.EndTime.Date >= reservation.StartTime.Date && reservation.EndTime.Date <= reservation.EndTime.Date) ||
-                    (reservation.StartTime.Date <= reservation.StartTime.Date && reservation.EndTime.Date >= reservation.EndTime.Date))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return existingReservation == null;
         }
-
 
 
         public void Update(Reservation reservation)

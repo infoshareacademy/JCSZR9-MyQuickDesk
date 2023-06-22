@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
@@ -11,11 +12,14 @@ namespace MyQuickDesk.Controllers
     {
         private readonly IReservationService _reservationService;
         private readonly MyQuickDeskContext _dbContext;
+        private readonly IUserContext _userContext;
+        
 
-        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext)
+        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext,IUserContext userContext)
         {
             _reservationService = reservationService;
             _dbContext = dbContext;
+            _userContext = userContext;
         }
 
         // GET: ReservationController
@@ -57,19 +61,19 @@ namespace MyQuickDesk.Controllers
                     var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
                     model.Space = space;
 
-                    if (space is Desk)
+                    if (model.Space is Desk)
                     {
-                        model.DeskId = deskId;
+                        model.DeskId = spaceId;
                     }
-                    else if (space is Room)
+                    else if (model.Space is Room)
                     {
-                        model.RoomId = roomId;
+                        model.RoomId = spaceId;
                     }
-                    else if (space is ParkingSpot)
+                    else if (model.Space is ParkingSpot)
                     {
-                        model.ParkingSpotId = parkingId;
+                        model.ParkingSpotId = spaceId;
                     }
-
+                   
                     if (_reservationService.IsReservationValid(model))
                     {
                         _reservationService.Create(model);
