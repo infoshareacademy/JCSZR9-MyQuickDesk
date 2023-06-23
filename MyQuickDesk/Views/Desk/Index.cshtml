@@ -5,10 +5,12 @@
 }
 
 <h1>Desk</h1>
-
-<p>
-    <a asp-action="Create" class="create-link">Create New</a>
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="create-link">Create New</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -34,8 +36,11 @@
                 <td>
                     <div class="button-container">
                         <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                        }
                         <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
 
 
