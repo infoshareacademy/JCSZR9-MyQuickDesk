@@ -45,10 +45,8 @@ namespace MyQuickDesk.Services
 
         public void Update(Reservation reservation)
         { 
-           
-                _dbContext.SaveChanges(); 
-                _dbContext.Reservations.Update(reservation);
-
+             _dbContext.Reservations.Update(reservation);
+             _dbContext.SaveChanges();
         }
         
         public void Delete(Guid id)

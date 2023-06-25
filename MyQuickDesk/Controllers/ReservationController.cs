@@ -40,7 +40,7 @@ namespace MyQuickDesk.Controllers
 
         // GET: ReservationController/Create
         public ActionResult Create(Guid spaceId)
-        {
+        { 
             ViewBag.SpaceId = spaceId;
 
             var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
@@ -73,7 +73,7 @@ namespace MyQuickDesk.Controllers
                     {
                         model.ParkingSpotId = spaceId;
                     }
-                   
+
                     if (_reservationService.IsReservationValid(model))
                     {
                         _reservationService.Create(model);
@@ -89,6 +89,7 @@ namespace MyQuickDesk.Controllers
             {
                 return View();
             }
+      
             return View(model);
         }
 
