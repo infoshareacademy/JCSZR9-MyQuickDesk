@@ -134,6 +134,8 @@ namespace MyQuickDesk.DatabaseContext
             );
         }
 
+        public DbSet<MyQuickDesk.Entities.Favorites> Favorites { get; set; } = default!;
+
 
 
     }
