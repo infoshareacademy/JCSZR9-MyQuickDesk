@@ -10,7 +10,7 @@ namespace MyQuickDesk.DatabaseContext
 
         public DbSet<Space> Spaces { get; set; }
 
-
+        public DbSet<Favorites> Favorites { get; set; }
         public DbSet<Desk> Desks { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<ParkingSpot> ParkingSpots { get; set;}
@@ -39,6 +39,24 @@ namespace MyQuickDesk.DatabaseContext
                     WithMany(u => u.Reservations).
                     HasForeignKey(r => r.UserId);
             });
+            modelBuilder.Entity<Favorites>(mb =>
+            {
+                mb.HasOne(r => r.Desk).
+                    WithMany(d => d.Reservations).
+                    HasForeignKey(r => r.DeskId);
+                mb.HasOne(r => r.Room).
+                    WithMany(rm => rm.Reservations).
+                    HasForeignKey(r => r.RoomId);
+                mb.HasOne(r => r.ParkingSpot).
+                    WithMany(ps => ps.Reservations).
+                    HasForeignKey(r => r.ParkingSpotId);
+
+                mb.HasOne(r => r.User).
+                    WithMany(u => u.Reservations).
+                    HasForeignKey(r => r.UserId);
+            });
+
+
 
 
 

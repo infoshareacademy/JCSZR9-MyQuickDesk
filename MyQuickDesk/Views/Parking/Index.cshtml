@@ -51,6 +51,9 @@
             <td>
                     <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
             </td>
+                <td>
+                    <a asp-action="AddToFavorites" asp-route-id="@item.Id" class="details-link">Add to favorites</a>
+                </td>
         </tr>
 }
     </tbody>

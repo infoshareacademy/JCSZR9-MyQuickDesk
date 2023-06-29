@@ -8,10 +8,12 @@ namespace MyQuickDesk.Controllers
     public class ParkingController : Controller
     {
         private readonly ParkingService _parkingService;
-
-        public ParkingController()
+        private readonly FavoritesService _favoritesService;
+        
+        public ParkingController(ParkingService parkingService, FavoritesService favoritesService)
         {
-            _parkingService= new ParkingService(); 
+            _favoritesService = favoritesService;
+            _parkingService = parkingService;
         }
 
         // GET: ParkingController
@@ -20,7 +22,14 @@ namespace MyQuickDesk.Controllers
             var model = _parkingService.GetAllAvaible();
             return View(model);
         }
+        
+        public ActionResult AddToFavorites(Guid guid)
+        {
+            var model = _parkingService.GetById(guid);
+            _favoritesService.AddFavorite(model);
+            return View (_parkingService.GetAllAvaible());
 
+        }
         // GET: ParkingController/Details/5
         public ActionResult Details(Guid id)
         {
