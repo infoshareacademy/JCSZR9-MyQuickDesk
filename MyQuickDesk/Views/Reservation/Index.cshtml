@@ -32,10 +32,20 @@
             </td>
             <td>
                     <div class="button-container">
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
+                            <img src="~/Icons/Detailicon.png" alt="Details Icon" width="20" height="20">
+                            Details
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
+                            <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20">
+                            Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">
+                            <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
+                            Delete
+                        </a>
                     </div>
+
                 </td>
         </tr>
 }
