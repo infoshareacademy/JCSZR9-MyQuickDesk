@@ -8,26 +8,37 @@ using MyQuickDesk.Services;
 
 namespace MyQuickDesk.Controllers
 {
+    
     public class ReservationController : Controller
     {
         private readonly IReservationService _reservationService;
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
-        
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext,IUserContext userContext)
+
+        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext,IUserContext userContext, IHttpContextAccessor httpContextAccessor)
         {
             _reservationService = reservationService;
             _dbContext = dbContext;
             _userContext = userContext;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: ReservationController
         public ActionResult Index()
         {
-                var model = _reservationService.GetAll();
-                return View(model);
-            
+            if (!_userContext.IsUserLoggedIn())
+            {
+                return RedirectToAction("Login", "Account"); 
+            }
+
+            var currentUser = _userContext.GetCurrentUser();
+            var userId = currentUser.Id;
+
+            var model = _reservationService.GetAll().Where(r => r.UserId == userId).ToList();
+            return View(model);
+
         }
 
         // GET: ReservationController/Details/5
@@ -52,7 +63,7 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId)
+        public ActionResult Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId,Guid? userId)
         {
             try
             {
@@ -60,6 +71,10 @@ namespace MyQuickDesk.Controllers
                 {
                     var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
                     model.Space = space;
+
+                    var currentUser = _userContext.GetCurrentUser();
+                    model.UserId = currentUser.Id;
+
 
                     if (model.Space is Desk)
                     {
@@ -85,11 +100,11 @@ namespace MyQuickDesk.Controllers
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError(string.Empty, $"Error: {ex.Message}");
             }
-      
+
             return View(model);
         }
 

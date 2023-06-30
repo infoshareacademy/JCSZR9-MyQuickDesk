@@ -345,35 +345,35 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("195584a9-b31a-4d21-9a41-a32f64549932"),
+                            Id = new Guid("1106621a-9838-4286-847e-c0af75da3bf3"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A1"
                         },
                         new
                         {
-                            Id = new Guid("3b88fad5-cd1d-4073-9b4f-7304949a5618"),
+                            Id = new Guid("5059ac55-cbf7-4751-961b-0497779ad908"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A2"
                         },
                         new
                         {
-                            Id = new Guid("4891b39e-36ca-4b67-9172-4e6510a21d9d"),
+                            Id = new Guid("7b362831-a76b-4424-aad8-19e776616918"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A3"
                         },
                         new
                         {
-                            Id = new Guid("0900f57b-ca59-4943-9e0f-f15267815961"),
+                            Id = new Guid("24ba6cc0-10d1-42b6-aa3e-8bc6e2c40cf0"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko B1"
                         },
                         new
                         {
-                            Id = new Guid("fbb742dd-3402-40b4-a27d-7f94db721446"),
+                            Id = new Guid("8fcb68b1-336b-420b-9686-9efffdb498f4"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko B2"
@@ -395,7 +395,7 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4c7f888b-ed6d-4cd1-91d9-fb0eb351c7bb"),
+                            Id = new Guid("ea657e14-d3aa-443e-90f0-ef7451b6fdb8"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A1",
@@ -404,7 +404,7 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("856cadff-cfb2-482f-aafb-c82005ea02e1"),
+                            Id = new Guid("96f40a07-12b3-4ef2-9332-016b585f0a62"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A2",
@@ -413,7 +413,7 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f51908ed-948c-45e1-9b04-c93446f20011"),
+                            Id = new Guid("8ea77e16-e24b-4d18-813a-a21500867fe4"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A3",
@@ -422,7 +422,7 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8603199b-c91d-46f0-b73f-5776b5eaa47e"),
+                            Id = new Guid("a29132cf-059a-48c5-b62c-32daed8ac5a4"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1B1",
@@ -440,21 +440,21 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5d600c08-32dc-4f2a-a244-ad6acd00c643"),
+                            Id = new Guid("83d38970-473a-4520-af8b-91f3c2c26535"),
                             IsAvaiable = true,
                             MaxCapacity = 8,
                             Name = "Mariacka"
                         },
                         new
                         {
-                            Id = new Guid("3b1ec947-36a4-4c28-846d-a63b6e36dac2"),
+                            Id = new Guid("c860d661-82a9-43a5-bd3d-159593408bd3"),
                             IsAvaiable = true,
                             MaxCapacity = 10,
                             Name = "Neptun"
                         },
                         new
                         {
-                            Id = new Guid("08818706-5480-4b04-9925-d171df3693ca"),
+                            Id = new Guid("143a96d7-0d39-4fa7-8ae2-aba0c4a6de49"),
                             IsAvaiable = true,
                             MaxCapacity = 12,
                             Name = "Polityczna"

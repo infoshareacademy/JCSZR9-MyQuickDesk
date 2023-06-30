@@ -16,18 +16,21 @@ namespace MyQuickDesk.Services
             _dbContext = dbContext;
             _userContext = userContext;
         }
-        public List<Reservation> GetAll()
-        {
-            return _dbContext.Reservations.ToList();
-        }
+         public IEnumerable<Reservation> GetAll()
+         {
+            return _dbContext.Reservations.Include(r => r.Space).Include(r => r.User);
+         }
+
         public Reservation GetById(Guid id)
         {
-            return _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
+             return _dbContext.Reservations.Include(r => r.Space).Include(r => r.User).FirstOrDefault(r => r.Id == id);
         }
 
 
         public void Create(Reservation reservation)
         {
+            var currentUser = _userContext.GetCurrentUser();
+            reservation.UserId = currentUser.Id;
             _dbContext.Reservations.Add(reservation);
             _dbContext.SaveChanges();
         }
