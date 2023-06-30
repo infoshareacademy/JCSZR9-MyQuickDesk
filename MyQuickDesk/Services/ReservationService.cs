@@ -6,6 +6,16 @@ using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
 {
+    public interface IReservationService
+    {
+        IEnumerable<Reservation> GetAll();
+        Reservation GetById(Guid id);
+        void Create(Reservation reservation);
+        void Update(Reservation model);
+        void Delete(Guid id);
+        bool IsReservationValid(Reservation reservation);
+
+    }
     public class ReservationService : IReservationService
     {
         private readonly MyQuickDeskContext _dbContext;
@@ -18,12 +28,12 @@ namespace MyQuickDesk.Services
         }
          public IEnumerable<Reservation> GetAll()
          {
-            return _dbContext.Reservations.Include(r => r.Space).Include(r => r.User);
-         }
+            return _dbContext.Reservations.ToList();
+        }
 
         public Reservation GetById(Guid id)
         {
-             return _dbContext.Reservations.Include(r => r.Space).Include(r => r.User).FirstOrDefault(r => r.Id == id);
+             return _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
         }
 
 
