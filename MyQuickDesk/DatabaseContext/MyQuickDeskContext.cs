@@ -41,19 +41,7 @@ namespace MyQuickDesk.DatabaseContext
             });
             modelBuilder.Entity<Favorites>(mb =>
             {
-                mb.HasOne(r => r.Desk).
-                    WithMany(d => d.Reservations).
-                    HasForeignKey(r => r.DeskId);
-                mb.HasOne(r => r.Room).
-                    WithMany(rm => rm.Reservations).
-                    HasForeignKey(r => r.RoomId);
-                mb.HasOne(r => r.ParkingSpot).
-                    WithMany(ps => ps.Reservations).
-                    HasForeignKey(r => r.ParkingSpotId);
-
-                mb.HasOne(r => r.User).
-                    WithMany(u => u.Reservations).
-                    HasForeignKey(r => r.UserId);
+                mb.HasKey(c => new { c.UserId, c.ParkingId });
             });
 
 
