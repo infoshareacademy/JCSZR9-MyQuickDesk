@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace MyQuickDesk.ApplicationUser
 {
@@ -20,10 +21,13 @@ namespace MyQuickDesk.ApplicationUser
         public CurrentUser GetCurrentUser()
         {
             var user = _httpContextAccessor?.HttpContext?.User;
-            if (user == null)
+            if (user == null 
+                || user.FindFirst(c => c.Type == ClaimTypes.NameIdentifier)==null 
+                || user.FindFirst(c => c.Type == ClaimTypes.Email)==null) 
             {
                 throw new InvalidOperationException("User context is not present!");
             }
+
 
             var id = Guid.Parse(user.FindFirst(c => c.Type == ClaimTypes.NameIdentifier)!.Value);
             var email = user.FindFirst(c => c.Type == ClaimTypes.Email)!.Value;

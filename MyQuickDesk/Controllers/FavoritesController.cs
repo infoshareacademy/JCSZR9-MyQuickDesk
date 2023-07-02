@@ -14,9 +14,9 @@ namespace MyQuickDesk.Controllers
     public class FavoritesController : Controller
     {
         private readonly MyQuickDeskContext _context;
-        private readonly UserContext _userContext;
+        private readonly IUserContext _userContext;
 
-        public FavoritesController(MyQuickDeskContext context, UserContext userContext)
+        public FavoritesController(MyQuickDeskContext context, IUserContext userContext)
         {
             _context = context;
             _userContext = userContext;

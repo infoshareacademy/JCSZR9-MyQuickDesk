@@ -13,6 +13,7 @@ namespace MyQuickDesk.Entities
         public string Email { get; set; } = string.Empty!;
 
         public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
+        public ICollection<Favorites> Favorites { get; set; } = new List<Favorites>();
     }
 
 }

@@ -20,9 +20,9 @@ namespace MyQuickDesk.Services
                 return _dbContext.Favorites.ToList();
             }
 
-            public Favorites GetById(Guid id)
+            public Favorites GetById(Guid userId, Guid parkingId)
             {
-                return _dbContext.Favorites.FirstOrDefault(d => d.UserId == id);
+                return _dbContext.Favorites.FirstOrDefault(d => d.UserId == userId && d.ParkingId== parkingId);
             }
 
             public void Create(Favorites favorites)
@@ -56,16 +56,17 @@ namespace MyQuickDesk.Services
         public void AddFavorite(ParkingSpot parkingSpot)
         {
             var currentUser = _userContext.GetCurrentUser();
+
             var favorites = _dbContext.Favorites.FirstOrDefault(d => d.UserId == currentUser.Id);
             if (favorites != null)
             {
-                favorites.ParkingSpot.Add(parkingSpot);
+                _dbContext.Favorites.Add(favorites);
                 _dbContext.Favorites.Update(favorites);
             }
             else
             {
-                var favorites2 = new Favorites() { UserId = currentUser.Id, ParkingSpot = new List<ParkingSpot> { parkingSpot} };
-                _dbContext.Favorites.Add(favorites2);
+            //    var favorites2 = new Favorites() { UserId = currentUser.Id, ParkingSpot = parkingSpot};
+            //   _dbContext.Favorites.Add(favorites2);
             }
             _dbContext.SaveChanges();
         }
