@@ -14,7 +14,7 @@ namespace MyQuickDesk.Controllers
 
         public ParkingController(IParkingService parkingService)
         {
-            _parkingService= parkingService; 
+            _parkingService = parkingService; 
         }
 
         // GET: ParkingController

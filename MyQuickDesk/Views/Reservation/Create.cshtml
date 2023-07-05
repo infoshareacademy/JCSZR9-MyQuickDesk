@@ -28,7 +28,6 @@
             </div>
 
             <input type="hidden" name="spaceId" value="@ViewBag.SpaceId" />
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -39,7 +38,6 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

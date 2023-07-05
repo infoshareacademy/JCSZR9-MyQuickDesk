@@ -14,23 +14,22 @@ namespace MyQuickDesk.Controllers
         private readonly IReservationService _reservationService;
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
-
-        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext,IUserContext userContext, IHttpContextAccessor httpContextAccessor)
+       
+        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext,IUserContext userContext)
         {
             _reservationService = reservationService;
             _dbContext = dbContext;
             _userContext = userContext;
-            _httpContextAccessor = httpContextAccessor;
+          
         }
 
         // GET: ReservationController
-        public ActionResult Index()
+        public ActionResult Index(Guid id, Guid spaceId)
         {
+            ViewBag.SpaceId = spaceId;
             if (!_userContext.IsUserLoggedIn())
             {
-                return RedirectToAction("Login", "Account"); 
+                return RedirectToAction("Login", "Account");
             }
 
             var currentUser = _userContext.GetCurrentUser();
@@ -38,7 +37,6 @@ namespace MyQuickDesk.Controllers
 
             var model = _reservationService.GetAll().Where(r => r.UserId == userId).ToList();
             return View(model);
-
         }
 
         // GET: ReservationController/Details/5
@@ -50,12 +48,13 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Create
-        public ActionResult Create(Guid spaceId)
+        public ActionResult Create(Guid spaceId,Guid userId)
         { 
             ViewBag.SpaceId = spaceId;
 
             var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
             var model = new Reservation { Space = space };
+            ViewBag.UserId = userId;
 
             return View(model);
         }
@@ -72,39 +71,41 @@ namespace MyQuickDesk.Controllers
                     var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
                     model.Space = space;
 
-                    var currentUser = _userContext.GetCurrentUser();
-                    model.UserId = currentUser.Id;
-
-
-                    if (model.Space is Desk)
+                   var currentUser = _userContext.GetCurrentUser();
+                   var user = new User
+                   {
+                      Id = currentUser.Id,
+                   };
+                    model.User = user;
+                    switch (model.Space)
                     {
-                        model.DeskId = spaceId;
+                        case Desk:
+                            model.DeskId = spaceId;
+                            break;
+                        case Room:
+                            model.RoomId = spaceId;
+                            break;
+                        case ParkingSpot:
+                            model.ParkingSpotId = spaceId;
+                            break;
                     }
-                    else if (model.Space is Room)
-                    {
-                        model.RoomId = spaceId;
-                    }
-                    else if (model.Space is ParkingSpot)
-                    {
-                        model.ParkingSpotId = spaceId;
-                    }
 
-                    if (_reservationService.IsReservationValid(model))
-                    {
-                        _reservationService.Create(model);
+                   if (_reservationService.IsReservationValid(model))
+                   {
+                       _reservationService.Create(model);
                         return RedirectToAction(nameof(Index));
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "The reservation conflicts with existing bookings. Please choose a different time slot.");
-                    }
+                   }
+                   else
+                   {
+                      ModelState.AddModelError(string.Empty, "The reservation conflicts with existing bookings. Please choose a different time slot.");
+                   }
                 }
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, $"Error: {ex.Message}");
             }
-
+           
             return View(model);
         }
 
@@ -125,7 +126,7 @@ namespace MyQuickDesk.Controllers
             try
             {
                 model.Id = id;
-                _reservationService.Update(model);
+                _reservationService.Update(id,model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -156,6 +157,20 @@ namespace MyQuickDesk.Controllers
                 return View();
             }
         }
+        //[HttpPut]
+        //public ActionResult Update(Reservation model, Guid Id)
+        //{
+        //    if(!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    var isUpdate = _reservationService.Update(Id, model);
+        //    if (!isUpdate)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(model);
+        //}
     }
 }
 

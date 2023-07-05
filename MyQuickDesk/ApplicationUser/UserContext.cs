@@ -21,7 +21,9 @@ namespace MyQuickDesk.ApplicationUser
         public CurrentUser GetCurrentUser()
         {
             var user = _httpContextAccessor?.HttpContext?.User;
-            if (user == null)
+            if (user == null
+                || user.FindFirst(c=>c.Type ==ClaimTypes.NameIdentifier)==null
+                || user.FindFirst(c=>c.Type == ClaimTypes.Email) == null)
             {
                 throw new InvalidOperationException("User context is not present!");
             }
