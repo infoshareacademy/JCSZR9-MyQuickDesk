@@ -5,9 +5,11 @@ using MyQuickDesk.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
 using MyQuickDesk.Entities;
+using MyQuickDesk.Filters;
 
 namespace MyQuickDesk.Controllers
 {
+    [LanguageFilter]
     public class ParkingController : Controller
     {
         private readonly IParkingService _parkingService;

@@ -4,11 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
+using MyQuickDesk.Filters;
+using MyQuickDesk.Resources;
 using MyQuickDesk.Services;
+using System.Globalization;
+using System.Resources;
 
 namespace MyQuickDesk.Controllers
 {
-    
+    [LanguageFilter]
     public class ReservationController : Controller
     {
         private readonly IReservationService _reservationService;
@@ -26,6 +30,7 @@ namespace MyQuickDesk.Controllers
         // GET: ReservationController
         public ActionResult Index(Guid id, Guid spaceId)
         {
+            string errorMessage = Messages.ErrorReservationConflict;
             ViewBag.SpaceId = spaceId;
             if (!_userContext.IsUserLoggedIn())
             {
@@ -95,17 +100,32 @@ namespace MyQuickDesk.Controllers
                        _reservationService.Create(model);
                         return RedirectToAction(nameof(Index));
                    }
-                   else
+                    else
                    {
-                      ModelState.AddModelError(string.Empty, "The reservation conflicts with existing bookings. Please choose a different time slot.");
-                   }
+                        ModelState.AddModelError(string.Empty, Messages.ErrorReservationConflict);
+
+                    }
                 }
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(string.Empty, $"Error: {ex.Message}");
+                string errorMessagePL = GetTranslatedMessage("ErrorReservationConflict", "pl-PL");
+                string errorMessageDE = GetTranslatedMessage("ErrorReservationConflict", "de-DE");
+                string errorMessageFR = GetTranslatedMessage("ErrorReservationConflict", "fr-FR");
+                string errorMessageEN = GetTranslatedMessage("ErrorReservationConflict", "en-EN");
+                string errorMessageUA = GetTranslatedMessage("ErrorReservationConflict", "ua-UA");
+                string errorMessageZH = GetTranslatedMessage("ErrorReservationConflict", "zh-ZH");
+
+                ModelState.AddModelError(string.Empty, errorMessagePL);
+                ModelState.AddModelError(string.Empty, errorMessageDE);
+                ModelState.AddModelError(string.Empty, errorMessageFR);
+                ModelState.AddModelError(string.Empty, errorMessageEN);
+                ModelState.AddModelError(string.Empty, errorMessageUA);
+                ModelState.AddModelError(string.Empty, errorMessageZH);
             }
-           
+
+
+
             return View(model);
         }
 
@@ -157,6 +177,15 @@ namespace MyQuickDesk.Controllers
                 return View();
             }
         }
+        public static string GetTranslatedMessage(string key, string cultureCode)
+        {
+            ResourceManager resourceManager = new ResourceManager(typeof(Messages));
+            CultureInfo culture = CultureInfo.GetCultureInfo(cultureCode);
+            string translatedMessage = resourceManager.GetString(key, culture);
+
+            return translatedMessage;
+        }
+
         //[HttpPut]
         //public ActionResult Update(Reservation model, Guid Id)
         //{

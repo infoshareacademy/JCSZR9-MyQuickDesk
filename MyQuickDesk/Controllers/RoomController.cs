@@ -4,9 +4,11 @@ using MyQuickDesk.Services;
 using MyQuickDesk.Entities;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using MyQuickDesk.Filters;
 
 namespace MyQuickDesk.Controllers
 {
+    [LanguageFilter]
     public class RoomController : Controller
     {
         private readonly IRoomService _roomService;
