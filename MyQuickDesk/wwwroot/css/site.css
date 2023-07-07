@@ -9,11 +9,22 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+.nav-item-panel {
+    background-color: #7BA798;
+}
+
+    .nav-link:active {
+        background-color: #caded4 !important;
+    }
+
+
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center; 
+    justify-content: center;
 }
 
 

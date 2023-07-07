@@ -8,15 +8,29 @@
 <div class="text-center">
     <h1 class="display-4">Productivity starts here.</h1>
     <img src="~/img/newlogo-small.png" class="QuickDeskLogo" alt="MyQuickDesk-logo">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column align-items-center">
         @if (UserContext.IsUserLoggedIn())
         {
-            <a href="/Desk" class="btn btn-primary">Book hotdesk</a>
-            <a href="/Room" class="btn btn-primary">Book conference room</a>
+            <a href="/Desk" class="btn btn-primary">
+                <img src="~/icons/Deskicon.png" alt="Desk Icon" class="button-icon">
+                Book hotdesk
+            </a>
+            <a href="/Room" class="btn btn-primary">
+                <img src="~/icons/Conferenceicon.png" alt="Conference Icon" class="button-icon">
+                Book conference room
+            </a>
         }
         else
         {
-            <a href="/Identity/Account/Login" class="btn btn-primary">Login to Book your hotdesk</a>
+            <a href="/Identity/Account/Login" class="btn btn-primary mb-3">
+                <img src="~/icons/Loginicon.png" alt="Login Icon" class="button-icon">
+                Login to Book your hotdesk
+            </a>
+            <a href="/Identity/Account/Register" class="btn btn-primary" style="font-size: 1.0em;">
+                I don't have an account yet
+            </a>
         }
     </div>
 </div>
+
+
