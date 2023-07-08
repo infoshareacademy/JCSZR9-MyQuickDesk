@@ -107,7 +107,7 @@
     color: #7BA798;
     border: 2px solid #7BA798;
     border-radius: 25px;
-    padding: 20px 40px;
+    padding: 20px 20px;
     font-size: 20px;
     margin: 0 auto;
 }
@@ -208,14 +208,14 @@ span {
 }
 
 .btn {
-  border: 1px solid #fff;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 15px 40px;
-  text-transform: uppercase;
-  transition: all 0.5s ease-in-out 0s;
+    border: 1px solid #7BA798;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out 0s;
 }
 
 .btn-default:hover {
@@ -348,7 +348,9 @@ span {
 * Desktop Navigation 
 */
 .navbar {
-  padding: 0;
+    padding: 0;
+    background-color: rgba(245, 245, 245, 0.5);
+    border-radius: 20px;
 }
 
 .navbar ul {

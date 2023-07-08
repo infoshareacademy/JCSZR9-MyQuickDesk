@@ -4,10 +4,114 @@
 @{
     ViewData["Title"] = "Log in";
 }
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var containerMain = document.querySelector('.container-main');
+        containerMain.style.opacity = '0';
+        containerMain.style.transform = 'translateY(-100px)';
 
-<div class="row justify-content-center">
+        setTimeout(function () {
+            containerMain.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
+            containerMain.style.opacity = '1';
+            containerMain.style.transform = 'translateY(0)';
+        }, 100);
+    });
+</script>
+<style>
+    body {
+        background-image: url('/img/background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container-main {
+        background-color: rgba(245, 245, 245, 0.7);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        width: 60%;
+        margin: 10px auto;
+        backdrop-filter: blur(5px);
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #F5F5F5;
+        border-color: #F5F5F5;
+        color: #333;
+    }
+
+    .button-icon
+    {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+    }
+
+    .default-img {
+        display: inline;
+    }
+
+    .hover-img {
+        display: none;
+    }
+
+    .login-btn:hover .default-img {
+        display: none;
+    }
+
+    .login-btn:hover .hover-img {
+        display: inline;
+    }
+
+    .login-btn {
+        /* Dodajemy odpowiednie właściwości dla animacji */
+        transition: background-color 0.5s ease-in-out;
+    }
+
+        .login-btn:hover {
+            background-color: #7BA798;
+        }
+
+    .default-img {
+        /* Dodajemy odpowiednie właściwości dla animacji */
+        transition: opacity 0.5s ease-in-out;
+        opacity: 1;
+    }
+
+    .hover-img {
+        /* Dodajemy odpowiednie właściwości dla animacji */
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+    }
+
+    .login-btn:hover .default-img {
+        opacity: 0;
+    }
+
+    .login-btn:hover .hover-img {
+        opacity: 1;
+    }
+
+    .link-btn{
+            background-color: #7BA798;
+    color: white;
+    border: 2px solid #7BA798;
+    border-radius: 35px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+    }
+
+    
+</style>
+
+<div class="container-main">
+    <div class="row justify-content-center">
     <h1 class="text-center fw-bold">@ViewData["Title"]</h1>
-    <div class="col-md-4">
+    <div class="row">
         <section>
             <form id="account" method="post">
                 <h2>Use a local account to log in.</h2>
@@ -29,18 +133,21 @@
                         @Html.DisplayNameFor(m => m.Input.RememberMe)
                     </label>
                 </div>
-                <div class="parent-container">
-                    <button id="login-submit" type="submit" class="login-btn">Log in</button>
-                </div>
+                    <div class="parent-container">
+                        <button id="login-submit" type="submit" class="login-btn">
+                            <img src="~/icons/Loginicon.png" alt="Login Icon" class="button-icon default-img">
+                            <img src="~/icons/Loginicon-bright.png" alt="Login Icon Bright" class="button-icon hover-img"> Log in
+                        </button>
+                    </div>
                 <div>
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                            <a id="forgot-password" asp-page="./ForgotPassword" class="link-btn">Forgot your password?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="link-btn" >Register as a new user</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="link-btn" >Resend email confirmation</a>
                     </p>
                 </div>
             </form>
@@ -49,8 +156,11 @@
             
         </section>
     </div>
-</div>
+    </div>
+   </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+

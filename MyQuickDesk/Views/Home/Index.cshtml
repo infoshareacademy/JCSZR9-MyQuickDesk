@@ -4,7 +4,19 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var containerMain = document.querySelector('.container-main');
+        containerMain.style.opacity = '0';
+        containerMain.style.transform = 'translateY(-100px)';
 
+        setTimeout(function () {
+            containerMain.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
+            containerMain.style.opacity = '1';
+            containerMain.style.transform = 'translateY(0)';
+        }, 100);
+    });
+</script>
 <style>
     body {
         background-image: url('/img/background.png');
@@ -114,3 +126,4 @@
         }
     </div>
 </div>
+
