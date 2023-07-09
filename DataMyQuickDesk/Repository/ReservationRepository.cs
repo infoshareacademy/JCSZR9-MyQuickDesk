@@ -4,7 +4,7 @@ using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
 
-namespace MyQuickDesk.Services
+namespace MyQuickDesk.DAL.Repository
 {
     public interface IReservationService
     {
@@ -16,15 +16,14 @@ namespace MyQuickDesk.Services
         bool IsReservationValid(Reservation reservation);
 
     }
-    public class ReservationService : IReservationService
+    public class ReservationRepository : IReservationService
     {
         private readonly MyQuickDeskContext _dbContext;
-        private readonly IUserContext _userContext;
-     
-        public ReservationService(MyQuickDeskContext dbContext, IUserContext userContext)
+       
+        public ReservationRepository(MyQuickDeskContext dbContext)
         {
             _dbContext = dbContext;
-            _userContext = userContext;
+            
         }
          public IEnumerable<Reservation> GetAll()
          {

@@ -1,0 +1,75 @@
+﻿using MyQuickDesk.ApplicationUser;
+using MyQuickDesk.DatabaseContext;
+using MyQuickDesk.Entities;
+
+namespace MyQuickDesk.DAL.Repository
+{
+    public interface IRoomService
+    {
+        List<Room> GetAll();
+        Room GetById(Guid id);
+        void Create(Room room);
+        void Update(Room room);
+        void Delete(Guid id);
+    }
+
+    public class RoomRepository: IRoomService
+    {
+
+        private readonly MyQuickDeskContext _dbContext;
+       
+
+        public RoomRepository(MyQuickDeskContext dbContext)
+        {
+            _dbContext = dbContext;
+            _userContext = userContext;
+        }
+        public List<Room> GetAll()
+        {
+            return _dbContext.Rooms.ToList();
+        }
+        public Room GetById(Guid id)
+        {
+            return _dbContext.Rooms.FirstOrDefault(r => r.Id == id);
+        }
+
+        public void Create(Room room)
+        {
+            var currentUser = _userContext.GetCurrentUser();
+            if (currentUser == null || !currentUser.IsAdmin("Admin"))
+            {
+                return;
+            }
+
+            _dbContext.Rooms.Add(room);
+            _dbContext.SaveChanges();
+        }
+        public Guid GetRoomId()
+        {
+            var room = _dbContext.Rooms.FirstOrDefault(); 
+
+            if (room != null)
+            {
+                return room.Id;
+            }
+            return Guid.Empty;
+        }
+        public void Update(Room room)
+        {
+            _dbContext.Rooms.Update(room);
+            _dbContext.SaveChanges();
+
+
+        }
+        public void Delete(Guid id)
+        {
+            var room = _dbContext.Rooms.FirstOrDefault(d => d.Id == id);
+            if (room != null)
+            {
+                _dbContext.Rooms.Remove(room);
+                _dbContext.SaveChanges();
+            }
+        }
+
+    }
+}

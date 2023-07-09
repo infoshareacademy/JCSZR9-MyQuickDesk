@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace MyQuickDesk.Entities
+
+namespace MyQuickDesk.DAL.Entities
 {
     public class User
     {

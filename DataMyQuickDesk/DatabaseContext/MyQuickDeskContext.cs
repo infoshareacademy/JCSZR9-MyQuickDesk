@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MyQuickDesk.Entities;
+using MyQuickDesk.DAL.Entities;
 
-namespace MyQuickDesk.DatabaseContext
+namespace MyQuickDesk.DAL.DatabaseContext
 {
     public class MyQuickDeskContext : IdentityDbContext
     {

@@ -7,6 +7,7 @@ using MyQuickDesk.Entities;
 using MyQuickDesk.Filters;
 using MyQuickDesk.Resources;
 using MyQuickDesk.Services;
+using System.Data;
 using System.Globalization;
 using System.Resources;
 
@@ -30,7 +31,6 @@ namespace MyQuickDesk.Controllers
         // GET: ReservationController
         public ActionResult Index(Guid id, Guid spaceId)
         {
-            string errorMessage = Messages.ErrorReservationConflict;
             ViewBag.SpaceId = spaceId;
             if (!_userContext.IsUserLoggedIn())
             {
@@ -39,8 +39,9 @@ namespace MyQuickDesk.Controllers
 
             var currentUser = _userContext.GetCurrentUser();
             var userId = currentUser.Id;
-
             var model = _reservationService.GetAll().Where(r => r.UserId == userId).ToList();
+            var currenData = DateTime.Now;
+            model= model.Where(r=>r.EndTime> currenData).ToList();
             return View(model);
         }
 

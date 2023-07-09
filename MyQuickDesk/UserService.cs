@@ -1,13 +1,13 @@
 ﻿using System.Security.Claims;
 
-namespace MyQuickDesk.ApplicationUser
+namespace MyQuickDesk.DAL.ApplicationUser
 {
     public interface IUserContext
     {
         CurrentUser GetCurrentUser();
         bool IsUserLoggedIn();
     }
-
+  
     public class UserContext : IUserContext
     {
         private IHttpContextAccessor _httpContextAccessor;
@@ -17,7 +17,7 @@ namespace MyQuickDesk.ApplicationUser
             _httpContextAccessor = httpContextAccessor;
 
         }
-
+        //SERWIS
         public CurrentUser GetCurrentUser()
         {
             var user = _httpContextAccessor?.HttpContext?.User;
