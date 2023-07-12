@@ -8,6 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="jQuery" Version="3.7.0" />
+    <PackageReference Include="jquery-timepicker" Version="1.0.0" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.13.2" />
+    <PackageReference Include="jQuery.UI.Widgets.Datepicker" Version="1.8.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
@@ -17,7 +21,51 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\ReservationResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReservationResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Messages.de.resx">
+      <Generator></Generator>
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Messages.en.resx">
+      <Generator></Generator>
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Messages.ua.resx">
+      <Generator></Generator>
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resource.de.resx">
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Messages.pl.resx">
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Messages.fr.resx">
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Messages.zh.resx">
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ReservationResources.resx">
+      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReservationResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

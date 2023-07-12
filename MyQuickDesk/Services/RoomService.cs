@@ -1,14 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyQuickDesk.ApplicationUser;
+﻿using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
-
 {
-
-    public class RoomService
+    public interface IRoomService
     {
+        List<Room> GetAll();
+        Room GetById(Guid id);
+        void Create(Room room);
+        void Update(Room room);
+        void Delete(Guid id);
+    }
+
+    public class RoomService: IRoomService
+    {
+
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
 
@@ -17,46 +24,13 @@ namespace MyQuickDesk.Services
             _dbContext = dbContext;
             _userContext = userContext;
         }
-
-
-        private readonly static List<Room> _rooms =
-            new List<Room>
-            {
-                new Room
-                {
-                Id = Guid.NewGuid(),
-                Name = "Sala konferencyjna 1",
-                Description="Duza sala konferencyjna",
-                MaxCapacity = 50,
-               
-                },
-                  new Room
-                {
-                Id = Guid.NewGuid(),
-                Name = "Sala konferencyjna 2",
-                Description="Mala sala konferencyjna",
-                MaxCapacity = 10,
-                
-
-                },  new Room
-                {
-                Id = Guid.NewGuid(),
-                Name = "Sala konferencyjna 3",
-                Description="Srednia sala konferencyjna",
-                MaxCapacity = 20,    
-                
-
-
-                },
-
-            };
         public List<Room> GetAll()
         {
-            return _rooms;
+            return _dbContext.Rooms.ToList();
         }
         public Room GetById(Guid id)
         {
-            return _rooms.FirstOrDefault(r => r.Id == id);
+            return _dbContext.Rooms.FirstOrDefault(r => r.Id == id);
         }
 
         public void Create(Room room)
@@ -70,18 +44,31 @@ namespace MyQuickDesk.Services
             _dbContext.Rooms.Add(room);
             _dbContext.SaveChanges();
         }
-        public void Update(Room model)
+        public Guid GetRoomId()
         {
-            var room = GetById(model.Id);
-            room.Name = model.Name;
-            room.MaxCapacity = model.MaxCapacity;
-            room.Description = model.Description; 
-           
+            var room = _dbContext.Rooms.FirstOrDefault(); 
+
+            if (room != null)
+            {
+                return room.Id;
+            }
+            return Guid.Empty;
+        }
+        public void Update(Room room)
+        {
+            _dbContext.Rooms.Update(room);
+            _dbContext.SaveChanges();
+
 
         }
         public void Delete(Guid id)
         {
-            _rooms.Remove(GetById(id));
+            var room = _dbContext.Rooms.FirstOrDefault(d => d.Id == id);
+            if (room != null)
+            {
+                _dbContext.Rooms.Remove(room);
+                _dbContext.SaveChanges();
+            }
         }
 
     }

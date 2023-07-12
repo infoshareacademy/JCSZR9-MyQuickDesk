@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject MyQuickDesk.ApplicationUser.IUserContext UserContext
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,45 +12,59 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyQuickDesk</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">ParkingSpot</a>
-                        </li>
-                         <li class="nav-item">
-                           <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">Conferencial Room</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">Desk</a>
-                        </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        @if (UserContext.IsUserLoggedIn())
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">ParkingSpot</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">Conferencial Room</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">Desk</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Reservation" asp-action="Index">My reservations</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    @if (Context.Request.Path.Equals("/") || Context.Request.Path.Equals("/Home"))
+
+    {
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "zh-CN" })">中文</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "uk-UA" })">Українська</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "de-DE" })">Deutsch</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "fr-FR" })">Français</a>
+    }
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -56,4 +72,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
+
 </html>

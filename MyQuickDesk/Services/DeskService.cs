@@ -5,7 +5,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MyQuickDesk.Services
 {
-    public class DeskService
+    public interface IDeskService
+    {
+        List<Desk> GetAll();
+        Desk GetById(Guid id);
+        void Create(Desk desk);
+        void Update(Desk desk);
+        void Delete(Guid id);
+    }
+    public class DeskService:IDeskService
     {
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
@@ -38,7 +46,7 @@ namespace MyQuickDesk.Services
             _dbContext.Desks.Add(desk);
             _dbContext.SaveChanges();
         }
-
+       
         public void Update(Desk desk)
         {
             _dbContext.Desks.Update(desk);
@@ -54,5 +62,6 @@ namespace MyQuickDesk.Services
                 _dbContext.SaveChanges();
             }
         }
+
     }
 }

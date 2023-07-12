@@ -2,29 +2,33 @@
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Services;
 using MyQuickDesk.Entities;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using MyQuickDesk.Filters;
 
 namespace MyQuickDesk.Controllers
 {
+    [LanguageFilter]
     public class RoomController : Controller
     {
-        private readonly RoomService _roomService;
+        private readonly IRoomService _roomService;
         
-        public RoomController(RoomService roomService)
+        public RoomController(IRoomService roomService)
         {
             _roomService = roomService;
         }
         // GET: RoomController
         public ActionResult Index()
         {
-            bool ConditionInteractiveBoard = true;
+            bool ConditionGuideractiveBoard = true;
 
-            if (ConditionInteractiveBoard)
+            if (ConditionGuideractiveBoard)
             {
-                ViewBag.ConditionInteractiveBoard = "yes";
+                ViewBag.ConditionGuideractiveBoard = "yes";
             }
             else
             {
-                ViewBag.ConditionInteractiveBoard = "no";
+                ViewBag.ConditionGuideractiveBoard = "no";
             }
             var model = _roomService.GetAll();
             return View(model);
@@ -39,13 +43,17 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Create
-        public ActionResult Create()
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create(Guid id)
         {
-            return View();
+           var model = new Room { Id = id };
+            return View(model);
         }
 
         // POST: RoomController/Create
         [HttpPost]
+        [Route("Room/Create/{id?}")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create( Room model )
         {
@@ -61,6 +69,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             var model = _roomService.GetById(id);
@@ -69,6 +78,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: RoomController/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Guid id, Room model)
         {
@@ -84,6 +94,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: RoomController/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             var model = _roomService.GetById(id);
@@ -92,6 +103,7 @@ namespace MyQuickDesk.Controllers
 
         // POST: RoomController/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Guid id, Room model)
         {
