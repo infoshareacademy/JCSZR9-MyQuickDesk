@@ -35,10 +35,6 @@ namespace MyQuickDesk.DatabaseContext
                     WithMany(ps => ps.Reservations).
                     HasForeignKey(r => r.ParkingSpotId);
 
-                mb.HasOne(r => r.User).
-                    WithMany(u => u.Reservations).
-                    HasForeignKey(r => r.UserId);
-
             });
 
 
