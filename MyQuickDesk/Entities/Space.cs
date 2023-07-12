@@ -18,8 +18,7 @@ namespace MyQuickDesk.Entities
 
         public ICollection<Reservation> Reservations { get; set;} = new List<Reservation>();
 
-        public IdentityUser? CreatedBy { get; set; }
-        public string? CreatedById { get; set; }
+
 
     }
 }
