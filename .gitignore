@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MyQuickDesk/Migrations/20230712082021_Init.cs
+/MyQuickDesk/Migrations/20230712082021_Init.Designer.cs
