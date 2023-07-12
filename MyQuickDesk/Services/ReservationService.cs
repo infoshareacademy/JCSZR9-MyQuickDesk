@@ -20,16 +20,16 @@ namespace MyQuickDesk.Services
     {
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
-     
+
         public ReservationService(MyQuickDeskContext dbContext, IUserContext userContext)
         {
             _dbContext = dbContext;
             _userContext = userContext;
         }
-         public IEnumerable<Reservation> GetAll()
-         {
+        public IEnumerable<Reservation> GetAll()
+        {
             return _dbContext.Reservations.Include(r => r.Space).Include(r => r.User).ToList();
-         }
+        }
 
         public Reservation GetById(Guid id)
         {
@@ -56,7 +56,7 @@ namespace MyQuickDesk.Services
                                   ((reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
                                   (reservation.EndTime > r.StartTime && reservation.EndTime <= r.EndTime) ||
                                   (reservation.StartTime <= r.StartTime && reservation.EndTime >= r.EndTime)));
-        
+
             return existingReservation == null;
         }
 
@@ -84,7 +84,7 @@ namespace MyQuickDesk.Services
             {
                 return false;
             }
-        }    
+        }
 
 
         public void Delete(Guid id)

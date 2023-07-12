@@ -11,27 +11,27 @@
     <h4>Room</h4>
     <hr />
     <dl class="row">
-       
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-2">
             <label asp-for="Name"></label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Model.Name
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label asp-for="Description"></label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Model.Description
         </dd>
-        <dt class = "col-sm-2">
-           <label asp-for="MaxCapacity"></label>
+        <dt class="col-sm-2">
+            <label asp-for="MaxCapacity"></label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Model.MaxCapacity
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a class="back-to-list-btn" asp-action="Index">Back to List</a>

@@ -27,10 +27,10 @@ namespace MyQuickDesk
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IReservationService,ReservationService>();
+            builder.Services.AddScoped<IReservationService, ReservationService>();
             builder.Services.AddScoped<IDeskService, DeskService>();
-            builder.Services.AddScoped <IRoomService, RoomService>();
-            builder.Services.AddScoped <IParkingService, ParkingService>();
+            builder.Services.AddScoped<IRoomService, RoomService>();
+            builder.Services.AddScoped<IParkingService, ParkingService>();
             builder.Services.AddScoped<IUserContext, UserContext>();
 
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -85,6 +85,6 @@ namespace MyQuickDesk
 
             app.Run();
         }
-        
+
     }
 }

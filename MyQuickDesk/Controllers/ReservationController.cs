@@ -18,13 +18,13 @@ namespace MyQuickDesk.Controllers
         private readonly IReservationService _reservationService;
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
-       
-        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext,IUserContext userContext)
+
+        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext, IUserContext userContext)
         {
             _reservationService = reservationService;
             _dbContext = dbContext;
             _userContext = userContext;
-          
+
         }
 
         // GET: ReservationController
@@ -53,8 +53,8 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Create
-        public ActionResult Create(Guid spaceId,Guid userId)
-        { 
+        public ActionResult Create(Guid spaceId, Guid userId)
+        {
             ViewBag.SpaceId = spaceId;
 
             var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
@@ -67,7 +67,7 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId,Guid? userId)
+        public ActionResult Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
         {
             try
             {
@@ -76,11 +76,11 @@ namespace MyQuickDesk.Controllers
                     var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
                     model.Space = space;
 
-                   var currentUser = _userContext.GetCurrentUser();
-                   var user = new User
-                   {
-                      Id = currentUser.Id,
-                   };
+                    var currentUser = _userContext.GetCurrentUser();
+                    var user = new User
+                    {
+                        Id = currentUser.Id,
+                    };
                     model.User = user;
                     switch (model.Space)
                     {
@@ -95,13 +95,13 @@ namespace MyQuickDesk.Controllers
                             break;
                     }
 
-                   if (_reservationService.IsReservationValid(model))
-                   {
-                       _reservationService.Create(model);
+                    if (_reservationService.IsReservationValid(model))
+                    {
+                        _reservationService.Create(model);
                         return RedirectToAction(nameof(Index));
-                   }
+                    }
                     else
-                   {
+                    {
                         ModelState.AddModelError(string.Empty, Messages.ErrorReservationConflict);
 
                     }
@@ -146,7 +146,7 @@ namespace MyQuickDesk.Controllers
             try
             {
                 model.Id = id;
-                _reservationService.Update(id,model);
+                _reservationService.Update(id, model);
                 return RedirectToAction(nameof(Index));
             }
             catch

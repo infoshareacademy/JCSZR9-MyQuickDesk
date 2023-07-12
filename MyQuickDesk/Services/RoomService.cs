@@ -13,7 +13,7 @@ namespace MyQuickDesk.Services
         void Delete(Guid id);
     }
 
-    public class RoomService: IRoomService
+    public class RoomService : IRoomService
     {
 
         private readonly MyQuickDeskContext _dbContext;
@@ -46,7 +46,7 @@ namespace MyQuickDesk.Services
         }
         public Guid GetRoomId()
         {
-            var room = _dbContext.Rooms.FirstOrDefault(); 
+            var room = _dbContext.Rooms.FirstOrDefault();
 
             if (room != null)
             {

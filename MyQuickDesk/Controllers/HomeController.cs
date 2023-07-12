@@ -36,7 +36,7 @@ namespace MyQuickDesk.Controllers
         }
         public IActionResult ChangeLanguage(string culture)
         {
-            
+
             if (!HttpContext.Request.Path.StartsWithSegments("/Home"))
             {
                 return RedirectToAction("ActionOnOtherPage");

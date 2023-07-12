@@ -6,6 +6,6 @@ namespace MyQuickDesk.Entities
 {
     public class Room : Space
     {
-        
+
     }
 }

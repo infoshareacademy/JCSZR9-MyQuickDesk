@@ -13,7 +13,7 @@ namespace MyQuickDesk.Services
         void Update(Desk desk);
         void Delete(Guid id);
     }
-    public class DeskService:IDeskService
+    public class DeskService : IDeskService
     {
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
@@ -22,7 +22,7 @@ namespace MyQuickDesk.Services
         {
             _dbContext = dbContext;
             _userContext = userContext;
-        }        
+        }
 
         public List<Desk> GetAll()
         {
@@ -46,7 +46,7 @@ namespace MyQuickDesk.Services
             _dbContext.Desks.Add(desk);
             _dbContext.SaveChanges();
         }
-       
+
         public void Update(Desk desk)
         {
             _dbContext.Desks.Update(desk);

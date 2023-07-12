@@ -44,7 +44,7 @@ namespace MyQuickDesk.Services
             _dbContext.ParkingSpots.Add(parkingSpot);
             _dbContext.SaveChanges();
         }
-       
+
         public void Update(ParkingSpot parkingSpot)
         {
             _dbContext.ParkingSpots.Update(parkingSpot);

@@ -7,7 +7,7 @@ namespace MyQuickDesk.Entities
     public class Reservation
     {
         public Guid Id { get; set; }
-        
+
         public Space? Space { get; set; }
 
         public Guid? RoomId { get; set; }
@@ -25,8 +25,8 @@ namespace MyQuickDesk.Entities
         public User? User { get; set; }
 
         //========================================
-        [Display(Name ="Start Time")]
-        public DateTime StartTime { get; set; }= DateTime.Today;
+        [Display(Name = "Start Time")]
+        public DateTime StartTime { get; set; } = DateTime.Today;
         [Display(Name = "End Time")]
         public DateTime EndTime { get; set; } = DateTime.Today;
     }

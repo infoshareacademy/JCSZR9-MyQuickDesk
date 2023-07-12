@@ -13,7 +13,7 @@ namespace MyQuickDesk.DatabaseContext
 
         public DbSet<Desk> Desks { get; set; }
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<ParkingSpot> ParkingSpots { get; set;}
+        public DbSet<ParkingSpot> ParkingSpots { get; set; }
 
 
         public DbSet<Reservation> Reservations { get; set; }

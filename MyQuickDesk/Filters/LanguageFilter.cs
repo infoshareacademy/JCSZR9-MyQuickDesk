@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace MyQuickDesk.Filters
 {
-    public class LanguageFilter: ActionFilterAttribute
+    public class LanguageFilter : ActionFilterAttribute
     {
         public void OnActionExecuting(ActionExecutingContext context)
         {

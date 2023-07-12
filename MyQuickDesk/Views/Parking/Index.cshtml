@@ -7,7 +7,10 @@
 <h1>Parking Spot</h1>
 
 <p>
-    <a asp-action="Create" class="create-link">Create New</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create" class="create-link">Create New</a>
+    }
 </p>
 <table class="table">
     <thead>
@@ -31,36 +34,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @item.Name
-            </td>
-            <td>
-                @item.Description
-            </td>
-            <td>
-                @item.IsAvaiable
-            </td>
-            <td>
-               @item.HandicappedSpot
-            </td>
-            <td>
-               @item.Charger
-            </td>
-            <td>
-            
-                 <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.IsAvaiable
+                </td>
+                <td>
+                    @item.HandicappedSpot
+                </td>
+                <td>
+                    @item.Charger
+                </td>
+                <td>
+
+                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+
                     @if (User.IsInRole("Admin"))
                     {
-                 <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                 <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
-                    }
-                 <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
-            
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
 
-            </td>
-        </tr>
-}
+                    }
+                    <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
+
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
