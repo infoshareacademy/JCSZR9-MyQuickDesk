@@ -242,13 +242,21 @@ namespace MyQuickDesk.Migrations
                     b.Property<Guid?>("RoomId")
                         .HasColumnType("uniqueidentifier");
 
+<<<<<<< HEAD
                     b.Property<Guid>("SpaceId")
+=======
+                    b.Property<Guid?>("SpaceId")
+>>>>>>> s2-Diana-Kosel-2
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
+<<<<<<< HEAD
                     b.Property<Guid>("UserId")
+=======
+                    b.Property<Guid?>("UserId")
+>>>>>>> s2-Diana-Kosel-2
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -271,6 +279,12 @@ namespace MyQuickDesk.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+<<<<<<< HEAD
+=======
+
+                    b.Property<string>("CreatedById")
+                        .HasColumnType("nvarchar(450)");
+>>>>>>> s2-Diana-Kosel-2
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -279,7 +293,7 @@ namespace MyQuickDesk.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAvaible")
+                    b.Property<bool>("IsAvaiable")
                         .HasColumnType("bit");
 
                     b.Property<int>("MaxCapacity")
@@ -340,36 +354,61 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("bfbc2872-4523-43a8-a7a0-c37f43e18cde"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("524e05b2-2fd1-4069-b899-1aa757ec0859"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "Biurko A1"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("8593436a-c985-42f8-8e3b-bfeb96c0b826"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("7fa5fe9e-a81c-4df4-a8f0-cb79a4787c07"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "Biurko A2"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("2eae355b-9a7c-4c4d-b0db-94d6b4832858"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("7fe6273b-11a2-4916-942b-10a71ff2b4d7"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "Biurko A3"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("2841960c-e376-4c07-9fc3-1d96ebc6c34d"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("f8b87b86-60cf-4861-9a1c-09eb7fe91032"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "Biurko B1"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("4100f2a8-5414-4cc8-8912-612c93da8784"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("9c90335b-2da0-45a0-8a68-14a7f9ce61ce"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "Biurko B2"
                         });
@@ -390,8 +429,13 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("43c19f19-7864-48c4-8aaa-96160c99fcd7"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("1e35e810-5309-4a89-8caa-1f7914516b4e"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "P1A1",
                             Charger = true,
@@ -399,8 +443,13 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("0b454b18-64f8-43f5-9615-1caa2c601b97"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("b084d967-9a16-442f-80b5-7735150f406a"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "P1A2",
                             Charger = true,
@@ -408,8 +457,13 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("75783f97-67a6-4849-a249-988dee99e674"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("33a087ba-1d69-4218-9c52-6b84b3333ea3"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "P1A3",
                             Charger = true,
@@ -417,8 +471,13 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("3e93e578-06b8-446c-bd05-d430ae107e3f"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("b91008db-7de8-4cee-9023-8e27398d2cda"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 1,
                             Name = "P1B1",
                             Charger = true,
@@ -435,22 +494,37 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("b0d7b0e3-240e-4153-9328-2f958b81f761"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("25d022d0-a572-4d65-a6fe-6a1ee1f70734"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 8,
                             Name = "Mariacka"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("3eb0f9e8-e0c7-48cd-a513-e196c6e531e5"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("0075bff7-7529-496a-a426-4e5b0af658a2"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 10,
                             Name = "Neptun"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = new Guid("d6cdce25-eede-4db5-97cd-5c37e692d416"),
                             IsAvaible = true,
+=======
+                            Id = new Guid("76aaa782-7004-41c2-b498-540fb09021f8"),
+                            IsAvaiable = true,
+>>>>>>> s2-Diana-Kosel-2
                             MaxCapacity = 12,
                             Name = "Polityczna"
                         });
@@ -523,15 +597,11 @@ namespace MyQuickDesk.Migrations
 
                     b.HasOne("MyQuickDesk.Entities.Space", "Space")
                         .WithMany()
-                        .HasForeignKey("SpaceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SpaceId");
 
                     b.HasOne("MyQuickDesk.Entities.User", "User")
                         .WithMany("Reservations")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Desk");
 
@@ -544,6 +614,18 @@ namespace MyQuickDesk.Migrations
                     b.Navigation("User");
                 });
 
+<<<<<<< HEAD
+=======
+            modelBuilder.Entity("MyQuickDesk.Entities.Space", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.Navigation("CreatedBy");
+                });
+
+>>>>>>> s2-Diana-Kosel-2
             modelBuilder.Entity("MyQuickDesk.Entities.User", b =>
                 {
                     b.Navigation("Reservations");

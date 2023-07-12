@@ -1,33 +1,64 @@
-﻿using MyQuickDesk.Entities;
+﻿using MyQuickDesk.ApplicationUser;
+using MyQuickDesk.DatabaseContext;
+using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
 {
-    public class ParkingService
+    public interface IParkingService
     {
-        private static List<ParkingSpot> _parkingspots =
-            new List<ParkingSpot>
+        List<ParkingSpot> GetAll();
+        ParkingSpot GetById(Guid id);
+        void Create(ParkingSpot parkingSpot);
+        void Update(ParkingSpot parkingSpot);
+        void Delete(Guid id);
+    }
+    public class ParkingService : IParkingService
+    {
+        private readonly MyQuickDeskContext _dbContext;
+        private readonly IUserContext _userContext;
+        public ParkingService(MyQuickDeskContext dbContext, IUserContext userContext)
+        {
+            _dbContext = dbContext;
+            _userContext = userContext;
+        }
+        public List<ParkingSpot> GetAll()
+        {
+            return _dbContext.ParkingSpots.ToList();
+        }
+        public List<ParkingSpot> GetAllAvaible()
+        {
+            return _dbContext.ParkingSpots.Where(p => p.IsAvaiable).ToList();
+        }
+        public ParkingSpot GetById(Guid id)
+        {
+            return _dbContext.ParkingSpots.FirstOrDefault(p => p.Id == id);
+        }
+        public void Create(ParkingSpot parkingSpot)
+        {
+            var currentUser = _userContext.GetCurrentUser();
+            if (currentUser == null || !currentUser.IsAdmin("Admin"))
             {
-                new ParkingSpot
-                {
-                    Id = Guid.NewGuid(),
-                    Description ="First flour",
-                    Name= "A",
-                    HandicappedSpot = false,
-                    Charger = false,
-                    IsAvaible = true,
-                   
-                    
-                }
-            };
+                return;
+            }
 
-                public List <ParkingSpot> GetAllAvaible()
-                 {
-                    return _parkingspots.Where(p=> p.IsAvaible).ToList();
-                 }
-                public ParkingSpot GetById(Guid id)
-                {
-                    return _parkingspots.FirstOrDefault(p => p.Id == id);
-                }
-            
+            _dbContext.ParkingSpots.Add(parkingSpot);
+            _dbContext.SaveChanges();
+        }
+       
+        public void Update(ParkingSpot parkingSpot)
+        {
+            _dbContext.ParkingSpots.Update(parkingSpot);
+            _dbContext.SaveChanges();
+        }
+
+        public void Delete(Guid id)
+        {
+            var parkingSpot = _dbContext.ParkingSpots.FirstOrDefault(d => d.Id == id);
+            if (parkingSpot != null)
+            {
+                _dbContext.ParkingSpots.Remove(parkingSpot);
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }
