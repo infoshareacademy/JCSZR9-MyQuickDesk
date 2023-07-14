@@ -64,10 +64,7 @@
     {
         <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
         <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "zh-CN" })">中文</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "uk-UA" })">Українська</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "de-DE" })">Deutsch</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "fr-FR" })">Français</a>
+       
     }
 
     <footer class="border-top footer text-muted">
@@ -75,9 +72,7 @@
             &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

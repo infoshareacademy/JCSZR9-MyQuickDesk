@@ -12,7 +12,7 @@ using MyQuickDesk.DatabaseContext;
 namespace MyQuickDesk.Migrations
 {
     [DbContext(typeof(MyQuickDeskContext))]
-    [Migration("20230713104410_init")]
+    [Migration("20230714112701_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -332,35 +332,35 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8512d8f7-1238-4d96-a0d0-d2a5f6cbb00e"),
+                            Id = new Guid("154aa9a2-8c69-426a-a730-404a7e39c769"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A1"
                         },
                         new
                         {
-                            Id = new Guid("c1773059-ed8c-475a-87a3-c806f843eaac"),
+                            Id = new Guid("fa74e350-0e46-42c7-ba62-54ffb54c32c4"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A2"
                         },
                         new
                         {
-                            Id = new Guid("42fd38ca-7343-4776-8d2f-19e11f404cd7"),
+                            Id = new Guid("0a14ca1a-12d7-44b4-b44c-ce9371f61db0"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A3"
                         },
                         new
                         {
-                            Id = new Guid("e5aa71e3-f33e-4d4d-9882-e7245a88699d"),
+                            Id = new Guid("e6eff3db-ee46-4350-9641-2f2d7cea5661"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko B1"
                         },
                         new
                         {
-                            Id = new Guid("ea05f16b-2ae2-461c-8f3e-5817ab851a80"),
+                            Id = new Guid("4bf26523-f2aa-42a5-a555-9e4827d3a8d2"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko B2"
@@ -382,7 +382,7 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("86921f90-c8f2-44a2-8337-5260e0b1a67f"),
+                            Id = new Guid("939b059c-d12b-4665-bc8e-0aa4149812e9"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A1",
@@ -391,7 +391,7 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("593ecd2a-3e1a-4201-8d3b-b9975f6379be"),
+                            Id = new Guid("87f4fd75-8f9f-489e-9c60-a90225c3cbc5"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A2",
@@ -400,7 +400,7 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ab2e0fdc-49ac-4877-85e6-bdf912941256"),
+                            Id = new Guid("0a549e11-0ff9-4405-a6aa-a37b2e2a112f"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A3",
@@ -409,7 +409,7 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cc19ec21-3ec6-4a4c-9eaf-82d0d06c8290"),
+                            Id = new Guid("16182196-29e9-4266-b215-ba7452a1d8f0"),
                             IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1B1",
@@ -427,21 +427,21 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7e32d089-424b-4318-9785-2eb144940e18"),
+                            Id = new Guid("6d1500e5-c6ce-4621-89cc-01ef049231c9"),
                             IsAvaiable = true,
                             MaxCapacity = 8,
                             Name = "Mariacka"
                         },
                         new
                         {
-                            Id = new Guid("ca2a37fb-bedf-4beb-a3f3-7ae87deeab79"),
+                            Id = new Guid("5ef649a0-5220-4b8b-b127-bd21daa51d04"),
                             IsAvaiable = true,
                             MaxCapacity = 10,
                             Name = "Neptun"
                         },
                         new
                         {
-                            Id = new Guid("f497213e-9f73-4f78-babe-91d31dc1548d"),
+                            Id = new Guid("e4fd6790-f076-4aed-9afd-4bd3ffd28ea9"),
                             IsAvaiable = true,
                             MaxCapacity = 12,
                             Name = "Polityczna"

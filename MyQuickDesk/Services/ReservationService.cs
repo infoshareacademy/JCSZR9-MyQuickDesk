@@ -28,8 +28,13 @@ namespace MyQuickDesk.Services
         }
         public IEnumerable<Reservation> GetAll()
         {
-            return _dbContext.Reservations.Include(r => r.Space).Include(r => r.User).ToList();
+            return _dbContext.Reservations
+                .Include(r => r.Space)
+                .Include(r => r.User)
+                .AsEnumerable()
+                .ToList();
         }
+
 
         public Reservation GetById(Guid id)
         {
@@ -51,14 +56,21 @@ namespace MyQuickDesk.Services
         }
         public bool IsReservationValid(Reservation reservation)
         {
-            var existingReservation = _dbContext.Reservations
-                                  .FirstOrDefault(r => r.Id != reservation.Id && r.Space.Id == reservation.Space.Id &&
-                                  ((reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
-                                  (reservation.EndTime > r.StartTime && reservation.EndTime <= r.EndTime) ||
-                                  (reservation.StartTime <= r.StartTime && reservation.EndTime >= r.EndTime)));
+            var existingReservation = _dbContext.Reservations.FirstOrDefault(r =>
+                r.Id != reservation.Id &&
+                r.Space != null && reservation.Space != null && // Dodaj sprawdzenie, czy Space nie jest null
+                r.Space.Id == reservation.Space.Id &&
+                (
+                    (reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
+                    (reservation.EndTime > r.StartTime && reservation.EndTime <= r.StartTime) ||
+                    (reservation.StartTime <= r.StartTime && reservation.EndTime >= r.EndTime)
+                )
+            );
 
             return existingReservation == null;
         }
+
+
 
 
         public bool Update(Guid id, Reservation model)
@@ -75,8 +87,6 @@ namespace MyQuickDesk.Services
             existingReservation.Space = model.Space;
             if (IsReservationValid(existingReservation))
             {
-
-                _dbContext.Reservations.Update(existingReservation);
                 _dbContext.SaveChanges();
                 return true;
             }

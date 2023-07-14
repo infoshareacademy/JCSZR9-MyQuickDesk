@@ -103,28 +103,16 @@ namespace MyQuickDesk.Controllers
                     else
                     {
                         ModelState.AddModelError(string.Empty, Messages.ErrorReservationConflict);
-
                     }
                 }
             }
             catch (Exception ex)
             {
-                string errorMessagePL = GetTranslatedMessage("ErrorReservationConflict", "pl-PL");
-                string errorMessageDE = GetTranslatedMessage("ErrorReservationConflict", "de-DE");
-                string errorMessageFR = GetTranslatedMessage("ErrorReservationConflict", "fr-FR");
+                string errorMessagePL = GetTranslatedMessage("ErrorReservationConflict", "pl-PL");  
                 string errorMessageEN = GetTranslatedMessage("ErrorReservationConflict", "en-EN");
-                string errorMessageUA = GetTranslatedMessage("ErrorReservationConflict", "ua-UA");
-                string errorMessageZH = GetTranslatedMessage("ErrorReservationConflict", "zh-ZH");
-
                 ModelState.AddModelError(string.Empty, errorMessagePL);
-                ModelState.AddModelError(string.Empty, errorMessageDE);
-                ModelState.AddModelError(string.Empty, errorMessageFR);
                 ModelState.AddModelError(string.Empty, errorMessageEN);
-                ModelState.AddModelError(string.Empty, errorMessageUA);
-                ModelState.AddModelError(string.Empty, errorMessageZH);
             }
-
-
 
             return View(model);
         }
@@ -185,21 +173,6 @@ namespace MyQuickDesk.Controllers
 
             return translatedMessage;
         }
-
-        //[HttpPut]
-        //public ActionResult Update(Reservation model, Guid Id)
-        //{
-        //    if(!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    var isUpdate = _reservationService.Update(Id, model);
-        //    if (!isUpdate)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(model);
-        //}
     }
 }
 

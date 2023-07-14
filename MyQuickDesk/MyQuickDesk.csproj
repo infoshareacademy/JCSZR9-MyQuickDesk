@@ -33,15 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Messages.de.resx">
-      <Generator></Generator>
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Messages.en.resx">
-      <Generator></Generator>
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.ua.resx">
       <Generator></Generator>
       <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
     </EmbeddedResource>
@@ -50,14 +42,6 @@
       <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Messages.pl.resx">
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-      <Generator></Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.fr.resx">
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-      <Generator></Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.zh.resx">
       <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
       <Generator></Generator>
     </EmbeddedResource>
