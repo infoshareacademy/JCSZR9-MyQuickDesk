@@ -1,18 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
-using MyQuickDesk.Filters;
 using MyQuickDesk.Resources;
 using MyQuickDesk.Services;
 using System.Globalization;
 using System.Resources;
 
 namespace MyQuickDesk.Controllers
-{
-    [LanguageFilter]
+{ 
     public class ReservationController : Controller
     {
         private readonly IReservationService _reservationService;

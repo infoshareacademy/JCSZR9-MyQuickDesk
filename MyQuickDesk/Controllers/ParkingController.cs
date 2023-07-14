@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Services;
 using MyQuickDesk.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
 using MyQuickDesk.Entities;
-using MyQuickDesk.Filters;
+
 
 namespace MyQuickDesk.Controllers
 {
-    [LanguageFilter]
+    
     public class ParkingController : Controller
     {
         private readonly IParkingService _parkingService;

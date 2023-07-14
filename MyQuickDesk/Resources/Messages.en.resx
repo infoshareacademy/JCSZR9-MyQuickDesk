@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="ConferencialRoom" xml:space="preserve">
+    <value>Conferencial room</value>
+  </data>
+  <data name="Desk" xml:space="preserve">
+    <value>Desk</value>
+  </data>
   <data name="ErrorReservationConflict" xml:space="preserve">
     <value>The reservation conflicts with existing bookings. Please choose a different time slot.</value>
+  </data>
+  <data name="MyReservations" xml:space="preserve">
+    <value>My reservations</value>
+  </data>
+  <data name="ParkingSpot" xml:space="preserve">
+    <value>Parking Spot</value>
   </data>
 </root>

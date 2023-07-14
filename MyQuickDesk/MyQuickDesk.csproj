@@ -36,6 +36,7 @@
     <EmbeddedResource Update="Resources\Messages.en.resx">
       <Generator></Generator>
       <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Resource.de.resx">
       <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
@@ -44,6 +45,7 @@
     <EmbeddedResource Update="Resources\Messages.pl.resx">
       <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
       <Generator></Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ReservationResources.resx">
       <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>

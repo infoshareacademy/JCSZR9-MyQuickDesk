@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Entities;
-using MyQuickDesk.Filters;
 using MyQuickDesk.Services;
 
 namespace MyQuickDesk.Controllers
 {
-    [LanguageFilter]
+
     public class DeskController : Controller
     {
         private readonly IDeskService _deskService;

@@ -58,7 +58,7 @@ namespace MyQuickDesk.Services
         {
             var existingReservation = _dbContext.Reservations.FirstOrDefault(r =>
                 r.Id != reservation.Id &&
-                r.Space != null && reservation.Space != null && // Dodaj sprawdzenie, czy Space nie jest null
+                r.Space != null && reservation.Space != null && 
                 r.Space.Id == reservation.Space.Id &&
                 (
                     (reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||

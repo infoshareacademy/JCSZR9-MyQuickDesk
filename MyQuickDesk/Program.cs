@@ -36,22 +36,19 @@ namespace MyQuickDesk
 
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            builder.Services.Configure<RequestLocalizationOptions>(options =>
-            {
-                var supportedCultures = new List<CultureInfo>
-                {
-                  new CultureInfo("en-US"),
-                  new CultureInfo("pl-PL"),
-                  new CultureInfo("zh-CN"),
-                  new CultureInfo("uk-UA"),
-                  new CultureInfo("fr-FR"),
-                  new CultureInfo("de-DE")
-                };
+            //builder.Services.Configure<RequestLocalizationOptions>(options =>
+            //{
+            //    var supportedCultures = new List<CultureInfo>
+            //    {
+            //      new CultureInfo("en-US"),
+            //      new CultureInfo("pl-PL"),
+                 
+            //    };
 
-                options.DefaultRequestCulture = new RequestCulture("en-US");
-                options.SupportedCultures = supportedCultures;
-                options.SupportedUICultures = supportedCultures;
-            });
+            //    options.DefaultRequestCulture = new RequestCulture("en-US");
+            //    options.SupportedCultures = supportedCultures;
+            //    options.SupportedUICultures = supportedCultures;
+            //});
 
             builder.Services.AddMvc()
                 .AddViewLocalization()
