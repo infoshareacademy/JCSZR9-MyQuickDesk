@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityUser
+
+<h1>Delete User</h1>
+
+<p>Are you sure you want to delete the @Model.UserName?</p>
+
+<form method="post" action="@Url.Action("DeleteConfirmed", "Admin")">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Yes, delete it." />
+    <a href="@Url.Action("Index", "Admin")">No, take me back.</a>
+    @Html.AntiForgeryToken()
+</form>

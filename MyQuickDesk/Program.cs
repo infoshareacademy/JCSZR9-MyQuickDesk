@@ -32,6 +32,7 @@ namespace MyQuickDesk
             builder.Services.AddScoped<IRoomService, RoomService>();
             builder.Services.AddScoped<IParkingService, ParkingService>();
             builder.Services.AddScoped<IUserContext, UserContext>();
+            builder.Services.AddScoped<AdminService>();
 
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 

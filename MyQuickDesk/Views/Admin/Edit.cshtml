@@ -1,0 +1,24 @@
+﻿@model MyQuickDesk.Models.AdminPanelModel
+
+<h1>Edit User</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="User.Id" />
+
+    <label for="Email">Email</label>
+    <input type="email" asp-for="User.Email" />
+
+    <label for="UserName">Username</label>
+    <input type="text" asp-for="User.UserName" />
+
+    <label for="SelectedRoles">Roles</label>
+    <select id="SelectedRoles" name="SelectedRoles" multiple="multiple">
+        @foreach (var role in Model.Roles)
+        {
+            <option value="@role.Name" selected="@Model.SelectedRoles.Contains(role.Name)">@role.Name</option>
+        }
+    </select>
+
+    <button type="submit">Update</button>
+</form>
+
