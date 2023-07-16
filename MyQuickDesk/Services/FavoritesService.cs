@@ -65,11 +65,14 @@ namespace MyQuickDesk.Services
             }
             else
             {
-            //    var favorites2 = new Favorites() { UserId = currentUser.Id, ParkingSpot = parkingSpot};
-            //   _dbContext.Favorites.Add(favorites2);
+               var favorites2 = new Favorites() 
+               {
+                   UserId = currentUser.Id,
+                   ParkingSpot = parkingSpot
+               };
+               _dbContext.Favorites.Add(favorites2);
             }
             _dbContext.SaveChanges();
         }
-        
     }
 }

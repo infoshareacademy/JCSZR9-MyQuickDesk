@@ -1,4 +1,4 @@
-﻿@model MyQuickDesk.Entities.Favorites
+﻿@model IEnumerable<MyQuickDesk.Entities.Favorites>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,21 +6,30 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                <label asp-for="First().ParkingSpot"></label>
+            </th>
+            <th>
+                <label asp-for="First().ParkingId"></label>
+            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                @Model.ParkingId
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ParkingSpot
+                </td>
+                <td>
+                    @item.ParkingId
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
