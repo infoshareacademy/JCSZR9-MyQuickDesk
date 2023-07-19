@@ -11,15 +11,18 @@
     }
 </style>
 
-<h1>Parking Spot</h1>
+<h1 class="shadow-text">Parking Spot</h1>
 @if (User.IsInRole("Admin"))
 {
     <p>
         <a href="/Parking/Create" class="create-link">
-            <span>Create New</span>
-            <img src="~/Icons/Createicon.png" alt="Create Icon" width="20" height="20" style="vertical-align: middle; margin-top: -3px;">
+            <span>Create New</span>  
+            
+                <img src="~/Icons/Createicon.png" alt="Create Icon" width="20" height="20" style="vertical-align: middle; margin-top: -3px;">
+            
         </a>
     </p>
+            
 
 
 }
