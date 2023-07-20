@@ -120,22 +120,189 @@
   <data name="AboutUs" xml:space="preserve">
     <value>About us</value>
   </data>
+  <data name="AboutUsText" xml:space="preserve">
+    <value>Welcome to MyQuickDesk - a web application created by Diana, Marek, Adrian, Piotr and Mariusz as part of the InfoShare Academy project! Now you can easily book hotdesks in a simple and convenient way.</value>
+  </data>
+  <data name="AboutUsText2" xml:space="preserve">
+    <value>Thanks to MyQuickDesk, you will forget about unnecessary stress related to searching for an available place to work. Our app allows you to quickly and intuitively book the hotdesk that best suits your needs.</value>
+  </data>
+  <data name="AboutUsText3" xml:space="preserve">
+    <value>Whether it's a short meeting with a client, an intense programming session or just a moment of creativity - MyQuickDesk is the perfect tool to organize your workplace. Thanks to flexible booking options, you can adjust the schedule to your schedule.</value>
+  </data>
+  <data name="AboutUsText4" xml:space="preserve">
+    <value>Join our web application and experience a new quality of workplace management. We are waiting for you at MyQuickDesk!</value>
+  </data>
+  <data name="AboutUsText5" xml:space="preserve">
+    <value>MyQuickDesk team</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Admin</value>
+  </data>
+  <data name="AdminPanel" xml:space="preserve">
+    <value>Admin panel</value>
+  </data>
+  <data name="AnError" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure you want to delete the</value>
+  </data>
+  <data name="AreYouSure?" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back to list</value>
+  </data>
+  <data name="BookHotdesk" xml:space="preserve">
+    <value>Book hotdesk</value>
+  </data>
+  <data name="BookNow" xml:space="preserve">
+    <value>Book now</value>
+  </data>
+  <data name="BookRoom" xml:space="preserve">
+    <value>Book conferencial room</value>
+  </data>
+  <data name="Charger" xml:space="preserve">
+    <value>Charger</value>
   </data>
   <data name="ConferencialRoom" xml:space="preserve">
     <value>Conferencial room</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="CreateNewRole" xml:space="preserve">
+    <value>Create new role</value>
+  </data>
+  <data name="CreateNewRoom" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="CreateReservation" xml:space="preserve">
+    <value>Create new reservation</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteRole" xml:space="preserve">
+    <value>Delete role</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>Delete user</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="Desk" xml:space="preserve">
     <value>Desk</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DevelopmentMode" xml:space="preserve">
+    <value>Development mode</value>
+  </data>
+  <data name="DevErrorTExt1" xml:space="preserve">
+    <value>Swapping to development environment will display more detailed information about the error that occurred.</value>
+  </data>
+  <data name="DevErrorTExt2" xml:space="preserve">
+    <value>The Development environment shouldn't be enabled for deployed applications.</value>
+  </data>
+  <data name="DevErrorTExt3" xml:space="preserve">
+    <value>It can result in displaying sensitive information from exceptions to end users.
+    For local debugging, enable the development environment by setting the ASPNETCORE_ENVIRONMENT  environment variable to development
+    and restarting the app.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditRole" xml:space="preserve">
+    <value>Edit role</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>Edit user</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>EmIail</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>End time</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="ErrorReservationConflict" xml:space="preserve">
     <value>The reservation conflicts with existing bookings. Please choose a different time slot.</value>
   </data>
-  <data name="MyReservations" xml:space="preserve">
+  <data name="HandicappedSpot" xml:space="preserve">
+    <value>Handicapped spot</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello </value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="IsAvaiable" xml:space="preserve">
+    <value>Is avaiable?</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginBook" xml:space="preserve">
+    <value>Login to Book</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MaxCapacity" xml:space="preserve">
+    <value>Max capacity</value>
+  </data>
+  <data name="Myreservations" xml:space="preserve">
     <value>My reservations</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="ParkingSpot" xml:space="preserve">
     <value>Parking Spot</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Reservation</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>Role name</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="TakeBack" xml:space="preserve">
+    <value>No, take me back.</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="WhatIs" xml:space="preserve">
+    <value>What is MyQuickDesk?</value>
+  </data>
+  <data name="YesDelete" xml:space="preserve">
+    <value>Yes, delete it.</value>
   </data>
 </root>

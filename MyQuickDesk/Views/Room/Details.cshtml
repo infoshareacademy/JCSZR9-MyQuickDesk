@@ -4,27 +4,27 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@Resource.Details</h1>
 
 <div>
-    <h4>Room</h4>
+    <h4>@Resource.ConferencialRoom</h4>
     <hr />
     <dl class="row">
 
         <dt class="col-sm-2">
-            <label asp-for="Name"></label>
+            <label>@Resource.Name</label>
         </dt>
         <dd class="col-sm-10">
             @Model.Name
         </dd>
         <dt class="col-sm-2">
-            <label asp-for="Description"></label>
+            <label>@Resource.Description</label>
         </dt>
         <dd class="col-sm-10">
             @Model.Description
         </dd>
         <dt class="col-sm-2">
-            <label asp-for="MaxCapacity"></label>
+            <label>@Resource.MaxCapacity</label>
         </dt>
         <dd class="col-sm-10">
             @Model.MaxCapacity
@@ -32,6 +32,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit<</a> |
-    <a class="back-to-list-btn" asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@Resource.Edit<</a> |
+    <a class="back-to-list-btn" asp-action="Index">@Resource.Back</a>
 </div>

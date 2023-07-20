@@ -10,12 +10,12 @@
     <div class="d-flex justify-content-center">
         @if (UserContext.IsUserLoggedIn())
         {
-            <a href="/Desk" class="btn btn-primary">Book hotdesk</a>
-            <a href="/Room" class="btn btn-primary">Book conference room</a>
+            <a href="/Desk" class="btn btn-primary">@Resource.BookHotdesk</a>
+            <a href="/Room" class="btn btn-primary">@Resource.BookRoom</a>
         }
         else
         {
-            <a href="/Identity/Account/Login" class="btn btn-primary">Login to Book</a>
+            <a href="/Identity/Account/Login" class="btn btn-primary">@Resource.LoginBook</a>
         }
 
     </div>

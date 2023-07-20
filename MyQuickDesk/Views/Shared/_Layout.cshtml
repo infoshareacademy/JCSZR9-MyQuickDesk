@@ -1,7 +1,4 @@
-﻿@using Humanizer.Localisation;
-@using Microsoft.AspNetCore.Http
-@using Microsoft.Extensions.Localization;
-@using MyQuickDesk.Resources
+﻿
 @inject MyQuickDesk.ApplicationUser.IUserContext UserContext
 
 <!DOCTYPE html>
@@ -28,26 +25,26 @@
                         @if (UserContext.IsUserLoggedIn())
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Home</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">@Resource.Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">@Resources.ParkingSpot</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">@Resource.ParkingSpot</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">@Resources.ConferencialRoom</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">@Resource.ConferencialRoom</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">@Resources.Desk</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">@Resource.Desk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Reservation" asp-action="Index">@Resources.MyReservations</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Reservation" asp-action="Index">@Resource.Myreservations</a>
                             </li>
 
                             
 @*                            @if (User.IsInRole("Admin"))
                             {*@
                                 <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Admin" asp-action="Index">@Resources.Admin</a>
+                                    <a class="nav-link text-custom" asp-area="" asp-controller="Admin" asp-action="Index">@Resource.Admin</a>
                                 </li>
                             @*}*@
                         }
@@ -64,14 +61,16 @@
         </main>
     </div>
     @if (Context.Request.Path.Equals("/") || Context.Request.Path.Equals("/Home"))
+
     {
         <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>  
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
+       
     }
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.AboutUs</a>
+            &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resource.AboutUs</a>
         </div>
     </footer>
    

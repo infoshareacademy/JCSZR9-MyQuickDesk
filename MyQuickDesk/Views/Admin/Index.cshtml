@@ -1,18 +1,18 @@
 ﻿@model AdminPanelModel
 
-<h1>Admin Panel</h1>
+<h1>@Resource.AdminPanel</h1>
 <p>
-    <a asp-action="Roles" class="create-link">Roles</a>
+    <a asp-action="Roles" class="create-link">@Resource.Roles</a>
 </p>
 
 
 <table class="table">
     <thead>
         <tr>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Roles</th>
-            <th>Actions</th>
+            <th>@Resource.Email</th>
+            <th>@Resource.Username</th>
+            <th>@Resource.Roles</th>
+            <th>@Resource.Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -28,8 +28,8 @@
                     }
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Admin", new { id = user.Id })" class="edit-link">Edit user</a>
-                    <a href="@Url.Action("Delete", "Admin", new { id = user.Id })" class="delete-link">Delete user</a>
+                    <a href="@Url.Action("Edit", "Admin", new { id = user.Id })" class="edit-link">@Resource.Edit</a>
+                    <a href="@Url.Action("Delete", "Admin", new { id = user.Id })" class="delete-link">@Resource.Delete</a>
                 </td>
             </tr>
         }

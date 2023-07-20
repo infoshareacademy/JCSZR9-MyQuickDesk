@@ -1,25 +1,27 @@
-﻿@model IEnumerable<MyQuickDesk.Entities.Reservation>
+﻿@using Humanizer.Localisation;
+@using Microsoft.Extensions.Localization;
+@model IEnumerable<MyQuickDesk.Entities.Reservation>
+
+
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>My reservations</h1>
+<h1>@Resource.Myreservations</h1>
+
 
 
 <table class="table">
     <thead>
         <tr>
 
-            <th>
-                <label asp-for="First().StartTime"></label>
-            </th>
-            <th>
-                <label asp-for="First().EndTime"></label>
-            </th>
-            <th>
-                <label>Name</label>
-            </th>
+            <th>@Resource.StartTime</th>
+            <th>@Resource.EndTime</th>
+            
+            <th>@Resource.Name </th>
+            <th>@Resource.Actions </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -40,9 +42,9 @@
                 </td>
 
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">@Resource.Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">@Resource.Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">@Resource.Delete</a>
                 </td>
             </tr>
         }

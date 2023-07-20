@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>O nas</value>
+  </data>
+  <data name="AboutUsText" xml:space="preserve">
+    <value>Witaj w MyQuickDesk - aplikacji internetowej stworzonej przez Dianę, Marka, Adriana, Piotra i Mariusza w ramach projektu InfoShare Academy! Teraz możesz łatwo rezerwować biurko do pracy w prosty i wygodny sposób.</value>
+  </data>
+  <data name="AboutUsText2" xml:space="preserve">
+    <value>Dzięki MyQuickDesk zapomnisz o zbędnym stresie związanym z poszukiwaniem dostępnego miejsca do pracy. Nasza aplikacja pozwala Ci szybko i intuicyjnie zarezerwować biurko, który najlepiej odpowiada Twoim potrzebom.</value>
+  </data>
+  <data name="AboutUsText3" xml:space="preserve">
+    <value>Czy to krótka rozmowa z klientem, intensywna sesja programowania czy chwila kreatywności - MyQuickDesk to doskonałe narzędzie do organizacji Twojego miejsca pracy. Dzięki elastycznym opcjom rezerwacji, możesz dostosować harmonogram do swoich potrzeb.</value>
+  </data>
+  <data name="AboutUsText4" xml:space="preserve">
+    <value>Dołącz do naszej aplikacji internetowej i doświadcz nowej jakości zarządzania miejscem pracy. Czekamy na Ciebie w MyQuickDesk!</value>
+  </data>
+  <data name="AboutUsText5" xml:space="preserve">
+    <value>Zespół MyQuickDesk</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcje</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="AdminPanel" xml:space="preserve">
+    <value>Panel administratora</value>
+  </data>
+  <data name="AnError" xml:space="preserve">
+    <value>Podczas przetwarzania żądania wystąpił błąd.</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Czy na pewno chcesz usunąć</value>
+  </data>
+  <data name="AreYouSure?" xml:space="preserve">
+    <value>Czy na pewno chcesz usunąć?</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Powrót do listy</value>
+  </data>
+  <data name="BookHotdesk" xml:space="preserve">
+    <value>Rezerwuj biurko</value>
+  </data>
+  <data name="BookNow" xml:space="preserve">
+    <value>Rezerwuj</value>
+  </data>
+  <data name="BookRoom" xml:space="preserve">
+    <value>Rezerwuj salę konferencyjną</value>
+  </data>
+  <data name="Charger" xml:space="preserve">
+    <value>Ładowarka</value>
+  </data>
+  <data name="ConferencialRoom" xml:space="preserve">
+    <value>Sala konferencyjna</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Stwórz</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Dodaj nowe</value>
+  </data>
+  <data name="CreateNewRole" xml:space="preserve">
+    <value>Stwórz nową rolę użytkownika</value>
+  </data>
+  <data name="CreateNewRoom" xml:space="preserve">
+    <value>Dodaj nową</value>
+  </data>
+  <data name="CreateReservation" xml:space="preserve">
+    <value>Dodaj nową rezerwacje</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="DeleteRole" xml:space="preserve">
+    <value>Usuń rolę użytkownika</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>Usuń użytkownika</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Desk" xml:space="preserve">
+    <value>Biurko</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="DevelopmentMode" xml:space="preserve">
+    <value>Tryb deweloperski</value>
+  </data>
+  <data name="DevErrorTExt1" xml:space="preserve">
+    <value>Przełączając się na środowisko deweloperskie, zostaną wyświetlone bardziej szczegółowe informacje dotyczące wystąpiłego błędu.</value>
+  </data>
+  <data name="DevErrorTExt2" xml:space="preserve">
+    <value>Środowisko deweloperskie nie powinno być aktywowane dla wdrożonych aplikacji.</value>
+  </data>
+  <data name="DevErrorTExt3" xml:space="preserve">
+    <value>Może to spowodować wyświetlanie wrażliwych informacji dotyczących wyjątków użytkownikom końcowym.
+Aby lokalnie debugować, aktywuj środowisko deweloperskie, ustawiając zmienną środowiskową ASPNETCORE_ENVIRONMENT na wartość "development"
+i uruchamiając ponownie aplikację.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="EditRole" xml:space="preserve">
+    <value>Edytuj rolę użytkownika</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>Edytuj dane użytkownika</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>Data końcowa</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="ErrorReservationConflict" xml:space="preserve">
+    <value>Rezerwacja koliduje z istniejącymi rezerwacjami. Proszę wybrać inny przedział czasowy.</value>
+  </data>
+  <data name="HandicappedSpot" xml:space="preserve">
+    <value>Miejsce dla niepełnosprawnych</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Witaj </value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Strona głowna</value>
+  </data>
+  <data name="IsAvaiable" xml:space="preserve">
+    <value>Czy jest dostępne?</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Zaloguj</value>
+  </data>
+  <data name="LoginBook" xml:space="preserve">
+    <value>Zaloguj się aby rezerwoać</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="MaxCapacity" xml:space="preserve">
+    <value>Maksymalna ilość</value>
+  </data>
+  <data name="Myreservations" xml:space="preserve">
+    <value>Moje rezerwacje</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="ParkingSpot" xml:space="preserve">
+    <value>Miejsca parkingowe</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Zarejestruj</value>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Rezerwacja</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>Nazwa roli</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Data początkowa</value>
+  </data>
+  <data name="TakeBack" xml:space="preserve">
+    <value>Nie, chce wrócić na poprzednią strone.</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Aktualizuj</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
+  </data>
+  <data name="WhatIs" xml:space="preserve">
+    <value>Czym jest MyQuickDesk?</value>
+  </data>
+  <data name="YesDelete" xml:space="preserve">
+    <value>Tak,usuń.</value>
+  </data>
+</root>

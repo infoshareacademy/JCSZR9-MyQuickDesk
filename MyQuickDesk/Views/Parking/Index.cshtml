@@ -4,32 +4,23 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Parking Spot</h1>
+<h1>@Resource.ParkingSpot</h1>
 
 <p>
     @if (User.IsInRole("Admin"))
     {
-        <a asp-action="Create" class="create-link">Create New</a>
+        <a asp-action="Create" class="create-link">@Resource.CreateNew</a>
     }
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                <label asp-for="First().Name"></label>
-            </th>
-            <th>
-                <label asp-for="First().Description"></label>
-            </th>
-            <th>
-                <label asp-for="First().IsAvaiable"></label>
-            </th>
-            <th>
-                <label asp-for="First().HandicappedSpot"></label>
-            </th>
-            <th>
-                <label asp-for="First().Charger"></label>
-            </th>
+            <th>@Resource.Name</th>
+            <th>@Resource.Description</th>
+            <th>@Resource.IsAvaiable</th>
+            <th>@Resource.HandicappedSpot</th>
+            <th>@Resource.Charger</th>
+            <th>@Resource.Actions</th>
             <th></th>
         </tr>
     </thead>
@@ -54,15 +45,15 @@
                 </td>
                 <td>
 
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">@Resource.Details</a>
 
                     @if (User.IsInRole("Admin"))
                     {
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">@Resource.Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">@Resource.Delete</a>
 
                     }
-                    <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
+                    <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">@Resource.BookNow</a>
 
 
                 </td>

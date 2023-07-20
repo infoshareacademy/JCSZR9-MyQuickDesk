@@ -1,12 +1,12 @@
 ﻿@model Microsoft.AspNetCore.Identity.IdentityRole
 
-<h1>Edit Role</h1>
+<h1>@Resource.EditRole</h1>
 
 <form asp-action="EditRole" asp-controller="Admin" method="post">
     <input type="hidden" asp-for="Id" />
     <div>
-        <label asp-for="Name"></label>
+        <label>@Resource.Name</label>
         <input asp-for="Name" />
     </div>
-    <input type="submit" value="Update" />
+    <input type="submit" value="@Resource.Update" />
 </form>

@@ -26,7 +26,7 @@ namespace MyQuickDesk.Controllers
         // GET: ReservationController
         public ActionResult Index(Guid id, Guid spaceId)
         {
-            string errorMessage = Messages.ErrorReservationConflict;
+            string errorMessage = Resource.ErrorReservationConflict;
             ViewBag.SpaceId = spaceId;
             if (!_userContext.IsUserLoggedIn())
             {
@@ -64,7 +64,7 @@ namespace MyQuickDesk.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
-        {
+        {   
             try
             {
                 if (ModelState.IsValid)
@@ -94,11 +94,11 @@ namespace MyQuickDesk.Controllers
                     if (_reservationService.IsReservationValid(model))
                     {
                         _reservationService.Create(model);
-                        return RedirectToAction(nameof(Index));
+                        return RedirectToAction(nameof(Index),new {Id=model.UserId,spaceId});
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, Messages.ErrorReservationConflict);
+                        ModelState.AddModelError(string.Empty, Resource.ErrorReservationConflict);
                     }
                 }
             }
@@ -109,7 +109,7 @@ namespace MyQuickDesk.Controllers
                 ModelState.AddModelError(string.Empty, errorMessagePL);
                 ModelState.AddModelError(string.Empty, errorMessageEN);
             }
-
+            ViewBag.spaceId = spaceId;
             return View(model);
         }
 
@@ -125,13 +125,13 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Reservation model, Guid id)
+        public ActionResult Edit(Reservation model, Guid spaceId)
         {
             try
             {
-                model.Id = id;
-                _reservationService.Update(id, model);
-                return RedirectToAction(nameof(Index));
+                model.Id = spaceId;
+                _reservationService.Update(spaceId, model);
+                return RedirectToAction(nameof(Index),new { Id = model.UserId, spaceId });
             }
             catch
             {
@@ -149,12 +149,12 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id, Reservation model)
+        public ActionResult Delete(Guid spaceId, Reservation model)
         {
             try
             {
-                _reservationService.Delete(id);
-                return RedirectToAction(nameof(Index));
+                _reservationService.Delete(spaceId);
+                return RedirectToAction(nameof(Index), new { Id = model.UserId, spaceId });
             }
             catch
             {
@@ -163,7 +163,7 @@ namespace MyQuickDesk.Controllers
         }
         public static string GetTranslatedMessage(string key, string cultureCode)
         {
-            ResourceManager resourceManager = new ResourceManager(typeof(Messages));
+            ResourceManager resourceManager = new ResourceManager(typeof(Resource));
             CultureInfo culture = CultureInfo.GetCultureInfo(cultureCode);
             string translatedMessage = resourceManager.GetString(key, culture);
 

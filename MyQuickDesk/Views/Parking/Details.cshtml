@@ -4,38 +4,38 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@Resource.Details</h1>
 
 <div>
-    <h4>ParkingSpot</h4>
+    <h4>@Resource.ParkingSpot</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            <label asp-for="Name"></label>
+            <label>@Resource.Name</label>
         </dt>
         <dd class="col-sm-10">
             @Model.Name
         </dd>
         <dt class="col-sm-2">
-            <label asp-for="Description"></label>
+            <label>@Resource.Description</label>
         </dt>
         <dd class="col-sm-10">
             @Model.Description
         </dd>
         <dt class="col-sm-2">
-            <label asp-for="HandicappedSpot"></label>
+            <label>@Resource.HandicappedSpot</label>
         </dt>
         <dd class="col-sm-10">
             @Model.HandicappedSpot
         </dd>
         <dt class="col-sm-2">
-            <label asp-for="Charger"></label>
+            <label>@Resource.Charger</label>
         </dt>
         <dd class="col-sm-10">
             @Model.Charger
         </dd>
         <dt class="col-sm-2">
-            <label asp-for="IsAvaiable"></label>
+            <label>@Resource.IsAvaiable</label>
         </dt>
         <dd class="col-sm-10">
             @Model.IsAvaiable
@@ -43,6 +43,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a class="back-to-list-btn" asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@Resource.Edit</a> |
+    <a class="back-to-list-btn" asp-action="Index">@Resource.Back</a>
 </div>

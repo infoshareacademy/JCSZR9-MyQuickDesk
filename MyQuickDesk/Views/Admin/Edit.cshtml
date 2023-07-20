@@ -1,6 +1,6 @@
 ﻿@model MyQuickDesk.Models.AdminPanelModel
 
-<h1>Edit User</h1>
+<h1>@Resource.EditUser</h1>
 
 <form method="post">
     <input type="hidden" asp-for="User.Id" />
@@ -19,6 +19,6 @@
         }
     </select>
 
-    <button type="submit">Update</button>
+    <button type="submit">@Resource.Update</button>
 </form>
 
