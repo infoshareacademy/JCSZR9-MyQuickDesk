@@ -15,33 +15,23 @@ namespace MyQuickDesk.Controllers
             _roomService = roomService;
         }
         // GET: RoomController
-        public ActionResult Index()
+        public async Task <IActionResult> IndexAsync()
         {
-            bool ConditionGuideractiveBoard = true;
-
-            if (ConditionGuideractiveBoard)
-            {
-                ViewBag.ConditionGuideractiveBoard = "yes";
-            }
-            else
-            {
-                ViewBag.ConditionGuideractiveBoard = "no";
-            }
-            var model = _roomService.GetAll();
+            var model =await _roomService.GetAllAsync();
             return View(model);
         }
 
         // GET: RoomController/Details/5
-        public ActionResult Details(Guid id)
+        public async Task <IActionResult> DetailsAsync(Guid id)
         {
 
-            var model = _roomService.GetById(id);
+            var model =await _roomService.GetByIdAsync(id);
             return View(model);
         }
 
         // GET: RoomController/Create
         [Authorize(Roles = "Admin")]
-        public ActionResult Create(Guid id)
+        public async Task <IActionResult> CreateAsync(Guid id)
         {
             var model = new Room { Id = id };
             return View(model);
@@ -52,12 +42,12 @@ namespace MyQuickDesk.Controllers
         [Route("Room/Create/{id?}")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Room model)
+        public async Task <IActionResult> CreateAsync(Room model)
         {
             try
             {
-                _roomService.Create(model);
-                return RedirectToAction(nameof(Index));
+                await _roomService.CreateAsync(model);
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -67,9 +57,9 @@ namespace MyQuickDesk.Controllers
 
         // GET: RoomController/Edit/5
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(Guid id)
+        public async Task <IActionResult> EditAsync(Guid id)
         {
-            var model = _roomService.GetById(id);
+            var model = await _roomService.GetByIdAsync(id);
             return View(model);
         }
 
@@ -77,12 +67,12 @@ namespace MyQuickDesk.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Guid id, Room model)
+        public async Task <IActionResult> EditAsync(Guid id, Room model)
         {
             try
             {
-                _roomService.Update(model);
-                return RedirectToAction(nameof(Index));
+                await _roomService.UpdateAsync(model);
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -92,9 +82,9 @@ namespace MyQuickDesk.Controllers
 
         // GET: RoomController/Delete/5
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(Guid id)
+        public async Task <IActionResult> DeleteAsync(Guid id)
         {
-            var model = _roomService.GetById(id);
+            var model = await _roomService.GetByIdAsync(id);
             return View(model);
         }
 
@@ -102,12 +92,12 @@ namespace MyQuickDesk.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id, Room model)
+        public async Task <IActionResult> DeleteAsync(Guid id, Room model)
         {
             try
             {
-                _roomService.Delete(id);
-                return RedirectToAction(nameof(Index));
+                await _roomService.DeleteAsync(id);
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
