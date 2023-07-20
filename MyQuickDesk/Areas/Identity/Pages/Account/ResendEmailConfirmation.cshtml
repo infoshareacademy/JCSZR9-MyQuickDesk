@@ -1,0 +1,131 @@
+﻿@page
+@model ResendEmailConfirmationModel
+@{
+    ViewData["Title"] = "Resend email confirmation";
+}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var containerMain = document.querySelector('.container-main');
+        containerMain.style.opacity = '0';
+        containerMain.style.transform = 'translateY(-100px)';
+
+        setTimeout(function () {
+            containerMain.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
+            containerMain.style.opacity = '1';
+            containerMain.style.transform = 'translateY(0)';
+        }, 100);
+    });
+</script>
+
+<style>
+    body {
+        background-image: url('/img/background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .container-main {
+        background-color: rgba(245, 245, 245, 0.7);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        width: 60%;
+        margin: 10px auto;
+        backdrop-filter: blur(5px);
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #F5F5F5;
+        border-color: #F5F5F5;
+        color: #333;
+    }
+
+    .button-icon {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        margin-bottom: 5px;
+    }
+
+    .default-img {
+        display: inline;
+    }
+
+    .hover-img {
+        display: none;
+    }
+
+    .resend-password-btn:hover .default-img {
+        display: none;
+    }
+
+    .resend-password-btn:hover .hover-img {
+        display: inline;
+    }
+
+    .resend-password-btn {
+        transition: background-color 0.5s ease-in-out;
+    }
+
+    .resend-password-btn:hover {
+            background-color: #7BA798;
+    }
+
+    .default-img {
+        transition: opacity 0.5s ease-in-out;
+        opacity: 1;
+    }
+
+    .hover-img {
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+    }
+
+    .resend-password-btn:hover .default-img {
+        opacity: 0;
+    }
+
+    .resend-password-btn:hover .hover-img {
+        opacity: 1;
+    }
+
+    .link-btn {
+        background-color: #7BA798;
+        color: white;
+        border: 2px solid #7BA798;
+        border-radius: 35px;
+        padding: 10px;
+        font-size: 15px;
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+</style>
+<div class="container-main">
+<h1 class="text-center fw-bold">@ViewData["Title"]</h1>
+<h2 class="text-center fw-bold">Enter your email.</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email" class="form-label"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+                <div class="parent-container">
+                    <button id="emailresendsubmit" type="submit" class="resend-password-btn">
+                        <img src="~/icons/resendemailicon.png" alt="Resendemail Icon" class="button-icon default-img">
+                        <img src="~/icons/resendemailicon-bright.png" alt="Resend Icon Bright" class="button-icon hover-img"> Resend
+                    </button>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

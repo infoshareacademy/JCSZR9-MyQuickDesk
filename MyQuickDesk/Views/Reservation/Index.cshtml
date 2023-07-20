@@ -5,10 +5,17 @@
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Reservations";
 }
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+        background-size: 1920px 1080px;
+    }
+</style>
 
-<h1>@Resource.Myreservations</h1>
+<h1 class="shadow-text">@Resource.Myreservations</h1>
 
 
 
@@ -26,28 +33,37 @@
         </tr>
     </thead>
     <tbody>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @item.StartTime
-                </td>
-                <td>
-                    @item.EndTime
-                </td>
-                <td>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @item.StartTime
+            </td>
+            <td>
+                @item.EndTime
+            </td>
+            <td>
                     @item.Space.Name
-                </td>
+            </td>
+            <td>
+                    <div class="button-container">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
+                            <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
+                            @Resource.Details
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
+                            <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20">
+                            @Resource.Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">
+                            <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
+                            @Resource.Delete
+                        </a>
+                    </div>
 
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">@Resource.Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">@Resource.Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">@Resource.Delete</a>
                 </td>
-            </tr>
-        }
+        </tr>
+}
     </tbody>
 </table>
 

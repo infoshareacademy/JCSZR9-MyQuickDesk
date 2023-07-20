@@ -28,9 +28,14 @@ namespace MyQuickDesk.Controllers
         // GET: ParkingController/Details/5
         public ActionResult Details(Guid id)
         {
-            var model = new ParkingSpot { Id = id };
+            var model = _parkingService.GetById(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
             return View(model);
         }
+
 
         // GET: ParkingController/Create
         [Authorize(Roles = "Admin")]

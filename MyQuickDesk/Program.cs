@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
+using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
 using System.Globalization;
+using System.Data;
 
 namespace MyQuickDesk
 {
@@ -20,9 +22,11 @@ namespace MyQuickDesk
                     option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyQuickDeskConnectionString"))
                 );
 
-            builder.Services.AddDefaultIdentity<IdentityUser>()
+            builder.Services.AddDefaultIdentity<Microsoft.AspNetCore.Identity.IdentityUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<MyQuickDeskContext>();
+
+            
 
 
             // Add services to the container.

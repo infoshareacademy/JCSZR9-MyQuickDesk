@@ -66,7 +66,6 @@ namespace MyQuickDesk.Controllers
         }
 
         // POST: DeskController/Edit/5
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
