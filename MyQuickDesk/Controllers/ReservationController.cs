@@ -35,8 +35,9 @@ namespace MyQuickDesk.Controllers
 
             var currentUser = _userContext.GetCurrentUser();
             var userId = currentUser.Id;
+            var currentDate = DateTime.Today;
 
-            var model = _reservationService.GetAll().Where(r => r.UserId == userId).ToList();
+            var model = _reservationService.GetAll().Where(r => r.UserId == userId && r.EndTime>= currentDate ).ToList();
             return View(model);
         }
 
