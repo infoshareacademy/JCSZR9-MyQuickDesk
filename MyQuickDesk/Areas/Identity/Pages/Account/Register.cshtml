@@ -1,4 +1,5 @@
 ﻿@page
+@using Humanizer.Localisation;
 @model RegisterModel
 @{
     ViewData["Title"] = "Register your account";
@@ -129,7 +130,7 @@
                 <div class="parent-container">
                     <button id="registerSubmit" type="submit" class="register-btn">
                         <img src="~/icons/registericon.png" alt="Register Icon" class="button-icon default-img">
-                        <img src="~/icons/registericon-bright.png" alt="Register Icon Bright" class="button-icon hover-img"> Register
+                        <img src="~/icons/registericon-bright.png" alt="Register Icon Bright" class="button-icon hover-img"> @Resources.Register
                     </button>
                 </div>
             </form>

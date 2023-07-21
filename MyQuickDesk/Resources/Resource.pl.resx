@@ -278,6 +278,12 @@ i uruchamiając ponownie aplikację.</value>
   <data name="ParkingSpot" xml:space="preserve">
     <value>Miejsca parkingowe</value>
   </data>
+  <data name="PleasConfirm" xml:space="preserve">
+    <value>Proszę potwierdźić hasło.</value>
+  </data>
+  <data name="PleaseEnter" xml:space="preserve">
+    <value>Proszę wprowadźić hasło.</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Zarejestruj</value>
   </data>
@@ -290,8 +296,14 @@ i uruchamiając ponownie aplikację.</value>
   <data name="Reservation" xml:space="preserve">
     <value>Rezerwacja</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Zresetuj</value>
+  </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>Zrestartuj hasło</value>
+  </data>
+  <data name="ResetYourPassword" xml:space="preserve">
+    <value />
   </data>
   <data name="RoleName" xml:space="preserve">
     <value>Nazwa roli</value>

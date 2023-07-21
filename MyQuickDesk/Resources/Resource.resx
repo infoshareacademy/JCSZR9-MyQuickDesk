@@ -278,6 +278,12 @@
   <data name="ParkingSpot" xml:space="preserve">
     <value>Parking Spot</value>
   </data>
+  <data name="PleasConfirm" xml:space="preserve">
+    <value>Please confirm your password.</value>
+  </data>
+  <data name="PleaseEnter" xml:space="preserve">
+    <value>Please enter your password.</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -289,6 +295,9 @@
   </data>
   <data name="Reservation" xml:space="preserve">
     <value>Reservation</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>Reset password</value>
