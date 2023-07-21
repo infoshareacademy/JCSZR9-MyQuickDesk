@@ -239,6 +239,9 @@
   <data name="ErrorReservationConflict" xml:space="preserve">
     <value>The reservation conflicts with existing bookings. Please choose a different time slot.</value>
   </data>
+  <data name="Forgot" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
   <data name="HandicappedSpot" xml:space="preserve">
     <value>Handicapped spot</value>
   </data>
@@ -247,6 +250,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="IDontHave" xml:space="preserve">
+    <value>I don't have an account yet</value>
   </data>
   <data name="IsAvaiable" xml:space="preserve">
     <value>Is avaiable?</value>
@@ -275,8 +281,17 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="RegisterNew" xml:space="preserve">
+    <value>Register as a new user.</value>
+  </data>
+  <data name="Resend" xml:space="preserve">
+    <value>Resend email confirmation.</value>
+  </data>
   <data name="Reservation" xml:space="preserve">
     <value>Reservation</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset password</value>
   </data>
   <data name="RoleName" xml:space="preserve">
     <value>Role name</value>

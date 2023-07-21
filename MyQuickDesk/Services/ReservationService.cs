@@ -11,9 +11,9 @@ namespace MyQuickDesk.Services
     {
         Task<IEnumerable<Reservation>> GetAllAsync();
         Task <Reservation> GetByIdAsync(Guid id);
-        Task CreateAsync(Reservation reservation);
-        Task <bool> UpdateAsync(Guid Id, Reservation model);
-        Task DeleteAsync(Guid id);
+        Task Create(Reservation reservation);
+        Task <bool> Update(Guid Id, Reservation model);
+        Task Delete(Guid id);
         Task <bool> IsReservationValidAsync(Reservation reservation);
 
     }
@@ -42,7 +42,7 @@ namespace MyQuickDesk.Services
         }
 
 
-        public async Task CreateAsync(Reservation reservation)
+        public async Task Create(Reservation reservation)
         {
             var currentUser = _userContext.GetCurrentUser();
             var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == currentUser.Id);
@@ -52,7 +52,7 @@ namespace MyQuickDesk.Services
                 reservation.User = existingUser;
             }
             _dbContext.Reservations.Add(reservation);
-            _dbContext.SaveChanges();
+           await _dbContext.SaveChangesAsync();
         }
         public async Task <bool> IsReservationValidAsync(Reservation reservation)
         {
@@ -73,7 +73,7 @@ namespace MyQuickDesk.Services
 
 
 
-        public async Task <bool> UpdateAsync(Guid id, Reservation model)
+        public async Task <bool> Update(Guid id, Reservation model)
         {
             var existingReservation =await _dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == id);
 
@@ -87,7 +87,7 @@ namespace MyQuickDesk.Services
             existingReservation.Space = model.Space;
             if (await IsReservationValidAsync(existingReservation))
             {
-                _dbContext.SaveChanges();
+               await _dbContext.SaveChangesAsync();
                 return true;
             }
             else
@@ -97,13 +97,13 @@ namespace MyQuickDesk.Services
         }
 
 
-        public async Task DeleteAsync(Guid id)
+        public async Task Delete(Guid id)
         {
             var reservations =await _dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == id);
             if (reservations != null)
             {
                 _dbContext.Reservations.Remove(reservations);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
             }
         }
 

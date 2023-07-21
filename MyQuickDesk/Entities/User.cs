@@ -3,7 +3,7 @@
 
 namespace MyQuickDesk.Entities
 {
-    public class IdentityUser
+    public class User
     {
         public Guid Id { get; set; }
 

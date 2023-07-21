@@ -9,9 +9,9 @@ namespace MyQuickDesk.Services
     {
         Task <List<Room>> GetAllAsync();
         Task <Room> GetByIdAsync(Guid id);
-        Task CreateAsync(Room room);
-        Task UpdateAsync(Room room);
-        Task DeleteAsync(Guid id);
+        Task Create(Room room);
+        Task Update(Room room);
+        Task Delete(Guid id);
     }
 
     public class RoomService : IRoomService
@@ -34,7 +34,7 @@ namespace MyQuickDesk.Services
             return await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public async Task CreateAsync(Room room)
+        public async Task Create(Room room)
         {
             var currentUser = _userContext.GetCurrentUser();
             if (currentUser == null || !currentUser.IsAdmin("Admin"))
@@ -55,14 +55,14 @@ namespace MyQuickDesk.Services
             }
             return Guid.Empty;
         }
-        public async Task UpdateAsync(Room room)
+        public async Task Update(Room room)
         {
             _dbContext.Rooms.Update(room);
             _dbContext.SaveChanges();
 
 
         }
-        public async Task DeleteAsync(Guid id)
+        public async Task Delete(Guid id)
         {
             var room = await _dbContext.Rooms.FirstOrDefaultAsync(d => d.Id == id);
             if (room != null)

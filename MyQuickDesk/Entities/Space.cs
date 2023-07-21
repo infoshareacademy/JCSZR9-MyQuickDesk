@@ -12,7 +12,6 @@ namespace MyQuickDesk.Entities
 
         public string? Description { get; set; }
 
-        [Display(Name = "Max Capacity")]
         [Range(2, 100, ErrorMessage = "Please provide value from 2 to 100")]
         public int MaxCapacity { get; set; } = 1;
 

@@ -423,6 +423,15 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string Forgot {
+            get {
+                return ResourceManager.GetString("Forgot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Handicapped spot.
         /// </summary>
         public static string HandicappedSpot {
@@ -446,6 +455,15 @@ namespace MyQuickDesk.Resources {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I don&apos;t have an account yet.
+        /// </summary>
+        public static string IDontHave {
+            get {
+                return ResourceManager.GetString("IDontHave", resourceCulture);
             }
         }
         
@@ -531,11 +549,38 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register as a new user..
+        /// </summary>
+        public static string RegisterNew {
+            get {
+                return ResourceManager.GetString("RegisterNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resend email confirmation..
+        /// </summary>
+        public static string Resend {
+            get {
+                return ResourceManager.GetString("Resend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reservation.
         /// </summary>
         public static string Reservation {
             get {
                 return ResourceManager.GetString("Reservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset password.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
             }
         }
         

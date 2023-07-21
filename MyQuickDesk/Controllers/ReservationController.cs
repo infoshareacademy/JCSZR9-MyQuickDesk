@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
@@ -6,11 +7,10 @@ using MyQuickDesk.Resources;
 using MyQuickDesk.Services;
 using System.Globalization;
 using System.Resources;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace MyQuickDesk.Controllers
-{ 
+{
     public class ReservationController : Controller
     {
         private readonly IReservationService _reservationService;
@@ -26,7 +26,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController
-        public async Task<IActionResult> IndexAsync(Guid id, Guid spaceId)
+        public async Task<IActionResult> Index(Guid id, Guid spaceId)
         {
             string errorMessage = Resource.ErrorReservationConflict;
             ViewBag.SpaceId = spaceId;
@@ -46,7 +46,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Details/5
-        public async Task <IActionResult> DetailsAsync(Guid id, Guid spaceId)
+        public async Task <IActionResult> Details(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
             var model = await _reservationService.GetByIdAsync(id);
@@ -54,7 +54,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Create
-        public async Task <IActionResult> CreateAsync(Guid spaceId, Guid userId)
+        public async Task <IActionResult> Create(Guid spaceId, Guid userId)
         {
             ViewBag.SpaceId = spaceId;
 
@@ -68,7 +68,7 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> CreateAsync(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
+        public async Task <IActionResult> Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
         {   
             try
             {
@@ -98,8 +98,8 @@ namespace MyQuickDesk.Controllers
 
                     if (await _reservationService.IsReservationValidAsync(model))
                     {
-                        _reservationService.CreateAsync(model);
-                        return RedirectToAction(nameof(IndexAsync),new {Id=model.UserId,spaceId});
+                        await _reservationService.Create(model);
+                        return RedirectToAction(nameof(Index),new {Id=model.UserId,spaceId});
                     }
                     else
                     {
@@ -119,7 +119,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Edit/5
-        public async Task <IActionResult> EditAsync(Guid id, Guid spaceId)
+        public async Task <IActionResult> Edit(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
 
@@ -130,13 +130,13 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> EditAsync(Reservation model, Guid spaceId)
+        public async Task <IActionResult> Edit(Reservation model, Guid spaceId)
         {
             try
             {
                 model.Id = spaceId;
-                _reservationService.UpdateAsync(spaceId, model);
-                return RedirectToAction(nameof(IndexAsync),new { Id = model.UserId, spaceId });
+                await  _reservationService.Update(spaceId, model);
+                return RedirectToAction(nameof(Index),new { Id = model.UserId, spaceId });
             }
             catch
             {
@@ -145,7 +145,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Delete/5
-        public async Task <IActionResult> DeleteAsync(Guid id)
+        public async Task <IActionResult> Delete(Guid id)
         {
             var model = await _reservationService.GetByIdAsync(id);
             return View(model);
@@ -158,8 +158,8 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                _reservationService.DeleteAsync(spaceId);
-                return RedirectToAction(nameof(IndexAsync), new { Id = model.UserId, spaceId });
+                await _reservationService.Delete(spaceId);
+                return RedirectToAction(nameof(Index), new { Id = model.UserId, spaceId });
             }
             catch
             {

@@ -166,7 +166,7 @@
     <value>Rezerwuj salę konferencyjną</value>
   </data>
   <data name="Charger" xml:space="preserve">
-    <value>Ładowarka</value>
+    <value>Ładowanie</value>
   </data>
   <data name="ConferencialRoom" xml:space="preserve">
     <value>Sala konferencyjna</value>
@@ -239,6 +239,9 @@ i uruchamiając ponownie aplikację.</value>
   <data name="ErrorReservationConflict" xml:space="preserve">
     <value>Rezerwacja koliduje z istniejącymi rezerwacjami. Proszę wybrać inny przedział czasowy.</value>
   </data>
+  <data name="Forgot" xml:space="preserve">
+    <value>Zapomniałeś hasła?</value>
+  </data>
   <data name="HandicappedSpot" xml:space="preserve">
     <value>Miejsce dla niepełnosprawnych</value>
   </data>
@@ -248,6 +251,9 @@ i uruchamiając ponownie aplikację.</value>
   <data name="Home" xml:space="preserve">
     <value>Strona głowna</value>
   </data>
+  <data name="IDontHave" xml:space="preserve">
+    <value>Nie mam jeszcze konta.</value>
+  </data>
   <data name="IsAvaiable" xml:space="preserve">
     <value>Czy jest dostępne?</value>
   </data>
@@ -255,7 +261,7 @@ i uruchamiając ponownie aplikację.</value>
     <value>Zaloguj</value>
   </data>
   <data name="LoginBook" xml:space="preserve">
-    <value>Zaloguj się aby rezerwoać</value>
+    <value>Zaloguj się aby rezerwować</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Wyloguj</value>
@@ -275,8 +281,17 @@ i uruchamiając ponownie aplikację.</value>
   <data name="Register" xml:space="preserve">
     <value>Zarejestruj</value>
   </data>
+  <data name="RegisterNew" xml:space="preserve">
+    <value>Zarejestruj nowego użytkownika.</value>
+  </data>
+  <data name="Resend" xml:space="preserve">
+    <value>Prześlij potwierdzenie na email.</value>
+  </data>
   <data name="Reservation" xml:space="preserve">
     <value>Rezerwacja</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Zrestartuj hasło</value>
   </data>
   <data name="RoleName" xml:space="preserve">
     <value>Nazwa roli</value>

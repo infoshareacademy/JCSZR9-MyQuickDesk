@@ -12,15 +12,15 @@ using MyQuickDesk.DatabaseContext;
 namespace MyQuickDesk.Migrations
 {
     [DbContext(typeof(MyQuickDeskContext))]
-    [Migration("20230611165445_initial")]
-    partial class initial
+    [Migration("20230720180626_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -245,13 +245,13 @@ namespace MyQuickDesk.Migrations
                     b.Property<Guid?>("RoomId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("SpaceId")
+                    b.Property<Guid?>("SpaceId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -285,7 +285,7 @@ namespace MyQuickDesk.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAvaible")
+                    b.Property<bool>("IsAvaiable")
                         .HasColumnType("bit");
 
                     b.Property<int>("MaxCapacity")
@@ -312,27 +312,11 @@ namespace MyQuickDesk.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
+                    b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Login")
-                        .IsRequired()
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Owner")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ReservationId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -348,36 +332,36 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("40991d3c-e221-4c94-8d68-68fba1249abf"),
-                            IsAvaible = true,
+                            Id = new Guid("05f9f9b4-af86-44a6-b3f1-6523d6372291"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A1"
                         },
                         new
                         {
-                            Id = new Guid("e8672eb6-9c20-43f4-8fcf-64dd943498d0"),
-                            IsAvaible = true,
+                            Id = new Guid("7f698cf0-e92d-444d-b184-4290ff17266f"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A2"
                         },
                         new
                         {
-                            Id = new Guid("65bcff2e-de75-47ba-b47c-54a6bdf91fca"),
-                            IsAvaible = true,
+                            Id = new Guid("3d84fc43-91aa-4e2d-90d6-25a6d5aacb5a"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko A3"
                         },
                         new
                         {
-                            Id = new Guid("cb2c212b-f00e-4617-b2fb-df93f024201c"),
-                            IsAvaible = true,
+                            Id = new Guid("debd8e78-70f8-44e4-8387-58f9ba0f879d"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko B1"
                         },
                         new
                         {
-                            Id = new Guid("78b726f7-8a69-41ba-8409-4acedb800f46"),
-                            IsAvaible = true,
+                            Id = new Guid("1c926b8c-acd3-4d8e-b6e7-c9e0902aee1e"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "Biurko B2"
                         });
@@ -398,8 +382,8 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dabd8dcf-b5fd-4d38-bbb1-327871e04a65"),
-                            IsAvaible = true,
+                            Id = new Guid("48dfbc8e-a779-4588-a48a-bc2d5a9e5420"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A1",
                             Charger = true,
@@ -407,8 +391,8 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8147505b-73e6-4ea1-8d44-573420b64eff"),
-                            IsAvaible = true,
+                            Id = new Guid("763cc096-6762-4ff8-a0a8-9cb7464a723e"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A2",
                             Charger = true,
@@ -416,8 +400,8 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("38abf647-b05f-4769-8fe2-ec58f037730f"),
-                            IsAvaible = true,
+                            Id = new Guid("6f85a73a-d56a-476a-bac0-8445d56d0f37"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1A3",
                             Charger = true,
@@ -425,8 +409,8 @@ namespace MyQuickDesk.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f4e68b48-bcb2-45e2-98fd-64faff25add5"),
-                            IsAvaible = true,
+                            Id = new Guid("8f067289-45b3-4923-a082-6e9ff4b47d3e"),
+                            IsAvaiable = true,
                             MaxCapacity = 1,
                             Name = "P1B1",
                             Charger = true,
@@ -443,22 +427,22 @@ namespace MyQuickDesk.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5e2ce314-6150-49c9-985b-b2d923de187c"),
-                            IsAvaible = true,
+                            Id = new Guid("04fecc9b-3f79-4529-843c-847b84c276be"),
+                            IsAvaiable = true,
                             MaxCapacity = 8,
                             Name = "Mariacka"
                         },
                         new
                         {
-                            Id = new Guid("de704863-b600-4024-a371-b91bc4fd9bac"),
-                            IsAvaible = true,
+                            Id = new Guid("711381aa-85ae-4c38-ba06-7268c77a15dc"),
+                            IsAvaiable = true,
                             MaxCapacity = 10,
                             Name = "Neptun"
                         },
                         new
                         {
-                            Id = new Guid("4e37895c-7c29-4be4-a2af-88c3f9fbde6b"),
-                            IsAvaible = true,
+                            Id = new Guid("f3b3e9d0-8426-4bec-b8e8-f69d4f554ba5"),
+                            IsAvaiable = true,
                             MaxCapacity = 12,
                             Name = "Polityczna"
                         });
@@ -531,15 +515,11 @@ namespace MyQuickDesk.Migrations
 
                     b.HasOne("MyQuickDesk.Entities.Space", "Space")
                         .WithMany()
-                        .HasForeignKey("SpaceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SpaceId");
 
                     b.HasOne("MyQuickDesk.Entities.User", "User")
-                        .WithMany("Reservations")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Desk");
 
@@ -559,11 +539,6 @@ namespace MyQuickDesk.Migrations
                         .HasForeignKey("CreatedById");
 
                     b.Navigation("CreatedBy");
-                });
-
-            modelBuilder.Entity("MyQuickDesk.Entities.User", b =>
-                {
-                    b.Navigation("Reservations");
                 });
 
             modelBuilder.Entity("MyQuickDesk.Entities.Desk", b =>
