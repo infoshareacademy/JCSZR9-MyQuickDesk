@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
-@inject MyQuickDesk.ApplicationUser.IUserContext UserContext
+﻿@inject MyQuickDesk.ApplicationUser.IUserContext UserContext
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,16 +35,8 @@
                                 <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">Desk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Reservation" asp-action="Index">My reservations</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="reservation" asp-action="Index">reservations</a>
                             </li>
-
-                            
-@*                            @if (User.IsInRole("Admin"))
-                            {*@
-                                <li class="nav-item">
-                                    <a class="nav-link text-custom" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                                </li>
-                            @*}*@
                         }
                     </ul>
                     <partial name="_LoginPartial" />

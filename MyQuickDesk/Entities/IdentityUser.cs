@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
+
 namespace MyQuickDesk.Entities
 {
-    public class User
+    public class IdentityUser
     {
         public Guid Id { get; set; }
 

@@ -3,17 +3,25 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-
-
-<h1>Conferencial Room</h1>
-
-<p>
-    @if (User.IsInRole("Admin"))
-    {
-        <a asp-action="Create" class="create-link">Create New</a>
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+        background-size: 1920px 1080px;
     }
-</p>
+</style>
+
+
+<h1 class="shadow-text">Conferencial Room</h1>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="create-link">
+            Create New
+            <img src="~/Icons/Createicon.png" alt="Create Icon" width="20" height="20">
+        </a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -31,33 +39,44 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @item.Name
-                </td>
-                <td>
-                    @item.Description
-                </td>
-                <td>
-                    @item.MaxCapacity
-
-                </td>
-
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
-
-                    }
-                    <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @item.Name
+            </td>
+            <td>
+               @item.Description
+            </td>           
+            <td>
+                @item.MaxCapacity
+               
+            </td>
+            
+            <td>
+                    <div class="button-container">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
+                            <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
+                            Details
+                        </a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
+                                <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20">
+                                Edit
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">
+                                <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
+                                Delete
+                            </a>
+                        }
+                        <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">
+                            <img src="~/Icons/Reservationicon.png" alt="Reservation Icon" width="20" height="20">
+                            Book Now
+                        </a>
+                    </div>
+            </td>
+        </tr>
+}
     </tbody>
 </table>

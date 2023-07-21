@@ -4,31 +4,53 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+        background-size: 1920px 1080px;
+    }
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Desk</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            <label asp-for="Name"></label>
-        </dt>
-        <dd class="col-sm-10">
-            @Model.Name
-        </dd>
-        <dt class="col-sm-2">
-            <label asp-for="Description"></label>
-        </dt>
-        <dd class="col-sm-10">
-            @Model.Description
-        </dd>
-    </dl>
+    .center-container {
+        margin-top: 100px;
+    }
 
-    <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+    .bold-header {
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+</style>
 
-        <a class="back-to-list-btn" asp-action="Index">Back to List</a>
-
-    </form>
+<div class="center-container">
+    <div class="container-main">
+        <h1 class="shadow-text row justify-content-center">Delete</h1>
+        <div class="row justify-content-center">
+            <h2 class="bold-header">Are you sure you want to delete this desk?</h2>
+            <div>
+                <hr />
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td class="col-sm-2 font-weight-bold">Name</td>
+                            <td class="col-sm-10">@Model.Name</td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2 font-weight-bold">Description</td>
+                            <td class="col-sm-10">@Model.Description</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr />
+            <form asp-action="Delete">
+                <div>
+                    <button type="submit" class="btn btn-danger">
+                        <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
+                        Delete
+                    </button>
+                    <a class="back-to-list-btn" asp-action="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

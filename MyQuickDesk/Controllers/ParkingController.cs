@@ -29,9 +29,14 @@ namespace MyQuickDesk.Controllers
         // GET: ParkingController/Details/5
         public ActionResult Details(Guid id)
         {
-            var model = new ParkingSpot { Id = id };
+            var model = _parkingService.GetById(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
             return View(model);
         }
+
 
         // GET: ParkingController/Create
         [Authorize(Roles = "Admin")]
@@ -88,8 +93,12 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
-            var model = _parkingService.GetById(id);
-            return View(model);
+            var parkingSpot = _parkingService.GetById(id);
+            if (parkingSpot == null)
+            {
+                return NotFound();
+            }
+            return View(parkingSpot);
         }
 
         // POST: ParkingController/Delete/5

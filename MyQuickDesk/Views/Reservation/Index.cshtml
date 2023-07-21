@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<MyQuickDesk.Entities.Reservation>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Reservations";
 }
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+        background-size: 1920px 1080px;
+    }
+</style>
 
-<h1>My reservations</h1>
+<h1 class="shadow-text">Your Reservations</h1>
 
 
 <table class="table">
@@ -24,28 +31,34 @@
         </tr>
     </thead>
     <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @item.StartTime
+            </td>
+            <td>
+                @item.EndTime
+            </td>
+            <td>
+                    <div class="button-container">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
+                            <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
+                            Details
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
+                            <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20">
+                            Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">
+                            <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
+                            Delete
+                        </a>
+                    </div>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @item.StartTime
                 </td>
-                <td>
-                    @item.EndTime
-                </td>
-                <td>
-                    @item.Space.Name
-                </td>
-
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
-                </td>
-            </tr>
-        }
+        </tr>
+}
     </tbody>
 </table>
 

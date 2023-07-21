@@ -25,7 +25,7 @@ namespace MyQuickDesk.ApplicationUser
                 || user.FindFirst(c => c.Type == ClaimTypes.NameIdentifier) == null
                 || user.FindFirst(c => c.Type == ClaimTypes.Email) == null)
             {
-                throw new InvalidOperationException("User context is not present!");
+                throw new InvalidOperationException("IdentityUser context is not present!");
             }
 
             var id = Guid.Parse(user.FindFirst(c => c.Type == ClaimTypes.NameIdentifier)!.Value);
