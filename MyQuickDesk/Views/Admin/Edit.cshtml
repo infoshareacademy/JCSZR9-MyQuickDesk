@@ -1,7 +1,14 @@
 ﻿@model MyQuickDesk.Models.AdminPanelModel
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
+</style>
 
-<h1>Edit User</h1>
-
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">Edit User</h1>
+    <hr />
 <form method="post">
     <input type="hidden" asp-for="User.Id" />
 
@@ -21,4 +28,4 @@
 
     <button type="submit">Update</button>
 </form>
-
+</div>
