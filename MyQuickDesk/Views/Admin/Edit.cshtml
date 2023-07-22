@@ -1,4 +1,5 @@
 ﻿@model MyQuickDesk.Models.AdminPanelModel
+
 <style>
     body {
         background-image: url('/img/backgroundtabs.png');
@@ -12,21 +13,32 @@
     <form method="post">
         <input type="hidden" asp-for="User.Id" />
 
-        <label for="Email">Email</label>
-        <input type="email" asp-for="User.Email" />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" asp-for="User.Email" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="UserName">Username</label>
+                    <input type="text" asp-for="User.UserName" class="form-control" />
+                </div>
+            </div>
+        </div>
 
-        <label for="UserName">Username</label>
-        <input type="text" asp-for="User.UserName" />
+        <div class="form-group">
+            <label for="SelectedRoles" style="margin-top: 20px">Roles</label>
+            <select id="SelectedRoles" name="SelectedRoles" multiple="multiple" class="form-control">
+                @foreach (var role in Model.Roles)
+                {
+                    <option value="@role.Name" selected="@Model.SelectedRoles.Contains(role.Name)">@role.Name</option>
+                }
+            </select>
+        </div>
+        <hr />
 
-        <label for="SelectedRoles">Roles</label>
-        <select id="SelectedRoles" name="SelectedRoles" multiple="multiple">
-            @foreach (var role in Model.Roles)
-            {
-                <option value="@role.Name" selected="@Model.SelectedRoles.Contains(role.Name)">@role.Name</option>
-            }
-        </select>
-
-        
+        <button type="submit" class="btn btn-primary">Update</button>
     </form>
-    <button type="submit" class="btn btn-primary">Update</button>
 </div>
