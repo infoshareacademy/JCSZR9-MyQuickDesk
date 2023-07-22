@@ -540,11 +540,20 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please confirm your password..
         /// </summary>
-        public static string PleasConfirm {
+        public static string PleaseConfirm {
             get {
-                return ResourceManager.GetString("PleasConfirm", resourceCulture);
+                return ResourceManager.GetString("PleaseConfirm", resourceCulture);
             }
         }
         

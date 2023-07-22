@@ -1,5 +1,6 @@
 ﻿@page
 @model ResendEmailConfirmationModel
+@using MyQuickDesk.Resources;
 @{
     ViewData["Title"] = "Resend email confirmation";
 }
@@ -119,7 +120,7 @@
                 <div class="parent-container"/>
                     <button id="emailresendsubmit" type="submit" class="resend-password-btn">
                         <img src="~/icons/resendemailicon.png" alt="Resendemail Icon" class="button-icon default-img">
-                        <img src="~/icons/resendemailicon-bright.png" alt="Resend Icon Bright" class="button-icon hover-img"> Resend
+                        <img src="~/icons/resendemailicon-bright.png" alt="Resend Icon Bright" class="button-icon hover-img"> @Resource.Resend
                     </button>
                     
         </form>

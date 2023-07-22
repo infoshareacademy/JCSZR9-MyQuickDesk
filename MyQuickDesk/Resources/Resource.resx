@@ -278,7 +278,7 @@
   <data name="ParkingSpot" xml:space="preserve">
     <value>Parking Spot</value>
   </data>
-  <data name="PleasConfirm" xml:space="preserve">
+  <data name="PleaseConfirm" xml:space="preserve">
     <value>Please confirm your password.</value>
   </data>
   <data name="PleaseEnter" xml:space="preserve">

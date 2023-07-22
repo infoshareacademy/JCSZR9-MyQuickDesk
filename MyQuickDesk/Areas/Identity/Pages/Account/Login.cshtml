@@ -1,5 +1,6 @@
 ﻿@page
 @using Humanizer.Localisation;
+@using MyQuickDesk.Resources;
 @model LoginModel
 
 @{
@@ -139,13 +140,13 @@
                     </div>
                 <div>
                     <p>
-                            <a id="forgot-password" asp-page="./ForgotPassword" class="link-btn">@Resources.Forgot</a>
+                            <a id="forgot-password" asp-page="./ForgotPassword" class="link-btn">@Resource.Forgot</a>
                     </p>
                     <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="link-btn">@Resources.RegisterNew</a>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="link-btn">@Resource.RegisterNew</a>
                     </p>
                     <p>
-                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="link-btn" >@Resources.Resend</a>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="link-btn" >@Resource.Resend</a>
                     </p>
                 </div>
             </form>
