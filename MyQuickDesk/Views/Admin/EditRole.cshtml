@@ -1,12 +1,28 @@
 ﻿@model Microsoft.AspNetCore.Identity.IdentityRole
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
 
-<h1>Edit Role</h1>
+    .bold-label::after {
+        content: ":";
+    }
 
-<form asp-action="EditRole" asp-controller="Admin" method="post">
-    <input type="hidden" asp-for="Id" />
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-    </div>
-    <input type="submit" value="Update" />
-</form>
+    .bold-label {
+        font-weight: bold;
+    }
+</style>
+
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">Edit Role</h1>
+    <hr />
+    <form asp-action="EditRole" asp-controller="Admin" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div>
+            <label asp-for="Name" class="bold-label"></label>
+            <input asp-for="Name" />
+        </div>
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </form>
+</div>

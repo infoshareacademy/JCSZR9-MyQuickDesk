@@ -1,11 +1,23 @@
 ﻿@model Microsoft.AspNetCore.Identity.IdentityRole
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
+</style>
 
-<h1>Delete Role</h1>
 
-<p>Are you sure you want to delete the role '@Model.Name'?</p>
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">Delete Role</h1>
 
-<form asp-action="DeleteRoleConfirmed" asp-controller="Admin" method="post">
-    <input type="hidden" asp-for="Id" />
-    <input type="submit" value="Yes, delete it." />
-    <a href="@Url.Action("Roles", "Admin")">No, take me back.</a>
-</form>
+    <p>Are you sure you want to delete the role '@Model.Name'?</p>
+    <hr />
+    <form asp-action="DeleteRoleConfirmed" asp-controller="Admin" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">
+            <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20" v />
+            Yes, delete it
+        </button>
+        <a class="back-to-list-btn" href="@Url.Action("Index", "Admin")">No, take me back. </a>
+    </form>
+</div>

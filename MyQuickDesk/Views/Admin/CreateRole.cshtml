@@ -3,11 +3,27 @@
 @{
     ViewData["Title"] = "CreateRole";
 }
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
 
-<h1>Create New Role</h1>
+    .bold-label::after {
+        content: ":";
+    }
 
-<form method="post">
-    <label for="roleName">Role Name</label>
-    <input type="text" name="roleName" required />
-    <button type="submit">Create</button>
-</form>
+    .bold-label {
+        font-weight: bold;
+    }
+</style>
+
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">Create New Role</h1>
+    <hr />
+    <form method="post">
+        <label for="roleName" class="bold-label">Role Name</label>
+        <input type="text" name="roleName" required />
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
