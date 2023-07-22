@@ -278,6 +278,9 @@ i uruchamiając ponownie aplikację.</value>
   <data name="ParkingSpot" xml:space="preserve">
     <value>Miejsca parkingowe</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
   <data name="PleaseConfirm" xml:space="preserve">
     <value>Proszę potwierdźić hasło.</value>
   </data>
