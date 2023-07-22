@@ -2,27 +2,38 @@
 @using Microsoft.AspNetCore.Identity
 @model List<IdentityRole>
 
-<h1>@Resource.Roles</h1>
-<p>
-    <a href="@Url.Action("CreateRole", "Admin")" class="create-link">@Resource.CreateNewRole</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Resource.Name</th>
-            <th>@Resource.Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var role in Model)
-        {
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
+</style>
+
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">Roles</h1>
+
+    <hr />
+    <table class="table">
+        <thead>
             <tr>
-                <td>@role.Name</td>
-                <td>
-                    <a href="@Url.Action("EditRole", "Admin", new { id = role.Id })" class="edit-link">@Resource.Edit</a>
-                    <a href="@Url.Action("DeleteRole", "Admin", new { id = role.Id })" class="delete-link">@Resource.Delete</a>
-                </td>
+                <th>@Resource.Name</th>
+                <th>@Resource.Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td>
+                        <a href="@Url.Action("EditRole", "Admin", new { id = role.Id })" class="edit-link">@Resource.Edit</a>
+                        <a href="@Url.Action("DeleteRole", "Admin", new { id = role.Id })" class="delete-link">@Resource.Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <a href="@Url.Action("CreateRole", "Admin")" class="create-link">@Resource.CreateNewRole</a>
+    </p>
+</div>

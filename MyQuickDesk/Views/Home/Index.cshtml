@@ -1,4 +1,4 @@
-﻿@using MyQuickDesk.ApplicationUser;
+﻿﻿@using MyQuickDesk.ApplicationUser;
 @inject IUserContext UserContext
 
 @{
@@ -58,7 +58,7 @@
         width: 29px;
         height: 29px;
         margin-left: -20px;
-        margin-right: 30px; 
+        margin-right: 30px;
     }
 
     .button-icon {
@@ -86,10 +86,11 @@
 
 
 
+
 </style>
 
 <div class= "container-main">
-    <h1 class="display-4">Productivity starts here.</h1>
+    <h1 class="display-4">@Resource.HomeText</h1>
     <img src="~/img/newlogo-small.png" class="QuickDeskLogo" alt="MyQuickDesk-logo">
 
     <div class="d-flex flex-column align-items-center">

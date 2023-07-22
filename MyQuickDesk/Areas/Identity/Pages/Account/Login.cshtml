@@ -4,7 +4,7 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = @Resource.LoginTitle;
 }
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -23,7 +23,7 @@
     body {
         background-image: url('/img/background.png');
         background-repeat: no-repeat;
-        background-size: cover;
+        
     }
 
     .container-main {
@@ -113,7 +113,7 @@
     <div class="row">
         <section>
             <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
+               
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 <div class="form-floating mb-3">
@@ -123,19 +123,19 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
+                    <label asp-for="Input.Password" class="form-label">@Resource.Password</label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="checkbox mb-3">
                     <label asp-for="Input.RememberMe" class="form-label">
                         <input class="form-check-input" asp-for="Input.RememberMe" />
-                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            @Html.DisplayNameFor(m => m.Input.RememberMe) 
                     </label>
                 </div>
                     <div class="parent-container">
                         <button id="login-submit" type="submit" class="login-btn">
                             <img src="~/icons/Loginicon.png" alt="Login Icon" class="button-icon default-img">
-                            <img src="~/icons/Loginicon-bright.png" alt="Login Icon Bright" class="button-icon hover-img"> Log in
+                            <img src="~/icons/Loginicon-bright.png" alt="Login Icon Bright" class="button-icon hover-img"> @Resource.Login
                         </button>
                     </div>
                 <div>

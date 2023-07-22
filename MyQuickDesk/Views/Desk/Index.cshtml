@@ -46,7 +46,7 @@
                     <div class="button-container">
                         <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
                             <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
-                            Details
+                            @Resource.Details
                         </a>
                         @if (User.IsInRole("Admin"))
                         {

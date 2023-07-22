@@ -2,7 +2,7 @@
 @model ResendEmailConfirmationModel
 @using MyQuickDesk.Resources;
 @{
-    ViewData["Title"] = "Resend email confirmation";
+    ViewData["Title"] = Resource.Resend;
 }
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -106,7 +106,7 @@
 </style>
 <div class="container-main">
 <h1 class="text-center fw-bold">@ViewData["Title"]</h1>
-<h2 class="text-center fw-bold">Enter your email.</h2>
+<h2 class="text-center fw-bold">@Resource.EnterEmail</h2>
 <hr />
 <div class="row justify-content-center">
     <div class="col-md-4">

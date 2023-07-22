@@ -1,6 +1,18 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "About us";
 }
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
+
+    .container-main {
+        margin-top: 50px;
+    }
+</style>
+
+<div class="container-main">
 <h1>@ViewData["About us"]</h1>
 <h2>@Resource.WhatIs</h2>
 <p>@Resource.AboutUsText</p>
@@ -8,3 +20,4 @@
 <p>@Resource.AboutUsText3</p>
 <p> @Resource.AboutUsText4</p>
 <p>@Resource.AboutUsText5</p>
+</div>

@@ -169,6 +169,33 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have no recovery codes left..
+        /// </summary>
+        public static string AuthenticationText {
+            get {
+                return ResourceManager.GetString("AuthenticationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must.
+        /// </summary>
+        public static string AuthenticationText2 {
+            get {
+                return ResourceManager.GetString("AuthenticationText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to generate a new set of recovery codes before you can log in with a recovery code..
+        /// </summary>
+        public static string AuthenticationText3 {
+            get {
+                return ResourceManager.GetString("AuthenticationText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to list.
         /// </summary>
         public static string Back {
@@ -205,11 +232,38 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change email.
+        /// </summary>
+        public static string ChangeEmail {
+            get {
+                return ResourceManager.GetString("ChangeEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Charger.
         /// </summary>
         public static string Charger {
             get {
                 return ResourceManager.GetString("Charger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please choose your username..
+        /// </summary>
+        public static string ChooseUsername {
+            get {
+                return ResourceManager.GetString("ChooseUsername", resourceCulture);
             }
         }
         
@@ -237,6 +291,15 @@ namespace MyQuickDesk.Resources {
         public static string CreateNew {
             get {
                 return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new account.
+        /// </summary>
+        public static string CreateNewAccount {
+            get {
+                return ResourceManager.GetString("CreateNewAccount", resourceCulture);
             }
         }
         
@@ -360,6 +423,15 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string Download {
+            get {
+                return ResourceManager.GetString("Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
@@ -405,6 +477,24 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter your email..
+        /// </summary>
+        public static string EnterEmail {
+            get {
+                return ResourceManager.GetString("EnterEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your phone number..
+        /// </summary>
+        public static string EnterPhonenumber {
+            get {
+                return ResourceManager.GetString("EnterPhonenumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -423,11 +513,29 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to External logins.
+        /// </summary>
+        public static string ExternalLogins {
+            get {
+                return ResourceManager.GetString("ExternalLogins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
         public static string Forgot {
             get {
                 return ResourceManager.GetString("Forgot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string ForgotPassword {
+            get {
+                return ResourceManager.GetString("ForgotPassword", resourceCulture);
             }
         }
         
@@ -455,6 +563,15 @@ namespace MyQuickDesk.Resources {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Productivity starts here.
+        /// </summary>
+        public static string HomeText {
+            get {
+                return ResourceManager.GetString("HomeText", resourceCulture);
             }
         }
         
@@ -495,11 +612,29 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log in to your local account.
+        /// </summary>
+        public static string LoginTitle {
+            get {
+                return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage email.
+        /// </summary>
+        public static string ManageEmail {
+            get {
+                return ResourceManager.GetString("ManageEmail", resourceCulture);
             }
         }
         
@@ -531,6 +666,33 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New email.
+        /// </summary>
+        public static string NewEmail {
+            get {
+                return ResourceManager.GetString("NewEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your new password..
+        /// </summary>
+        public static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your old password..
+        /// </summary>
+        public static string OldPassword {
+            get {
+                return ResourceManager.GetString("OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parking Spot.
         /// </summary>
         public static string ParkingSpot {
@@ -545,6 +707,33 @@ namespace MyQuickDesk.Resources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal data.
+        /// </summary>
+        public static string PersonalData {
+            get {
+                return ResourceManager.GetString("PersonalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account contains personal data that you have given us. This page allows you to download or delete that data..
+        /// </summary>
+        public static string PersonaldataText {
+            get {
+                return ResourceManager.GetString("PersonaldataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleting this data will permanently remove your account, and this cannot be recovered..
+        /// </summary>
+        public static string PersonaldataText2 {
+            get {
+                return ResourceManager.GetString("PersonaldataText2", resourceCulture);
             }
         }
         
@@ -567,6 +756,15 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        public static string Profile {
+            get {
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
@@ -581,6 +779,15 @@ namespace MyQuickDesk.Resources {
         public static string RegisterNew {
             get {
                 return ResourceManager.GetString("RegisterNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember me.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
             }
         }
         
@@ -648,6 +855,15 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send verification email..
+        /// </summary>
+        public static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start time.
         /// </summary>
         public static string StartTime {
@@ -666,11 +882,29 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Two-factor authentication.
+        /// </summary>
+        public static string TwoFactor {
+            get {
+                return ResourceManager.GetString("TwoFactor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update password.
+        /// </summary>
+        public static string UpdatePassword {
+            get {
+                return ResourceManager.GetString("UpdatePassword", resourceCulture);
             }
         }
         

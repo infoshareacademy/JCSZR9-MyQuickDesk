@@ -153,6 +153,15 @@
   <data name="AreYouSure?" xml:space="preserve">
     <value>Czy na pewno chcesz usunąć?</value>
   </data>
+  <data name="AuthenticationText" xml:space="preserve">
+    <value>Nie masz już żadnych kodów odzyskiwania.</value>
+  </data>
+  <data name="AuthenticationText2" xml:space="preserve">
+    <value>Musisz</value>
+  </data>
+  <data name="AuthenticationText3" xml:space="preserve">
+    <value>wygeneruj nowy zestaw kodów odzyskiwania, zanim będziesz mógł się zalogować za pomocą kodu odzyskiwania.</value>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Powrót do listy</value>
   </data>
@@ -165,8 +174,17 @@
   <data name="BookRoom" xml:space="preserve">
     <value>Rezerwuj salę konferencyjną</value>
   </data>
+  <data name="ChangeEmail" xml:space="preserve">
+    <value>Zmień email</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Zmień hasło</value>
+  </data>
   <data name="Charger" xml:space="preserve">
     <value>Ładowanie</value>
+  </data>
+  <data name="ChooseUsername" xml:space="preserve">
+    <value>Proszę wybrać nazwe użytkownika.</value>
   </data>
   <data name="ConferencialRoom" xml:space="preserve">
     <value>Sala konferencyjna</value>
@@ -176,6 +194,9 @@
   </data>
   <data name="CreateNew" xml:space="preserve">
     <value>Dodaj nowe</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Utwórz konto</value>
   </data>
   <data name="CreateNewRole" xml:space="preserve">
     <value>Stwórz nową rolę użytkownika</value>
@@ -218,6 +239,9 @@
 Aby lokalnie debugować, aktywuj środowisko deweloperskie, ustawiając zmienną środowiskową ASPNETCORE_ENVIRONMENT na wartość "development"
 i uruchamiając ponownie aplikację.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Pobierz</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
   </data>
@@ -233,13 +257,25 @@ i uruchamiając ponownie aplikację.</value>
   <data name="EndTime" xml:space="preserve">
     <value>Data końcowa</value>
   </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>Proszę wpisać email.</value>
+  </data>
+  <data name="EnterPhonenumber" xml:space="preserve">
+    <value>Proszę wpisać numer telefonu.</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Błąd</value>
   </data>
   <data name="ErrorReservationConflict" xml:space="preserve">
     <value>Rezerwacja koliduje z istniejącymi rezerwacjami. Proszę wybrać inny przedział czasowy.</value>
   </data>
+  <data name="ExternalLogins" xml:space="preserve">
+    <value>Zewnętrzne loginy</value>
+  </data>
   <data name="Forgot" xml:space="preserve">
+    <value>Zapomniałeś hasła?</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
     <value>Zapomniałeś hasła?</value>
   </data>
   <data name="HandicappedSpot" xml:space="preserve">
@@ -251,6 +287,9 @@ i uruchamiając ponownie aplikację.</value>
   <data name="Home" xml:space="preserve">
     <value>Strona głowna</value>
   </data>
+  <data name="HomeText" xml:space="preserve">
+    <value>Produktywność zaczyna się tutaj</value>
+  </data>
   <data name="IDontHave" xml:space="preserve">
     <value>Nie mam jeszcze konta.</value>
   </data>
@@ -258,13 +297,19 @@ i uruchamiając ponownie aplikację.</value>
     <value>Czy jest dostępne?</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Zaloguj</value>
+    <value>Zaloguj </value>
   </data>
   <data name="LoginBook" xml:space="preserve">
     <value>Zaloguj się aby rezerwować</value>
   </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Zaloguj się do lokalnego konta</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Wyloguj</value>
+  </data>
+  <data name="ManageEmail" xml:space="preserve">
+    <value>Zarządzaj email</value>
   </data>
   <data name="MaxCapacity" xml:space="preserve">
     <value>Maksymalna ilość</value>
@@ -275,11 +320,29 @@ i uruchamiając ponownie aplikację.</value>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
   </data>
+  <data name="NewEmail" xml:space="preserve">
+    <value>Nowy email</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Proszę podać nowe hasło.</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Proszę podać poprzednie hasło.</value>
+  </data>
   <data name="ParkingSpot" xml:space="preserve">
-    <value>Miejsca parkingowe</value>
+    <value>Miejsce parkingowe</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Dane osobowe</value>
+  </data>
+  <data name="PersonaldataText" xml:space="preserve">
+    <value>Twoje konto zawiera dane osobowe, które nam przekazałeś. Ta strona umożliwia pobranie lub usunięcie tych danych.</value>
+  </data>
+  <data name="PersonaldataText2" xml:space="preserve">
+    <value>Usunięcie tych danych spowoduje trwałe usunięcie Twojego konta, którego nie można odzyskać.</value>
   </data>
   <data name="PleaseConfirm" xml:space="preserve">
     <value>Proszę potwierdźić hasło.</value>
@@ -287,11 +350,17 @@ i uruchamiając ponownie aplikację.</value>
   <data name="PleaseEnter" xml:space="preserve">
     <value>Proszę wprowadźić hasło.</value>
   </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
   <data name="Register" xml:space="preserve">
-    <value>Zarejestruj</value>
+    <value>Załóż konto</value>
   </data>
   <data name="RegisterNew" xml:space="preserve">
     <value>Zarejestruj nowego użytkownika.</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Zapamiętaj mnie</value>
   </data>
   <data name="Resend" xml:space="preserve">
     <value>Prześlij potwierdzenie na email.</value>
@@ -303,10 +372,7 @@ i uruchamiając ponownie aplikację.</value>
     <value>Zresetuj</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
-    <value>Zrestartuj hasło</value>
-  </data>
-  <data name="ResetYourPassword" xml:space="preserve">
-    <value />
+    <value>Zresetuj hasło</value>
   </data>
   <data name="RoleName" xml:space="preserve">
     <value>Nazwa roli</value>
@@ -317,14 +383,23 @@ i uruchamiając ponownie aplikację.</value>
   <data name="Save" xml:space="preserve">
     <value>Zapisz</value>
   </data>
+  <data name="Send" xml:space="preserve">
+    <value>Wyślij email weryfikacyjny.</value>
+  </data>
   <data name="StartTime" xml:space="preserve">
     <value>Data początkowa</value>
   </data>
   <data name="TakeBack" xml:space="preserve">
     <value>Nie, chce wrócić na poprzednią strone.</value>
   </data>
+  <data name="TwoFactor" xml:space="preserve">
+    <value>Uwierzytelnianie</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>Aktualizuj</value>
+  </data>
+  <data name="UpdatePassword" xml:space="preserve">
+    <value>Aktualizuj hasło</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Nazwa użytkownika</value>
