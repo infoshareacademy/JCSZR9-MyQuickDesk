@@ -12,8 +12,8 @@ namespace MyQuickDesk.Services
         Task<IEnumerable<Reservation>> GetAllAsync();
         Task <Reservation> GetByIdAsync(Guid id);
         Task Create(Reservation reservation);
-        Task <bool> Update(Guid Id, Reservation model);
-        Task Delete(Guid id);
+        Task <bool> UpdateAsync(Guid Id, Reservation model);
+        Task DeleteAsync(Guid id);
         Task <bool> IsReservationValidAsync(Reservation reservation);
 
     }
@@ -73,7 +73,7 @@ namespace MyQuickDesk.Services
 
 
 
-        public async Task <bool> Update(Guid id, Reservation model)
+        public async Task <bool> UpdateAsync(Guid id, Reservation model)
         {
             var existingReservation =await _dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == id);
 
@@ -97,7 +97,7 @@ namespace MyQuickDesk.Services
         }
 
 
-        public async Task Delete(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
             var reservations =await _dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == id);
             if (reservations != null)

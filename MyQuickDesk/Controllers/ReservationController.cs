@@ -135,7 +135,7 @@ namespace MyQuickDesk.Controllers
             try
             {
                 model.Id = spaceId;
-                await  _reservationService.Update(spaceId, model);
+                await  _reservationService.UpdateAsync(spaceId, model);
                 return RedirectToAction(nameof(Index),new { Id = model.UserId, spaceId });
             }
             catch
@@ -158,7 +158,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                await _reservationService.Delete(spaceId);
+                await _reservationService.DeleteAsync(spaceId);
                 return RedirectToAction(nameof(Index), new { Id = model.UserId, spaceId });
             }
             catch

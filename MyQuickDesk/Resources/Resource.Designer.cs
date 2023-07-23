@@ -151,6 +151,15 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occurred while updating the user..
+        /// </summary>
+        public static string AnErrorUser {
+            get {
+                return ResourceManager.GetString("AnErrorUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete the.
         /// </summary>
         public static string AreYouSure {
@@ -178,6 +187,69 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset recovery codes.
+        /// </summary>
+        public static string AuthenticationText10 {
+            get {
+                return ResourceManager.GetString("AuthenticationText10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add authenticator app.
+        /// </summary>
+        public static string AuthenticationText11 {
+            get {
+                return ResourceManager.GetString("AuthenticationText11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set up authenticator app.
+        /// </summary>
+        public static string AuthenticationText12 {
+            get {
+                return ResourceManager.GetString("AuthenticationText12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset authenticator app.
+        /// </summary>
+        public static string AuthenticationText13 {
+            get {
+                return ResourceManager.GetString("AuthenticationText13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy and cookie policy have not been accepted..
+        /// </summary>
+        public static string AuthenticationText14 {
+            get {
+                return ResourceManager.GetString("AuthenticationText14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must accept the policy before you can enable two factor authentication..
+        /// </summary>
+        public static string AuthenticationText15 {
+            get {
+                return ResourceManager.GetString("AuthenticationText15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two-factor authentication (2FA).
+        /// </summary>
+        public static string AuthenticationText16 {
+            get {
+                return ResourceManager.GetString("AuthenticationText16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must.
         /// </summary>
         public static string AuthenticationText2 {
@@ -192,6 +264,60 @@ namespace MyQuickDesk.Resources {
         public static string AuthenticationText3 {
             get {
                 return ResourceManager.GetString("AuthenticationText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have 1 recovery code left..
+        /// </summary>
+        public static string AuthenticationText4 {
+            get {
+                return ResourceManager.GetString("AuthenticationText4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can.
+        /// </summary>
+        public static string AuthenticationText5 {
+            get {
+                return ResourceManager.GetString("AuthenticationText5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to generate a new set of recovery codes.
+        /// </summary>
+        public static string AuthenticationText6 {
+            get {
+                return ResourceManager.GetString("AuthenticationText6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to recovery codes left..
+        /// </summary>
+        public static string AuthenticationText7 {
+            get {
+                return ResourceManager.GetString("AuthenticationText7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You shoud.
+        /// </summary>
+        public static string AuthenticationText8 {
+            get {
+                return ResourceManager.GetString("AuthenticationText8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forget this browser.
+        /// </summary>
+        public static string AuthenticationText9 {
+            get {
+                return ResourceManager.GetString("AuthenticationText9", resourceCulture);
             }
         }
         
@@ -914,6 +1040,15 @@ namespace MyQuickDesk.Resources {
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User not found..
+        /// </summary>
+        public static string UserNotFound {
+            get {
+                return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
         

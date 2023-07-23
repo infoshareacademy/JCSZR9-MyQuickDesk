@@ -147,6 +147,9 @@
   <data name="AnError" xml:space="preserve">
     <value>An error occurred while processing your request.</value>
   </data>
+  <data name="AnErrorUser" xml:space="preserve">
+    <value>An error occurred while updating the user.</value>
+  </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Are you sure you want to delete the</value>
   </data>
@@ -156,11 +159,50 @@
   <data name="AuthenticationText" xml:space="preserve">
     <value>You have no recovery codes left.</value>
   </data>
+  <data name="AuthenticationText10" xml:space="preserve">
+    <value>Reset recovery codes</value>
+  </data>
+  <data name="AuthenticationText11" xml:space="preserve">
+    <value>Add authenticator app</value>
+  </data>
+  <data name="AuthenticationText12" xml:space="preserve">
+    <value>Set up authenticator app</value>
+  </data>
+  <data name="AuthenticationText13" xml:space="preserve">
+    <value>Reset authenticator app</value>
+  </data>
+  <data name="AuthenticationText14" xml:space="preserve">
+    <value>Privacy and cookie policy have not been accepted.</value>
+  </data>
+  <data name="AuthenticationText15" xml:space="preserve">
+    <value>You must accept the policy before you can enable two factor authentication.</value>
+  </data>
+  <data name="AuthenticationText16" xml:space="preserve">
+    <value>Two-factor authentication (2FA)</value>
+  </data>
   <data name="AuthenticationText2" xml:space="preserve">
     <value>You must</value>
   </data>
   <data name="AuthenticationText3" xml:space="preserve">
     <value>generate a new set of recovery codes before you can log in with a recovery code.</value>
+  </data>
+  <data name="AuthenticationText4" xml:space="preserve">
+    <value>You have 1 recovery code left.</value>
+  </data>
+  <data name="AuthenticationText5" xml:space="preserve">
+    <value>You can</value>
+  </data>
+  <data name="AuthenticationText6" xml:space="preserve">
+    <value>generate a new set of recovery codes</value>
+  </data>
+  <data name="AuthenticationText7" xml:space="preserve">
+    <value>recovery codes left.</value>
+  </data>
+  <data name="AuthenticationText8" xml:space="preserve">
+    <value>You shoud</value>
+  </data>
+  <data name="AuthenticationText9" xml:space="preserve">
+    <value>Forget this browser</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back to list</value>
@@ -403,6 +445,9 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User not found.</value>
   </data>
   <data name="WhatIs" xml:space="preserve">
     <value>What is MyQuickDesk?</value>

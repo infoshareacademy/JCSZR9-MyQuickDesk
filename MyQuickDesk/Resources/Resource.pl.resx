@@ -147,6 +147,9 @@
   <data name="AnError" xml:space="preserve">
     <value>Podczas przetwarzania żądania wystąpił błąd.</value>
   </data>
+  <data name="AnErrorUser" xml:space="preserve">
+    <value>Wystąpił błąd podczas aktualizowania użytkownika.</value>
+  </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Czy na pewno chcesz usunąć</value>
   </data>
@@ -156,11 +159,50 @@
   <data name="AuthenticationText" xml:space="preserve">
     <value>Nie masz już żadnych kodów odzyskiwania.</value>
   </data>
+  <data name="AuthenticationText10" xml:space="preserve">
+    <value>Zresetuj kody odzyskania</value>
+  </data>
+  <data name="AuthenticationText11" xml:space="preserve">
+    <value>Dodaj aplikację uwierzytelniającą</value>
+  </data>
+  <data name="AuthenticationText12" xml:space="preserve">
+    <value>Skonfiguruj aplikację uwierzytelniającą</value>
+  </data>
+  <data name="AuthenticationText13" xml:space="preserve">
+    <value>Zresetuj aplikację uwierzytelniającą</value>
+  </data>
+  <data name="AuthenticationText14" xml:space="preserve">
+    <value>Polityka prywatności i plików cookie nie została zaakceptowana.</value>
+  </data>
+  <data name="AuthenticationText15" xml:space="preserve">
+    <value>Musisz zaakceptować zasady, zanim będzie można włączyć uwierzytelnianie dwuskładnikowe.</value>
+  </data>
+  <data name="AuthenticationText16" xml:space="preserve">
+    <value>Uwierzytelnianie dwuskładnikowe (2FA)</value>
+  </data>
   <data name="AuthenticationText2" xml:space="preserve">
     <value>Musisz</value>
   </data>
   <data name="AuthenticationText3" xml:space="preserve">
     <value>wygeneruj nowy zestaw kodów odzyskiwania, zanim będziesz mógł się zalogować za pomocą kodu odzyskiwania.</value>
+  </data>
+  <data name="AuthenticationText4" xml:space="preserve">
+    <value>Pozostał Ci 1 kod odzyskiwania.</value>
+  </data>
+  <data name="AuthenticationText5" xml:space="preserve">
+    <value>Możesz</value>
+  </data>
+  <data name="AuthenticationText6" xml:space="preserve">
+    <value>wygenerować nowy zestaw kodów odzyskiwania</value>
+  </data>
+  <data name="AuthenticationText7" xml:space="preserve">
+    <value>pozostałe kody odzyskiwania.</value>
+  </data>
+  <data name="AuthenticationText8" xml:space="preserve">
+    <value>Powinieneś</value>
+  </data>
+  <data name="AuthenticationText9" xml:space="preserve">
+    <value>Pomiń tą przeglądarke</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Powrót do listy</value>
@@ -403,6 +445,9 @@ i uruchamiając ponownie aplikację.</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Nazwa użytkownika</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Nie znaleziono użytkownika.</value>
   </data>
   <data name="WhatIs" xml:space="preserve">
     <value>Czym jest MyQuickDesk?</value>

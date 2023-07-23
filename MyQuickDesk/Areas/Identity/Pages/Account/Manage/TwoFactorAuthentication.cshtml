@@ -3,7 +3,7 @@
 @using MyQuickDesk.Resources;
 @model TwoFactorAuthenticationModel
 @{
-    ViewData["Title"] = "Two-factor authentication (2FA)";
+    ViewData["Title"] = @Resource.AuthenticationText16;
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
 <div class="container-main">
@@ -25,44 +25,43 @@
             else if (Model.RecoveryCodesLeft == 1)
             {
                 <div class="alert alert-danger">
-                    <strong>You have 1 recovery code left.</strong>
-                    <p>You can <a asp-page="./GenerateRecoveryCodes">generate a new set of recovery codes</a>.</p>
+                        <strong>@Resource.AuthenticationText4</strong>
+                        <p>@Resource.AuthenticationText5 <a asp-page="./GenerateRecoveryCodes">@Resource.AuthenticationText6</a>.</p>
                 </div>
             }
             else if (Model.RecoveryCodesLeft <= 3)
             {
                 <div class="alert alert-warning">
-                    <strong>You have @Model.RecoveryCodesLeft recovery codes left.</strong>
-                    <p>You should <a asp-page="./GenerateRecoveryCodes">generate a new set of recovery codes</a>.</p>
+                        <strong>@Resource.AuthenticationText2 @Model.RecoveryCodesLeft @Resource.AuthenticationText7</strong>
+                        <p>@Resource.AuthenticationText8<a asp-page="./GenerateRecoveryCodes">@Resource.AuthenticationText6</a>.</p>
                 </div>
             }
 
             if (Model.IsMachineRemembered)
             {
                 <form method="post" style="display: inline-block">
-                    <button type="submit" class="btn btn-primary">Forget this browser</button>
+                        <button type="submit" class="btn btn-primary">@Resource.AuthenticationText9 </button>
                 </form>
             }
             <a asp-page="./Disable2fa" class="btn btn-primary">Disable 2FA</a>
-            <a asp-page="./GenerateRecoveryCodes" class="btn btn-primary">Reset recovery codes</a>
+                <a asp-page="./GenerateRecoveryCodes" class="btn btn-primary">@Resource.AuthenticationText10 </a>
         }
 
-        <h4>Authenticator app</h4>
         @if (!Model.HasAuthenticator)
         {
-            <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-primary">Add authenticator app</a>
+                <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-primary">@Resource.AuthenticationText11</a>
         }
         else
         {
-            <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-primary">Set up authenticator app</a>
-            <a id="reset-authenticator" asp-page="./ResetAuthenticator" class="btn btn-primary">Reset authenticator app</a>
+                <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-primary">@Resource.AuthenticationText12</a>
+                <a id="reset-authenticator" asp-page="./ResetAuthenticator" class="btn btn-primary">@Resource.AuthenticationText13 </a>
         }
     }
     else
     {
         <div class="alert alert-danger">
-            <strong>Privacy and cookie policy have not been accepted.</strong>
-            <p>You must accept the policy before you can enable two factor authentication.</p>
+                <strong>@Resource.AuthenticationText14</strong>
+                <p>@Resource.AuthenticationText15</p>
         </div>
     }
     
@@ -71,3 +70,4 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+</div>
