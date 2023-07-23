@@ -368,6 +368,9 @@
   <data name="NewPassword" xml:space="preserve">
     <value>Please enter your new password.</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="OldPassword" xml:space="preserve">
     <value>Please enter your old password.</value>
   </data>
@@ -451,6 +454,9 @@
   </data>
   <data name="WhatIs" xml:space="preserve">
     <value>What is MyQuickDesk?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="YesDelete" xml:space="preserve">
     <value>Yes, delete it.</value>

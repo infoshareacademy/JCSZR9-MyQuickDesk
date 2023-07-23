@@ -130,13 +130,13 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Edit(Reservation model, Guid spaceId)
+        public async Task <IActionResult> Edit(Reservation model, Guid id)
         {
             try
             {
-                model.Id = spaceId;
-                await  _reservationService.UpdateAsync(spaceId, model);
-                return RedirectToAction(nameof(Index),new { Id = model.UserId, spaceId });
+                model.Id = id;
+                await  _reservationService.UpdateAsync(id, model);
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -154,12 +154,12 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Delete(Guid spaceId, Reservation model)
+        public async Task <IActionResult> Delete(Guid id, Reservation model)
         {
             try
             {
-                await _reservationService.DeleteAsync(spaceId);
-                return RedirectToAction(nameof(Index), new { Id = model.UserId, spaceId });
+                await _reservationService.DeleteAsync(id);
+                return RedirectToAction(nameof(Index));
             }
             catch
             {

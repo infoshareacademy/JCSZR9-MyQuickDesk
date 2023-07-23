@@ -223,7 +223,7 @@
     <value>Zmień hasło</value>
   </data>
   <data name="Charger" xml:space="preserve">
-    <value>Ładowanie</value>
+    <value>Ładowarka</value>
   </data>
   <data name="ChooseUsername" xml:space="preserve">
     <value>Proszę wybrać nazwe użytkownika.</value>
@@ -368,6 +368,9 @@ i uruchamiając ponownie aplikację.</value>
   <data name="NewPassword" xml:space="preserve">
     <value>Proszę podać nowe hasło.</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Nie</value>
+  </data>
   <data name="OldPassword" xml:space="preserve">
     <value>Proszę podać poprzednie hasło.</value>
   </data>
@@ -451,6 +454,9 @@ i uruchamiając ponownie aplikację.</value>
   </data>
   <data name="WhatIs" xml:space="preserve">
     <value>Czym jest MyQuickDesk?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Tak</value>
   </data>
   <data name="YesDelete" xml:space="preserve">
     <value>Tak,usuń.</value>
