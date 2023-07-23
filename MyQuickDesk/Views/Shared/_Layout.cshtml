@@ -37,7 +37,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-custom" asp-area="" asp-controller="Reservation" asp-action="Index">@Resource.Myreservations</a>
                             </li>
-
+                            
                             
 @*                            @if (User.IsInRole("Admin"))
                             {*@
@@ -45,7 +45,18 @@
                                     <a class="nav-link text-custom" asp-area="" asp-controller="Admin" asp-action="Index">@Resource.Admin</a>
                                 </li>
                             @*}*@
+                            
                         }
+                    </ul>
+                    <ul>
+                        <li style="margin-right:0px">
+                            <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
+                        </li>
+                        <li style="margin-left:-20px;margin-right:10px ">
+                            <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
+                        </li>
+                  
+                        
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -58,14 +69,7 @@
             @RenderBody()
         </main>
     </div>
-    @if (Context.Request.Path.Equals("/") || Context.Request.Path.Equals("/Home"))
-
-    {
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
-       
-    }
-
+   
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resource.AboutUs</a>

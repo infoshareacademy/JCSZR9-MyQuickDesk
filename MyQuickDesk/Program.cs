@@ -26,7 +26,7 @@ namespace MyQuickDesk
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<MyQuickDeskContext>();
 
-            
+          
 
 
             // Add services to the container.

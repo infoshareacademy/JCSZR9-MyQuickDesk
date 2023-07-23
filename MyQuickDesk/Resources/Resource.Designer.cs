@@ -358,6 +358,15 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change your account settings.
+        /// </summary>
+        public static string Change {
+            get {
+                return ResourceManager.GetString("Change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change email.
         /// </summary>
         public static string ChangeEmail {
@@ -756,6 +765,15 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage your account.
+        /// </summary>
+        public static string Manage {
+            get {
+                return ResourceManager.GetString("Manage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage email.
         /// </summary>
         public static string ManageEmail {
@@ -873,7 +891,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please confirm your password..
+        ///   Looks up a localized string similar to Please confirm your password.
         /// </summary>
         public static string PleaseConfirm {
             get {
@@ -882,7 +900,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter your password..
+        ///   Looks up a localized string similar to Please enter your password.
         /// </summary>
         public static string PleaseEnter {
             get {

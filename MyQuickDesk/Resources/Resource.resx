@@ -216,6 +216,9 @@
   <data name="BookRoom" xml:space="preserve">
     <value>Book conferencial room</value>
   </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change your account settings</value>
+  </data>
   <data name="ChangeEmail" xml:space="preserve">
     <value>Change email</value>
   </data>
@@ -350,6 +353,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Manage your account</value>
+  </data>
   <data name="ManageEmail" xml:space="preserve">
     <value>Manage email</value>
   </data>
@@ -390,10 +396,10 @@
     <value>Deleting this data will permanently remove your account, and this cannot be recovered.</value>
   </data>
   <data name="PleaseConfirm" xml:space="preserve">
-    <value>Please confirm your password.</value>
+    <value>Please confirm your password</value>
   </data>
   <data name="PleaseEnter" xml:space="preserve">
-    <value>Please enter your password.</value>
+    <value>Please enter your password</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profile</value>

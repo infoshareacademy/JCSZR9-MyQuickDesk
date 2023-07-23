@@ -216,6 +216,9 @@
   <data name="BookRoom" xml:space="preserve">
     <value>Rezerwuj salę konferencyjną</value>
   </data>
+  <data name="Change" xml:space="preserve">
+    <value>Zmień ustawienia konta</value>
+  </data>
   <data name="ChangeEmail" xml:space="preserve">
     <value>Zmień email</value>
   </data>
@@ -350,6 +353,9 @@ i uruchamiając ponownie aplikację.</value>
   <data name="Logout" xml:space="preserve">
     <value>Wyloguj</value>
   </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Zarządzaj kontem</value>
+  </data>
   <data name="ManageEmail" xml:space="preserve">
     <value>Zarządzaj email</value>
   </data>
@@ -390,10 +396,10 @@ i uruchamiając ponownie aplikację.</value>
     <value>Usunięcie tych danych spowoduje trwałe usunięcie Twojego konta, którego nie można odzyskać.</value>
   </data>
   <data name="PleaseConfirm" xml:space="preserve">
-    <value>Proszę potwierdźić hasło.</value>
+    <value>Potwierdź hasło</value>
   </data>
   <data name="PleaseEnter" xml:space="preserve">
-    <value>Proszę wprowadźić hasło.</value>
+    <value>Wprowadź hasło</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
