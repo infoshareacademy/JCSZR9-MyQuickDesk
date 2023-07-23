@@ -13,11 +13,11 @@ namespace MyQuickDesk.DatabaseContext
 
         public DbSet<Desk> Desks { get; set; }
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<ParkingSpot> ParkingSpots { get; set;}
+        public DbSet<ParkingSpot> ParkingSpots { get; set; }
 
 
         public DbSet<Reservation> Reservations { get; set; }
-        public DbSet<IdentityUser> Users { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,10 +34,6 @@ namespace MyQuickDesk.DatabaseContext
                 mb.HasOne(r => r.ParkingSpot).
                     WithMany(ps => ps.Reservations).
                     HasForeignKey(r => r.ParkingSpotId);
-
-                mb.HasOne(r => r.User).
-                    WithMany(u => u.Reservations).
-                    HasForeignKey(r => r.UserId);
 
             });
 

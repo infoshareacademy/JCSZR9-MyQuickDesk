@@ -1,0 +1,30 @@
+﻿@model MyQuickDesk.Models.AdminPanelModel
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
+</style>
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">@Resource.EditUser</h1>
+    <hr />
+    <form method="post">
+        <input type="hidden" asp-for="User.Id" />
+
+        <label for="Email">Email</label>
+        <input type="email" asp-for="User.Email" />
+
+        <label for="UserName">@Resource.Username</label>
+        <input type="text" asp-for="User.UserName" />
+
+        <label for="SelectedRoles">@Resource.Roles</label>
+        <select id="SelectedRoles" name="SelectedRoles" multiple="multiple">
+            @foreach (var role in Model.Roles)
+            {
+                <option value="@role.Name" selected="@Model.SelectedRoles.Contains(role.Name)">@role.Name</option>
+            }
+        </select>
+        <button type="submit">@Resource.Update</button>
+    </form>
+</div>
+

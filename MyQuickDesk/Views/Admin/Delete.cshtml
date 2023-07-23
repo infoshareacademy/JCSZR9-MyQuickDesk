@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityUser
+
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
+</style>
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">Delete User</h1>
+
+    <h4>@Resource.AreYouSure @Model.UserName?</h4>
+    <hr />
+    <form method="post" action="@Url.Action("DeleteConfirmed", "Admin")">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">
+            <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20" v />
+            @Resource.YesDelete
+        </button>
+        <a class="back-to-list-btn" href="@Url.Action("Index", "Admin")">@Resource.TakeBack </a>
+        @Html.AntiForgeryToken()
+    </form>
+</div>

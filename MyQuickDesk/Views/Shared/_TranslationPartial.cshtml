@@ -1,0 +1,12 @@
+﻿@using MyQuickDesk.Resources
+
+@{
+    ViewData.ModelState.TryGetValue(string.Empty, out var error);
+    var errorMessage = error?.Errors.FirstOrDefault()?.ErrorMessage;
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+

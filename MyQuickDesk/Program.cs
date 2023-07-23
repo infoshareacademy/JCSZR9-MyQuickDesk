@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
+using System.Globalization;
 using System.Data;
 
 namespace MyQuickDesk
@@ -28,12 +31,33 @@ namespace MyQuickDesk
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IReservationService,ReservationService>();
+            builder.Services.AddScoped<IReservationService, ReservationService>();
             builder.Services.AddScoped<IDeskService, DeskService>();
-            builder.Services.AddScoped <IRoomService, RoomService>();
-            builder.Services.AddScoped <IParkingService, ParkingService>();
+            builder.Services.AddScoped<IRoomService, RoomService>();
+            builder.Services.AddScoped<IParkingService, ParkingService>();
             builder.Services.AddScoped<IUserContext, UserContext>();
-            
+            builder.Services.AddScoped<AdminService>();
+
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            builder.Services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+                {
+                  new CultureInfo("en-US"),
+                  new CultureInfo("pl-PL"),
+
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("en-US");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
+            builder.Services.AddMvc()
+                .AddViewLocalization()
+                .AddDataAnnotationsLocalization();
+
 
             var app = builder.Build();
 
@@ -44,7 +68,9 @@ namespace MyQuickDesk
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-         
+
+            app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -61,5 +87,6 @@ namespace MyQuickDesk
 
             app.Run();
         }
+
     }
 }

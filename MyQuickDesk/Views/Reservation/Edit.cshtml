@@ -3,38 +3,52 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+        background-size: 1920px 1080px;
+    }
+</style>
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">@Resource.Edit</h1>
 
-<h1>Edit</h1>
-
-<h4>Reservation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <h4>@Resource.Reservation</h4>
+    <hr />
+    <div class="row justify-content-center">
+        <div>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           
+
             <div class="form-group">
-                <label asp-for="StartTime" class="control-label"></label>
+                <label>@Resource.StartTime</label>
                 <input asp-for="StartTime" class="form-control" />
                 <span asp-validation-for="StartTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EndTime" class="control-label"></label>
+                <label>@Resource.EndTime</label>
                 <input asp-for="EndTime" class="form-control" />
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
-            <input type="hidden" name="spaceId" value="@ViewBag.SpaceId" />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label>@Resource.Name</label>
+                <input asp-for="Space.Name" class="form-control" disabled />
             </div>
-        </form>
+            <hr />
+                <input type="hidden" name="spaceId" value="@ViewBag.SpaceId" />
+                <div class="form-group">
+                    <input type="submit" value=@Resource.Save class="btn btn-primary" />
+                </div>
+            </form>
+            <a asp-action="Index" class="back-to-list-btn">@Resource.Back</a>
+            <div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index"class="back-to-list-btn">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

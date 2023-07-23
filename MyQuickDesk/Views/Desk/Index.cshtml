@@ -3,46 +3,164 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+</style>
 
-<h1>Desk</h1>
+<h1 class ="shadow-text">@Resource.Desk</h1>
 
-<p>
-    <a asp-action="Create" class="create-link">Create New</a>
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="create-link">@Resource.CreateNew
+            <img src="~/Icons/Createicon.png" alt="Create Icon" width="20" height="20">
+        </a>
+    </p>
+}
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                <label asp-for="First().Name"></label>
-            </th>
-            <th>
-                <label asp-for="First().Description"></label>
-            </th>
+            <th>@Resource.Name</th>
+            <th>@Resource.Description</th>
+            <th>@Resource.Actions </th>
             
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @item.Name
-            </td>
-            <td>
-                @item.Description
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
                 <td>
                     <div class="button-container">
-                        <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
-                        <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">Book Now</a>
-
-
-
+                        <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
+                            <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
+                            @Resource.Details
+                        </a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
+                                <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20">
+                                @Resource.Edit
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">
+                                <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
+                                @Resource.Delete
+                            </a>
+                        }
+                        <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">
+                            <img src="~/Icons/Reservationicon.png" alt="Reservation Icon" width="20" height="20">
+                            @Resource.BookNow
+                        </a>
                     </div>
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<div class="map-container">
+    <div class="show-map-button" id="show-map-btn">Show the map</div>
+    <img src="/img/deskoffice1.png" alt="Mapka biura" class="map-image" id="map-img">
+    <div class="desk-marker" style="left: 32%; top: 116%; opacity: 1;"></div>
+    <div class="desk-marker" style="left: 483px; top: 1015px; opacity: 1;"></div>
+    <div class="desk-marker" style="left: 483px; top: 1118px; opacity: 1;"></div>
+    <div class="desk-marker" style="left: 317px; top: 1390px; opacity: 1;"></div>
+    <div class="desk-marker" style="left: 493px; top: 1382px; opacity: 1;"></div>
+    <div class="desk-marker" style="left: 628px; top: 1382px; opacity: 1;"></div>
+    <div class="desk-marker" style="left: 800px; top: 1387px; opacity: 1;"></div>
+</div>
+
+<style>
+    .desk-marker {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: gray;
+        transition: opacity 0.3s ease;
+    }
+
+    .map-container {
+        text-align: center;
+        margin-bottom: 100px;
+        position: relative;
+    }
+
+    .map-image {
+        display: none;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        background-color: rgba(245, 245, 245, 0.7);
+        backdrop-filter: blur(5px);
+    }
+
+    .show-map-button {
+        background-color: #7BA798;
+        color: white;
+        border: 2px solid #7BA798;
+        border-radius: 35px;
+        padding: 10px;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 120px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .show-map-button:hover {
+            background-color: #5c877d;
+            color: 92d283;
+        }
+
+    footer {
+        margin-top: 30px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+
+<script>
+    var showMapBtn = document.getElementById('show-map-btn');
+    var mapImage = document.getElementById('map-img');
+    var deskMarkers = document.getElementsByClassName('desk-marker');
+
+    showMapBtn.addEventListener('click', function () {
+        if (mapImage.style.display === 'none') {
+            mapImage.style.display = 'block';
+            showMapBtn.textContent = 'Hide the map';
+            showDeskMarkers();
+        } else {
+            mapImage.style.display = 'none';
+            showMapBtn.textContent = 'Show the map';
+            hideDeskMarkers();
+        }
+    });
+
+    function showDeskMarkers() {
+        for (var i = 0; i < deskMarkers.length; i++) {
+            deskMarkers[i].style.opacity = '1';
+        }
+    }
+
+    function hideDeskMarkers() {
+        for (var i = 0; i < deskMarkers.length; i++) {
+            deskMarkers[i].style.opacity = '0';
+        }
+    }
+</script>

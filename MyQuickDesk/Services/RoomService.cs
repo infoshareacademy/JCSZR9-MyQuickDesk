@@ -1,12 +1,20 @@
 ﻿using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyQuickDesk.Services
-
 {
+    public interface IRoomService
+    {
+        Task <List<Room>> GetAllAsync();
+        Task <Room> GetByIdAsync(Guid id);
+        Task Create(Room room);
+        Task Update(Room room);
+        Task Delete(Guid id);
+    }
 
-    public class RoomService: IRoomService
+    public class RoomService : IRoomService
     {
 
         private readonly MyQuickDeskContext _dbContext;
@@ -17,16 +25,16 @@ namespace MyQuickDesk.Services
             _dbContext = dbContext;
             _userContext = userContext;
         }
-        public List<Room> GetAll()
+        public async Task<List<Room>> GetAllAsync()
         {
-            return _dbContext.Rooms.ToList();
+            return await _dbContext.Rooms.ToListAsync();
         }
-        public Room GetById(Guid id)
+        public async Task <Room> GetByIdAsync(Guid id)
         {
-            return _dbContext.Rooms.FirstOrDefault(r => r.Id == id);
+            return await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public void Create(Room room)
+        public async Task Create(Room room)
         {
             var currentUser = _userContext.GetCurrentUser();
             if (currentUser == null || !currentUser.IsAdmin("Admin"))
@@ -37,9 +45,9 @@ namespace MyQuickDesk.Services
             _dbContext.Rooms.Add(room);
             _dbContext.SaveChanges();
         }
-        public Guid GetRoomId()
+        public async Task <Guid> GetRoomIdAsync()
         {
-            var room = _dbContext.Rooms.FirstOrDefault(); 
+            var room = await _dbContext.Rooms.FirstOrDefaultAsync();
 
             if (room != null)
             {
@@ -47,16 +55,16 @@ namespace MyQuickDesk.Services
             }
             return Guid.Empty;
         }
-        public void Update(Room room)
+        public async Task Update(Room room)
         {
             _dbContext.Rooms.Update(room);
             _dbContext.SaveChanges();
 
 
         }
-        public void Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            var room = _dbContext.Rooms.FirstOrDefault(d => d.Id == id);
+            var room = await _dbContext.Rooms.FirstOrDefaultAsync(d => d.Id == id);
             if (room != null)
             {
                 _dbContext.Rooms.Remove(room);

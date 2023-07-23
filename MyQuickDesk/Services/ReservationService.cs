@@ -4,69 +4,106 @@ using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
 
+
 namespace MyQuickDesk.Services
 {
+    public interface IReservationService
+    {
+        Task<IEnumerable<Reservation>> GetAllAsync();
+        Task <Reservation> GetByIdAsync(Guid id);
+        Task Create(Reservation reservation);
+        Task <bool> UpdateAsync(Guid Id, Reservation model);
+        Task DeleteAsync(Guid id);
+        Task <bool> IsReservationValidAsync(Reservation reservation);
+
+    }
     public class ReservationService : IReservationService
     {
         private readonly MyQuickDeskContext _dbContext;
-     
-        public ReservationService(MyQuickDeskContext dbContext)
+        private readonly IUserContext _userContext;
+
+        public ReservationService(MyQuickDeskContext dbContext, IUserContext userContext)
         {
             _dbContext = dbContext;
-            
+            _userContext = userContext;
         }
-        public List<Reservation> GetAll()
+        public async Task <IEnumerable<Reservation>> GetAllAsync()
         {
-            return _dbContext.Reservations.ToList();
-        }
-        public Reservation GetById(Guid id)
-        {
-            return _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
+            return await _dbContext.Reservations
+                .Include(r => r.Space)
+                .Include(r => r.User) 
+                .ToListAsync();
         }
 
 
-        public void Create(Reservation reservation)
-        {  
-            _dbContext.Reservations.Add(reservation);
-            _dbContext.SaveChanges();
-           
-        }
-        public bool IsReservationValid(Reservation reservation)
+        public async Task <Reservation> GetByIdAsync(Guid id)
         {
-            ICollection<Reservation>Reservations = _dbContext.Reservations
-                .Where(r => r.Id == reservation.Id)
-                .ToList();
+            return  await _dbContext.Reservations.Include(r => r.Space).Include(r => r.User).FirstOrDefaultAsync(r => r.Id == id);
+        }
 
-            foreach (var reservations in Reservations)
+
+        public async Task Create(Reservation reservation)
+        {
+            var currentUser = _userContext.GetCurrentUser();
+            var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == currentUser.Id);
+
+            if (existingUser != null)
             {
-                if ((reservation.StartTime.Date >= reservation.StartTime.Date && reservation.StartTime.Date <= reservation.EndTime.Date) ||
-                    (reservation.EndTime.Date >= reservation.StartTime.Date && reservation.EndTime.Date <= reservation.EndTime.Date) ||
-                    (reservation.StartTime.Date <= reservation.StartTime.Date && reservation.EndTime.Date >= reservation.EndTime.Date))
-                {
-                    return false;
-                }
+                reservation.User = existingUser;
+            }
+            _dbContext.Reservations.Add(reservation);
+           await _dbContext.SaveChangesAsync();
+        }
+        public async Task <bool> IsReservationValidAsync(Reservation reservation)
+        {
+            var existingReservation =await _dbContext.Reservations.FirstOrDefaultAsync(r =>
+                r.Id != reservation.Id &&
+                r.Space != null && reservation.Space != null && 
+                r.Space.Id == reservation.Space.Id &&
+                (
+                    (reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
+                    (reservation.EndTime > r.StartTime && reservation.EndTime <= r.StartTime) ||
+                    (reservation.StartTime <= r.StartTime && reservation.EndTime >= r.EndTime)
+                )
+            );
+
+            return existingReservation == null;
+        }
+
+
+
+
+        public async Task <bool> UpdateAsync(Guid id, Reservation model)
+        {
+            var existingReservation =await _dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == id);
+
+            if (existingReservation == null)
+            {
+                return false;
             }
 
-            return true;
+            existingReservation.StartTime = model.StartTime;
+            existingReservation.EndTime = model.EndTime;
+            existingReservation.Space = model.Space;
+            if (await IsReservationValidAsync(existingReservation))
+            {
+               await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
-
-        public void Update(Reservation reservation)
-        { 
-           
-                _dbContext.SaveChanges(); 
-                _dbContext.Reservations.Update(reservation);
-
-        }
-        
-        public void Delete(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
-            var reservations = _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
+            var reservations =await _dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == id);
             if (reservations != null)
             {
                 _dbContext.Reservations.Remove(reservations);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
             }
         }
 

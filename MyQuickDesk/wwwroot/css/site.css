@@ -9,11 +9,26 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+.shadow-text {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item-panel {
+    background-color: #7BA798;
+}
+
+    .nav-link:active {
+        background-color: #caded4 !important;
+    }
+
+
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center; 
+    justify-content: center;
 }
 
 
@@ -96,7 +111,7 @@
     color: #7BA798;
     border: 2px solid #7BA798;
     border-radius: 25px;
-    padding: 20px 40px;
+    padding: 20px 20px;
     font-size: 20px;
     margin: 0 auto;
 }
@@ -125,7 +140,16 @@ body {
     max-width: 100%;
     width: auto;
 }
-
+.container-main {
+    background-color: rgba(245, 245, 245, 0.7);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 40%;
+    margin: 10px auto;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
 h1,
 h2,
 h3,
@@ -197,14 +221,14 @@ span {
 }
 
 .btn {
-  border: 1px solid #fff;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 15px 40px;
-  text-transform: uppercase;
-  transition: all 0.5s ease-in-out 0s;
+    border: 1px solid #7BA798;
+    border-radius: 50px;
+    color: #7BA798;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out 0s;
 }
 
 .btn-default:hover {
@@ -220,7 +244,6 @@ span {
     border-radius: 25px;
     padding: 20px 40px;
     font-size: 20px;
-    margin-left: 20px;
     margin-top: 10px;
 }
    .btn.btn-primary:hover {
@@ -337,7 +360,9 @@ span {
 * Desktop Navigation 
 */
 .navbar {
-  padding: 0;
+    padding: 0;
+    background-color: rgba(245, 245, 245, 0.5);
+    border-radius: 20px;
 }
 
 .navbar ul {
@@ -713,7 +738,7 @@ section {
 --------------------------------------------------------------*/
 .footer {
   background: #2a2c30;
-  padding-top: 50px;
+  padding-top: 5px;
 }
 
 .footer .footer-logo .navbar-brand {
@@ -769,4 +794,19 @@ section {
 .footer .copyrights .credits a {
   letter-spacing: 0;
   color: #7BA798;
+}
+.loud-1 {
+    font-weight: bold;
+    color: Red;
+}
+
+.loud-2 {
+    font-size: 2.0em;
+    color: Green;
+}
+
+.loud-3 {
+    font-style: italic;
+    color: yellow;
+    background-color: blue;
 }
