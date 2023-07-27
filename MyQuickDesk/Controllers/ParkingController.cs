@@ -92,8 +92,17 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
-            var model = _parkingService.GetById(id);
-            return View(model);
+            var parkingSpot = _parkingService.GetById(id);
+            if (parkingSpot == null)
+            {
+                return NotFound();
+            }
+            return View(parkingSpot);
+            {
+                return NotFound();
+            }
+            return View(parkingSpot);
+>>>>>>>>> Temporary merge branch 2
         }
 
         // POST: ParkingController/Delete/5

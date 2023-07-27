@@ -711,7 +711,7 @@ section {
     /* Styl komórek */
     .table td {
         padding: 0.75rem;
-        vertical-align: top;
+        vertical-align: middle;
         border-top: 1px solid #ddd;
     }
 
