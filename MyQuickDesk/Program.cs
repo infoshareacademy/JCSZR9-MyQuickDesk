@@ -6,8 +6,8 @@ using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
 using MyQuickDesk.Services;
-using System.Globalization;
 using System.Data;
+using System.Globalization;
 
 namespace MyQuickDesk
 {
@@ -26,7 +26,7 @@ namespace MyQuickDesk
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<MyQuickDeskContext>();
 
-          
+            
 
 
             // Add services to the container.

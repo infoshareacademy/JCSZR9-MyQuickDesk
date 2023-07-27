@@ -272,9 +272,6 @@ namespace MyQuickDesk.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CreatedById")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -293,8 +290,6 @@ namespace MyQuickDesk.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedById");
 
                     b.ToTable("Spaces");
 
@@ -527,15 +522,6 @@ namespace MyQuickDesk.Migrations
                     b.Navigation("Space");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("MyQuickDesk.Entities.Space", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedById");
-
-                    b.Navigation("CreatedBy");
                 });
 
             modelBuilder.Entity("MyQuickDesk.Entities.Desk", b =>

@@ -19,6 +19,8 @@
 
 
 
+>>>>>>>>> Temporary merge branch 2
+
 <table class="table">
     <thead>
         <tr>
@@ -31,8 +33,6 @@
            
             <th></th>
         </tr>
-    </thead>
-    <tbody>
 @foreach (var item in Model) {
         <tr>
             
@@ -44,6 +44,50 @@
             </td>
             <td>
                 @item.Space.Name
+            </td>
+                <td>
+                    @item.Space.Name
+                </td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                </td>
+            </tr>
+        }
+=========
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @item.StartTime
+            </td>
+            <td>
+                @item.EndTime
+            </td>
+                <td>
+                    @item.Space.Name
+                </td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                </td>
+            </tr>
+        }
+=========
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @item.StartTime
+            </td>
+            <td>
+                @item.EndTime
+            </td>
+                @item.EndTime
             </td>
             <td>
                     <div class="button-container">
