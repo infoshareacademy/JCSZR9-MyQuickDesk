@@ -19,77 +19,30 @@
 
 
 
->>>>>>>>> Temporary merge branch 2
-
 <table class="table">
     <thead>
         <tr>
 
             <th>@Resource.StartTime</th>
             <th>@Resource.EndTime</th>
-            
+
             <th>@Resource.Name </th>
             <th>@Resource.Actions </th>
-           
+
             <th></th>
         </tr>
-@foreach (var item in Model) {
-        <tr>
-            
-            <td>
-                @item.StartTime
-            </td>
-            <td>
-                @item.EndTime
-            </td>
-            <td>
-                @item.Space.Name
-            </td>
-                <td>
-                    @item.Space.Name
-                </td>
+
+        @foreach (var item in Model)
+        {
+            <tr>
 
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                    @item.StartTime
                 </td>
-            </tr>
-        }
-=========
-@foreach (var item in Model) {
-        <tr>
-            
-            <td>
-                @item.StartTime
-            </td>
-            <td>
-                @item.EndTime
-            </td>
                 <td>
-                    @item.Space.Name
+                    @item.EndTime
                 </td>
-
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
-                </td>
-            </tr>
-        }
-=========
-@foreach (var item in Model) {
-        <tr>
-            
-            <td>
-                @item.StartTime
-            </td>
-            <td>
-                @item.EndTime
-            </td>
-                @item.EndTime
-            </td>
-            <td>
                     <div class="button-container">
                         <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
                             <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
@@ -106,9 +59,9 @@
                     </div>
 
                 </td>
-        </tr>
-}
-    </tbody>
+            </tr>
+        }
+        </tbody>
 </table>
 
 

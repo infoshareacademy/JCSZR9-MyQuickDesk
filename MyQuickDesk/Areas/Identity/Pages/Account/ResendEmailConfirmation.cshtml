@@ -1,8 +1,7 @@
 ﻿@page
 @model ResendEmailConfirmationModel
-@using MyQuickDesk.Resources;
 @{
-    ViewData["Title"] = Resource.Resend;
+    ViewData["Title"] = "Resend email confirmation";
 }
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -106,7 +105,7 @@
 </style>
 <div class="container-main">
 <h1 class="text-center fw-bold">@ViewData["Title"]</h1>
-<h2 class="text-center fw-bold">@Resource.EnterEmail</h2>
+<h2 class="text-center fw-bold">Enter your email.</h2>
 <hr />
 <div class="row justify-content-center">
     <div class="col-md-4">
@@ -117,12 +116,11 @@
                 <label asp-for="Input.Email" class="form-label"></label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-                <div class="parent-container"/>
+                <div class="parent-container">
                     <button id="emailresendsubmit" type="submit" class="resend-password-btn">
                         <img src="~/icons/resendemailicon.png" alt="Resendemail Icon" class="button-icon default-img">
-                        <img src="~/icons/resendemailicon-bright.png" alt="Resend Icon Bright" class="button-icon hover-img"> @Resource.Resend
+                        <img src="~/icons/resendemailicon-bright.png" alt="Resend Icon Bright" class="button-icon hover-img"> Resend
                     </button>
-                    
         </form>
     </div>
 </div>

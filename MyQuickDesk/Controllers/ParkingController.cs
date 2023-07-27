@@ -98,11 +98,7 @@ namespace MyQuickDesk.Controllers
                 return NotFound();
             }
             return View(parkingSpot);
-            {
-                return NotFound();
-            }
-            return View(parkingSpot);
->>>>>>>>> Temporary merge branch 2
+
         }
 
         // POST: ParkingController/Delete/5
