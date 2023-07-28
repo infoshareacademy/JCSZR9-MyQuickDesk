@@ -37,10 +37,13 @@
             <tr>
 
                 <td>
-                    @item.StartTime
+                    @item.StartTime.ToString("yyyy-MM-dd HH:mm")
                 </td>
                 <td>
-                    @item.EndTime
+                    @item.EndTime.ToString("yyyy-MM-dd HH:mm")
+                </td>
+                <td>
+                    @item.Space.Name
                 </td>
                 <td>
                     <div class="button-container">
