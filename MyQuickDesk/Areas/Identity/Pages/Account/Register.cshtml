@@ -1,7 +1,8 @@
 ﻿@page
+@using MyQuickDesk.Resources;
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register your account";
+    ViewData["Title"] = Resource.CreateNewAccount;
 }
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -105,7 +106,6 @@
 
 <div class="container-main">
     <h1 class="register-title">@ViewData["Title"]</h1>
-    <h2>Create a new account.</h2>
     <hr />
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -118,12 +118,12 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label"></label>
+                    <label asp-for="Input.Password" class="form-label">Resource.NewPassword</label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.ConfirmPassword" class="form-label"></label>
+                    <label asp-for="Input.ConfirmPassword" class="form-label">@Resource.PleaseConfirm</label>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="parent-container">

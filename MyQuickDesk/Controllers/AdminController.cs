@@ -34,9 +34,9 @@ namespace MyQuickDesk.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, AdminPanelModel model)
+        public async Task<IActionResult> Edit(string id, AdminPanelModel model, string cultureCode)
         {
-            var result = await _adminService.UpdateUserAndRolesAsync(id, model);
+            var result = await _adminService.UpdateUserAndRolesAsync(id, model,cultureCode);
             if (result != null)
             {
                 ModelState.AddModelError(string.Empty, result);
