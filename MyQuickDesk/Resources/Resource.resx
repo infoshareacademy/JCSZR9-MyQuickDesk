@@ -372,13 +372,13 @@
     <value>New email</value>
   </data>
   <data name="NewPassword" xml:space="preserve">
-    <value>Please enter your new password.</value>
+    <value>Enter your new password</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
   <data name="OldPassword" xml:space="preserve">
-    <value>Please enter your old password.</value>
+    <value>Enter your old password</value>
   </data>
   <data name="ParkingSpot" xml:space="preserve">
     <value>Parking Spot</value>
@@ -396,7 +396,7 @@
     <value>Deleting this data will permanently remove your account, and this cannot be recovered.</value>
   </data>
   <data name="PleaseConfirm" xml:space="preserve">
-    <value>Please confirm your password</value>
+    <value>Confirm your password</value>
   </data>
   <data name="PleaseEnter" xml:space="preserve">
     <value>Please enter your password</value>

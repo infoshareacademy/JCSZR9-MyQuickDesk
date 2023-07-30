@@ -819,7 +819,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter your new password..
+        ///   Looks up a localized string similar to Enter your new password.
         /// </summary>
         public static string NewPassword {
             get {
@@ -837,7 +837,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter your old password..
+        ///   Looks up a localized string similar to Enter your old password.
         /// </summary>
         public static string OldPassword {
             get {
@@ -891,7 +891,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please confirm your password.
+        ///   Looks up a localized string similar to Confirm your password.
         /// </summary>
         public static string PleaseConfirm {
             get {

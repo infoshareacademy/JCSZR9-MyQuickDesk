@@ -118,7 +118,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Resource.NewPassword</label>
+                    <label asp-for="Input.Password" class="form-label">@Resource.NewPassword</label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
@@ -129,7 +129,7 @@
                 <div class="parent-container">
                     <button id="registerSubmit" type="submit" class="register-btn">
                         <img src="~/icons/registericon.png" alt="Register Icon" class="button-icon default-img">
-                        <img src="~/icons/registericon-bright.png" alt="Register Icon Bright" class="button-icon hover-img"> Register
+                        <img src="~/icons/registericon-bright.png" alt="Register Icon Bright" class="button-icon hover-img"> @Resource.Register
                     </button>
                 </div>
             </form>

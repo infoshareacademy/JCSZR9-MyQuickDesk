@@ -48,13 +48,40 @@
                 @item.Description
             </td>
             <td>
-                @item.IsAvaiable
+                    @if (item.IsAvaiable == true)
+                    {
+                        Console.WriteLine("Yes");
+                        @Resource.Yes
+                    }
+                    else
+                    {
+                        Console.WriteLine("No");
+                        @Resource.No
+                    }
             </td>
             <td>
-               @item.HandicappedSpot
+                    @if (item.HandicappedSpot == true)
+                    {
+                        Console.WriteLine("Yes");
+                        @Resource.Yes
+                    }
+                    else
+                    {
+                        Console.WriteLine("No");
+                        @Resource.No
+                    }
             </td>
             <td>
-               @item.Charger
+                    @if (item.Charger == true)
+                    {
+                        Console.WriteLine("Yes");
+                        @Resource.Yes
+                    }
+                    else
+                    {
+                        Console.WriteLine("No");
+                        @Resource.No
+                    }
             </td>
             <td>
                     <div class="button-container">
