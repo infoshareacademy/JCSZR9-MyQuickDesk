@@ -612,7 +612,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter your email..
+        ///   Looks up a localized string similar to Enter your email.
         /// </summary>
         public static string EnterEmail {
             get {
@@ -621,7 +621,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter your phone number..
+        ///   Looks up a localized string similar to Enter your phone number.
         /// </summary>
         public static string EnterPhonenumber {
             get {
@@ -639,7 +639,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The reservation conflicts with existing bookings. Please choose a different time slot..
+        ///   Looks up a localized string similar to The reservation conflicts with existing bookings or an invalid date range was selected.  Please choose a different time slot..
         /// </summary>
         public static string ErrorReservationConflict {
             get {
@@ -927,7 +927,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register as a new user..
+        ///   Looks up a localized string similar to Register as a new user.
         /// </summary>
         public static string RegisterNew {
             get {
@@ -945,7 +945,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resend email confirmation..
+        ///   Looks up a localized string similar to Resend email confirmation.
         /// </summary>
         public static string Resend {
             get {
@@ -1026,7 +1026,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No, take me back..
+        ///   Looks up a localized string similar to No, take me back.
         /// </summary>
         public static string TakeBack {
             get {
@@ -1071,7 +1071,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User not found..
+        ///   Looks up a localized string similar to User not found.
         /// </summary>
         public static string UserNotFound {
             get {
@@ -1098,7 +1098,7 @@ namespace MyQuickDesk.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yes, delete it..
+        ///   Looks up a localized string similar to Yes, delete it.
         /// </summary>
         public static string YesDelete {
             get {

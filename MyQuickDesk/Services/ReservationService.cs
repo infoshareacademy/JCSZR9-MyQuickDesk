@@ -56,16 +56,13 @@ namespace MyQuickDesk.Services
         }
         public async Task <bool> IsReservationValidAsync(Reservation reservation)
         {
-            var existingReservation =await _dbContext.Reservations.FirstOrDefaultAsync(r =>
-                r.Id != reservation.Id &&
-                r.Space != null && reservation.Space != null && 
-                r.Space.Id == reservation.Space.Id &&
-                (
-                    (reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
-                    (reservation.EndTime > r.StartTime && reservation.EndTime <= r.StartTime) ||
-                    (reservation.StartTime <= r.StartTime && reservation.EndTime >= r.EndTime)
-                )
-            );
+           
+                var existingReservation =await _dbContext.Reservations.FirstOrDefaultAsync(r => r.Id != reservation.Id && r.Space.Id == reservation.Space.Id &&
+                                  ((reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
+                                  (reservation.EndTime > r.StartTime && reservation.EndTime <= r.EndTime) ||
+                                  (reservation.StartTime <= r.StartTime && reservation.EndTime >= r.EndTime) || 
+                                  reservation.StartTime <= DateTime.Now || reservation.StartTime > reservation.EndTime));
+
 
             return existingReservation == null;
         }

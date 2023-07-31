@@ -235,7 +235,7 @@
     <value>Sala konferencyjna</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Stwórz</value>
+    <value>Utwórz</value>
   </data>
   <data name="CreateNew" xml:space="preserve">
     <value>Dodaj nowe</value>
@@ -306,7 +306,7 @@ i uruchamiając ponownie aplikację.</value>
     <value>Proszę wpisać email.</value>
   </data>
   <data name="EnterPhonenumber" xml:space="preserve">
-    <value>Proszę wpisać numer telefonu.</value>
+    <value>Proszę wpisać numer telefonu</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Błąd</value>
@@ -414,7 +414,7 @@ i uruchamiając ponownie aplikację.</value>
     <value>Zapamiętaj mnie</value>
   </data>
   <data name="Resend" xml:space="preserve">
-    <value>Prześlij potwierdzenie na email.</value>
+    <value>Prześlij potwierdzenie na email</value>
   </data>
   <data name="Reservation" xml:space="preserve">
     <value>Rezerwacja</value>
@@ -441,7 +441,7 @@ i uruchamiając ponownie aplikację.</value>
     <value>Data początkowa</value>
   </data>
   <data name="TakeBack" xml:space="preserve">
-    <value>Nie, chce wrócić na poprzednią strone.</value>
+    <value>Nie, chce wrócić na poprzednią strone</value>
   </data>
   <data name="TwoFactor" xml:space="preserve">
     <value>Uwierzytelnianie</value>
@@ -456,7 +456,7 @@ i uruchamiając ponownie aplikację.</value>
     <value>Nazwa użytkownika</value>
   </data>
   <data name="UserNotFound" xml:space="preserve">
-    <value>Nie znaleziono użytkownika.</value>
+    <value>Nie znaleziono użytkownika</value>
   </data>
   <data name="WhatIs" xml:space="preserve">
     <value>Czym jest MyQuickDesk?</value>
@@ -465,6 +465,6 @@ i uruchamiając ponownie aplikację.</value>
     <value>Tak</value>
   </data>
   <data name="YesDelete" xml:space="preserve">
-    <value>Tak,usuń.</value>
+    <value>Tak,usuń</value>
   </data>
 </root>

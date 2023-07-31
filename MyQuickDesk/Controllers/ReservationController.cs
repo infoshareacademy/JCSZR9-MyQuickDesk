@@ -30,23 +30,23 @@ namespace MyQuickDesk.Controllers
         {
             string errorMessage = Resource.ErrorReservationConflict;
             ViewBag.SpaceId = spaceId;
-            if ( !_userContext.IsUserLoggedIn())
+            if (!_userContext.IsUserLoggedIn())
             {
                 return RedirectToAction("Login", "Account");
             }
 
-            var currentUser= _userContext.GetCurrentUser();
+            var currentUser = _userContext.GetCurrentUser();
             var userId = currentUser.Id;
             var currentDate = DateTime.Today;
 
             var reservations = await _reservationService.GetAllAsync();
-            var model= reservations.Where(r => r.UserId == userId && r.EndTime>= currentDate ).ToList();
-           
+            var model = reservations.Where(r => r.UserId == userId && r.EndTime >= currentDate).ToList();
+
             return View(model);
         }
 
         // GET: ReservationController/Details/5
-        public async Task <IActionResult> Details(Guid id, Guid spaceId)
+        public async Task<IActionResult> Details(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
             var model = await _reservationService.GetByIdAsync(id);
@@ -54,7 +54,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Create
-        public async Task <IActionResult> Create(Guid spaceId, Guid userId)
+        public async Task<IActionResult> Create(Guid spaceId, Guid userId)
         {
             ViewBag.SpaceId = spaceId;
 
@@ -68,8 +68,8 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
-        {   
+        public async Task<IActionResult> Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
+        {
             try
             {
                 if (ModelState.IsValid)
@@ -95,21 +95,22 @@ namespace MyQuickDesk.Controllers
                             model.ParkingSpotId = spaceId;
                             break;
                     }
-
+                    
                     if (await _reservationService.IsReservationValidAsync(model))
                     {
                         await _reservationService.Create(model);
-                        return RedirectToAction(nameof(Index),new {Id=model.UserId,spaceId});
+                        return RedirectToAction(nameof(Index), new { Id = model.UserId, spaceId });
                     }
                     else
                     {
                         ModelState.AddModelError(string.Empty, Resource.ErrorReservationConflict);
                     }
+
                 }
             }
             catch (Exception ex)
             {
-                string errorMessagePL = GetTranslatedMessage("ErrorReservationConflict", "pl-PL");  
+                string errorMessagePL = GetTranslatedMessage("ErrorReservationConflict", "pl-PL");
                 string errorMessageEN = GetTranslatedMessage("ErrorReservationConflict", "en-EN");
                 ModelState.AddModelError(string.Empty, errorMessagePL);
                 ModelState.AddModelError(string.Empty, errorMessageEN);
@@ -119,23 +120,23 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Edit/5
-        public async Task <IActionResult> Edit(Guid id, Guid spaceId)
+        public async Task<IActionResult> Edit(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
 
-            var model =await _reservationService.GetByIdAsync(id);
+            var model = await _reservationService.GetByIdAsync(id);
             return View(model);
         }
 
         // POST: ReservationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Edit(Reservation model, Guid id)
+        public async Task<IActionResult> Edit(Reservation model, Guid id)
         {
             try
             {
                 model.Id = id;
-                await  _reservationService.UpdateAsync(id, model);
+                await _reservationService.UpdateAsync(id, model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -145,7 +146,7 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Delete/5
-        public async Task <IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var model = await _reservationService.GetByIdAsync(id);
             return View(model);
@@ -154,7 +155,7 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Delete(Guid id, Reservation model)
+        public async Task<IActionResult> Delete(Guid id, Reservation model)
         {
             try
             {
