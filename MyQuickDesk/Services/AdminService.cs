@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using MyQuickDesk.Models;
+using MyQuickDesk.Resources;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Threading.Tasks;
 
 namespace MyQuickDesk.Services
@@ -59,12 +62,13 @@ namespace MyQuickDesk.Services
             return model;
         }
 
-        public async Task<string> UpdateUserAndRolesAsync(string id, AdminPanelModel model)
+        public async Task<string> UpdateUserAndRolesAsync(string id, AdminPanelModel model, string cultureCode)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
-                return "User not found.";
+                return GetTranslatedMessage("UserNotFound", cultureCode);
+            
             }
 
             user.Email = model.User.Email;
@@ -73,7 +77,8 @@ namespace MyQuickDesk.Services
             var result = await _userManager.UpdateAsync(user);
             if (!result.Succeeded)
             {
-                return "An error occurred while updating the user.";
+                return GetTranslatedMessage("AnError", cultureCode);
+              
             }
 
 
@@ -154,6 +159,18 @@ namespace MyQuickDesk.Services
 
             return result.Succeeded;
         }
+        public static string GetTranslatedMessage(string key, string cultureCode)
+        {
+            ResourceManager resourceManager = new ResourceManager(typeof(Resource));
+            CultureInfo culture = CultureInfo.GetCultureInfo(cultureCode);
+            string translatedMessage = resourceManager.GetString(key, culture);
+            if (string.IsNullOrEmpty(translatedMessage))
+            {
+                CultureInfo defaultCulture = CultureInfo.GetCultureInfo("en-EN");
+                translatedMessage = resourceManager.GetString(key, defaultCulture);
+            }
 
+            return translatedMessage;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using Humanizer.Localisation;
+@using Microsoft.AspNetCore.Identity
 
 @{
     ViewData["Title"] = "CreateRole";
@@ -19,11 +20,11 @@
 </style>
 
 <div class="container-main">
-    <h1 class="shadow-text row justify-content-center">Create New Role</h1>
+    <h1 class="shadow-text row justify-content-center">@Resource.CreateNewRole</h1>
     <hr />
     <form method="post">
-        <label for="roleName" class="bold-label">Role Name</label>
+        <label for="roleName" class="bold-label">@Resource.RoleName</label>
         <input type="text" name="roleName" required />
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">@Resource.Create</button>
     </form>
 </div>

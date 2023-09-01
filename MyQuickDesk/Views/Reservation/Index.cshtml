@@ -1,4 +1,8 @@
-﻿@model IEnumerable<MyQuickDesk.Entities.Reservation>
+﻿@using Humanizer.Localisation;
+@using Microsoft.Extensions.Localization;
+@model IEnumerable<MyQuickDesk.Entities.Reservation>
+
+
 
 @{
     ViewData["Title"] = "Your Reservations";
@@ -11,55 +15,56 @@
     }
 </style>
 
-<h1 class="shadow-text">Your Reservations</h1>
+<h1 class="shadow-text">@Resource.Myreservations</h1>
+
 
 
 <table class="table">
     <thead>
         <tr>
 
-            <th>
-                <label asp-for="First().StartTime"></label>
-            </th>
-            <th>
-                <label asp-for="First().EndTime"></label>
-            </th>
-            <th>
-                <label>Name</label>
-            </th>
+            <th>@Resource.StartTime</th>
+            <th>@Resource.EndTime</th>
+
+            <th>@Resource.Name </th>
+            <th>@Resource.Actions </th>
+
             <th></th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            
-            <td>
-                @item.StartTime
-            </td>
-            <td>
-                @item.EndTime
-            </td>
-            <td>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.StartTime.ToString("yyyy-MM-dd HH:mm")
+                </td>
+                <td>
+                    @item.EndTime.ToString("yyyy-MM-dd HH:mm")
+                </td>
+                <td>
+                    @item.Space.Name
+                </td>
+                <td>
                     <div class="button-container">
                         <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
                             <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
-                            Details
+                            @Resource.Details
                         </a>
                         <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
                             <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20">
-                            Edit
+                            @Resource.Edit
                         </a>
                         <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">
                             <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
-                            Delete
+                            @Resource.Delete
                         </a>
                     </div>
 
                 </td>
-        </tr>
-}
-    </tbody>
+            </tr>
+        }
+        </tbody>
 </table>
 
 

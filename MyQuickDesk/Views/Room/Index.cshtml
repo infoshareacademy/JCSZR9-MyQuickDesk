@@ -12,12 +12,13 @@
 </style>
 
 
-<h1 class="shadow-text">Conferencial Room</h1>
+<h1 class="shadow-text">@Resource.ConferencialRoom</h1>
+
 @if (User.IsInRole("Admin"))
 {
     <p>
         <a asp-action="Create" class="create-link">
-            Create New
+            @Resource.CreateNewRoom
             <img src="~/Icons/Createicon.png" alt="Create Icon" width="20" height="20">
         </a>
     </p>
@@ -26,15 +27,10 @@
     <thead>
         <tr>
 
-            <th>
-                <label asp-for="First().Name"></label>
-            </th>
-            <th>
-                <label asp-for="First().Description"></label>
-            </th>
-            <th>
-                <label asp-for="First().MaxCapacity"></label>
-            </th>
+            <th>@Resource.Name</th>
+            <th>@Resource.Description</th>
+            <th>@Resource.MaxCapacity</th>
+            <th>@Resource.Actions</th>
             <th></th>
         </tr>
     </thead>
@@ -46,7 +42,7 @@
                 @item.Name
             </td>
             <td>
-               @item.Description
+                @item.Description
             </td>           
             <td>
                 @item.MaxCapacity
@@ -57,22 +53,22 @@
                     <div class="button-container">
                         <a asp-action="Details" asp-route-id="@item.Id" class="details-link">
                             <img src="~/Icons/Detailsicon.png" alt="Details Icon" width="20" height="20">
-                            Details
+                            @Resource.Details
                         </a>
                         @if (User.IsInRole("Admin"))
                         {
                             <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
                                 <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20">
-                                Edit
+                                @Resource.Edit
                             </a>
                             <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">
                                 <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20">
-                                Delete
+                                @Resource.Delete
                             </a>
                         }
                         <a asp-action="Create" asp-controller="Reservation" asp-route-spaceId="@item.Id" class="create-link">
                             <img src="~/Icons/Reservationicon.png" alt="Reservation Icon" width="20" height="20">
-                            Book Now
+                            @Resource.BookNow
                         </a>
                     </div>
             </td>

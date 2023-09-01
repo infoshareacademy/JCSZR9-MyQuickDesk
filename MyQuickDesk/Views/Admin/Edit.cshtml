@@ -1,14 +1,12 @@
 ﻿@model MyQuickDesk.Models.AdminPanelModel
-
 <style>
     body {
         background-image: url('/img/backgroundtabs.png');
         background-repeat: no-repeat;
     }
 </style>
-
 <div class="container-main">
-    <h1 class="shadow-text row justify-content-center">Edit User</h1>
+    <h1 class="shadow-text row justify-content-center">@Resource.EditUser</h1>
     <hr />
     <form method="post">
         <input type="hidden" asp-for="User.Id" />
@@ -22,14 +20,14 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="UserName">Username</label>
+                    <label for="UserName">@Resource.Username</label>
                     <input type="text" asp-for="User.UserName" class="form-control" />
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="SelectedRoles" style="margin-top: 20px">Roles</label>
+            <label for="SelectedRoles" style="margin-top: 20px">@Resource.Roles</label>
             <select id="SelectedRoles" name="SelectedRoles" multiple="multiple" class="form-control">
                 @foreach (var role in Model.Roles)
                 {
@@ -39,6 +37,6 @@
         </div>
         <hr />
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">@Resource.Update</button>
     </form>
 </div>

@@ -46,10 +46,7 @@ namespace MyQuickDesk
                 {
                   new CultureInfo("en-US"),
                   new CultureInfo("pl-PL"),
-                  new CultureInfo("zh-CN"),
-                  new CultureInfo("uk-UA"),
-                  new CultureInfo("fr-FR"),
-                  new CultureInfo("de-DE")
+
                 };
 
                 options.DefaultRequestCulture = new RequestCulture("en-US");

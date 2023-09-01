@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using MyQuickDesk.Filters;
 using MyQuickDesk.Models;
 using System.Diagnostics;
 using System.Globalization;
 
 namespace MyQuickDesk.Controllers
 {
-    [LanguageFilter]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

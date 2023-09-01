@@ -23,28 +23,40 @@
                         @if (UserContext.IsUserLoggedIn())
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Home" asp-action="Index">@Resource.Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">ParkingSpot</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Parking" asp-action="Index">@Resource.ParkingSpot</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">Conferencial Room</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Room" asp-action="Index">@Resource.ConferencialRoom</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">Desk</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">@Resource.Desk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="reservation" asp-action="Index">Reservations</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Reservation" asp-action="Index">@Resource.Myreservations</a>
                             </li>
-
-                            @*                            @if (User.IsInRole("Admin"))
-                        {*@
-                            <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                            </li>
+                            
+                            
+@*                            @if (User.IsInRole("Admin"))
+                            {*@
+                                <li class="nav-item">
+                                    <a class="nav-link text-custom" asp-area="" asp-controller="Admin" asp-action="Index">@Resource.Admin</a>
+                                </li>
                             @*}*@
+                            
                         }
+                    </ul>
+                    <ul>
+                        <li style="margin-right:0px">
+                            <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
+                        </li>
+                        <li style="margin-left:-20px;margin-right:10px ">
+                            <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
+                        </li>
+                  
+                        
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -57,25 +69,13 @@
             @RenderBody()
         </main>
     </div>
-    @if (Context.Request.Path.Equals("/") || Context.Request.Path.Equals("/Home"))
-
-    {
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "zh-CN" })">中文</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "uk-UA" })">Українська</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "de-DE" })">Deutsch</a>
-        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "fr-FR" })">Français</a>
-    }
-
+   
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
+            &copy; 2023 - MyQuickDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resource.AboutUs</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

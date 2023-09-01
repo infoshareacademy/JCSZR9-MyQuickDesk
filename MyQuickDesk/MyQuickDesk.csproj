@@ -26,34 +26,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ReservationResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Messages.de.resx">
-      <Generator></Generator>
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.en.resx">
-      <Generator></Generator>
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.ua.resx">
-      <Generator></Generator>
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Resource.de.resx">
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-      <Generator></Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.pl.resx">
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-      <Generator></Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.fr.resx">
-      <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
-      <Generator></Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Messages.zh.resx">
       <CustomToolNamespace>MyQuickDesk.Resources</CustomToolNamespace>
       <Generator></Generator>
     </EmbeddedResource>
@@ -62,6 +43,15 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ReservationResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

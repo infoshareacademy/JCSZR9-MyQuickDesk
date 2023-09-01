@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyQuickDesk.ApplicationUser;
 using MyQuickDesk.DatabaseContext;
 using MyQuickDesk.Entities;
-using MyQuickDesk.Filters;
 using MyQuickDesk.Resources;
 using MyQuickDesk.Services;
 using System.Globalization;
 using System.Resources;
 
+
 namespace MyQuickDesk.Controllers
 {
-    [LanguageFilter]
     public class ReservationController : Controller
     {
         private readonly IReservationService _reservationService;
@@ -28,36 +26,39 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController
-        public ActionResult Index(Guid id, Guid spaceId)
+        public async Task<IActionResult> Index(Guid id, Guid spaceId)
         {
-            string errorMessage = Messages.ErrorReservationConflict;
+            string errorMessage = Resource.ErrorReservationConflict;
             ViewBag.SpaceId = spaceId;
-            if (!_userContext.IsUserLoggedIn())
+            if ( !_userContext.IsUserLoggedIn())
             {
                 return RedirectToAction("Login", "Account");
             }
 
-            var currentUser = _userContext.GetCurrentUser();
+            var currentUser= _userContext.GetCurrentUser();
             var userId = currentUser.Id;
+            var currentDate = DateTime.Today;
 
-            var model = _reservationService.GetAll().Where(r => r.UserId == userId).ToList();
+            var reservations = await _reservationService.GetAllAsync();
+            var model= reservations.Where(r => r.UserId == userId && r.EndTime>= currentDate ).ToList();
+           
             return View(model);
         }
 
         // GET: ReservationController/Details/5
-        public ActionResult Details(Guid id, Guid spaceId)
+        public async Task <IActionResult> Details(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
-            var model = _reservationService.GetById(id);
+            var model = await _reservationService.GetByIdAsync(id);
             return View(model);
         }
 
         // GET: ReservationController/Create
-        public ActionResult Create(Guid spaceId, Guid userId)
+        public async Task <IActionResult> Create(Guid spaceId, Guid userId)
         {
             ViewBag.SpaceId = spaceId;
 
-            var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
+            var space = await _dbContext.Spaces.FirstOrDefaultAsync(s => s.Id == spaceId);
             var model = new Reservation { Space = space };
             ViewBag.UserId = userId;
 
@@ -67,13 +68,13 @@ namespace MyQuickDesk.Controllers
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
-        {
+        public async Task <IActionResult> Create(Reservation model, Guid spaceId, Guid? deskId, Guid? roomId, Guid? parkingId, Guid? userId)
+        {   
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == spaceId);
+                    var space = await _dbContext.Spaces.FirstOrDefaultAsync(s => s.Id == spaceId);
                     model.Space = space;
 
                     var currentUser = _userContext.GetCurrentUser();
@@ -95,58 +96,46 @@ namespace MyQuickDesk.Controllers
                             break;
                     }
 
-                    if (_reservationService.IsReservationValid(model))
+                    if (await _reservationService.IsReservationValidAsync(model))
                     {
-                        _reservationService.Create(model);
-                        return RedirectToAction(nameof(Index));
+                        await _reservationService.Create(model);
+                        return RedirectToAction(nameof(Index),new {Id=model.UserId,spaceId});
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, Messages.ErrorReservationConflict);
-
+                        ModelState.AddModelError(string.Empty, Resource.ErrorReservationConflict);
                     }
                 }
             }
             catch (Exception ex)
             {
-                string errorMessagePL = GetTranslatedMessage("ErrorReservationConflict", "pl-PL");
-                string errorMessageDE = GetTranslatedMessage("ErrorReservationConflict", "de-DE");
-                string errorMessageFR = GetTranslatedMessage("ErrorReservationConflict", "fr-FR");
+                string errorMessagePL = GetTranslatedMessage("ErrorReservationConflict", "pl-PL");  
                 string errorMessageEN = GetTranslatedMessage("ErrorReservationConflict", "en-EN");
-                string errorMessageUA = GetTranslatedMessage("ErrorReservationConflict", "ua-UA");
-                string errorMessageZH = GetTranslatedMessage("ErrorReservationConflict", "zh-ZH");
-
                 ModelState.AddModelError(string.Empty, errorMessagePL);
-                ModelState.AddModelError(string.Empty, errorMessageDE);
-                ModelState.AddModelError(string.Empty, errorMessageFR);
                 ModelState.AddModelError(string.Empty, errorMessageEN);
-                ModelState.AddModelError(string.Empty, errorMessageUA);
-                ModelState.AddModelError(string.Empty, errorMessageZH);
             }
-
-
-
+            ViewBag.spaceId = spaceId;
             return View(model);
         }
 
         // GET: ReservationController/Edit/5
-        public ActionResult Edit(Guid id, Guid spaceId)
+        public async Task <IActionResult> Edit(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
 
-            var model = _reservationService.GetById(id);
+            var model =await _reservationService.GetByIdAsync(id);
             return View(model);
         }
 
         // POST: ReservationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Reservation model, Guid id)
+        public async Task <IActionResult> Edit(Reservation model, Guid id)
         {
             try
             {
                 model.Id = id;
-                _reservationService.Update(id, model);
+                await  _reservationService.UpdateAsync(id, model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -156,20 +145,20 @@ namespace MyQuickDesk.Controllers
         }
 
         // GET: ReservationController/Delete/5
-        public ActionResult Delete(Guid id)
+        public async Task <IActionResult> Delete(Guid id)
         {
-            var model = _reservationService.GetById(id);
+            var model = await _reservationService.GetByIdAsync(id);
             return View(model);
         }
 
         // POST: ReservationController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id, Reservation model)
+        public async Task <IActionResult> Delete(Guid id, Reservation model)
         {
             try
             {
-                _reservationService.Delete(id);
+                await _reservationService.DeleteAsync(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -179,27 +168,12 @@ namespace MyQuickDesk.Controllers
         }
         public static string GetTranslatedMessage(string key, string cultureCode)
         {
-            ResourceManager resourceManager = new ResourceManager(typeof(Messages));
+            ResourceManager resourceManager = new ResourceManager(typeof(Resource));
             CultureInfo culture = CultureInfo.GetCultureInfo(cultureCode);
             string translatedMessage = resourceManager.GetString(key, culture);
 
             return translatedMessage;
         }
-
-        //[HttpPut]
-        //public ActionResult Update(Reservation model, Guid Id)
-        //{
-        //    if(!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    var isUpdate = _reservationService.Update(Id, model);
-        //    if (!isUpdate)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(model);
-        //}
     }
 }
 

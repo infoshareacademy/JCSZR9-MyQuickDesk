@@ -19,10 +19,10 @@
         }
 </style>
 
-<h1 class="shadow-text">Admin Panel</h1>
+<h1 class="shadow-text">@Resource.AdminPanel</h1>
 <p>
     <a asp-action="Roles" class="create-link">
-        Roles
+       @Resource.Roles
         <img src="~/Icons/Createicon.png" alt="Create Icon" width="20" height="20">
     </a>
 </p>
@@ -31,10 +31,10 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Roles</th>
-            <th>Actions</th>
+            <th>@Resource.Email</th>
+            <th>@Resource.Username</th>
+            <th>@Resource.Roles</th>
+            <th>@Resource.Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -50,8 +50,8 @@
                     }
                 </td>
                 <td class="actions-container">
-                    <a href="@Url.Action("Edit", "Admin", new { id = user.Id })" class="edit-link">Edit user <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20"></a>
-                    <a href="@Url.Action("Delete", "Admin", new { id = user.Id })" class="delete-link">Delete user   <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20"></a>
+                    <a href="@Url.Action("Edit", "Admin", new { id = user.Id })" class="edit-link">@Resource.EditUser <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20"></a>
+                    <a href="@Url.Action("Delete", "Admin", new { id = user.Id })" class="delete-link">@Resource.DeleteUser   <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20"></a>
                 </td>
             </tr>
         }

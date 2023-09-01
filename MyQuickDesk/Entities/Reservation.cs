@@ -25,9 +25,9 @@ namespace MyQuickDesk.Entities
         public User? User { get; set; }
 
         //========================================
-        [Display(Name = "Start Time")]
+        
         public DateTime StartTime { get; set; } = DateTime.Today;
-        [Display(Name = "End Time")]
+        
         public DateTime EndTime { get; set; } = DateTime.Today;
     }
 }

@@ -8,16 +8,16 @@
 
 
 <div class="container-main">
-    <h1 class="shadow-text row justify-content-center">Delete Role</h1>
+    <h1 class="shadow-text row justify-content-center">@Resource.DeleteRole</h1>
 
-    <p>Are you sure you want to delete the role '@Model.Name'?</p>
+    <p>@Resource.AreYouSure '@Model.Name'?</p>
     <hr />
     <form asp-action="DeleteRoleConfirmed" asp-controller="Admin" method="post">
         <input type="hidden" asp-for="Id" />
         <button type="submit" class="btn btn-danger">
             <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20" v />
-            Yes, delete it
+            @Resource.YesDelete
         </button>
-        <a class="back-to-list-btn" href="@Url.Action("Index", "Admin")">No, take me back. </a>
+        <a class="back-to-list-btn" href="@Url.Action("Index", "Admin")">@Resource.TakeBack </a>
     </form>
 </div>
