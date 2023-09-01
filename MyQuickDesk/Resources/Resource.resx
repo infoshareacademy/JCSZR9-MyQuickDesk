@@ -312,7 +312,7 @@
     <value>Error</value>
   </data>
   <data name="ErrorReservationConflict" xml:space="preserve">
-    <value>The reservation conflicts with existing bookings. Please choose a different time slot.</value>
+    <value>The reservation conflicts with existing bookings or an invalid date range was selected.  Please choose a different time slot.</value>
   </data>
   <data name="ExternalLogins" xml:space="preserve">
     <value>External logins</value>

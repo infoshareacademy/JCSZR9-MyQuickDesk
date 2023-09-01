@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using MyQuickDesk.ApplicationUser;
-using MyQuickDesk.DatabaseContext;
-using MyQuickDesk.Entities;
+using MyQuickDesk.DAL.ApplicationUser;
+using MyQuickDesk.DAL.DatabaseContext;
+using MyQuickDesk.DAL.Entities;
 using MyQuickDesk.Resources;
-using MyQuickDesk.Services;
+using MyQuickDesk.DAL.Repository;
 using System.Globalization;
 using System.Resources;
 
@@ -13,13 +14,13 @@ namespace MyQuickDesk.Controllers
 {
     public class ReservationController : Controller
     {
-        private readonly IReservationService _reservationService;
+        private readonly IReservationRepository _reservationRepository;
         private readonly MyQuickDeskContext _dbContext;
         private readonly IUserContext _userContext;
 
-        public ReservationController(IReservationService reservationService, MyQuickDeskContext dbContext, IUserContext userContext)
+        public ReservationController(IReservationRepository reservationService, MyQuickDeskContext dbContext, IUserContext userContext)
         {
-            _reservationService = reservationService;
+            _reservationRepository = reservationService;
             _dbContext = dbContext;
             _userContext = userContext;
 
@@ -39,7 +40,7 @@ namespace MyQuickDesk.Controllers
             var userId = currentUser.Id;
             var currentDate = DateTime.Today;
 
-            var reservations = await _reservationService.GetAllAsync();
+            var reservations = await _reservationRepository.GetAllAsync();
             var model = reservations.Where(r => r.UserId == userId && r.EndTime >= currentDate).ToList();
 
             return View(model);
@@ -49,7 +50,7 @@ namespace MyQuickDesk.Controllers
         public async Task<IActionResult> Details(Guid id, Guid spaceId)
         {
             ViewBag.SpaceId = spaceId;
-            var model = await _reservationService.GetByIdAsync(id);
+            var model = await _reservationRepository.GetByIdAsync(id);
             return View(model);
         }
 
@@ -96,9 +97,9 @@ namespace MyQuickDesk.Controllers
                             break;
                     }
                     
-                    if (await _reservationService.IsReservationValidAsync(model))
+                    if (await _reservationRepository.IsReservationValidAsync(model))
                     {
-                        await _reservationService.Create(model);
+                        await _reservationRepository.Create(model);
                         return RedirectToAction(nameof(Index), new { Id = model.UserId, spaceId });
                     }
                     else
@@ -124,7 +125,7 @@ namespace MyQuickDesk.Controllers
         {
             ViewBag.SpaceId = spaceId;
 
-            var model = await _reservationService.GetByIdAsync(id);
+            var model = await _reservationRepository.GetByIdAsync(id);
             return View(model);
         }
 
@@ -136,7 +137,7 @@ namespace MyQuickDesk.Controllers
             try
             {
                 model.Id = id;
-                await _reservationService.UpdateAsync(id, model);
+                await _reservationRepository.UpdateAsync(id, model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -148,7 +149,7 @@ namespace MyQuickDesk.Controllers
         // GET: ReservationController/Delete/5
         public async Task<IActionResult> Delete(Guid id)
         {
-            var model = await _reservationService.GetByIdAsync(id);
+            var model = await _reservationRepository.GetByIdAsync(id);
             return View(model);
         }
 
@@ -159,7 +160,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                await _reservationService.DeleteAsync(id);
+                await _reservationRepository.DeleteAsync(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -1,32 +1,34 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyQuickDesk.Entities;
-using MyQuickDesk.Services;
+using MyQuickDesk.DAL.Repository;
+using MyQuickDesk.DAL.Entities;
+
+
 
 namespace MyQuickDesk.Controllers
 {
 
     public class DeskController : Controller
     {
-        private readonly IDeskService _deskService;
+        private readonly IDeskRepository _deskRepository;
 
-        public DeskController(IDeskService deskService)
+        public DeskController(IDeskRepository deskRepository)
         {
-            _deskService = deskService;
+            _deskRepository = deskRepository;
 
         }
 
         // GET: DeskController
         public ActionResult Index()
         {
-            var model = _deskService.GetAll();
+            var model = _deskRepository.GetAll();
             return View(model);
         }
 
         // GET: DeskController/Details/5
         public ActionResult Details(Guid id)
         {
-            var model = _deskService.GetById(id);
+            var model = _deskRepository.GetById(id);
             return View(model);
         }
 
@@ -48,7 +50,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                _deskService.Create(model);
+                _deskRepository.Create(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -61,7 +63,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
-            var model = _deskService.GetById(id);
+            var model = _deskRepository.GetById(id);
             return View(model);
         }
 
@@ -73,7 +75,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                _deskService.Update(model);
+                _deskRepository.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -86,7 +88,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
-            var model = _deskService.GetById(id);
+            var model = _deskRepository.GetById(id);
             return View(model);
         }
 
@@ -98,7 +100,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                _deskService.Delete(id);
+                _deskRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

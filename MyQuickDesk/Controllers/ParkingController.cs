@@ -1,34 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyQuickDesk.Services;
+using Microsoft.AspNetCore.Http;
 using MyQuickDesk.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
-using MyQuickDesk.Entities;
-
+using MyQuickDesk.DAL.Entities;
+using MyQuickDesk.DAL.Repository;
 
 namespace MyQuickDesk.Controllers
 {
     
     public class ParkingController : Controller
     {
-        private readonly IParkingService _parkingService;
+        private readonly IParkingRepository _parkingRepository;
 
-        public ParkingController(IParkingService parkingService)
+        public ParkingController(IParkingRepository parkingRepository)
         {
-            _parkingService = parkingService;
+            _parkingRepository = parkingRepository;
         }
 
         // GET: ParkingController
         public ActionResult Index()
         {
-            var model = _parkingService.GetAll();
+            var model = _parkingRepository.GetAll();
             return View(model);
         }
 
         // GET: ParkingController/Details/5
         public ActionResult Details(Guid id)
         {
-            var model = _parkingService.GetById(id);
+            var model = _parkingRepository.GetById(id);
             if (model == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                _parkingService.Create(model);
+                _parkingRepository.Create(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -67,7 +67,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
-            var model = _parkingService.GetById(id);
+            var model = _parkingRepository.GetById(id);
             return View(model);
         }
 
@@ -79,7 +79,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                _parkingService.Update(model);
+                _parkingRepository.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -92,7 +92,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
-            var parkingSpot = _parkingService.GetById(id);
+            var parkingSpot = _parkingRepository.GetById(id);
             if (parkingSpot == null)
             {
                 return NotFound();
@@ -109,7 +109,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                _parkingService.Delete(id);
+                _parkingRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

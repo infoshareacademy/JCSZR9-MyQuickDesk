@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace MyQuickDesk.Entities
+namespace MyQuickDesk.DAL.Entities
 {
     public class Space
     {

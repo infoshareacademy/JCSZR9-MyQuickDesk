@@ -1,11 +1,10 @@
-﻿using MyQuickDesk.Entities;
-using MyQuickDesk.DatabaseContext;
-using MyQuickDesk.ApplicationUser;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using MyQuickDesk.DAL.Entities;
+using MyQuickDesk.DAL.DatabaseContext;
 
-namespace MyQuickDesk.Services
+
+namespace MyQuickDesk.DAL.Repository
 {
-    public interface IDeskService
+    public interface IDeskRepository
     {
         List<Desk> GetAll();
         Desk GetById(Guid id);
@@ -13,12 +12,12 @@ namespace MyQuickDesk.Services
         void Update(Desk desk);
         void Delete(Guid id);
     }
-    public class DeskService : IDeskService
+    public class DeskRepository : IDeskRepository
     {
         private readonly MyQuickDeskContext _dbContext;
-        private readonly IUserContext _userContext;
+        private readonly ApplicationUser.IUserContext _userContext;
 
-        public DeskService(MyQuickDeskContext dbContext, IUserContext userContext)
+        public DeskRepository(MyQuickDeskContext dbContext, ApplicationUser.IUserContext userContext)
         {
             _dbContext = dbContext;
             _userContext = userContext;

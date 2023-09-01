@@ -1,4 +1,4 @@
-﻿namespace MyQuickDesk.Entities
+﻿namespace MyQuickDesk.DAL.Entities
 {
     public enum Equipment
     {

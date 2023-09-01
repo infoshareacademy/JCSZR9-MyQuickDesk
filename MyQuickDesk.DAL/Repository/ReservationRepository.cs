@@ -1,13 +1,13 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using MyQuickDesk.ApplicationUser;
-using MyQuickDesk.DatabaseContext;
-using MyQuickDesk.Entities;
+
+using MyQuickDesk.DAL.DatabaseContext;
+using MyQuickDesk.DAL.Entities;
 
 
-namespace MyQuickDesk.Services
+namespace MyQuickDesk.DAL.Repository
 {
-    public interface IReservationService
+    public interface IReservationRepository
     {
         Task<IEnumerable<Reservation>> GetAllAsync();
         Task <Reservation> GetByIdAsync(Guid id);
@@ -17,12 +17,12 @@ namespace MyQuickDesk.Services
         Task <bool> IsReservationValidAsync(Reservation reservation);
 
     }
-    public class ReservationService : IReservationService
+    public class ReservationRepository : IReservationRepository
     {
         private readonly MyQuickDeskContext _dbContext;
-        private readonly IUserContext _userContext;
+        private readonly ApplicationUser.IUserContext _userContext;
 
-        public ReservationService(MyQuickDeskContext dbContext, IUserContext userContext)
+        public ReservationRepository(MyQuickDeskContext dbContext, ApplicationUser.IUserContext userContext)
         {
             _dbContext = dbContext;
             _userContext = userContext;

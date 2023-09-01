@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Identity;
-using MyQuickDesk.Models;
-using MyQuickDesk.Resources;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Resources;
-using System.Threading.Tasks;
+﻿
 
-namespace MyQuickDesk.Services
+using System.Globalization;
+using System.Resources;
+using Microsoft.AspNet.Identity;
+
+
+using Microsoft.Reporting.Map.WebForms.BingMaps;
+using MyQuickDesk.DAL.Entities;
+
+
+
+namespace MyQuickDesk.DAL.Repository
 {
-    public class AdminService
+    public class AdminRepository
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AdminService(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public AdminRepository(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;

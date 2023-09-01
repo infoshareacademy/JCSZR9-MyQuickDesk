@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyQuickDesk.Services;
-using MyQuickDesk.Entities;
+using Microsoft.AspNetCore.Http;
+using MyQuickDesk.DAL.Repository;
+using MyQuickDesk.DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 
 namespace MyQuickDesk.Controllers
@@ -8,16 +9,16 @@ namespace MyQuickDesk.Controllers
     
     public class RoomController : Controller
     {
-        private readonly IRoomService _roomService;
+        private readonly IRoomRepository _roomRepository;
 
-        public RoomController(IRoomService roomService)
+        public RoomController(IRoomRepository roomRepository)
         {
-            _roomService = roomService;
+            _roomRepository = roomRepository;
         }
         // GET: RoomController
         public async Task <IActionResult> Index()
         {
-            var model =await _roomService.GetAllAsync();
+            var model =await _roomRepository.GetAllAsync();
             return View(model);
         }
 
@@ -25,7 +26,7 @@ namespace MyQuickDesk.Controllers
         public async Task <IActionResult> Details(Guid id)
         {
 
-            var model =await _roomService.GetByIdAsync(id);
+            var model =await _roomRepository.GetByIdAsync(id);
             return View(model);
         }
 
@@ -46,7 +47,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                await _roomService.Create(model);
+                await _roomRepository.Create(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -59,7 +60,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public async Task <IActionResult> Edit(Guid id)
         {
-            var model = await _roomService.GetByIdAsync(id);
+            var model = await _roomRepository.GetByIdAsync(id);
             return View(model);
         }
 
@@ -71,7 +72,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                await _roomService.Update(model);
+                await _roomRepository.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -84,7 +85,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public async Task <IActionResult> Delete(Guid id)
         {
-            var model = await _roomService.GetByIdAsync(id);
+            var model = await _roomRepository.GetByIdAsync(id);
             return View(model);
         }
 
@@ -96,7 +97,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                await _roomService.Delete(id);
+                await _roomRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

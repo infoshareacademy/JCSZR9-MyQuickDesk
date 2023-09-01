@@ -1,4 +1,5 @@
-﻿namespace MyQuickDesk.ApplicationUser
+﻿
+namespace MyQuickDesk.DAL.ApplicationUser
 {
     public class CurrentUser
     {

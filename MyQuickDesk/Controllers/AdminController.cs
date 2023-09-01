@@ -1,29 +1,32 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using MyQuickDesk.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
+using MyQuickDesk.DAL.Repository;
+using MyQuickDesk.DAL.ApplicationUser;
 using MyQuickDesk.Models;
-using MyQuickDesk.Services;
-using System.Threading.Tasks;
+
 
 namespace MyQuickDesk.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly AdminService _adminService;
+        private readonly AdminRepository _adminRepository;
 
-        public AdminController(AdminService adminService)
+        public AdminController(AdminRepository adminRepository)
         {
-            _adminService = adminService;
+            _adminRepository = adminRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            var model = await _adminService.GetAdminPanelModelAsync();
+            var model = await _adminRepository.GetAdminPanelModelAsync();
             return View(model);
         }
 
         public async Task<IActionResult> Edit(string id)
         {
-            var model = await _adminService.GetAdminPanelModelForEditAsync(id);
+            var model = await _adminRepository.GetAdminPanelModelForEditAsync(id);
             if (model == null)
             {
                 return NotFound();
@@ -36,7 +39,7 @@ namespace MyQuickDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, AdminPanelModel model, string cultureCode)
         {
-            var result = await _adminService.UpdateUserAndRolesAsync(id, model,cultureCode);
+            var result = await _adminRepository.UpdateUserAndRolesAsync(id, model,cultureCode);
             if (result != null)
             {
                 ModelState.AddModelError(string.Empty, result);
@@ -49,7 +52,7 @@ namespace MyQuickDesk.Controllers
 
         public async Task<IActionResult> Delete(string id)
         {
-            var user = await _adminService.GetUserByIdAsync(id);
+            var user = await _adminRepository.GetUserByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -62,7 +65,7 @@ namespace MyQuickDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var result = await _adminService.DeleteUserAsync(id);
+            var result = await _adminRepository.DeleteUserAsync(id);
             if (!result)
             {
                 return NotFound();
@@ -73,7 +76,7 @@ namespace MyQuickDesk.Controllers
 
         public IActionResult Roles()
         {
-            var roles = _adminService.GetRoles();
+            var roles = _adminRepository.GetRoles();
             return View(roles);
         }
 
@@ -86,7 +89,7 @@ namespace MyQuickDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateRole(string roleName)
         {
-            var result = await _adminService.CreateRoleAsync(roleName);
+            var result = await _adminRepository.CreateRoleAsync(roleName);
             if (!result)
             {
                 return View();
@@ -97,7 +100,7 @@ namespace MyQuickDesk.Controllers
 
         public async Task<IActionResult> EditRole(string id)
         {
-            var model = await _adminService.GetRoleByIdAsync(id);
+            var model = await _adminRepository.GetRoleByIdAsync(id);
             if (model == null)
             {
                 return NotFound();
@@ -110,7 +113,7 @@ namespace MyQuickDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditRole(string id, IdentityRole role)
         {
-            var result = await _adminService.UpdateRoleAsync(id, role);
+            var result = await _adminRepository.UpdateRoleAsync(id, role);
             if (!result)
             {
                 return NotFound();
@@ -121,7 +124,7 @@ namespace MyQuickDesk.Controllers
 
         public async Task<IActionResult> DeleteRole(string id)
         {
-            var role = await _adminService.GetRoleByIdAsync(id);
+            var role = await _adminRepository.GetRoleByIdAsync(id);
             if (role == null)
             {
                 return NotFound();
@@ -134,7 +137,7 @@ namespace MyQuickDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteRoleConfirmed(string id)
         {
-            var result = await _adminService.DeleteRoleAsync(id);
+            var result = await _adminRepository.DeleteRoleAsync(id);
             if (!result)
             {
                 return NotFound();

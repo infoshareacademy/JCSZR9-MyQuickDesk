@@ -312,7 +312,7 @@ i uruchamiając ponownie aplikację.</value>
     <value>Błąd</value>
   </data>
   <data name="ErrorReservationConflict" xml:space="preserve">
-    <value>Rezerwacja koliduje z istniejącymi rezerwacjami. Proszę wybrać inny przedział czasowy.</value>
+    <value>Rezerwacja koliduje z istniejącymi rezerwacjami lub wybrano niepoprawną datę. Proszę wybrać inny przedział czasowy.</value>
   </data>
   <data name="ExternalLogins" xml:space="preserve">
     <value>Zewnętrzne loginy</value>

@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace MyQuickDesk.Entities
+﻿namespace MyQuickDesk.DAL.Entities
 {
     public class Reservation
     {

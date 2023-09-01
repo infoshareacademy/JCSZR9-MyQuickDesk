@@ -2,10 +2,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using MyQuickDesk.ApplicationUser;
-using MyQuickDesk.DatabaseContext;
-using MyQuickDesk.Entities;
-using MyQuickDesk.Services;
+using MyQuickDesk.DAL.ApplicationUser;
+using MyQuickDesk.DAL.DatabaseContext;
+using MyQuickDesk.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MyQuickDesk.DAL.Repository;
+using MyQuickDesk.DAL.DatabaseContext;
+using MyQuickDesk.DAL.ApplicationUser;
 using System.Data;
 using System.Globalization;
 
@@ -31,12 +37,12 @@ namespace MyQuickDesk
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IReservationService, ReservationService>();
-            builder.Services.AddScoped<IDeskService, DeskService>();
-            builder.Services.AddScoped<IRoomService, RoomService>();
-            builder.Services.AddScoped<IParkingService, ParkingService>();
+            builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+            builder.Services.AddScoped<IDeskRepository, DeskRepository>();
+            builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+            builder.Services.AddScoped<IParkingRepository, ParkingRepository>();
             builder.Services.AddScoped<IUserContext, UserContext>();
-            builder.Services.AddScoped<AdminService>();
+            builder.Services.AddScoped<AdminRepository>();
 
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 

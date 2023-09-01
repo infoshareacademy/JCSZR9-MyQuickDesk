@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
+﻿
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace MyQuickDesk.Models
+namespace MyQuickDesk.DAL.Entities
 {
     public class AdminPanelModel
     {
