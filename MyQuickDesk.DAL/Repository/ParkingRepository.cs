@@ -1,6 +1,7 @@
 ﻿
 using MyQuickDesk.DAL.DatabaseContext;
 using MyQuickDesk.DAL.Entities;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace MyQuickDesk.DAL.Repository

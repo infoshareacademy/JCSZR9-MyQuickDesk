@@ -1,13 +1,10 @@
-﻿
-
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
 using Microsoft.AspNet.Identity;
-
-
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using MyQuickDesk.DAL.Entities;
-
+using MyQuickDesk.DAL.ApplicationUser;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 
 namespace MyQuickDesk.DAL.Repository
