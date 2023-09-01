@@ -9,7 +9,21 @@ using System.Threading.Tasks;
 
 namespace MyQuickDesk.Services
 {
-    public class AdminService
+    public interface IAdminService
+    {
+        Task<AdminPanelModel> GetAdminPanelModelAsync();
+        Task<AdminPanelModel> GetAdminPanelModelForEditAsync(string id);
+        Task<string> UpdateUserAndRolesAsync(string id, AdminPanelModel model, string cultureCode);
+        Task<IdentityUser> GetUserByIdAsync(string id);
+        Task<bool> DeleteUserAsync(string id);
+        List<IdentityRole> GetRoles();
+        Task<bool> CreateRoleAsync(string roleName);
+        Task<IdentityRole> GetRoleByIdAsync(string id);
+        Task<bool> UpdateRoleAsync(string id, IdentityRole updatedRole);
+        Task<bool> DeleteRoleAsync(string id);
+    }
+
+    public class AdminService: IAdminService
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;

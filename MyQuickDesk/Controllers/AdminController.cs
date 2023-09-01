@@ -2,15 +2,15 @@
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Models;
 using MyQuickDesk.Services;
-using System.Threading.Tasks;
+
 
 namespace MyQuickDesk.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly AdminService _adminService;
+        private readonly IAdminService _adminService;
 
-        public AdminController(AdminService adminService)
+        public AdminController(IAdminService adminService)
         {
             _adminService = adminService;
         }
