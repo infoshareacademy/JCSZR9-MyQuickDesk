@@ -3,16 +3,23 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+        background-size: 1920px 1080px;
+    }
+</style>
+<div class="container-main">
+    <h1 class="shadow-text row justify-content-center">Edit</h1>
 
-<h1>Edit</h1>
-
-<h4>Reservation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <h4>Reservation</h4>
+    <hr />
+    <div class="row justify-content-center">
+        <div>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           
+
             <div class="form-group">
                 <label asp-for="StartTime" class="control-label"></label>
                 <input asp-for="StartTime" class="form-control" />
@@ -24,17 +31,20 @@
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
             <input type="hidden" name="spaceId" value="@ViewBag.SpaceId" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <hr />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+            <a asp-action="Index" class="back-to-list-btn">Back to List</a>
+            <div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index"class="back-to-list-btn">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

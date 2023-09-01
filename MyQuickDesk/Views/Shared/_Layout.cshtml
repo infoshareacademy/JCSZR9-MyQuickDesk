@@ -35,8 +35,15 @@
                                 <a class="nav-link text-custom" asp-area="" asp-controller="Desk" asp-action="Index">Desk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-custom" asp-area="" asp-controller="reservation" asp-action="Index">reservations</a>
+                                <a class="nav-link text-custom" asp-area="" asp-controller="reservation" asp-action="Index">Reservations</a>
                             </li>
+
+                            @*                            @if (User.IsInRole("Admin"))
+                        {*@
+                            <li class="nav-item">
+                                <a class="nav-link text-custom" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            </li>
+                            @*}*@
                         }
                     </ul>
                     <partial name="_LoginPartial" />
@@ -50,6 +57,16 @@
             @RenderBody()
         </main>
     </div>
+    @if (Context.Request.Path.Equals("/") || Context.Request.Path.Equals("/Home"))
+
+    {
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pl-PL" })">Polski</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US" })">English</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "zh-CN" })">中文</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "uk-UA" })">Українська</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "de-DE" })">Deutsch</a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "fr-FR" })">Français</a>
+    }
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -61,4 +78,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
+
 </html>

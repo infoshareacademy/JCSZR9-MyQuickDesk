@@ -4,13 +4,15 @@ using MyQuickDesk.Services;
 using MyQuickDesk.Entities;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using MyQuickDesk.Filters;
 
 namespace MyQuickDesk.Controllers
 {
+    [LanguageFilter]
     public class RoomController : Controller
     {
         private readonly IRoomService _roomService;
-        
+
         public RoomController(IRoomService roomService)
         {
             _roomService = roomService;
@@ -44,7 +46,7 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create(Guid id)
         {
-           var model = new Room { Id = id };
+            var model = new Room { Id = id };
             return View(model);
         }
 
@@ -53,7 +55,7 @@ namespace MyQuickDesk.Controllers
         [Route("Room/Create/{id?}")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Room model )
+        public ActionResult Create(Room model)
         {
             try
             {
@@ -107,7 +109,7 @@ namespace MyQuickDesk.Controllers
         {
             try
             {
-                 _roomService.Delete(id);
+                _roomService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

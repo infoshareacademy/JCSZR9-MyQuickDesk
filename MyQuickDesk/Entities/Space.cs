@@ -16,10 +16,7 @@ namespace MyQuickDesk.Entities
         [Range(2, 100, ErrorMessage = "Please provide value from 2 to 100")]
         public int MaxCapacity { get; set; } = 1;
 
-        public ICollection<Reservation> Reservations { get; set;} = new List<Reservation>();
-
-        public IdentityUser? CreatedBy { get; set; }
-        public string? CreatedById { get; set; }
+        public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 
     }
 }

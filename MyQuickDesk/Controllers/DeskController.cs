@@ -2,18 +2,20 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyQuickDesk.Entities;
+using MyQuickDesk.Filters;
 using MyQuickDesk.Services;
 
 namespace MyQuickDesk.Controllers
 {
+    [LanguageFilter]
     public class DeskController : Controller
     {
         private readonly IDeskService _deskService;
-       
+
         public DeskController(IDeskService deskService)
         {
             _deskService = deskService;
-            
+
         }
 
         // GET: DeskController
@@ -34,8 +36,8 @@ namespace MyQuickDesk.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create(Guid id)
         {
-            var model= new Desk { Id = id };
-           
+            var model = new Desk { Id = id };
+
             return View(model);
         }
 
@@ -56,9 +58,9 @@ namespace MyQuickDesk.Controllers
                 return View();
             }
         }
-    
+
         // GET: DeskController/Edit/5
-       [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             var model = _deskService.GetById(id);

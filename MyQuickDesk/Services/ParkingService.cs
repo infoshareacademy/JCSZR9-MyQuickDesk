@@ -4,6 +4,14 @@ using MyQuickDesk.Entities;
 
 namespace MyQuickDesk.Services
 {
+    public interface IParkingService
+    {
+        List<ParkingSpot> GetAll();
+        ParkingSpot GetById(Guid id);
+        void Create(ParkingSpot parkingSpot);
+        void Update(ParkingSpot parkingSpot);
+        void Delete(Guid id);
+    }
     public class ParkingService : IParkingService
     {
         private readonly MyQuickDeskContext _dbContext;
@@ -36,7 +44,7 @@ namespace MyQuickDesk.Services
             _dbContext.ParkingSpots.Add(parkingSpot);
             _dbContext.SaveChanges();
         }
-       
+
         public void Update(ParkingSpot parkingSpot)
         {
             _dbContext.ParkingSpots.Update(parkingSpot);

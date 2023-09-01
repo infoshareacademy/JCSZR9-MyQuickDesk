@@ -1,0 +1,60 @@
+﻿@model AdminPanelModel
+
+<style>
+    body {
+        background-image: url('/img/backgroundtabs.png');
+        background-repeat: no-repeat;
+    }
+
+    .actions-container {
+        display: flex;
+        flex-direction: row;
+        grid-gap: 10px;
+        align-items: center;
+        vertical-align: middle;
+    }
+
+        .actions-container a {
+            margin-bottom: 10px;
+        }
+</style>
+
+<h1 class="shadow-text">Admin Panel</h1>
+<p>
+    <a asp-action="Roles" class="create-link">
+        Roles
+        <img src="~/Icons/Createicon.png" alt="Create Icon" width="20" height="20">
+    </a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.UserName</td>
+                <td>
+                    @foreach (var role in Model.UserRoles[user.Id])
+                    {
+                        <span>@role</span>
+                    }
+                </td>
+                <td class="actions-container">
+                    <a href="@Url.Action("Edit", "Admin", new { id = user.Id })" class="edit-link">Edit user <img src="~/Icons/Editicon.png" alt="Edit Icon" width="20" height="20"></a>
+                    <a href="@Url.Action("Delete", "Admin", new { id = user.Id })" class="delete-link">Delete user   <img src="~/Icons/Deleteicon.png" alt="Delete Icon" width="20" height="20"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
